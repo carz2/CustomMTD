@@ -1,0 +1,9 @@
+./META-INF/com/google/android/update-binary
+./MTDPartPatcher/patchbootimg.sh # This script runs on the phone in recovery
+./MTDPartPatcher/mkbootimg		 # bin from http://github.com/koush/AnyKernel/tree/master/kernel/
+./MTDPartPatcher/unpackbootimg   # bin from http://github.com/koush/AnyKernel/tree/master/kernel/
+./AutoMTD_partitionPatcher/PatchUpdateScript.sh # This script patches an 'update.zip' to run CustomMTD boot mode
+./AutoMTD_partitionPatcher/AutoMTDPatchTools/testkey.x509.pem #\
+./AutoMTD_partitionPatcher/AutoMTDPatchTools/signapk.jar      # >  Sign tools from sdk http://developer.android.com/sdk/index.html
+./AutoMTD_partitionPatcher/AutoMTDPatchTools/testkey.pk8      #/
+./MakeZips.sh # script to create flashable zips, boot, recovery and test modes.. also creates zip tarball of AutoMTD ( zip for forum posts )
