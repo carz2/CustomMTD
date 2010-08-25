@@ -19,7 +19,7 @@
 ###############################################################################################
 
 
-version=1.5.4
+version=1.5.5
 ##
 
 readdmesg ()
@@ -128,7 +128,7 @@ else
 	exit
 fi
 
-if [ "$Mode" = "recovery" ];
+if [ "$boot" = "recovery" ];
 then
 	systemSizeKBytes=`expr $systemMB \* 1024`
 	systemBytes=`expr $systemSizeKBytes \* 1024`
@@ -139,7 +139,7 @@ else
 	systemSizeKBytes=`expr $systemBytes \/ 1024`
 fi
 
-if [ "$Mode" = "recovery" ];
+if [ "$boot" = "recovery" ];
 then
 	cacheSizeKBytes=`expr $cacheMB \* 1024`
 	cacheBytes=`expr $cacheSizeKBytes \* 1024`
@@ -158,7 +158,6 @@ DataStartBytes=`expr $cacheStartBytes + $cacheBytes`
 DataStartHex=`printf '%X' ${DataStartBytes}`
 
 KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}@0x${DataStartHex}(userdata)"
-echo $KCMDline
 return
 }
 
@@ -209,7 +208,7 @@ then
 	busybox install -d /dev/cache
 fi
 
-if [ "`grep -q "/dev/cache /proc/mounts;echo $?`" != "0" ];
+if [ "`grep -q \"/dev/cache\" /proc/mounts;echo $?`" != "0" ];
 then
 	busybox mount -t yaffs2 -o nosuid,nodev /dev/block/mtdblock4 /dev/cache
 fi
@@ -269,20 +268,19 @@ then
 	done
 	eval dataSizeHex=$(printf %x `expr $(printf %d $(awk '/'userdata'/ {print $3}' $dmesgmtdpart)) - $(printf %d 0x${DataStartHex})`)
 # lol, I should tidy that up 
-	$dmesg |awk '/Kernel command line/ {sub (/serialno=.+\ a/,"serialno=XXXXXXXXXXXX a"); print $0}' >> $logfile
-	if [ "$mode" = "recovery" ];
+	if [ "$boot" = "recovery" ];
 	then
-		echo "dev:    size   erasesize  name" > $mtdpart
-	else
-		echo "dev:    size   erasesize  name" >> $mtdpart
+	$dmesg |awk '/Kernel command line/ {sub (/serialno=.+\ a/,"serialno=XXXXXXXXXXXX a"); print $0}' |tee -a $logfile
 	fi
+	echo "dev: size erasesize name " > $mtdpart
 	echo "mtd0: $miscSizeHex 00020000 \"misc\"" >> $mtdpart
 	echo "mtd1: $recoverySizeHex 00020000 \"recovery\"" >> $mtdpart
 	echo "mtd2: $bootSizeHex 00020000 \"boot\"" >> $mtdpart
 	echo "mtd3: $systemSizeHex 00020000 \"system\"" >> $mtdpart
 	echo "mtd4: $cacheSizeHex 00020000 \"cache\"" >> $mtdpart
 	echo "mtd5: $dataSizeHex 00020000 \"userdata\"" >> $mtdpart
-	cat mtd|awk --non-decimal-data '{print $1" "$2" "$3" "$4" "(("0x"$2)+0)/1048576"M"}' |tee -a $logfile
+	echo "$boot"|tee -a $logfile
+	cat mtd|awk --non-decimal-data '{printf "%-7s %-10s %-10s %-10s % 8.3f %s",$1,$2,$3,$4,(("0x"$2)+0)/1048576,"M""\n"}'|sed s/\ 0.000\ M/size\ M/|tee -a $logfile
 	echo "$origcmdline $KCMDline"|tee -a $logfile
 fi
 return
@@ -314,6 +312,8 @@ then
 	Mode=recovery
 	boot=recovery
 	readdmesg
+	# this is going to fail on a device as busybox awk doesn't have strtonum
+	awk '{printf "%-9s %s %s %8.3f %s",$1,$2,$3,(strtonum($3)-strtonum($2))/1048576,"M\n"}' $dmesgmtdpart|tee -a $logfile
 	recoverymode
 	CreateCMDline
 	testrun
@@ -321,16 +321,17 @@ then
 	Mode=boot
 	boot=boot
 	readdmesg
+	$dmesg|sed s/serialno=.*\ a/serialno=XXXXXXXXXX\ a/g>$wkdir/dmesg
     CreateCMDline
     testrun
 	flashimg
 	cd $wkdir
-	tardir=`$dmesg|awk -F_ '/Kernel command line/ {print $2}'|sed s/.disable//`_CustomMTD
+	tardir=`$dmesg|awk -F\:\  '/Machine:/ {print $2}'`_CustomMTD
 	mkdir $tardir
-	for i in mtd mtdpartmap boot* recovery*;do
+	for i in dmesg mtd mtdpartmap boot* recovery*;do
 		mv $i $tardir
 	done
-	tar -cz $tardir -f $sdcard/${tardir}.tar.gz
+	tar -cz $tardir -f ${sdcard}/${tardir}.tar.gz
 	exit
 fi
 
