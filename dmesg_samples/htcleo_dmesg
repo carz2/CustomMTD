@@ -1,0 +1,2654 @@
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 2.6.32.9-38163-geed82a0 (oedevel@jongkorendijk.nl) (gcc version 4.4.0 (GCC) ) #100 PREEMPT Tue Aug 24 04:46:23 CEST 2010
+[    0.000000] CPU: ARMv7 Processor [510f00f2] revision 2 (ARMv7), cr=10c53c7f
+[    0.000000] CPU: VIPT nonaliasing data cache, VIVT ASID tagged instruction cache
+[    0.000000] Machine: htcleo
+[    0.000000] Ignoring unrecognised tag 0x00000000
+[    0.000000] Memory policy: ECC disabled, Data cache writeback
+[    0.000000] On node 0 totalpages: 124864
+[    0.000000] free_area_init_node: node 0, pgdat c04b93cc, node_mem_map c0bd0000
+[    0.000000]   Normal zone: 256 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 32512 pages, LIFO batch:7
+[    0.000000]   HighMem zone: 720 pages used for memmap
+[    0.000000]   HighMem zone: 91376 pages, LIFO batch:31
+[    0.000000] allocating 33554432 bytes at c0fa6000 (127a6000 physical) for sf pmem arena
+[    0.000000] allocating 35217408 bytes at c2fa6000 (147a6000 physical) for adsp pmem arena
+[    0.000000] ram_console: no valid data in buffer (sig = 0x00000000)
+[    0.000000] console [ram0] enabled
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 123888
+[    0.000000] Kernel command line: root=/dev/ram0 ro console=tty0
+[    0.000000] PID hash table entries: 512 (order: -1, 2048 bytes)
+[    0.000000] Dentry cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Inode-cache hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.000000] Memory: 128MB 359MB = 487MB total
+[    0.000000] Memory: 419000KB available (4172K code, 1918K data, 404K init, 368384K highmem)
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] NR_IRQS:316
+[    0.000000] msm_timer_init $$$
+[    0.000000]  1DIV = 00000003
+[    0.000000]  2DIV = 00000003
+[    0.000000] Console: colour dummy device 80x30
+[    0.000000] console [tty0] enabled
+[    0.000000] ram_console_early_init: already initialized, bailing out
+[    0.000000] Calibrating delay loop... $$$ CALIBRATE DIFF $$$: 00000000 0000BB00
+[    0.229312] 612.76 BogoMIPS (lpj=3063808)
+[    0.229654] Mount-cache hash table entries: 512
+[    0.230428] Initializing cgroup subsys debug
+[    0.230459] Initializing cgroup subsys cpuacct
+[    0.230483] Initializing cgroup subsys freezer
+[    0.230568] CPU: Testing write buffer coherency: ok
+[    0.233482] regulator: core version 0.5
+[    0.233812] NET: Registered protocol family 16
+[    0.234785] htcleo_init()
+[    0.235054] init_dex_comm: WinCE DEX initialized.
+[    0.235090] PLL0 @ f8005300: MODE=00000007 L=0000000c M=00000004 N=00000005 freq=245760000 Hz (245 MHz)
+[    0.235140] PLL1 @ f8005320: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[    0.235188] PLL4 @ f8005380: MODE=00000000 L=0000000f M=00000000 N=00000001 freq=288000000 Hz (288 MHz)
+[    0.235237] PLL5 @ f80053a0: MODE=00000000 L=00000032 M=00000000 N=00000001 freq=960000000 Hz (960 MHz)
+[    0.235281] PCB XC: 00000004
+[    0.235299] AMSS version: 15.40.50.07U
+[    0.338076] htcleo_init_mmc()+
+[    0.338441] htcleo_init_mmc()-
+[    0.338741] register analog ops = c04893c0
+[    0.338770] msm_hsusb_set_vbus_state: 0
+[    0.338865] ADM dump:
+[    0.338886] 00: 00000000 00000000 00000000 00000000
+[    0.338917] 01: 00000000 00000000 00000000 00000000
+[    0.338948] 02: 00000000 00000000 00000000 00000000
+[    0.338979] 03: 00000000 00000000 00000000 00000000
+[    0.339011] 04: 02599429 00000002 00000001 00000003
+[    0.339042] 05: CD7A562A 00000000 00000001 00000003
+[    0.339073] 06: 02599439 00000004 04000001 00000003
+[    0.339104] 07: 004A0797 00000002 00000001 00000003
+[    0.339135] 08: 02599445 00000002 00000001 00000003
+[    0.339166] 09: 00000000 00000000 00000000 00000000
+[    0.339197] 10: 33EE40E7 00000004 00000001 00000003
+[    0.339227] 11: 00000000 00000000 00000000 00000000
+[    0.339258] 12: 00000000 00000000 00000000 00000000
+[    0.339289] 13: 00000000 00000000 00000000 00000000
+[    0.339319] 14: 00000000 00000000 00000000 00000000
+[    0.339350] 15: 00000000 00000000 00000000 00000000
+[    0.351653] bio: create slab <bio-0> at 0
+[    0.353087] msm_i2c_probe
+[    0.353206] msm_i2c_probe: clk_ctl 35d, 100000 Hz
+[    0.354527] regulator: VDCDC1: 1000 <--> 1300 mV 
+[    0.354739] regulator: VDCDC2: 1260 mV 
+[    0.354960] regulator: VDCDC3: 800 <--> 3300 mV 
+[    0.355162] regulator: LDO1: 1000 <--> 3150 mV 
+[    0.355391] regulator: LDO2: 3300 mV 
+[    0.355467] msm_i2c msm_i2c.0: IRQ but nothing to do!, status 0
+[    0.357106] Bluetooth: Core ver 2.15
+[    0.357348] NET: Registered protocol family 31
+[    0.357374] Bluetooth: HCI device and connection manager initialized
+[    0.357408] Bluetooth: HCI socket layer initialized
+[    0.357853] spi clk = 0x0
+[    0.357875] spi: SPI_CONFIG=8f
+[    0.357895] spi: SPI_IO_CONTROL=401
+[    0.357915] spi: SPI_OPERATIONAL=85
+[    0.357936] spi: SPI_ERROR_FLAGS_EN=7f
+[    0.357957] spi: SPI_ERROR_FLAGS=7f
+[    0.357978] -msm_spi_probe()
+[    0.358165] Switching to clocksource dg_timer
+[    0.359982] NET: Registered protocol family 2
+[    0.360193] IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.360836] TCP established hash table entries: 4096 (order: 3, 32768 bytes)
+[    0.360956] TCP bind hash table entries: 4096 (order: 2, 16384 bytes)
+[    0.361021] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.361053] TCP reno registered
+[    0.361391] NET: Registered protocol family 1
+[    0.362772] Unpacking initramfs...
+[    0.601564] Freeing initrd memory: 1852K
+[    0.602374] smd_init()
+[    0.602403] smd_core_init()
+[    0.602504] smd_core_init() done
+[    0.602530] msm_init_last_radio_log: could not retrieve SMEM_CLKREGIM_BSP
+[    0.603260] smd_alloc_channel() cid=00 size=08192 'SMD_DS'
+[    0.603509] smd_alloc_channel() cid=01 size=32768 'SMD_DIAG'
+[    0.603685] smd_alloc_channel() cid=02 size=08192 'SMD_RPCCALL'
+[    0.603861] smd_alloc_channel() cid=05 size=08192 'SMD_CONTROL'
+[    0.604035] smd_alloc_channel() cid=07 size=32768 'SMD_DATA1'
+[    0.604211] smd_alloc_channel() cid=08 size=32768 'SMD_DATA2'
+[    0.604387] smd_alloc_channel() cid=09 size=32768 'SMD_DATA3'
+[    0.604575] smd_alloc_channel() cid=11 size=32768 'SMD_DATA5'
+[    0.604779] smd_alloc_channel() cid=12 size=32768 'SMD_DATA6'
+[    0.604990] smd_alloc_channel() cid=13 size=32768 'SMD_DATA7'
+[    0.605170] smd_alloc_channel() cid=15 size=08192 'SMD_DATA9'
+[    0.605354] smd_alloc_channel() cid=27 size=08192 'SMD_GPSNMEA'
+[    0.605535] smd_alloc_channel() cid=40 size=08192 'DSP_DIAG'
+[    0.605709] smd_alloc_channel() cid 41 does not exist
+[    0.605749] smd_alloc_channel() cid=42 size=08192 'DSP_DAL_AQ_VID'
+[    0.605927] smd_alloc_channel() cid=43 size=08192 'DSP_DAL_AQ_AUD'
+[    0.606127] smd_alloc_channel() cid=46 size=08192 'DSP_DAL00'
+[    0.606336] smd_alloc_channel() cid 47 does not exist
+[    0.606376] smd_alloc_channel() cid=48 size=08192 'SMD_DAL00'
+[    0.607211] RPC Probe
+[    0.607630] RPC Init done
+[    0.830962] Registered led device: button-backlight
+[    1.348490] msm_i2c msm_i2c.0: error, status 63c8
+[    1.348652] msm_i2c msm_i2c.0: error, status 43c8
+[    1.350019] input: leo-touchscreen as /devices/virtual/input/input0
+[    1.350141] leo_touch_name 0-0000: Start touchscreen leo-touchscreen
+[    1.350347] set bt power 1
+[    1.350370] bt power off
+[    1.368391] htcleo-microp 0-0066: microp version [05][14]
+[    1.368842] input: lightsensor-level as /devices/virtual/input/input1
+[    1.369277] Registered led device: green
+[    1.369467] Registered led device: amber
+[    1.369886] input: proximity as /devices/virtual/input/input2
+[    1.428494] Init Panel
+[    1.428552] panel type is 1 :board id is 4 : AUO
+[    1.429275] mdp_probe: initialized
+[    1.429501] htcleo_power_init
+[    1.429585] $$$ htcleo_power_probe $$$
+[    1.430443] Registered led device: lcd-backlight
+[    1.430946] Registered led device: flashlight
+[    1.430983] flashlight_probe: The Flashlight Driver is ready
+[    1.431149] htcleo_wifi_init: start
+[    1.440907] htcleo_hds_probe()
+[    1.441325] H2W: htc_35mm_jack driver register
+[    1.442303]   new vbus = 0
+[    1.442327] ### notify_cable_status(0) ###
+[    1.442352] msm_hsusb_set_vbus_state: 0
+[    1.443252] input: h2w headset as /devices/virtual/input/input3
+[    1.443297] ------------[ cut here ]------------
+[    1.443349] WARNING: at kernel/irq/manage.c:274 __enable_irq+0x4c/0x84()
+[    1.443381] Unbalanced enable for IRQ 232
+[    1.443404] Modules linked in:
+[    1.443427] Backtrace: 
+[    1.443482] [<c0071bb0>] (dump_backtrace+0x0/0x110) from [<c039d084>] (dump_stack+0x18/0x1c)
+[    1.443524]  r7:c0433f57 r6:00000112 r5:c00ddd2c r4:c7819cd8
+[    1.443593] [<c039d06c>] (dump_stack+0x0/0x1c) from [<c00a6644>] (warn_slowpath_common+0x50/0x68)
+[    1.443648] [<c00a65f4>] (warn_slowpath_common+0x0/0x68) from [<c00a66a8>] (warn_slowpath_fmt+0x30/0x38)
+[    1.443692]  r7:c78daa40 r6:60000013 r5:c0493a6c r4:c0493a6c
+[    1.443749] [<c00a6678>] (warn_slowpath_fmt+0x0/0x38) from [<c00ddd2c>] (__enable_irq+0x4c/0x84)
+[    1.443791]  r3:000000e8 r2:c0433fb5
+[    1.443832] [<c00ddce0>] (__enable_irq+0x0/0x84) from [<c00de2a4>] (enable_irq+0x64/0xbc)
+[    1.443872]  r5:c0493a6c r4:000000e8
+[    1.443920] [<c00de240>] (enable_irq+0x0/0xbc) from [<c0093e1c>] (enable_headset_plug_event+0x18/0x70)
+[    1.443963]  r7:c78daa40 r6:c78daa40 r5:c04bd0b0 r4:c04c433c
+[    1.444031] [<c0093e04>] (enable_headset_plug_event+0x0/0x70) from [<c008d6e4>] (htc_35mm_probe+0x38c/0x47c)
+[    1.444076]  r5:c04bd0b0 r4:00000000
+[    1.444125] [<c008d358>] (htc_35mm_probe+0x0/0x47c) from [<c0217a4c>] (platform_drv_probe+0x20/0x24)
+[    1.444168]  r7:c0487d5c r6:c0216b94 r5:c048b918 r4:c048b918
+[    1.444225] [<c0217a2c>] (platform_drv_probe+0x0/0x24) from [<c0216a5c>] (driver_probe_device+0xa8/0x154)
+[    1.444279] [<c02169b4>] (driver_probe_device+0x0/0x154) from [<c0216bd8>] (__device_attach+0x44/0x48)
+[    1.444322]  r7:00000000 r6:c0216b94 r5:c048b918 r4:c0487d5c
+[    1.444379] [<c0216b94>] (__device_attach+0x0/0x48) from [<c0215f1c>] (bus_for_each_drv+0x54/0x94)
+[    1.444422]  r5:c7819db8 r4:c048b918
+[    1.444461] [<c0215ec8>] (bus_for_each_drv+0x0/0x94) from [<c0216c60>] (device_attach+0x58/0x70)
+[    1.444503]  r7:c048b8d4 r6:00000000 r5:c048b918 r4:c048b94c
+[    1.444557] [<c0216c08>] (device_attach+0x0/0x70) from [<c0215d5c>] (bus_probe_device+0x2c/0x48)
+[    1.444599]  r5:c048b920 r4:c048b918
+[    1.444637] [<c0215d30>] (bus_probe_device+0x0/0x48) from [<c0214750>] (device_add+0x334/0x4ac)
+[    1.444689] [<c021441c>] (device_add+0x0/0x4ac) from [<c02180c0>] (platform_device_add+0xf8/0x154)
+[    1.444743] [<c0217fc8>] (platform_device_add+0x0/0x154) from [<c021813c>] (platform_device_register+0x20/0x24)
+[    1.444790]  r7:c048b8d4 r6:c0093e74 r5:00000000 r4:c048b910
+[    1.444846] [<c021811c>] (platform_device_register+0x0/0x24) from [<c009402c>] (htcleo_hds_probe+0x134/0x170)
+[    1.444892]  r5:00000000 r4:c04c433c
+[    1.444931] [<c0093ef8>] (htcleo_hds_probe+0x0/0x170) from [<c0217a4c>] (platform_drv_probe+0x20/0x24)
+[    1.444975]  r6:c048b8d4 r5:c0488724 r4:c04886f0
+[    1.445022] [<c0217a2c>] (platform_drv_probe+0x0/0x24) from [<c0216a5c>] (driver_probe_device+0xa8/0x154)
+[    1.445076] [<c02169b4>] (driver_probe_device+0x0/0x154) from [<c0216b70>] (__driver_attach+0x68/0x8c)
+[    1.445120]  r7:00000000 r6:c048b8d4 r5:c0488724 r4:c04886f0
+[    1.445175] [<c0216b08>] (__driver_attach+0x0/0x8c) from [<c0216218>] (bus_for_each_dev+0x54/0x94)
+[    1.445217]  r7:00000000 r6:c0216b08 r5:c7819f00 r4:c048b8d4
+[    1.445272] [<c02161c4>] (bus_for_each_dev+0x0/0x94) from [<c02168c8>] (driver_attach+0x20/0x28)
+[    1.445314]  r7:00000000 r6:c04a8528 r5:c78d0a80 r4:c048b8d4
+[    1.445369] [<c02168a8>] (driver_attach+0x0/0x28) from [<c0215afc>] (bus_add_driver+0xa8/0x228)
+[    1.445420] [<c0215a54>] (bus_add_driver+0x0/0x228) from [<c0216e84>] (driver_register+0xb0/0x140)
+[    1.445472] [<c0216dd4>] (driver_register+0x0/0x140) from [<c0217ea0>] (platform_driver_register+0x4c/0x60)
+[    1.445517]  r9:00000000 r8:00000000 r7:00000000 r6:00000001 r5:c00250a0
+[    1.445564] r4:c000ea78
+[    1.445609] [<c0217e54>] (platform_driver_register+0x0/0x60) from [<c000ea8c>] (htcleo_hds_init+0x14/0x1c)
+[    1.445664] [<c000ea78>] (htcleo_hds_init+0x0/0x1c) from [<c006d3ac>] (do_one_initcall+0x64/0x1bc)
+[    1.445714] [<c006d348>] (do_one_initcall+0x0/0x1bc) from [<c0008478>] (kernel_init+0xa4/0x11c)
+[    1.445756]  r7:00000000 r6:00000000 r5:c00250a0 r4:c0024c24
+[    1.445812] [<c00083d4>] (kernel_init+0x0/0x11c) from [<c00a9d28>] (do_exit+0x0/0x67c)
+[    1.445851]  r5:00000000 r4:00000000
+[    1.445899] ---[ end trace da227214a82491b7 ]---
+[    1.445928] headsetisin: old 0 new 0
+[    1.455810] highmem bounce pool size: 64 pages
+[    1.456227] ashmem: initialized
+[    1.457188] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    1.461965] alg: No test for stdrng (krng)
+[    1.462091] io scheduler noop registered
+[    1.462227] io scheduler cfq registered (default)
+[    1.463407] clock-wince: pc_clk_set_rate: id=42 rate=24576000
+[    1.463447] clock-wince: set mdns: 42, 24576000; bitidx=0, offset=0, ns=0
+[    1.463481] set_mdns_host_clock: FIXME! Don't know how to set clock 42 - no known Md/Ns reg
+[    1.463523] clock-wince: pc_clk_set_rate: id=43 rate=24576000
+[    1.463554] clock-wince: set mdns: 43, 24576000; bitidx=0, offset=0, ns=0
+[    1.463587] set_mdns_host_clock: FIXME! Don't know how to set clock 43 - no known Md/Ns reg
+[    1.463630] auo_panel_init
+[    1.464398] msmfb_probe() installing 480 x 800 panel
+[    1.507786] Console: switching to colour frame buffer device 60x100
+[    1.524275] mdp_lcdc_probe: initialized
+[    1.537455] BCM chip
+[    1.537765] msm_serial_hs_bcm.0: ttyHS0 at MMIO 0xa0200000 (irq = 44) is a MSM HS UART
+[    1.538462] msm_serial_hs module loaded
+[    1.543712] loop: module loaded
+[    1.543871] pmem: 1 init
+[    1.545307] pmem_adsp: 1 init
+[    1.547165] pmem_camera: 1 init
+[    1.548359] Android kernel panic handler initialized (bind=kpanic)
+[    1.548818] PPP generic driver version 2.4.2
+[    1.549351] PPP Deflate Compression module registered
+[    1.549442] PPP BSD Compression module registered
+[    1.550787] PPP MPPE Compression module registered
+[    1.550882] NET: Registered protocol family 24
+[    1.554563] msm72k_udc: msm72k_probe
+[    1.554678] usb: accessory detect 0
+[    1.554732] usb: id_pin_gpio 0
+[    1.554827] msm72k_udc: msm72k_probe() io=c885c000, irq=58, dma=ffa01000(1925f000)
+[    1.555799] android init
+[    1.555925] android_probe pdata: c0488e24
+[    1.556163] android_bind
+[    1.556213] android_bind_config
+[    1.556266] android_usb gadget: android_usb ready
+[    1.556345] msm72k_udc: msm72k_udc: registered gadget driver 'android_usb'
+[    1.556592] f_adb init
+[    1.556639] android_register_function adb
+[    1.556702] f_mass_storage init
+[    1.556751] android_register_function usb_mass_storage
+[    1.556826] f_rndis init
+[    1.556868] android_register_function ether
+[    1.556932] serial init
+[    1.556973] android_register_function serial
+[    1.557036] diag init
+[    1.557075] android_register_function diag
+[    1.557178] android_usb gadget: using random self ethernet address
+[    1.557274] android_usb gadget: using random host ethernet address
+[    1.558008] usb0: MAC 96:bd:22:ad:55:4d
+[    1.558080] usb0: HOST MAC 5e:65:75:ec:58:78
+[    1.558437] mass_storage_bind_config
+[    1.558758] fsg_probe pdata: c0488e10
+[    1.560247] hsusb: IDLE -> ONLINE
+[    1.560324] usb: lpm exit
+[    1.560386] hsusb: reset controller
+[    1.560473] android_usb gadget: Number of LUNs=1
+[    1.563522] adb_bind_config
+[    1.567696] diag_bind_config
+[    1.572387] serial_bind_config
+[    1.576610] usb: product_id=0xff9
+[    1.580758] GPIO Matrix Keypad Driver: Start keypad matrix for htcleo-keypad in interrupt mode
+[    1.586542] GPIO Input Driver: Start gpio inputs for htcleo-keypad in interrupt mode
+[    1.592763] input: htcleo-keypad as /devices/virtual/input/input4
+[    1.600516] using rtc device, msm_rtc, for alarms
+[    1.600612] rs30000048:00010000 rs30000048:00010000: rtc core: registered msm_rtc as rtc0
+[    1.609372] AKM8973 compass driver: init
+[    1.613701] input: compass as /devices/virtual/input/input5
+[    1.620319] DS-2745 Init
+[    1.623369] Linux video capture interface: v2.00
+[    1.626385] msm_v4l2: msm_v4l2_init
+[    1.629953] s5k3e2fx_sensor_probe
+[    1.798222] msm72k_udc: ulpi: write 0x0c to 0x31
+[    1.801153] msm72k_udc: ulpi: write 0x30 to 0x32
+[    1.804013] msm72k_udc: ulpi: write 0x1d to 0x0d
+[    1.806849] msm72k_udc: ulpi: write 0x1d to 0x10
+[    1.809722] usb: notify offline
+[    1.812521] msm_hsusb: enable pullup
+[    1.815367] hsusb: ONLINE -> OFFLINE
+[    1.818178] usb: notify offline
+[    1.838241] usb: lpm enter
+[    1.840930] usb_suspend_phy
+[    2.231616] Bluetooth: HCI UART driver ver 2.2
+[    2.234338] Bluetooth: HCI H4 protocol initialized
+[    2.237022] Bluetooth: HCILL protocol initialized
+[    2.240492] clock-wince: pc_clk_set_rate: id=19 rate=144000
+[    2.245827] clock-wince: set mdns: 19, 144000; bitidx=7, offset=a4, ns=0
+[    2.251261] clock-wince: set_mdns_host_clock: 19, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[    2.257276] mmc0: Qualcomm MSM SDCC at 0x00000000a0300000 irq 24,0 dma 8
+[    2.262860] mmc0: 4 bit data mode enabled
+[    2.265648] mmc0: MMC clock 144000 -> 50000000 Hz, PCLK 64000000 Hz
+[    2.271256] mmc0: Slot eject status = 1
+[    2.274080] mmc0: Power save feature enable = 1
+[    2.276904] mmc0: DM non-cached buffer at ffa03000, dma_addr 0x1929b000
+[    2.282545] mmc0: DM cmd busaddr 0x1929b000, cmdptr busaddr 0x1929b300
+[    2.288423] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[    2.294188] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[    2.300056] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[    2.306667] mmc1: Qualcomm MSM SDCC at 0x00000000a0400000 irq 26,240 dma 8
+[    2.312703] mmc1: 4 bit data mode enabled
+[    2.315731] mmc1: MMC clock 144000 -> 50000000 Hz, PCLK 64000000 Hz
+[    2.321814] mmc1: Slot eject status = 0
+[    2.324858] mmc1: Power save feature enable = 1
+[    2.327903] mmc1: DM non-cached buffer at ffa04000, dma_addr 0x192a0000
+[    2.334002] mmc1: DM cmd busaddr 0x192a0000, cmdptr busaddr 0x192a0300
+[    2.341921] logger: created 64K log 'log_main'
+[    2.345322] logger: created 256K log 'log_events'
+[    2.348739] logger: created 64K log 'log_radio'
+[    2.352091] logger: created 64K log 'log_system'
+[    2.355754] GACT probability NOT on
+[    2.358862] Mirror/redirect action on
+[    2.361875] u32 classifier
+[    2.364888]     Actions configured 
+[    2.367904] Netfilter messages via NETLINK v0.30.
+[    2.371066] nf_conntrack version 0.5.0 (6589 buckets, 26356 max)
+[    2.377431] CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Please use
+[    2.383672] nf_conntrack.acct=1 kernel parameter, acct=1 nf_conntrack module option or
+[    2.389947] sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+[    2.396548] ctnetlink v0.93: registering with nfnetlink.
+[    2.403769] xt_time: kernel timezone is -0000
+[    2.407483] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    2.410997] arp_tables: (C) 2002 David S. Miller
+[    2.414356] TCP cubic registered
+[    2.417790] NET: Registered protocol family 10
+[    2.422010] lo: Disabled Privacy Extensions
+[    2.427167] Mobile IPv6
+[    2.430404] IPv6 over IPv4 tunneling driver
+[    2.434442] sit0: Disabled Privacy Extensions
+[    2.438670] ip6tnl0: Disabled Privacy Extensions
+[    2.441994] NET: Registered protocol family 17
+[    2.445135] NET: Registered protocol family 15
+[    2.448317] Bluetooth: L2CAP ver 2.14
+[    2.451422] Bluetooth: L2CAP socket layer initialized
+[    2.454539] Bluetooth: SCO (Voice Link) ver 0.6
+[    2.457633] Bluetooth: SCO socket layer initialized
+[    2.460796] clock-wince: pc_clk_set_rate: id=19 rate=144000
+[    2.467011] clock-wince: set mdns: 19, 144000; bitidx=7, offset=a4, ns=0
+[    2.473346] clock-wince: set_mdns_host_clock: 19, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[    2.480078] Bluetooth: RFCOMM TTY layer initialized
+[    2.483397] Bluetooth: RFCOMM socket layer initialized
+[    2.486670] Bluetooth: RFCOMM ver 1.11
+[    2.489958] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    2.493251] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    2.499971] ThumbEE CPU extension supported.
+[    2.503450] clock_late_init() disabled 19 unused clocks
+[    2.506891] $$$ htcleo_battery_probe $$$
+[    2.514192] alarm init
+[    2.517478] probe exit!
+[    2.520849] VFP support v0.3: implementor 51 architecture 0 part 0f variant 0 rev 1
+[    2.528432] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[    2.534899] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[    2.541367] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[    2.548528] regulator_init_complete: incomplete constraints, leaving ldo2 on
+[    2.555665] regulator_init_complete: incomplete constraints, leaving ldo1 on
+[    2.563382] regulator_init_complete: incomplete constraints, leaving dcdc3 on
+[    2.572172] regulator_init_complete: incomplete constraints, leaving dcdc2 on
+[    2.579711] regulator_init_complete: incomplete constraints, leaving dcdc1 on
+[    2.597860] rs30000048:00010000 rs30000048:00010000: setting system clock to 2010-08-24 13:14:35 UTC (1282655675)
+[    2.609921] Freeing init memory: 404K
+[    2.618708] ACR=2796 FL=1256 RAAC=49
+[    2.624333] batt: charging OFF
+[    2.668293] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[    2.668310] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[    2.668330] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[    2.668349] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[    2.668391] mmc1: host does not support reading read-only switch. assuming write-enable.
+[    2.668418] mmc1: new high speed SDHC card at address 8c8d
+[    2.710538] mmcblk0: mmc1:8c8d SU16G 14.8 GiB 
+[    2.710968]  mmcblk0: p1
+[   13.694876] ADDRCONF(NETDEV_UP): usb0: link is not ready
+[   17.098452] init: cannot open '/initlogo.rle'
+[   17.121914] lcdc_unblank: ()
+[   17.121928] auo_panel_unblank
+[   17.873010] init: command 'loglevel' r=0
+[   17.879511] init: command 'export' r=0
+[   17.882796] init: command 'export' r=0
+[   17.886072] init: command 'export' r=0
+[   17.889369] init: command 'export' r=0
+[   17.892692] init: command 'export' r=0
+[   17.895930] init: command 'export' r=0
+[   17.899189] init: command 'export' r=0
+[   17.902360] init: command 'export' r=0
+[   17.905493] init: command 'export' r=0
+[   17.908592] init: command 'export' r=0
+[   17.911791] init: command 'mkdir' r=-17
+[   17.915050] init: command 'mkdir' r=-17
+[   17.918153] init: command 'mkdir' r=-17
+[   17.921654] init: command 'mount' r=0
+[   17.924781] init: command 'mkdir' r=0
+[   17.927798] init: command 'symlink' r=-1
+[   17.930745] init: command 'mkdir' r=-17
+[   17.933624] init: command 'mkdir' r=-17
+[   17.936466] init: command 'mkdir' r=-17
+[   17.939359] init: command 'mkdir' r=-17
+[   17.942207] init: command 'mkdir' r=-17
+[   17.945165] init: command 'mkdir' r=-17
+[   17.948040] init: command 'mkdir' r=-17
+[   17.950978] init: command 'mkdir' r=-17
+[   17.953987] init: command 'mount' r=0
+[   17.968628] init: command 'mount' r=0
+[   17.971565] init: command 'write' r=0
+[   17.974373] init: command 'write' r=-2
+[   17.977124] init: command 'write' r=0
+[   17.979877] init: command 'write' r=0
+[   17.982538] init: command 'write' r=0
+[   17.985132] init: command 'write' r=0
+[   17.987705] init: command 'write' r=0
+[   17.990309] init: command 'write' r=0
+[   17.992874] init: command 'mkdir' r=0
+[   17.995785] init: command 'mount' r=0
+[   17.998338] init: command 'chown' r=0
+[   18.000806] init: command 'chown' r=0
+[   18.003245] init: command 'chmod' r=0
+[   18.005704] init: command 'write' r=-22
+[   18.008399] init: command 'mkdir' r=0
+[   18.010851] init: command 'chown' r=0
+[   18.013254] init: command 'chmod' r=0
+[   18.015632] init: command 'write' r=0
+[   18.018124] init: command 'mkdir' r=0
+[   18.020517] init: command 'chown' r=0
+[   18.022796] init: command 'chmod' r=0
+[   18.025076] init: command 'write' r=0
+[   18.027413] init: command 'mount' r=-1
+[   18.029641] init: command 'mount' r=-1
+[   18.031783] init: command 'mount' r=-1
+[   18.033961] init: command 'chown' r=0
+[   18.036103] init: command 'chmod' r=0
+[   18.038327] init: command 'mkdir' r=-17
+[   18.040557] init: command 'chown' r=0
+[   18.042796] init: command 'chmod' r=0
+[   18.044916] init: command 'copy' r=-1
+[   18.047081] init: command 'chown' r=-2
+[   18.049220] init: command 'chmod' r=-2
+[   18.051239] init: command 'copy' r=-1
+[   18.053234] init: command 'chown' r=-2
+[   18.055496] init: command 'chmod' r=-2
+[   18.057474] init: command 'write' r=-2
+[   18.059506] init: command 'mount' r=-1
+[   18.061396] init: command 'chown' r=-1
+[   18.063291] init: command 'chmod' r=0
+[   18.065486] init: command 'chown' r=-2
+[   18.067293] init: command 'chmod' r=-2
+[   18.069107] init: command 'chown' r=0
+[   18.070848] init: command 'chmod' r=0
+[   18.072550] init: command 'chown' r=0
+[   18.074235] init: command 'chmod' r=0
+[   18.075883] init: command 'chown' r=0
+[   18.077491] init: command 'chmod' r=0
+[   18.079129] init: command 'mkdir' r=-17
+[   18.080834] init: command 'mkdir' r=-17
+[   18.082375] init: command 'mkdir' r=-17
+[   18.083832] init: command 'mkdir' r=-17
+[   18.085257] init: command 'mkdir' r=-17
+[   18.086745] init: command 'mkdir' r=-17
+[   18.088272] init: command 'mkdir' r=-17
+[   18.089609] init: command 'mkdir' r=-17
+[   18.090850] init: command 'chmod' r=0
+[   18.092269] init: command 'chmod' r=0
+[   18.093531] init: command 'mkdir' r=-17
+[   18.094874] init: command 'mkdir' r=-17
+[   18.096186] init: command 'mkdir' r=-17
+[   18.097428] init: command 'mkdir' r=-17
+[   18.098722] init: command 'mkdir' r=-17
+[   18.100034] init: command 'mkdir' r=-17
+[   18.101400] init: command 'symlink' r=-1
+[   18.102701] init: command 'mkdir' r=-17
+[   18.103989] init: command 'chown' r=0
+[   18.105704] init: command 'write' r=0
+[   18.107048] init: command 'chmod' r=0
+[   18.108439] init: command 'mkdir' r=-17
+[   18.109761] init: command 'chown' r=0
+[   18.111076] init: command 'chmod' r=0
+[   18.114596] init: command 'mkdir' r=-1
+[   18.115924] init: command 'chown' r=-1
+[   18.117158] init: command 'chmod' r=0
+[   18.118536] init: command 'mkdir' r=-17
+[   18.124718] init: command 'mkdir' r=-17
+[   18.126068] init: command 'chown' r=0
+[   18.127317] init: command 'chmod' r=0
+[   18.128640] init: command 'chown' r=0
+[   18.129919] init: command 'chmod' r=0
+[   18.138778] init: Created socket '/dev/socket/property_service' with mode '666', user '0', group '0'
+[   18.141433] init: processing action 0x2cb78 (boot)
+[   18.143449] init: command 'ifup' r=0
+[   18.144959] init: command 'hostname' r=0
+[   18.146435] init: command 'domainname' r=0
+[   18.147790] init: command 'setrlimit' r=0
+[   18.149233] init: command 'setprop' r=0
+[   18.150593] init: command 'setprop' r=0
+[   18.151933] init: command 'setprop' r=0
+[   18.153269] init: command 'setprop' r=0
+[   18.154606] init: command 'setprop' r=0
+[   18.155941] init: command 'setprop' r=0
+[   18.157272] init: command 'setprop' r=0
+[   18.158634] init: command 'setprop' r=0
+[   18.159973] init: command 'setprop' r=0
+[   18.161311] init: command 'setprop' r=0
+[   18.162640] init: command 'setprop' r=0
+[   18.163962] init: command 'setprop' r=0
+[   18.165275] init: command 'setprop' r=0
+[   18.166588] init: command 'setprop' r=0
+[   18.167899] init: command 'setprop' r=0
+[   18.169237] init: command 'setprop' r=0
+[   18.170618] init: command 'mkdir' r=-17
+[   18.172076] init: command 'mkdir' r=-17
+[   18.173489] init: command 'mkdir' r=-17
+[   18.174901] init: command 'chown' r=0
+[   18.176253] init: command 'setprop' r=0
+[   18.178481] init: command 'write' r=0
+[   18.179939] init: command 'chown' r=0
+[   18.181329] init: command 'chmod' r=0
+[   18.182897] init: command 'write' r=0
+[   18.184358] init: command 'write' r=0
+[   18.185791] init: command 'write' r=0
+[   18.187252] init: command 'write' r=0
+[   18.188777] init: command 'write' r=0
+[   18.190212] init: command 'write' r=0
+[   18.191619] init: command 'write' r=0
+[   18.193008] init: command 'chown' r=-2
+[   18.194380] init: command 'chown' r=-2
+[   18.195745] init: command 'chown' r=-2
+[   18.197163] init: command 'chown' r=-2
+[   18.198580] init: command 'chown' r=-2
+[   18.199987] init: command 'chown' r=0
+[   18.201357] init: command 'chown' r=0
+[   18.202768] init: command 'chown' r=0
+[   18.204127] init: command 'chown' r=-2
+[   18.205470] init: command 'chown' r=-2
+[   18.206803] init: command 'chown' r=-2
+[   18.208131] init: command 'chown' r=-2
+[   18.209537] init: command 'chmod' r=0
+[   18.210867] init: command 'chmod' r=0
+[   18.212173] init: command 'chmod' r=0
+[   18.213583] init: command 'chown' r=0
+[   18.214904] init: command 'chown' r=-2
+[   18.216270] init: command 'chown' r=0
+[   18.217639] init: command 'chown' r=0
+[   18.219000] init: command 'chown' r=-2
+[   18.220292] init: command 'chown' r=-2
+[   18.221584] init: command 'chown' r=-2
+[   18.222871] init: command 'chown' r=-2
+[   18.224239] init: command 'chown' r=0
+[   18.225542] init: command 'chown' r=-2
+[   18.226871] init: command 'chown' r=0
+[   18.228158] init: command 'chown' r=-2
+[   18.229473] init: command 'chown' r=-2
+[   18.230751] init: command 'chown' r=-2
+[   18.231995] init: command 'chown' r=-2
+[   18.233259] init: command 'chown' r=-2
+[   18.234511] init: command 'chown' r=-2
+[   18.235834] init: command 'chown' r=0
+[   18.237138] init: command 'chown' r=-2
+[   18.238513] init: command 'chown' r=0
+[   18.239824] init: command 'chown' r=-2
+[   18.241141] init: command 'chown' r=0
+[   18.242484] init: command 'chown' r=0
+[   18.243807] init: command 'chown' r=0
+[   18.245097] init: command 'chown' r=0
+[   18.246372] init: command 'chown' r=0
+[   18.247649] init: command 'chown' r=0
+[   18.248983] init: command 'chown' r=0
+[   18.250270] init: command 'chown' r=0
+[   18.251567] init: command 'chown' r=0
+[   18.252882] init: command 'chown' r=0
+[   18.254169] init: command 'chown' r=0
+[   18.255431] init: command 'chmod' r=0
+[   18.256712] init: command 'chown' r=0
+[   18.257991] init: command 'chown' r=0
+[   18.259269] init: command 'chown' r=0
+[   18.260516] init: command 'chown' r=-2
+[   18.261769] init: command 'chown' r=0
+[   18.262989] init: command 'chmod' r=-2
+[   18.264229] init: command 'chown' r=0
+[   18.265455] init: command 'chmod' r=0
+[   18.266661] init: command 'chmod' r=0
+[   18.267847] init: command 'chmod' r=0
+[   18.269082] init: command 'chmod' r=0
+[   18.270273] init: command 'chmod' r=0
+[   18.271507] init: command 'chmod' r=0
+[   18.272701] init: command 'chmod' r=0
+[   18.273845] init: command 'chmod' r=-2
+[   18.274989] init: command 'chmod' r=-2
+[   18.276070] init: command 'chmod' r=-2
+[   18.277118] init: command 'chmod' r=-2
+[   18.278166] init: command 'chmod' r=-2
+[   18.279240] init: command 'chmod' r=-2
+[   18.280281] init: command 'chmod' r=-2
+[   18.281292] init: command 'chmod' r=0
+[   18.282318] init: command 'chmod' r=-2
+[   18.283321] init: command 'chmod' r=-2
+[   18.284316] init: command 'chmod' r=-2
+[   18.285326] init: command 'chmod' r=-2
+[   18.286326] init: command 'chmod' r=0
+[   18.287336] init: command 'chmod' r=-2
+[   18.288380] init: command 'chmod' r=0
+[   18.289441] init: command 'chmod' r=0
+[   18.290468] init: command 'chmod' r=-2
+[   18.291489] init: command 'chmod' r=-2
+[   18.292504] init: command 'chmod' r=-2
+[   18.293512] init: command 'setprop' r=0
+[   18.294510] init: command 'setprop' r=0
+[   18.295499] init: command 'setprop' r=0
+[   18.296484] init: command 'setprop' r=0
+[   18.297464] init: command 'setprop' r=0
+[   18.298458] init: command 'setprop' r=0
+[   18.299437] init: command 'setprop' r=0
+[   18.300412] init: command 'setprop' r=0
+[   18.301494] init: starting 'sysinit'
+[   18.302800] init: command 'start' r=0
+[   18.303879] init: processing action 0x2e188 (property:persist.service.adb.enable=0)
+[   18.305900] init: command 'stop' r=0
+[   19.452759] cfq_iosched: version magic '2.6.32.15-gf9c0527 preempt mod_unload ARMv7 ' should be '2.6.32.9-38163-geed82a0 preempt mod_unload ARMv7 '
+[   19.515950] jbd2: version magic '2.6.32.15-gf9c0527 preempt mod_unload ARMv7 ' should be '2.6.32.9-38163-geed82a0 preempt mod_unload ARMv7 '
+[   19.764757] ext4: version magic '2.6.32.15-gf9c0527 preempt mod_unload ARMv7 ' should be '2.6.32.9-38163-geed82a0 preempt mod_unload ARMv7 '
+[   19.805072] tun: Universal TUN/TAP device driver, 1.6
+[   19.806595] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[   20.095059] perflock_disable: version magic '2.6.32.15-g1fc4045 preempt mod_unload ARMv7 ' should be '2.6.32.9-38163-geed82a0 preempt mod_unload ARMv7 '
+[   25.023369] CPUFREQ: Per core ondemand sysfs interface is deprecated - up_threshold
+[   25.027011] CPUFREQ: Per core ondemand sysfs interface is deprecated - sampling_rate
+[   25.030682] acpuclk_set_vdd_level got regulator
+[   25.033314] CPUFREQ: Per core ondemand sysfs interface is deprecated - powersave_bias
+[   25.883515] init: processing action 0x2df28 (property:cm.filesystem.ready=1)
+[   25.889199] init: starting 'console'
+[   25.893190] init: starting 'servicemanager'
+[   25.896478] init: starting 'vold'
+[   25.905104] init: Created socket '/dev/socket/vold' with mode '660', user '0', group '1009'
+[   25.915661] init: starting 'netd'
+[   25.919355] init: Created socket '/dev/socket/netd' with mode '660', user '0', group '1000'
+[   25.928473] init: starting 'debuggerd'
+[   25.947922] init: starting 'ril-daemon'
+[   25.951692] init: Created socket '/dev/socket/rild-htc' with mode '660', user '1001', group '1000'
+[   25.957078] init: Created socket '/dev/socket/rild-debug' with mode '660', user '1001', group '1000'
+[   25.962053] init: Created socket '/dev/socket/rild' with mode '660', user '0', group '1001'
+[   25.967914] init: starting 'zygote'
+[   25.974839] init: Created socket '/dev/socket/zygote' with mode '666', user '0', group '0'
+[   25.989165] init: starting 'media'
+[   25.992033] init: cannot find '/system/bin/playmp3', disabling 'bootsound'
+[   26.016361] init: starting 'dbus'
+[   26.021444] init: starting 'installd'
+[   26.024913] init: Created socket '/dev/socket/dbus' with mode '660', user '1002', group '1002'
+[   26.031015] init: Created socket '/dev/socket/installd' with mode '600', user '1000', group '1000'
+[   26.040337] init: starting 'keystore'
+[   26.044853] init: Created socket '/dev/socket/keystore' with mode '666', user '0', group '0'
+[   26.057940] init: starting 'akmd'
+[   26.109017] init: starting 'zchgd'
+[   26.134179] init: starting 'ipd'
+[   26.138775] init: Created socket '/dev/socket/ipd' with mode '666', user '0', group '3003'
+[   26.199890] init: starting 'init_cam'
+[   26.209164] init: starting 'rmnet-mtu'
+[   26.212338] init: command 'class_start' r=0
+[   26.215388] init: waitpid returned pid 165, status = 00000000
+[   26.221342] init: cannot execve('/init_cam.sh'): Exec format error
+[   26.229399] init: process 'sysinit', pid 165 exited
+[   26.232914] init: waitpid returned pid 185, status = 00006f00
+[   26.240162] init: untracked pid 185 exited
+[   26.243749] init: waitpid returned pid 204, status = 00007f00
+[   26.252082] init: process 'init_cam', pid 204 exited
+[   26.646863] warning: `rild' uses 32-bit capabilities (legacy support in use)
+[   26.655927] init: waitpid returned pid 202, status = 00000000
+[   26.663373] init: process 'zchgd', pid 202 exited
+[   26.868389] qmi: smd opened
+[   26.871823] -qmi_open 0
+[   26.875171] qmi: send: svc=00 cid=00 tid=0001 type=0022 size=0004
+[   26.882608] qmi: send: tlv: 01 0001 { 01 }
+[   26.886142] qmi: send: svc=00 cid=00 tid=0001 type=0022 size=0004
+[   26.894183] qmi: send: tlv: 01 0001 { 01 }
+[   26.898863] -qmi_open 0
+[   26.902675] -qmi_open 0
+[   26.906890] qmi: send: svc=00 cid=00 tid=0001 type=0022 size=0004
+[   26.915804] +qmi_read 256
+[   26.920336] qmi: send: tlv: 01 0001 { 01 }
+[   26.924602] qmi: recv: svc=00 cid=00 tid=0001 type=0022 size=000c
+[   26.935727] qmi: recv: tlv: 02 0004 { 00 00 00 00 }
+[   26.939913] qmi: recv: tlv: 01 0002 { 01 01 }
+[   26.943892] qmi: ctl: wds use client_id 0x01
+[   26.951173] qmi: recv: svc=00 cid=00 tid=0001 type=0022 size=000c
+[   26.963492] qmi: recv: tlv: 02 0004 { 00 00 00 00 }
+[   26.967287] qmi: recv: tlv: 01 0002 { 01 01 }
+[   26.971725] qmi: ctl: wds use client_id 0x01
+[   26.976002] qmi: recv: svc=00 cid=00 tid=0001 type=0022 size=000c
+[   26.983811] qmi: recv: tlv: 02 0004 { 00 00 00 00 }
+[   26.988123] qmi: recv: tlv: 01 0002 { 01 01 }
+[   26.993686] qmi: ctl: wds use client_id 0x01
+[   28.300380] htc-acoustic: open
+[   28.306990] htc-acoustic: release
+[   28.313166] Audio: voice: stop
+[   28.319490] Audio: SWITCH DEVICE 17306899, acdb 607
+[   28.323137] q6audio_init
+[   28.326627] audio: init: first run, init dummy control
+[   28.439863] dal_attach: status = 0, name = 'DAL_AQ_AUD'
+[   28.445688] dal_attach: status = 0, name = 'DAL_AQ_AUD'
+[   29.036101] open done!
+[   29.148947] dal_attach: status = 0, name = 'DAL00'
+[   29.152907] dal_attach: status = 0, name = 'DAL00'
+[   29.156365] Audio: htcleo_analog_init
+[   29.169726] use RPC to query ACDB.
+[   29.173145] $$$ q6audio_init_rx_volumes
+[   29.176434] Audio: htcleo_get_rx_vol 0
+[   29.180789] $$ DEV=0107AC88: vol is 0
+[   29.184164] audio_cb: s=1 e=0107605c status=20
+[   29.187492] Audio: htcleo_get_rx_vol 0
+[   29.191068] $$ DEV=01081511: vol is 0
+[   29.194393] audio_cb: s=1 e=0107605c status=20
+[   29.197750] Audio: htcleo_get_rx_vol 0
+[   29.201801] $$ DEV=0107AC8A: vol is 0
+[   29.205151] audio_cb: s=1 e=0107605c status=20
+[   29.208573] Audio: htcleo_get_rx_vol 500
+[   29.212077] $$ DEV=01081513: vol is 500
+[   29.215436] audio_cb: s=1 e=0107605c status=20
+[   29.218740] Audio: htcleo_get_rx_vol 500
+[   29.222190] $$ DEV=01081514: vol is 500
+[   29.225441] audio_cb: s=1 e=0107605c status=20
+[   29.228664] Audio: htcleo_get_rx_vol 500
+[   29.232063] $$ DEV=0108C508: vol is 500
+[   29.235277] audio_cb: s=1 e=0107605c status=20
+[   29.238481] Audio: htcleo_get_rx_vol 500
+[   29.241860] $$ DEV=0108C894: vol is 500
+[   29.245068] audio_cb: s=1 e=0107605c status=20
+[   29.248256] Audio: htcleo_get_rx_vol 500
+[   29.251603] $$ DEV=0108C895: vol is 500
+[   29.254778] audio_cb: s=1 e=0107605c status=20
+[   29.257940] Audio: htcleo_get_rx_vol 500
+[   29.261303] $$ DEV=0108C509: vol is 500
+[   29.264477] audio_cb: s=1 e=0107605c status=20
+[   29.267619] Audio: htcleo_get_rx_vol 0
+[   29.270926] $$ DEV=0108151C: vol is 0
+[   29.274053] audio_cb: s=1 e=0107605c status=20
+[   29.277161] Audio: htcleo_get_rx_vol 0
+[   29.280553] $$ DEV=0107AC8D: vol is 0
+[   29.283635] audio_cb: s=1 e=0107605c status=20
+[   29.286714] Audio: htcleo_get_rx_vol 0
+[   29.290051] $$ DEV=01081510: vol is 0
+[   29.293178] audio_cb: s=1 e=0107605c status=20
+[   29.296298] Audio: htcleo_get_rx_vol 500
+[   29.299613] $$ DEV=01081512: vol is 500
+[   29.302728] audio_cb: s=1 e=0107605c status=20
+[   29.305830] Audio: htcleo_get_rx_vol 0
+[   29.309152] $$ DEV=0108151B: vol is 0
+[   29.312211] audio_cb: s=1 e=0107605c status=20
+[   29.315306] Audio: htcleo_get_rx_vol 400
+[   29.318558] $$ DEV=01081519: vol is 400
+[   29.321589] audio_cb: s=1 e=0107605c status=20
+[   29.324626] Audio: htcleo_get_rx_vol 400
+[   29.327854] $$ DEV=0108151A: vol is 400
+[   29.330886] audio_cb: s=1 e=0107605c status=20
+[   29.333923] Audio: htcleo_get_rx_vol 400
+[   29.337139] $$ DEV=01081518: vol is 400
+[   29.340372] audio_cb: s=1 e=0107605c status=20
+[   29.343652] Audio: htcleo_get_rx_vol 500
+[   29.346809] $$ DEV=01089BF4: vol is 500
+[   29.349894] audio_cb: s=1 e=0107605c status=20
+[   29.353224] Audio: htcleo_get_rx_vol 500
+[   29.356538] $$ DEV=01089BF3: vol is 500
+[   29.359552] audio_cb: s=1 e=0107605c status=20
+[   29.362511] audio_update_acdb (17306899, 607)
+[   29.365547]  ACDB MAP: 607 -> 607
+[   29.369474] acdb ret: 0 C B0226000 244 0
+[   29.372472] acdb: 580 bytes for device 607, rate 48000.
+[   29.375428] res1 = 580
+[   29.378329] res2 = 580
+[   29.381207] call audio_set_table
+[   29.393272] Audio: SWITCH DEVICE 17306898, acdb 0
+[   29.397597] Audio: htcleo_get_rx_vol 500
+[   29.400628] $$ DEV=01081513: vol is 500
+[   29.405031] audio_cb: s=1 e=0107605c status=20
+[   34.538922] msm_kgsl: initilized dev=1 mmu=on
+[   34.589475] init: starting 'bootanim'
+[   52.630246] ACR=2787 FL=1256 RAAC=49
+[   54.044915] wlan: wifi_set_power = 1
+[   54.044933] htcleo_wifi_power: 1
+[   54.409796] Audio: htcleo_get_rx_vol 200
+[   54.409815] $$ DEV=01081513: vol is 200
+[   54.411354] audio_cb: s=1 e=0107605c status=20
+[   54.787565] init: processing action 0x2fab8 (property:dev.bootcomplete=1)
+[   54.787774] init: starting 'bootcomplete'
+[   54.788149] init: command 'start' r=0
+[   54.828806] capella_cm3602_open
+[   54.828875] capella_cm3602_ioctl
+[   54.828887] capella_cm3602_disable
+[   54.828896] capella_cm3602_disable: already disabled
+[   54.828908] capella_cm3602_ioctl
+[   54.850017] microp_set_bkl(2)
+[   54.861486] init: waitpid returned pid 276, status = 00000000
+[   54.861515] init: process 'bootcomplete', pid 276 exited
+[   54.888480] request_suspend_state: wakeup (3->0) at 54880266545 (2010-08-24 13:15:27.790616696 UTC)
+[   55.219599] capella_cm3602_ioctl
+[   55.228989] capella_cm3602_ioctl
+[   55.300655] wlan: wifi_set_carddetect = 1
+[   55.300675] htcleo_wifi_set_carddetect: 1
+[   55.300687] mmc0: card_present 1
+[   55.300697] mmc0: Slot status change detected (0 -> 1)
+[   55.306799] wlan: Dongle Host Driver, version 4.218.204.2
+[   57.866255] clock-wince: pc_clk_set_rate: id=19 rate=50000000
+[   57.866278] clock-wince: set mdns: 19, 50000000; bitidx=7, offset=a4, ns=0
+[   57.866297] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[   57.866316] clock-wince: set_mdns_host_clock: 19, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[   57.867756] mmc0: queuing CIS tuple 0x91 length 3
+[   57.867782] mmc0: new high speed SDIO card at address 0001
+[   57.880251] wlan: DHD: dongle ram size is set to 294912(orig 294912)
+[   58.959569] wlan: firmware version: wl0: Oct 28 2009 15:45:05 version 4.218.161.0
+[   58.959583] 
+[   59.068182] wlan: Enter set packet filter
+[   59.070791] wlan: start to add pkt filter 100
+[   59.075299] wlan: Enter set packet filter
+[   59.077876] wlan: start to add pkt filter 102
+[   59.083363] wlan: Enter set packet filter
+[   59.084155] wlan: start to add pkt filter 104
+[   59.087729] wlan: dhd_preinit_ioctls:str=0x6e756c6c207061636b657400
+[   59.089999] wlan: eth0: Broadcom Dongle Host Driver mac=00:11:22:33:44:55
+[   60.590617] init: starting 'wpa_supplicant'
+[   60.604193] init: Created socket '/dev/socket/wpa_eth0' with mode '660', user '1010', group '1010'
+[   62.225143] wlan: pfn: set ssid = RunarR
+[   62.225166] wlan: lightest is 0, weightest is 0, samessid = 65535
+[   62.488144] wlan: iscan retry!
+[   63.216677] wlan: wake lock 15 secs!
+[   63.216699] wlan: Link UP
+[   63.216836] STA connect received 1
+[   63.777702] msm_i2c msm_i2c.0: error, status 43c8
+[   64.631024] wlan: pfn: set ssid = RunarR
+[   64.631048] wlan: lightest is 1, weightest is 0, samessid = 0
+[   64.631059] wlan: connect to latest ssid, ignore!
+[   64.708114] wlan: wl_iw_set_btcoex_dhcp: DHCP session starts
+[   64.709478] wlan: wl_iw_set_power_mode: DHCP session starts
+[   64.715659] init: starting 'dhcpcd'
+[   65.285395] init: service 'bootanim' is being killed
+[   65.299877] init: waitpid returned pid 237, status = 0000000f
+[   65.299905] init: process 'bootanim', pid 237 exited
+[   65.356481] wlan: wake lock 15 secs!
+[   65.356515] wlan: Link UP
+[   65.445864] STA connect received 1
+[   69.228413] eth0: no IPv6 routers present
+[   74.398808] wlan: wl_iw_set_power_mode: DHCP session done
+[   74.402032] wlan: wl_iw_set_btcoex_dhcp: DHCP session done
+[   74.402049] wlan: wl_iw_set_btcoex_dhcp disable BT DHCP Timer
+[   74.407855] wlan: Enter set packet filter
+[   74.411864] wlan: start to add pkt filter 101
+[   77.918798] Disable TTY
+[   89.288943] msm_i2c msm_i2c.0: error, status 21d0
+[   91.268400] msm_i2c msm_i2c.0: Error waiting for notbusy
+[   91.268481] msm_i2c msm_i2c.0: i2c_scl: 1, i2c_sda: 0
+[   91.268494] ------------[ cut here ]------------
+[   91.268520] WARNING: at drivers/gpio/gpiolib.c:101 gpio_ensure_requested+0x54/0x128()
+[   91.268533] autorequest GPIO-95
+[   91.268542] Modules linked in: bcm4329 tun
+[   91.268561] Backtrace: 
+[   91.268598] [<c0071bb0>] (dump_backtrace+0x0/0x110) from [<c039d084>] (dump_stack+0x18/0x1c)
+[   91.268613]  r7:c0443cb4 r6:00000065 r5:c01d2eac r4:c7381d60
+[   91.268656] [<c039d06c>] (dump_stack+0x0/0x1c) from [<c00a6644>] (warn_slowpath_common+0x50/0x68)
+[   91.268680] [<c00a65f4>] (warn_slowpath_common+0x0/0x68) from [<c00a66a8>] (warn_slowpath_fmt+0x30/0x38)
+[   91.268696]  r7:00000000 r6:0000005f r5:c0486760 r4:c05dbab4
+[   91.268725] [<c00a6678>] (warn_slowpath_fmt+0x0/0x38) from [<c01d2eac>] (gpio_ensure_requested+0x54/0x128)
+[   91.268740]  r3:0000005f r2:c0443ccb
+[   91.268761] [<c01d2e58>] (gpio_ensure_requested+0x0/0x128) from [<c01d300c>] (gpio_direction_output+0x8c/0x174)
+[   91.268777]  r7:00000000 r6:60000013 r5:c05dbab4 r4:c0486760
+[   91.268811] [<c01d2f80>] (gpio_direction_output+0x0/0x174) from [<c024dc5c>] (msm_i2c_recover_bus_busy+0x130/0x268)
+[   91.268834] [<c024db2c>] (msm_i2c_recover_bus_busy+0x0/0x268) from [<c024dfdc>] (msm_i2c_xfer+0x248/0x280)
+[   91.268857] [<c024dd94>] (msm_i2c_xfer+0x0/0x280) from [<c024b970>] (i2c_transfer+0xa8/0xfc)
+[   91.268871]  r8:00000002 r7:c7381e70 r6:00000001 r5:00000000 r4:c7835210
+[   91.268906] [<c024b8c8>] (i2c_transfer+0x0/0xfc) from [<c00904b4>] (i2c_read_block+0x64/0xb8)
+[   91.268928] [<c0090450>] (i2c_read_block+0x0/0xb8) from [<c0090d54>] (bma150_ioctl+0x2e4/0x4ac)
+[   91.268942]  r6:c7844960 r5:100ffd54 r4:00000000
+[   91.268969] [<c0090a70>] (bma150_ioctl+0x0/0x4ac) from [<c0121bcc>] (vfs_ioctl+0x78/0x94)
+[   91.268989] [<c0121b54>] (vfs_ioctl+0x0/0x94) from [<c0122248>] (do_vfs_ioctl+0x560/0x5cc)
+[   91.269003]  r7:00000004 r6:c00ea134 r5:c7b31480 r4:100ffd54
+[   91.269031] [<c0121ce8>] (do_vfs_ioctl+0x0/0x5cc) from [<c01222f4>] (sys_ioctl+0x40/0x64)
+[   91.269045]  r9:c7380000 r8:c006e144 r7:00000004 r6:c00ea134 r5:100ffd54
+[   91.269069] r4:c7b31480
+[   91.269086] [<c01222b4>] (sys_ioctl+0x0/0x64) from [<c006dfc0>] (ret_fast_syscall+0x0/0x2c)
+[   91.269101]  r7:00000036 r6:00010108 r5:100ffe60 r4:00000004
+[   91.269123] ---[ end trace da227214a82491b9 ]---
+[   91.269141] ------------[ cut here ]------------
+[   91.269155] WARNING: at drivers/gpio/gpiolib.c:101 gpio_ensure_requested+0x54/0x128()
+[   91.269168] autorequest GPIO-96
+[   91.269175] Modules linked in: bcm4329 tun
+[   91.269191] Backtrace: 
+[   91.269208] [<c0071bb0>] (dump_backtrace+0x0/0x110) from [<c039d084>] (dump_stack+0x18/0x1c)
+[   91.269222]  r7:c0443cb4 r6:00000065 r5:c01d2eac r4:c7381d60
+[   91.269253] [<c039d06c>] (dump_stack+0x0/0x1c) from [<c00a6644>] (warn_slowpath_common+0x50/0x68)
+[   91.269277] [<c00a65f4>] (warn_slowpath_common+0x0/0x68) from [<c00a66a8>] (warn_slowpath_fmt+0x30/0x38)
+[   91.269292]  r7:00000000 r6:00000060 r5:c0486760 r4:c05dbac0
+[   91.269322] [<c00a6678>] (warn_slowpath_fmt+0x0/0x38) from [<c01d2eac>] (gpio_ensure_requested+0x54/0x128)
+[   91.269338]  r3:00000060 r2:c0443ccb
+[   91.269357] [<c01d2e58>] (gpio_ensure_requested+0x0/0x128) from [<c01d300c>] (gpio_direction_output+0x8c/0x174)
+[   91.269374]  r7:00000001 r6:60000013 r5:c05dbac0 r4:c0486760
+[   91.269403] [<c01d2f80>] (gpio_direction_output+0x0/0x174) from [<c024dc70>] (msm_i2c_recover_bus_busy+0x144/0x268)
+[   91.269427] [<c024db2c>] (msm_i2c_recover_bus_busy+0x0/0x268) from [<c024dfdc>] (msm_i2c_xfer+0x248/0x280)
+[   91.269448] [<c024dd94>] (msm_i2c_xfer+0x0/0x280) from [<c024b970>] (i2c_transfer+0xa8/0xfc)
+[   91.269463]  r8:00000002 r7:c7381e70 r6:00000001 r5:00000000 r4:c7835210
+[   91.269494] [<c024b8c8>] (i2c_transfer+0x0/0xfc) from [<c00904b4>] (i2c_read_block+0x64/0xb8)
+[   91.269515] [<c0090450>] (i2c_read_block+0x0/0xb8) from [<c0090d54>] (bma150_ioctl+0x2e4/0x4ac)
+[   91.269530]  r6:c7844960 r5:100ffd54 r4:00000000
+[   91.269553] [<c0090a70>] (bma150_ioctl+0x0/0x4ac) from [<c0121bcc>] (vfs_ioctl+0x78/0x94)
+[   91.269573] [<c0121b54>] (vfs_ioctl+0x0/0x94) from [<c0122248>] (do_vfs_ioctl+0x560/0x5cc)
+[   91.269587]  r7:00000004 r6:c00ea134 r5:c7b31480 r4:100ffd54
+[   91.269615] [<c0121ce8>] (do_vfs_ioctl+0x0/0x5cc) from [<c01222f4>] (sys_ioctl+0x40/0x64)
+[   91.269629]  r9:c7380000 r8:c006e144 r7:00000004 r6:c00ea134 r5:100ffd54
+[   91.269653] r4:c7b31480
+[   91.269669] [<c01222b4>] (sys_ioctl+0x0/0x64) from [<c006dfc0>] (ret_fast_syscall+0x0/0x2c)
+[   91.269683]  r7:00000036 r6:00010108 r5:100ffe60 r4:00000004
+[   91.269706] ---[ end trace da227214a82491ba ]---
+[   91.269788] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[   91.289026] msm_i2c msm_i2c.0: error, status 21d0
+[   93.268330] msm_i2c msm_i2c.0: Error waiting for notbusy
+[   93.268445] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[   93.268567] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[   93.289017] msm_i2c msm_i2c.0: error, status 21d0
+[   95.268358] msm_i2c msm_i2c.0: Error waiting for notbusy
+[   95.268469] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[   95.268596] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[   95.288956] msm_i2c msm_i2c.0: error, status 21d0
+[   97.268431] msm_i2c msm_i2c.0: Error waiting for notbusy
+[   97.268514] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[   97.268606] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[   97.288743] request_suspend_state: sleep (0->3) at 97280537369 (2010-08-24 13:16:10.190886061 UTC)
+[   97.290729] msm_i2c msm_i2c.0: error, status 21d0
+[   97.294457] lcdc_blank: ()
+[   97.294481] auo_panel_blank
+[   97.581943] wlan: add pfn: RunarR
+[   97.581963] wlan: enable pfn!
+[   97.582651] lcdc_suspend: suspending
+[   99.268326] msm_i2c msm_i2c.0: Error waiting for notbusy
+[   99.268410] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[   99.268518] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[  107.046945] ACR=2773 FL=1256 RAAC=49
+[  109.258289] microp_set_bkl(2)
+[  109.298487] request_suspend_state: wakeup (3->0) at 109290272160 (2010-08-24 13:16:22.200621893 UTC)
+[  109.299963] lcdc_resume: resuming
+[  109.302207] capella_cm3602_ioctl
+[  109.417754] lcdc_unblank: ()
+[  109.417770] auo_panel_unblank
+[  109.828364] msm_i2c msm_i2c.0: error, status 43c8
+[  109.828494] msm_i2c msm_i2c.0: error, status 43c8
+[  129.048657] request_suspend_state: sleep (0->3) at 129040438395 (2010-08-24 13:16:41.950785420 UTC)
+[  129.048983] capella_cm3602_ioctl
+[  129.054741] lcdc_blank: ()
+[  129.054771] auo_panel_blank
+[  129.936626] wlan: add pfn: RunarR
+[  129.936674] wlan: enable pfn!
+[  129.937261] lcdc_suspend: suspending
+[  135.930461] PM: Syncing filesystems ... done.
+[  136.029792] PM: Preparing system for mem sleep
+[  136.043817] Freezing user space processes ... 
+[  136.106284] Freezing of tasks aborted after 0.06 seconds (487 tasks refusing to freeze):
+[  136.107800] 
+[  136.107933] Restarting tasks ... +qmi_read 256
+[  136.116381] done.
+[  136.116779] suspend: exit suspend, ret = -16 (2010-08-24 13:16:49.018905218 UTC)
+[  136.489741] PM: Syncing filesystems ... done.
+[  136.589774] PM: Preparing system for mem sleep
+[  136.590646] Freezing user space processes ... (elapsed 0.11 seconds) done.
+[  136.707637] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  136.708546] PM: Entering mem sleep
+[  136.708700] Suspending console(s) (use no_console_suspend to debug)
+[  136.714834] clocks on: adm_clk
+[  136.715058] wakeup wake lock: wlan_wake
+[  136.719486] PM: Finishing wakeup.
+[  136.719636] Restarting tasks ... +qmi_read 256
+[  136.728379] done.
+[  136.728673] suspend: exit suspend, ret = 0 (2010-08-24 13:16:49.631944183 UTC)
+[  137.237726] mmc1: Starting deferred resume
+[  137.257186] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  137.257249] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  137.257315] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  137.308290] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  137.308344] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  137.308410] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  137.308479] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  137.308605] mmc1: Deferred resume completed
+[  137.388634] PM: Syncing filesystems ... done.
+[  137.488637] PM: Preparing system for mem sleep
+[  137.489071] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  137.624539] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  137.625700] PM: Entering mem sleep
+[  137.625938] Suspending console(s) (use no_console_suspend to debug)
+[  137.635327] pm_noirq_op(): platform_pm_suspend_noirq+0x0/0x40 returns -11
+[  137.635376] PM: Device power.0 failed to suspend late: error -11
+[  137.635572] PM: Some devices failed to power down
+[  137.636959] wakeup wake lock: SMD_RPCCALL
+[  137.642068] PM: Finishing wakeup.
+[  137.642299] Restarting tasks ... +qmi_read 256
+[  137.655161] done.
+[  137.655459] suspend: exit suspend, ret = 0 (2010-08-24 13:16:50.558730239 UTC)
+[  137.750828] msm_i2c msm_i2c.0: error, status 63c8
+[  138.157735] mmc1: Starting deferred resume
+[  138.177239] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  138.177282] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  138.177326] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  138.228761] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  138.228797] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  138.228839] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  138.228884] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  138.228973] mmc1: Deferred resume completed
+[  138.308632] PM: Syncing filesystems ... done.
+[  138.408917] PM: Preparing system for mem sleep
+[  138.653748] Freezing user space processes ... 
+[  138.660951] Freezing of tasks aborted after 0.00 seconds (487 tasks refusing to freeze):
+[  138.662064] 
+[  138.662153] Restarting tasks ... +qmi_read 256
+[  138.677693] done.
+[  138.678011] suspend: exit suspend, ret = -16 (2010-08-24 13:16:51.581280031 UTC)
+[  139.138141] PM: Syncing filesystems ... done.
+[  139.238148] PM: Preparing system for mem sleep
+[  139.238445] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[  139.323621] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  139.324355] PM: Entering mem sleep
+[  139.324483] Suspending console(s) (use no_console_suspend to debug)
+[  139.330079] clocks on: adm_clk
+[  139.330282] wakeup wake lock: wlan_wake
+[  139.334264] PM: Finishing wakeup.
+[  139.334392] Restarting tasks ... +qmi_read 256
+[  139.341776] done.
+[  139.342064] suspend: exit suspend, ret = 0 (2010-08-24 13:16:52.246468580 UTC)
+[  139.439859] msm_i2c msm_i2c.0: error, status 43c8
+[  139.846634] mmc1: Starting deferred resume
+[  139.866047] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  139.866110] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  139.866176] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  139.917443] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  139.917503] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  139.917569] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  139.917634] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  139.917761] mmc1: Deferred resume completed
+[  139.997497] PM: Syncing filesystems ... done.
+[  140.097770] PM: Preparing system for mem sleep
+[  140.342577] Freezing user space processes ... 
+[  140.352383] Freezing of tasks aborted after 0.00 seconds (487 tasks refusing to freeze):
+[  140.353900] 
+[  140.354034] Restarting tasks ... +qmi_read 256
+[  140.364514] done.
+[  140.364912] suspend: exit suspend, ret = -16 (2010-08-24 13:16:53.269300045 UTC)
+[  142.117009] PM: Syncing filesystems ... done.
+[  143.527008] PM: Preparing system for mem sleep
+[  143.527311] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  143.625591] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  143.626418] PM: Entering mem sleep
+[  143.626546] Suspending console(s) (use no_console_suspend to debug)
+[  143.632159] clocks on: adm_clk
+[  143.633649] wakeup wake lock: SMD_RPCCALL
+[  143.636661] PM: Finishing wakeup.
+[  143.636788] Restarting tasks ... +qmi_read 256
+[  143.685723] done.
+[  143.817031] suspend: exit suspend, ret = 0 (2010-08-24 13:17:05.681645839 UTC)
+[  144.656905] mmc1: Starting deferred resume
+[  144.675015] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  144.675056] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  144.675093] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  144.726095] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  144.726133] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  144.726169] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  144.726205] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  144.726292] mmc1: Deferred resume completed
+[  147.086047] PM: Syncing filesystems ... 
+[  148.017008] init: waitpid returned pid 205, status = 00000100
+[  148.017063] init: process 'rmnet-mtu', pid 205 exited
+[  148.017101] init: process 'rmnet-mtu' killing any children in process group
+[  148.017506] init: starting 'rmnet-mtu'
+[  148.796113] ACR=2766 FL=1256 RAAC=48
+[  154.726374] done.
+[  154.726422] PM: Preparing system for mem sleep
+[  154.726850] Freezing user space processes ... 
+[  154.763555] Freezing of tasks aborted after 0.03 seconds (488 tasks refusing to freeze):
+[  154.765191] 
+[  154.765336] Restarting tasks ... +qmi_read 256
+[  154.773392] done.
+[  154.773849] suspend: exit suspend, ret = -16 (2010-08-24 13:17:16.638461035 UTC)
+[  156.186554] PM: Syncing filesystems ... done.
+[  156.496740] PM: Preparing system for mem sleep
+[  156.497614] Freezing user space processes ... 
+[  156.533960] Freezing of tasks aborted after 0.03 seconds (488 tasks refusing to freeze):
+[  156.535551] 
+[  156.535696] Restarting tasks ... +qmi_read 256
+[  156.555221] done.
+[  156.555663] suspend: exit suspend, ret = -16 (2010-08-24 13:17:18.420274376 UTC)
+[  157.057619] PM: Syncing filesystems ... done.
+[  157.156409] PM: Preparing system for mem sleep
+[  157.156843] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  157.290633] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  157.291793] PM: Entering mem sleep
+[  157.292029] Suspending console(s) (use no_console_suspend to debug)
+[  157.298926] clocks on: adm_clk
+[  157.299232] wakeup wake lock: wlan_wake
+[  157.305560] PM: Finishing wakeup.
+[  157.305793] Restarting tasks ... +qmi_read 256
+[  157.318213] done.
+[  157.318616] suspend: exit suspend, ret = 0 (2010-08-24 13:17:19.184995420 UTC)
+[  157.823701] mmc1: Starting deferred resume
+[  157.843294] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  157.843332] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  157.843369] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  157.894797] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  157.894835] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  157.894874] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  157.894909] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  157.894986] mmc1: Deferred resume completed
+[  157.974137] PM: Syncing filesystems ... done.
+[  158.084145] PM: Preparing system for mem sleep
+[  158.084699] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[  158.172922] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  158.173747] PM: Entering mem sleep
+[  158.173877] Suspending console(s) (use no_console_suspend to debug)
+[  158.201649] clocks on: adm_clk
+[  158.201853] wakeup wake lock: wlan_wake
+[  158.227797] PM: Finishing wakeup.
+[  158.238874] Restarting tasks ... +qmi_read 256
+[  158.258584] done.
+[  158.424346] suspend: exit suspend, ret = 0 (2010-08-24 13:17:20.291726066 UTC)
+[  158.772721] mmc1: Starting deferred resume
+[  158.792232] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  158.792275] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  158.792319] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  158.843802] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  158.843837] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  158.843880] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  158.843924] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  158.844007] mmc1: Deferred resume completed
+[  158.923883] PM: Syncing filesystems ... done.
+[  159.023660] PM: Preparing system for mem sleep
+[  159.024094] Freezing user space processes ... 
+[  159.140792] Freezing of tasks aborted after 0.09 seconds (170 tasks refusing to freeze):
+[  159.184198] 
+[  159.205753] Restarting tasks ... +qmi_read 256
+[  159.237149] done.
+[  159.414442] suspend: exit suspend, ret = -16 (2010-08-24 13:17:21.281816066 UTC)
+[  160.723133] PM: Syncing filesystems ... done.
+[  162.823187] PM: Preparing system for mem sleep
+[  162.823749] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  162.935778] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  162.958482] PM: Entering mem sleep
+[  162.969542] Suspending console(s) (use no_console_suspend to debug)
+[  162.996936] clocks on: adm_clk
+[  162.998422] wakeup wake lock: SMD_RPCCALL
+[  163.022816] PM: Finishing wakeup.
+[  163.033756] Restarting tasks ... +qmi_read 256
+[  163.072042] done.
+[  163.223212] suspend: exit suspend, ret = 0 (2010-08-24 13:17:40.723360420 UTC)
+[  164.752944] mmc1: Starting deferred resume
+[  164.771078] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  164.771118] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  164.771155] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  164.822224] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  164.822263] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  164.822300] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  164.822335] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  164.822426] mmc1: Deferred resume completed
+[  174.552641] PM: Syncing filesystems ... 
+[  174.902717] mmc0: Data CRC error
+[  174.902773] msmsdcc_data_err: opcode 0x00000035
+[  174.902817] msmsdcc_data_err: blksz 144, blocks 1
+[  174.903002] mmc0: Data CRC error
+[  174.903037] msmsdcc_data_err: opcode 0x00000035
+[  174.903078] msmsdcc_data_err: blksz 144, blocks 1
+[  174.903255] mmc0: Data CRC error
+[  174.903289] msmsdcc_data_err: opcode 0x00000035
+[  174.903329] msmsdcc_data_err: blksz 144, blocks 1
+[  175.312593] done.
+[  175.312641] PM: Preparing system for mem sleep
+[  175.313133] Freezing user space processes ... 
+[  175.371372] Freezing of tasks aborted after 0.03 seconds (489 tasks refusing to freeze):
+[  175.414766] 
+[  175.436077] Restarting tasks ... +qmi_read 256
+[  175.474805] done.
+[  175.652121] suspend: exit suspend, ret = -16 (2010-08-24 13:17:53.152268955 UTC)
+[  175.782139] PM: Syncing filesystems ... done.
+[  175.882314] PM: Preparing system for mem sleep
+[  175.882932] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  176.004614] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  176.031294] PM: Entering mem sleep
+[  176.044418] Suspending console(s) (use no_console_suspend to debug)
+[  176.071509] clocks on: adm_clk
+[  176.071711] wakeup wake lock: wlan_wake
+[  176.097155] PM: Finishing wakeup.
+[  176.108058] Restarting tasks ... +qmi_read 256
+[  176.127076] done.
+[  176.138664] suspend: exit suspend, ret = 0 (2010-08-24 13:17:54.564156666 UTC)
+[  176.640573] mmc1: Starting deferred resume
+[  176.659997] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  176.660037] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  176.660080] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  176.711616] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  176.711652] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  176.711695] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  176.711739] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  176.711826] mmc1: Deferred resume completed
+[  176.791067] PM: Syncing filesystems ... done.
+[  176.891000] PM: Preparing system for mem sleep
+[  176.891324] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  177.015559] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  177.042823] PM: Entering mem sleep
+[  177.053696] Suspending console(s) (use no_console_suspend to debug)
+[  177.080831] clocks on: adm_clk
+[  177.081031] wakeup wake lock: wlan_wake
+[  177.106888] PM: Finishing wakeup.
+[  177.117823] Restarting tasks ... +qmi_read 256
+[  177.137619] done.
+[  177.310884] suspend: exit suspend, ret = 0 (2010-08-24 13:17:57.726781669 UTC)
+[  177.659601] mmc1: Starting deferred resume
+[  177.678791] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  177.678851] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  177.678917] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  177.730058] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  177.730112] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  177.730177] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  177.730246] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  177.730371] mmc1: Deferred resume completed
+[  177.810531] PM: Syncing filesystems ... done.
+[  177.910255] PM: Preparing system for mem sleep
+[  177.911124] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  178.069189] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  178.096176] PM: Entering mem sleep
+[  178.109281] Suspending console(s) (use no_console_suspend to debug)
+[  178.140700] clocks on: adm_clk
+[  178.140926] wakeup wake lock: wlan_wake
+[  178.171527] PM: Finishing wakeup.
+[  178.184524] Restarting tasks ... +qmi_read 256
+[  178.240085] done.
+[  178.340996] suspend: exit suspend, ret = 0 (2010-08-24 13:18:03.696770632 UTC)
+[  178.848146] mmc1: Starting deferred resume
+[  178.867563] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  178.867603] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  178.867647] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  178.919084] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  178.919123] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  178.919167] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  178.919210] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  178.919298] mmc1: Deferred resume completed
+[  178.998590] PM: Syncing filesystems ... done.
+[  179.098593] PM: Preparing system for mem sleep
+[  179.098914] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  179.222549] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  179.249679] PM: Entering mem sleep
+[  179.260699] Suspending console(s) (use no_console_suspend to debug)
+[  179.289763] clocks on: adm_clk
+[  179.291258] wakeup wake lock: SMD_RPCCALL
+[  179.315932] PM: Finishing wakeup.
+[  179.326986] Restarting tasks ... +qmi_read 256
+[  179.346938] done.
+[  179.436270] ACR=2762 FL=1256 RAAC=48
+[  179.518691] suspend: exit suspend, ret = 0 (2010-08-24 13:18:10.725829379 UTC)
+[  179.547151] mmc1: Starting deferred resume
+[  179.566619] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  179.566646] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  179.566678] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  179.618328] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  179.618352] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  179.618384] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  179.618416] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  179.618489] mmc1: Deferred resume completed
+[  179.707670] PM: Syncing filesystems ... done.
+[  179.807557] PM: Preparing system for mem sleep
+[  179.808109] Freezing user space processes ... 
+[  179.850899] Freezing of tasks aborted after 0.03 seconds (283 tasks refusing to freeze):
+[  179.874805] 
+[  179.886529] Restarting tasks ... +qmi_read 256
+[  179.915679] done.
+[  179.927490] suspend: exit suspend, ret = -16 (2010-08-24 13:18:11.134638138 UTC)
+[  180.147561] PM: Syncing filesystems ... done.
+[  180.257544] PM: Preparing system for mem sleep
+[  180.257841] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[  180.365444] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  180.387972] PM: Entering mem sleep
+[  180.398935] Suspending console(s) (use no_console_suspend to debug)
+[  180.423905] pm_op(): platform_pm_suspend+0x0/0x5c returns -16
+[  180.423934] PM: Device alarm failed to suspend: error -16
+[  180.423955] PM: Some devices failed to suspend
+[  180.469659] PM: Finishing wakeup.
+[  180.480747] Restarting tasks ... +qmi_read 256
+[  180.500695] done.
+[  180.668644] suspend: exit suspend, ret = -16 (2010-08-24 13:18:11.875784393 UTC)
+[  181.347634] PM: Syncing filesystems ... done.
+[  181.447687] PM: Preparing system for mem sleep
+[  181.722781] Freezing user space processes ... (elapsed 0.11 seconds) done.
+[  181.869231] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  181.896547] PM: Entering mem sleep
+[  181.909910] Suspending console(s) (use no_console_suspend to debug)
+[  181.942521] clocks on: adm_clk
+[  181.942749] wakeup wake lock: wlan_wake
+[  181.974039] PM: Finishing wakeup.
+[  181.987416] Restarting tasks ... +qmi_read 256
+[  182.011287] done.
+[  182.187454] suspend: exit suspend, ret = 0 (2010-08-24 13:18:16.741410421 UTC)
+[  182.536013] mmc1: Starting deferred resume
+[  182.555292] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  182.555351] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  182.555416] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  182.606615] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  182.606668] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  182.606733] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  182.606798] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  182.606923] mmc1: Deferred resume completed
+[  182.687018] PM: Syncing filesystems ... done.
+[  182.786797] PM: Preparing system for mem sleep
+[  182.787227] Freezing user space processes ... (elapsed 0.14 seconds) done.
+[  182.970424] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  183.013126] PM: Entering mem sleep
+[  183.034022] Suspending console(s) (use no_console_suspend to debug)
+[  183.081485] clocks on: adm_clk
+[  183.081687] wakeup wake lock: gpio_input
+[  183.112929] PM: Finishing wakeup.
+[  183.126369] Restarting tasks ... +qmi_read 256
+[  183.155217] done.
+[  183.168776] microp_set_bkl(2)
+[  183.214271] request_suspend_state: wakeup (3->0) at 183220323758 (2010-08-24 13:18:21.629212919 UTC)
+[  183.244363] capella_cm3602_ioctl
+[  183.356119] suspend: exit suspend, ret = 0 (2010-08-24 13:18:21.771071259 UTC)
+[  183.356159] lcdc_resume: resuming
+[  183.402619] lcdc_unblank: ()
+[  183.402654] auo_panel_unblank
+[  185.392837] wlan: Return_dpc value is : 0
+[  185.914217] msm_i2c msm_i2c.0: error, status 63c8
+[  185.914444] msm_i2c msm_i2c.0: error, status 63c8
+[  187.964517] request_suspend_state: sleep (0->3) at 187970565865 (2010-08-24 13:18:26.379454609 UTC)
+[  187.964789] capella_cm3602_ioctl
+[  187.975147] lcdc_blank: ()
+[  187.975168] auo_panel_blank
+[  188.124342] mmc1: Starting deferred resume
+[  188.144076] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  188.144099] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  188.144125] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  188.205229] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  188.205251] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  188.205277] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  188.205302] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  188.205557] mmc1: Deferred resume completed
+[  188.226604] wlan: add pfn: RunarR
+[  188.226620] wlan: enable pfn!
+[  188.227013] lcdc_suspend: suspending
+[  189.675004] PM: Syncing filesystems ... done.
+[  191.595129] PM: Preparing system for mem sleep
+[  191.948111] Freezing user space processes ... (elapsed 0.07 seconds) done.
+[  192.043848] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  192.067049] PM: Entering mem sleep
+[  192.078285] Suspending console(s) (use no_console_suspend to debug)
+[  192.106140] clocks on: adm_clk
+[  192.107673] wakeup wake lock: SMD_RPCCALL
+[  192.132515] PM: Finishing wakeup.
+[  192.143677] Restarting tasks ... +qmi_read 256
+[  192.173302] done.
+[  192.193556] suspend: exit suspend, ret = 0 (2010-08-24 13:18:41.584441875 UTC)
+[  192.527400] mmc1: Starting deferred resume
+[  192.543118] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  192.543158] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  192.543195] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  192.594380] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  192.594421] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  192.594457] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  192.594496] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  192.594584] mmc1: Deferred resume completed
+[  196.114785] PM: Syncing filesystems ... done.
+[  197.074526] PM: Preparing system for mem sleep
+[  197.309172] Freezing user space processes ... (elapsed 0.10 seconds) done.
+[  197.461219] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  197.504350] PM: Entering mem sleep
+[  197.525495] Suspending console(s) (use no_console_suspend to debug)
+[  197.576254] pm_noirq_op(): platform_pm_suspend_noirq+0x0/0x40 returns -11
+[  197.576303] PM: Device power.0 failed to suspend late: error -11
+[  197.576499] PM: Some devices failed to power down
+[  197.577875] wakeup wake lock: SMD_RPCCALL
+[  197.708450] PM: Finishing wakeup.
+[  197.729880] Restarting tasks ... +qmi_read 256
+[  197.765600] done.
+[  197.945856] suspend: exit suspend, ret = 0 (2010-08-24 13:18:47.336720838 UTC)
+[  198.293773] mmc1: Starting deferred resume
+[  198.313051] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  198.313111] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  198.313177] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  198.364316] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  198.364370] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  198.364434] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  198.364502] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  198.364627] mmc1: Deferred resume completed
+[  198.447009] PM: Syncing filesystems ... done.
+[  198.544650] PM: Preparing system for mem sleep
+[  198.545091] Freezing user space processes ... 
+[  198.604412] Freezing of tasks aborted after 0.03 seconds (489 tasks refusing to freeze):
+[  198.649920] 
+[  198.672268] Restarting tasks ... +qmi_read 256
+[  198.702524] done.
+[  198.726049] suspend: exit suspend, ret = -16 (2010-08-24 13:18:48.116922503 UTC)
+[  200.384515] PM: Syncing filesystems ... done.
+[  200.714526] PM: Preparing system for mem sleep
+[  200.969091] Freezing user space processes ... (elapsed 0.10 seconds) done.
+[  201.121484] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  201.165089] PM: Entering mem sleep
+[  201.186473] Suspending console(s) (use no_console_suspend to debug)
+[  201.236007] clocks on: adm_clk
+[  201.236317] wakeup wake lock: wlan_wake
+[  201.284305] PM: Finishing wakeup.
+[  201.305461] Restarting tasks ... +qmi_read 256
+[  201.339557] done.
+[  201.524153] suspend: exit suspend, ret = 0 (2010-08-24 13:18:50.916734799 UTC)
+[  201.872086] mmc1: Starting deferred resume
+[  201.891331] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  201.891391] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  201.891458] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  201.942655] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  201.942710] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  201.942776] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  201.942841] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  201.942961] mmc1: Deferred resume completed
+[  202.023056] PM: Syncing filesystems ... done.
+[  202.122816] PM: Preparing system for mem sleep
+[  202.123245] Freezing user space processes ... 
+[  202.182095] Freezing of tasks aborted after 0.03 seconds (489 tasks refusing to freeze):
+[  202.227457] 
+[  202.249892] Restarting tasks ... +qmi_read 256
+[  202.280565] done.
+[  202.304201] suspend: exit suspend, ret = -16 (2010-08-24 13:18:51.696791264 UTC)
+[  202.902929] PM: Syncing filesystems ... done.
+[  203.002798] PM: Preparing system for mem sleep
+[  203.003673] Freezing user space processes ... 
+[  203.086879] Freezing of tasks aborted after 0.06 seconds (198 tasks refusing to freeze):
+[  203.115998] 
+[  203.130393] Restarting tasks ... +qmi_read 256
+[  203.153556] done.
+[  203.323414] suspend: exit suspend, ret = -16 (2010-08-24 13:18:52.716013145 UTC)
+[  203.782799] PM: Syncing filesystems ... done.
+[  203.872830] PM: Preparing system for mem sleep
+[  203.873261] Freezing user space processes ... 
+[  204.019123] Freezing of tasks aborted after 0.12 seconds (55 tasks refusing to freeze):
+[  204.062024] 
+[  204.075487] Restarting tasks ... +qmi_read 256
+[  204.097275] done.
+[  204.111645] suspend: exit suspend, ret = -16 (2010-08-24 13:18:53.504247316 UTC)
+[  204.712735] PM: Syncing filesystems ... done.
+[  204.802322] PM: Preparing system for mem sleep
+[  204.802874] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[  204.912312] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  204.935319] PM: Entering mem sleep
+[  204.946503] Suspending console(s) (use no_console_suspend to debug)
+[  204.976886] pm_noirq_op(): platform_pm_suspend_noirq+0x0/0x40 returns -11
+[  204.976914] PM: Device power.0 failed to suspend late: error -11
+[  204.977032] PM: Some devices failed to power down
+[  204.978292] wakeup wake lock: SMD_RPCCALL
+[  205.048492] PM: Finishing wakeup.
+[  205.059756] Restarting tasks ... +qmi_read 256
+[  205.079875] done.
+[  205.253388] suspend: exit suspend, ret = 0 (2010-08-24 13:18:54.645988772 UTC)
+[  205.601884] mmc1: Starting deferred resume
+[  205.621390] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  205.621426] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  205.621464] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  205.672939] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  205.672974] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  205.673017] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  205.673059] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  205.673147] mmc1: Deferred resume completed
+[  205.756417] PM: Syncing filesystems ... done.
+[  205.852425] PM: Preparing system for mem sleep
+[  205.852747] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  205.979668] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  206.007604] PM: Entering mem sleep
+[  206.021174] Suspending console(s) (use no_console_suspend to debug)
+[  206.053309] clocks on: adm_clk
+[  206.053514] wakeup wake lock: wlan_wake
+[  206.080098] PM: Finishing wakeup.
+[  206.091322] Restarting tasks ... +qmi_read 256
+[  206.111333] done.
+[  206.282272] suspend: exit suspend, ret = 0 (2010-08-24 13:18:55.676007319 UTC)
+[  206.631044] mmc1: Starting deferred resume
+[  206.650208] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  206.650269] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  206.650336] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  206.701421] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  206.701476] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  206.701541] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  206.701606] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  206.701732] mmc1: Deferred resume completed
+[  206.781988] PM: Syncing filesystems ... done.
+[  206.881661] PM: Preparing system for mem sleep
+[  206.882531] Freezing user space processes ... 
+[  206.992219] Freezing of tasks aborted after 0.08 seconds (182 tasks refusing to freeze):
+[  207.037586] 
+[  207.051553] Restarting tasks ... +qmi_read 256
+[  207.074212] done.
+[  207.242294] suspend: exit suspend, ret = -16 (2010-08-24 13:18:56.636026912 UTC)
+[  208.881149] PM: Syncing filesystems ... done.
+[  210.251208] PM: Preparing system for mem sleep
+[  210.251506] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[  210.363692] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  210.386828] PM: Entering mem sleep
+[  210.398037] Suspending console(s) (use no_console_suspend to debug)
+[  210.425929] clocks on: adm_clk
+[  210.427404] wakeup wake lock: SMD_RPCCALL
+[  210.452361] PM: Finishing wakeup.
+[  210.463561] Restarting tasks ... +qmi_read 256
+[  210.489276] ACR=2759 FL=1256 RAAC=48
+[  210.538942] done.
+[  210.638772] suspend: exit suspend, ret = 0 (2010-08-24 13:19:13.709956252 UTC)
+[  211.480578] mmc1: Starting deferred resume
+[  211.499296] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  211.499336] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  211.499373] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  211.550333] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  211.550372] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  211.550409] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  211.550445] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  211.550531] mmc1: Deferred resume completed
+[  214.830292] PM: Syncing filesystems ... done.
+[  219.750716] PM: Preparing system for mem sleep
+[  220.005555] Freezing user space processes ... 
+[  220.108224] Freezing of tasks aborted after 0.08 seconds (151 tasks refusing to freeze):
+[  220.152754] 
+[  220.174007] Restarting tasks ... +qmi_read 256
+[  220.207425] done.
+[  220.392213] suspend: exit suspend, ret = -16 (2010-08-24 13:19:23.463370620 UTC)
+[  228.660436] PM: Syncing filesystems ... done.
+[  231.030928] PM: Preparing system for mem sleep
+[  231.031249] Freezing user space processes ... 
+[  231.063216] Freezing of tasks aborted after 0.02 seconds (490 tasks refusing to freeze):
+[  231.087030] 
+[  231.098630] Restarting tasks ... +qmi_read 256
+[  231.115598] done.
+[  231.128215] suspend: exit suspend, ret = -16 (2010-08-24 13:19:34.199398127 UTC)
+[  236.221755] PM: Syncing filesystems ... done.
+[  243.640402] PM: Preparing system for mem sleep
+[  243.893358] Freezing user space processes ... (elapsed 0.07 seconds) done.
+[  243.990360] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  244.012929] PM: Entering mem sleep
+[  244.023934] Suspending console(s) (use no_console_suspend to debug)
+[  244.051219] clocks on: adm_clk
+[  244.051425] wakeup wake lock: wlan_wake
+[  244.077288] PM: Finishing wakeup.
+[  244.088339] Restarting tasks ... +qmi_read 256
+[  244.107791] done.
+[  244.280291] suspend: exit suspend, ret = 0 (2010-08-24 13:19:47.726062089 UTC)
+[  244.629191] mmc1: Starting deferred resume
+[  244.648192] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  244.648229] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  244.648267] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  244.699753] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  244.699782] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  244.699819] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  244.699854] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  244.699934] mmc1: Deferred resume completed
+[  250.289101] PM: Syncing filesystems ... done.
+[  257.409106] PM: Preparing system for mem sleep
+[  257.409445] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[  257.520029] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  257.542536] PM: Entering mem sleep
+[  257.553445] Suspending console(s) (use no_console_suspend to debug)
+[  257.580750] clocks on: adm_clk
+[  257.580952] wakeup wake lock: wlan_wake
+[  257.606774] PM: Finishing wakeup.
+[  257.617788] Restarting tasks ... +qmi_read 256
+[  257.637448] done.
+[  257.809179] suspend: exit suspend, ret = 0 (2010-08-24 13:20:01.725469592 UTC)
+[  258.158086] mmc1: Starting deferred resume
+[  258.177083] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  258.177121] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  258.177159] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  258.228635] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  258.228664] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  258.228700] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  258.228737] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  258.228816] mmc1: Deferred resume completed
+[  263.698499] PM: Syncing filesystems ... 
+[  268.516563] init: waitpid returned pid 1009, status = 00000100
+[  268.516617] init: process 'rmnet-mtu', pid 1009 exited
+[  268.516657] init: process 'rmnet-mtu' killing any children in process group
+[  268.517162] init: starting 'rmnet-mtu'
+[  268.987970] done.
+[  268.988003] PM: Preparing system for mem sleep
+[  268.988550] Freezing user space processes ... 
+[  269.020448] Freezing of tasks aborted after 0.02 seconds (490 tasks refusing to freeze):
+[  269.044612] 
+[  269.056320] Restarting tasks ... +qmi_read 256
+[  269.073315] done.
+[  269.085121] suspend: exit suspend, ret = -16 (2010-08-24 13:20:13.001423140 UTC)
+[  269.180540] msm_i2c msm_i2c.0: error, status 63c8
+[  272.148347] PM: Syncing filesystems ... ACR=2752 FL=1256 RAAC=48
+[  279.577963] done.
+[  279.577997] PM: Preparing system for mem sleep
+[  279.578342] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  279.691291] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  279.714097] PM: Entering mem sleep
+[  279.725209] Suspending console(s) (use no_console_suspend to debug)
+[  279.752783] clocks on: adm_clk
+[  279.752988] wakeup wake lock: wlan_wake
+[  279.779423] PM: Finishing wakeup.
+[  279.790557] Restarting tasks ... +qmi_read 256
+[  279.810820] done.
+[  279.978035] suspend: exit suspend, ret = 0 (2010-08-24 13:20:23.895457312 UTC)
+[  280.326929] mmc1: Starting deferred resume
+[  280.345937] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  280.345976] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  280.346013] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  280.397493] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  280.397524] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  280.397562] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  280.397597] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  280.397675] mmc1: Deferred resume completed
+[  285.586835] PM: Syncing filesystems ... done.
+[  288.666957] PM: Preparing system for mem sleep
+[  288.667572] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  288.791229] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  288.818473] PM: Entering mem sleep
+[  288.831813] Suspending console(s) (use no_console_suspend to debug)
+[  288.859018] clocks on: adm_clk
+[  288.859218] wakeup wake lock: wlan_wake
+[  288.885279] PM: Finishing wakeup.
+[  288.896192] Restarting tasks ... mmc1: Starting deferred resume
+[  288.925182] +qmi_read 256
+[  288.940565] done.
+[  288.964848] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  288.986516] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  289.008134] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  289.085960] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  289.085989] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  289.086020] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  289.086051] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  289.086134] mmc1: Deferred resume completed
+[  289.166884] suspend: exit suspend, ret = 0 (2010-08-24 13:20:33.804547507 UTC)
+[  292.556368] PM: Syncing filesystems ... done.
+[  297.896359] PM: Preparing system for mem sleep
+[  297.896885] Freezing user space processes ... 
+[  297.955132] Freezing of tasks aborted after 0.03 seconds (490 tasks refusing to freeze):
+[  297.999226] 
+[  298.020968] Restarting tasks ... +qmi_read 256
+[  298.051370] done.
+[  298.237068] suspend: exit suspend, ret = -16 (2010-08-24 13:20:42.874726891 UTC)
+[  304.465839] PM: Syncing filesystems ... done.
+[  307.046197] PM: Preparing system for mem sleep
+[  307.046747] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[  307.157438] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  307.180266] PM: Entering mem sleep
+[  307.191463] Suspending console(s) (use no_console_suspend to debug)
+[  307.219245] clocks on: adm_clk
+[  307.219446] wakeup wake lock: wlan_wake
+[  307.245384] PM: Finishing wakeup.
+[  307.256402] Restarting tasks ... +qmi_read 256
+[  307.277289] done.
+[  307.445920] suspend: exit suspend, ret = 0 (2010-08-24 13:20:52.084558986 UTC)
+[  307.794603] mmc1: Starting deferred resume
+[  307.813801] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  307.813845] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  307.813890] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  307.865492] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  307.865536] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  307.865580] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  307.865626] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  307.865711] mmc1: Deferred resume completed
+[  310.775030] PM: Syncing filesystems ... done.
+[  317.994886] PM: Preparing system for mem sleep
+[  317.995249] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  318.120813] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  318.148074] PM: Entering mem sleep
+[  318.161399] Suspending console(s) (use no_console_suspend to debug)
+[  318.193721] clocks on: adm_clk
+[  318.193922] wakeup wake lock: wlan_wake
+[  318.220139] PM: Finishing wakeup.
+[  318.231284] Restarting tasks ... +qmi_read 256
+[  318.250984] done.
+[  318.424910] suspend: exit suspend, ret = 0 (2010-08-24 13:21:03.728203754 UTC)
+[  318.773828] mmc1: Starting deferred resume
+[  318.792814] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  318.792853] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  318.792891] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  318.844313] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  318.844343] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  318.844379] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  318.844414] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  318.844492] mmc1: Deferred resume completed
+[  324.553821] PM: Syncing filesystems ... done.
+[  332.224214] PM: Preparing system for mem sleep
+[  332.499001] Freezing user space processes ... 
+[  332.587024] Freezing of tasks aborted after 0.06 seconds (177 tasks refusing to freeze):
+[  332.629376] ACR=2745 FL=1256 RAAC=48
+[  332.653106] 
+[  332.675042] Restarting tasks ... +qmi_read 256
+[  332.737070] done.
+[  332.915720] suspend: exit suspend, ret = -16 (2010-08-24 13:21:18.218998543 UTC)
+[  338.564295] PM: Syncing filesystems ... done.
+[  345.313864] PM: Preparing system for mem sleep
+[  345.314226] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  345.432787] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  345.455667] PM: Entering mem sleep
+[  345.466791] Suspending console(s) (use no_console_suspend to debug)
+[  345.494448] clocks on: adm_clk
+[  345.494650] wakeup wake lock: wlan_wake
+[  345.520775] PM: Finishing wakeup.
+[  345.531968] Restarting tasks ... +qmi_read 256
+[  345.551703] done.
+[  345.723724] suspend: exit suspend, ret = 0 (2010-08-24 13:21:31.726259381 UTC)
+[  346.072659] mmc1: Starting deferred resume
+[  346.091672] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  346.091711] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  346.091747] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  346.143230] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  346.143259] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  346.143296] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  346.143333] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  346.143412] mmc1: Deferred resume completed
+[  352.163166] PM: Syncing filesystems ... done.
+[  359.613282] PM: Preparing system for mem sleep
+[  359.613936] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  359.739310] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  359.766671] PM: Entering mem sleep
+[  359.780008] Suspending console(s) (use no_console_suspend to debug)
+[  359.812064] clocks on: adm_clk
+[  359.812267] wakeup wake lock: wlan_wake
+[  359.838745] PM: Finishing wakeup.
+[  359.849907] Restarting tasks ... +qmi_read 256
+[  359.870249] done.
+[  360.042657] suspend: exit suspend, ret = 0 (2010-08-24 13:21:46.046321891 UTC)
+[  360.391547] mmc1: Starting deferred resume
+[  360.410534] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  360.410573] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  360.410611] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  360.462092] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  360.462122] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  360.462159] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  360.462194] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  360.462269] mmc1: Deferred resume completed
+[  366.131924] PM: Syncing filesystems ... 
+[  367.957157] mmc0: Data CRC error
+[  367.957214] msmsdcc_data_err: opcode 0x00000035
+[  367.957258] msmsdcc_data_err: blksz 144, blocks 1
+[  367.957446] mmc0: Data CRC error
+[  367.957481] msmsdcc_data_err: opcode 0x00000035
+[  367.957522] msmsdcc_data_err: blksz 144, blocks 1
+[  367.957699] mmc0: Data CRC error
+[  367.957733] msmsdcc_data_err: opcode 0x00000035
+[  367.957773] msmsdcc_data_err: blksz 144, blocks 1
+[  372.221904] done.
+[  372.221951] PM: Preparing system for mem sleep
+[  372.222437] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  372.397573] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  372.440413] PM: Entering mem sleep
+[  372.461507] Suspending console(s) (use no_console_suspend to debug)
+[  372.510413] clocks on: adm_clk
+[  372.510712] wakeup wake lock: wlan_wake
+[  372.558429] PM: Finishing wakeup.
+[  372.579298] Restarting tasks ... +qmi_read 256
+[  372.648404] done.
+[  372.789128] suspend: exit suspend, ret = 0 (2010-08-24 13:22:02.774288757 UTC)
+[  373.300025] mmc1: Starting deferred resume
+[  373.318738] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  373.318797] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  373.318863] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  373.370790] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  373.370848] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  373.370914] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  373.370978] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  373.371099] mmc1: Deferred resume completed
+[  374.110165] PM: Syncing filesystems ... done.
+[  374.209895] PM: Preparing system for mem sleep
+[  374.474870] Freezing user space processes ... (elapsed 0.10 seconds) done.
+[  374.609462] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  374.637053] PM: Entering mem sleep
+[  374.650540] Suspending console(s) (use no_console_suspend to debug)
+[  374.683464] clocks on: adm_clk
+[  374.683684] wakeup wake lock: wlan_wake
+[  374.714793] PM: Finishing wakeup.
+[  374.728135] Restarting tasks ... +qmi_read 256
+[  374.751472] done.
+[  374.919731] suspend: exit suspend, ret = 0 (2010-08-24 13:22:11.733068962 UTC)
+[  375.268390] mmc1: Starting deferred resume
+[  375.287565] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  375.287626] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  375.287692] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  375.338888] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  375.338942] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  375.339007] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  375.339072] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  375.339197] mmc1: Deferred resume completed
+[  375.419288] PM: Syncing filesystems ... done.
+[  375.519030] PM: Preparing system for mem sleep
+[  375.519461] Freezing user space processes ... (elapsed 0.11 seconds) done.
+[  375.664258] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  375.691859] PM: Entering mem sleep
+[  375.705319] Suspending console(s) (use no_console_suspend to debug)
+[  375.737907] clocks on: adm_clk
+[  375.738134] wakeup wake lock: wlan_wake
+[  375.770924] PM: Finishing wakeup.
+[  375.784480] Restarting tasks ... +qmi_read 256
+[  375.804466] done.
+[  375.978501] suspend: exit suspend, ret = 0 (2010-08-24 13:22:16.735973341 UTC)
+[  376.326728] mmc1: Starting deferred resume
+[  376.346333] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  376.346373] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  376.346416] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  376.397649] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  376.397703] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  376.397768] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  376.397837] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  376.397962] mmc1: Deferred resume completed
+[  376.487742] PM: Syncing filesystems ... done.
+[  376.587751] PM: Preparing system for mem sleep
+[  376.588620] Freezing user space processes ... 
+[  376.675257] Freezing of tasks aborted after 0.06 seconds (250 tasks refusing to freeze):
+[  376.719539] 
+[  376.741409] Restarting tasks ... +qmi_read 256
+[  376.773442] done.
+[  376.948619] suspend: exit suspend, ret = -16 (2010-08-24 13:22:17.706088763 UTC)
+[  377.398951] PM: Syncing filesystems ... done.
+[  377.497764] PM: Preparing system for mem sleep
+[  377.498196] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  377.674861] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  377.717143] PM: Entering mem sleep
+[  377.737852] Suspending console(s) (use no_console_suspend to debug)
+[  377.783362] pm_op(): platform_pm_suspend+0x0/0x5c returns -16
+[  377.783463] PM: Device alarm failed to suspend: error -16
+[  377.783501] PM: Some devices failed to suspend
+[  377.868598] PM: Finishing wakeup.
+[  377.889435] Restarting tasks ... +qmi_read 256
+[  377.923214] done.
+[  377.945683] suspend: exit suspend, ret = -16 (2010-08-24 13:22:18.703145635 UTC)
+[  378.130937] ACR=2741 FL=1256 RAAC=48
+[  378.277354] PM: Syncing filesystems ... done.
+[  378.377401] PM: Preparing system for mem sleep
+[  378.378019] Freezing user space processes ... 
+[  378.423286] Freezing of tasks aborted after 0.03 seconds (291 tasks refusing to freeze):
+[  378.451958] 
+[  378.465962] Restarting tasks ... +qmi_read 256
+[  378.501100] done.
+[  378.668421] suspend: exit suspend, ret = -16 (2010-08-24 13:22:19.425892313 UTC)
+[  379.128398] PM: Syncing filesystems ... done.
+[  379.227267] PM: Preparing system for mem sleep
+[  379.227563] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[  379.334894] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  379.357790] PM: Entering mem sleep
+[  379.368944] Suspending console(s) (use no_console_suspend to debug)
+[  379.396309] clocks on: adm_clk
+[  379.396511] wakeup wake lock: wlan_wake
+[  379.422957] PM: Finishing wakeup.
+[  379.434121] Restarting tasks ... +qmi_read 256
+[  379.453194] done.
+[  379.465295] suspend: exit suspend, ret = 0 (2010-08-24 13:22:29.565696458 UTC)
+[  379.975804] mmc1: Starting deferred resume
+[  379.995262] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  379.995303] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  379.995346] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  380.046888] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  380.046924] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  380.046967] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  380.047011] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  380.047096] mmc1: Deferred resume completed
+[  380.156220] PM: Syncing filesystems ... done.
+[  380.256236] PM: Preparing system for mem sleep
+[  380.256861] Freezing user space processes ... (elapsed 0.10 seconds) done.
+[  380.385228] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  380.408253] PM: Entering mem sleep
+[  380.419397] Suspending console(s) (use no_console_suspend to debug)
+[  380.447221] clocks on: adm_clk
+[  380.448698] wakeup wake lock: SMD_RPCCALL
+[  380.473422] PM: Finishing wakeup.
+[  380.484612] Restarting tasks ... +qmi_read 256
+[  380.504549] done.
+[  380.676361] suspend: exit suspend, ret = 0 (2010-08-24 13:22:48.726230419 UTC)
+[  381.280399] mmc1: Starting deferred resume
+[  381.294229] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  381.294291] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  381.294357] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  381.345439] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  381.345493] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  381.345558] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  381.345626] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  381.345751] mmc1: Deferred resume completed
+[  381.425645] PM: Syncing filesystems ... done.
+[  381.525822] PM: Preparing system for mem sleep
+[  381.526252] Freezing user space processes ... (elapsed 0.14 seconds) done.
+[  381.708313] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  381.751042] PM: Entering mem sleep
+[  381.771957] Suspending console(s) (use no_console_suspend to debug)
+[  381.820743] clocks on: adm_clk
+[  381.821049] wakeup wake lock: wlan_wake
+[  381.868528] PM: Finishing wakeup.
+[  381.889419] Restarting tasks ... +qmi_read 256
+[  381.947965] done.
+[  382.062889] suspend: exit suspend, ret = 0 (2010-08-24 13:23:07.737848128 UTC)
+[  382.573017] mmc1: Starting deferred resume
+[  382.592437] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  382.592500] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  382.592567] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  382.644095] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  382.644150] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  382.644214] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  382.644283] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  382.644407] mmc1: Deferred resume completed
+[  382.723874] PM: Syncing filesystems ... done.
+[  382.824186] PM: Preparing system for mem sleep
+[  383.068919] Freezing user space processes ... 
+[  383.100816] Freezing of tasks aborted after 0.00 seconds (490 tasks refusing to freeze):
+[  383.145569] 
+[  383.167485] Restarting tasks ... +qmi_read 256
+[  383.199636] done.
+[  383.223963] ACR=2740 FL=1256 RAAC=48
+[  383.385370] suspend: exit suspend, ret = -16 (2010-08-24 13:23:09.060311249 UTC)
+[  383.513874] PM: Syncing filesystems ... done.
+[  383.614084] PM: Preparing system for mem sleep
+[  383.614508] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  383.789877] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  383.817221] PM: Entering mem sleep
+[  383.830582] Suspending console(s) (use no_console_suspend to debug)
+[  383.863137] clocks on: adm_clk
+[  383.863362] wakeup wake lock: wlan_wake
+[  383.894183] PM: Finishing wakeup.
+[  383.907412] Restarting tasks ... +qmi_read 256
+[  383.929427] done.
+[  383.943963] suspend: exit suspend, ret = 0 (2010-08-24 13:23:56.577597291 UTC)
+[  384.451956] mmc1: Starting deferred resume
+[  384.471158] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  384.471220] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  384.471286] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  384.522263] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  384.522318] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  384.522383] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  384.522451] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  384.522572] mmc1: Deferred resume completed
+[  384.602599] PM: Syncing filesystems ... done.
+[  384.702612] PM: Preparing system for mem sleep
+[  384.703486] Freezing user space processes ... 
+[  384.792988] Freezing of tasks aborted after 0.07 seconds (212 tasks refusing to freeze):
+[  384.821602] 
+[  384.835703] Restarting tasks ... +qmi_read 256
+[  384.856468] done.
+[  384.871858] suspend: exit suspend, ret = -16 (2010-08-24 13:23:57.505492093 UTC)
+[  384.974782] msm_i2c msm_i2c.0: error, status 63c8
+[  385.472602] PM: Syncing filesystems ... done.
+[  385.572702] PM: Preparing system for mem sleep
+[  385.573129] Freezing user space processes ... 
+[  385.723397] Freezing of tasks aborted after 0.12 seconds (18 tasks refusing to freeze):
+[  385.765013] 
+[  385.785576] Restarting tasks ... +qmi_read 256
+[  385.808519] done.
+[  385.983536] suspend: exit suspend, ret = -16 (2010-08-24 13:23:58.617160846 UTC)
+[  386.422594] PM: Syncing filesystems ... done.
+[  386.522768] PM: Preparing system for mem sleep
+[  386.523643] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  386.696543] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  386.738544] PM: Entering mem sleep
+[  386.759225] Suspending console(s) (use no_console_suspend to debug)
+[  386.807912] clocks on: adm_clk
+[  386.809756] wakeup wake lock: SMD_RPCCALL
+[  386.855180] PM: Finishing wakeup.
+[  386.875789] Restarting tasks ... +qmi_read 256
+[  386.923488] ACR=2739 FL=1256 RAAC=48
+[  386.969880] done.
+[  387.069733] suspend: exit suspend, ret = 0 (2010-08-24 13:24:01.757757919 UTC)
+[  387.173043] msm_i2c msm_i2c.0: error, status 63c8
+[  387.810044] mmc1: Starting deferred resume
+[  387.829429] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  387.829488] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  387.829555] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  387.880642] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  387.880694] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  387.880759] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  387.880827] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  387.880948] mmc1: Deferred resume completed
+[  387.970926] PM: Syncing filesystems ... done.
+[  388.080839] PM: Preparing system for mem sleep
+[  388.081269] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  388.256290] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  388.298241] PM: Entering mem sleep
+[  388.318848] Suspending console(s) (use no_console_suspend to debug)
+[  388.366266] clocks on: adm_clk
+[  388.366573] wakeup wake lock: wlan_wake
+[  388.397757] PM: Finishing wakeup.
+[  388.410805] Restarting tasks ... +qmi_read 256
+[  388.433496] done.
+[  388.609791] suspend: exit suspend, ret = 0 (2010-08-24 13:24:23.739336672 UTC)
+[  388.854057] init: waitpid returned pid 1137, status = 00000100
+[  388.854109] init: process 'rmnet-mtu', pid 1137 exited
+[  388.854149] init: process 'rmnet-mtu' killing any children in process group
+[  388.854404] init: starting 'rmnet-mtu'
+[  388.958139] mmc1: Starting deferred resume
+[  388.977667] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  388.977702] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  388.977740] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  389.029223] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  389.029252] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  389.029288] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  389.029325] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  389.029404] mmc1: Deferred resume completed
+[  389.118570] PM: Syncing filesystems ... done.
+[  389.218622] PM: Preparing system for mem sleep
+[  389.219177] Freezing user space processes ... 
+[  389.294036] Freezing of tasks aborted after 0.06 seconds (131 tasks refusing to freeze):
+[  389.317676] 
+[  389.328953] Restarting tasks ... +qmi_read 256
+[  389.346868] done.
+[  389.358596] suspend: exit suspend, ret = -16 (2010-08-24 13:24:24.488150434 UTC)
+[  389.959063] PM: Syncing filesystems ... done.
+[  390.059057] PM: Preparing system for mem sleep
+[  390.059489] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  390.220153] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  390.246981] PM: Entering mem sleep
+[  390.259996] Suspending console(s) (use no_console_suspend to debug)
+[  390.292044] clocks on: adm_clk
+[  390.292267] wakeup wake lock: wlan_wake
+[  390.322514] PM: Finishing wakeup.
+[  390.335551] Restarting tasks ... +qmi_read 256
+[  390.358188] done.
+[  390.528699] suspend: exit suspend, ret = 0 (2010-08-24 13:24:26.733419585 UTC)
+[  390.877222] mmc1: Starting deferred resume
+[  390.896532] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  390.896589] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  390.896655] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  390.948244] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  390.948303] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  390.948368] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  390.948438] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  390.948566] mmc1: Deferred resume completed
+[  391.028261] PM: Syncing filesystems ... done.
+[  391.128093] PM: Preparing system for mem sleep
+[  391.129182] Freezing user space processes ... 
+[  391.229429] Freezing of tasks aborted after 0.07 seconds (222 tasks refusing to freeze):
+[  391.272864] 
+[  391.294230] Restarting tasks ... +qmi_read 256
+[  391.324570] done.
+[  391.509460] suspend: exit suspend, ret = -16 (2010-08-24 13:24:27.714165210 UTC)
+[  391.948026] PM: Syncing filesystems ... done.
+[  392.048156] PM: Preparing system for mem sleep
+[  392.048588] Freezing user space processes ... 
+[  392.150054] Freezing of tasks aborted after 0.08 seconds (204 tasks refusing to freeze):
+[  392.192985] 
+[  392.214211] Restarting tasks ... +qmi_read 256
+[  392.246720] done.
+[  392.268228] suspend: exit suspend, ret = -16 (2010-08-24 13:24:28.472941667 UTC)
+[  392.868024] PM: Syncing filesystems ... done.
+[  392.968337] PM: Preparing system for mem sleep
+[  392.969199] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  393.143546] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  393.184770] PM: Entering mem sleep
+[  393.204895] Suspending console(s) (use no_console_suspend to debug)
+[  393.251995] clocks on: adm_clk
+[  393.253831] wakeup wake lock: SMD_RPCCALL
+[  393.297807] PM: Finishing wakeup.
+[  393.317853] Restarting tasks ... +qmi_read 256
+[  393.385128] done.
+[  393.537074] suspend: exit suspend, ret = 0 (2010-08-24 13:24:31.781230837 UTC)
+[  393.565391] mmc1: Starting deferred resume
+[  393.584948] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  393.584977] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  393.585009] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  393.636482] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  393.636507] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  393.636538] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  393.636569] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  393.636639] mmc1: Deferred resume completed
+[  393.725771] PM: Syncing filesystems ... done.
+[  393.825772] PM: Preparing system for mem sleep
+[  393.826068] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[  393.933191] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  393.955547] PM: Entering mem sleep
+[  393.966505] Suspending console(s) (use no_console_suspend to debug)
+[  393.994734] clocks on: adm_clk
+[  393.996234] wakeup wake lock: SMD_RPCCALL
+[  394.020654] PM: Finishing wakeup.
+[  394.031494] Restarting tasks ... +qmi_read 256
+[  394.050627] done.
+[  394.062182] ACR=2738 FL=1256 RAAC=47
+[  394.062308] suspend: exit suspend, ret = 0 (2010-08-24 13:24:54.564535415 UTC)
+[  394.160285] msm_i2c msm_i2c.0: error, status 43c8
+[  394.185173] mmc1: Starting deferred resume
+[  394.204654] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  394.204683] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  394.204716] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  394.266121] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  394.266158] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  394.266195] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  394.266233] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  394.266317] mmc1: Deferred resume completed
+[  394.355771] PM: Syncing filesystems ... done.
+[  395.405709] PM: Preparing system for mem sleep
+[  395.780664] Freezing user space processes ... (elapsed 0.11 seconds) done.
+[  395.933243] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  395.974798] PM: Entering mem sleep
+[  395.987852] Suspending console(s) (use no_console_suspend to debug)
+[  396.019754] clocks on: adm_clk
+[  396.021455] wakeup wake lock: SMD_RPCCALL
+[  396.050862] PM: Finishing wakeup.
+[  396.063946] Restarting tasks ... +qmi_read 256
+[  396.107245] ACR=2738 FL=1256 RAAC=47
+[  396.123139] done.
+[  396.196432] mmc1: Starting deferred resume
+[  396.237772] suspend: exit suspend, ret = 0 (2010-08-24 13:25:59.714372298 UTC)
+[  396.253375] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  396.253402] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  396.253435] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  396.305029] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  396.305057] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  396.305090] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  396.305123] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  396.305196] mmc1: Deferred resume completed
+[  396.336924] msm_i2c msm_i2c.0: error, status 63c8
+[  396.684572] PM: Syncing filesystems ... done.
+[  396.784350] PM: Preparing system for mem sleep
+[  397.027628] Freezing user space processes ... (elapsed 0.07 seconds) done.
+[  397.123274] Freezing remaining freezable tasks ... (elapsed 0.07 seconds) done.
+[  397.215403] PM: Entering mem sleep
+[  397.226435] Suspending console(s) (use no_console_suspend to debug)
+[  397.253463] clocks on: adm_clk
+[  397.254464] wakeup wake lock: SMD_RPCCALL
+[  397.279578] PM: Finishing wakeup.
+[  397.290446] Restarting tasks ... +qmi_read 256
+[  397.315160] done.
+[  397.326352] ACR=2737 FL=1256 RAAC=47
+[  397.338016] suspend: exit suspend, ret = 0 (2010-08-24 13:26:52.581364999 UTC)
+[  397.338421] mmc1: Starting deferred resume
+[  397.352354] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  397.352382] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  397.352415] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  397.403964] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  397.403992] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  397.404024] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  397.404056] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  397.404131] mmc1: Deferred resume completed
+[  397.703189] PM: Syncing filesystems ... done.
+[  397.793312] PM: Preparing system for mem sleep
+[  397.793636] Freezing user space processes ... (elapsed 0.09 seconds) done.
+[  397.918655] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  397.945576] PM: Entering mem sleep
+[  397.958712] Suspending console(s) (use no_console_suspend to debug)
+[  397.990578] clocks on: adm_clk
+[  397.992126] wakeup wake lock: SMD_RPCCALL
+[  398.016529] PM: Finishing wakeup.
+[  398.027399] Restarting tasks ... +qmi_read 256
+[  398.050201] ACR=2737 FL=1256 RAAC=47
+[  398.111949] done.
+[  398.154157] suspend: exit suspend, ret = 0 (2010-08-24 13:27:45.660600213 UTC)
+[  398.992103] mmc1: Starting deferred resume
+[  399.011282] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  399.011343] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  399.011409] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  399.062666] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  399.062725] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  399.062791] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  399.062859] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  399.062980] mmc1: Deferred resume completed
+[  399.363049] PM: Syncing filesystems ... done.
+[  399.462789] PM: Preparing system for mem sleep
+[  399.463668] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  399.643623] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  399.685483] PM: Entering mem sleep
+[  399.706065] Suspending console(s) (use no_console_suspend to debug)
+[  399.754150] clocks on: adm_clk
+[  399.755977] wakeup wake lock: SMD_RPCCALL
+[  399.800597] PM: Finishing wakeup.
+[  399.820954] Restarting tasks ... +qmi_read 256
+[  399.869631] ACR=2736 FL=1256 RAAC=47
+[  399.908903] done.
+[  400.048854] suspend: exit suspend, ret = 0 (2010-08-24 13:28:38.790941256 UTC)
+[  400.750233] mmc1: Starting deferred resume
+[  400.769534] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  400.769593] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  400.769660] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  400.820795] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  400.820850] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  400.820915] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  400.820980] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  400.821103] mmc1: Deferred resume completed
+[  400.901161] PM: Syncing filesystems ... done.
+[  401.000998] PM: Preparing system for mem sleep
+[  401.001431] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  401.178509] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  401.220276] PM: Entering mem sleep
+[  401.240709] Suspending console(s) (use no_console_suspend to debug)
+[  401.289545] clocks on: adm_clk
+[  401.291386] wakeup wake lock: SMD_RPCCALL
+[  401.336223] PM: Finishing wakeup.
+[  401.356745] Restarting tasks ... +qmi_read 256
+[  401.401169] ACR=2736 FL=1256 RAAC=47
+[  401.436246] done.
+[  401.559578] suspend: exit suspend, ret = 0 (2010-08-24 13:29:30.766282715 UTC)
+[  402.289529] mmc1: Starting deferred resume
+[  402.308830] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  402.308888] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  402.308954] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  402.360098] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  402.360153] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  402.360217] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  402.360285] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  402.360405] mmc1: Deferred resume completed
+[  402.440712] PM: Syncing filesystems ... done.
+[  402.540297] PM: Preparing system for mem sleep
+[  402.541167] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  402.718191] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  402.760607] PM: Entering mem sleep
+[  402.781402] Suspending console(s) (use no_console_suspend to debug)
+[  402.829911] clocks on: adm_clk
+[  402.831742] wakeup wake lock: SMD_RPCCALL
+[  402.877518] PM: Finishing wakeup.
+[  402.898196] Restarting tasks ... +qmi_read 256
+[  402.939610] ACR=2735 FL=1256 RAAC=47
+[  402.977218] done.
+[  403.104951] suspend: exit suspend, ret = 0 (2010-08-24 13:30:23.770831671 UTC)
+[  403.827814] mmc1: Starting deferred resume
+[  403.847098] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  403.847158] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  403.847224] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  403.898387] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  403.898440] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  403.898506] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  403.898575] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  403.898719] mmc1: Deferred resume completed
+[  403.978554] PM: Syncing filesystems ... done.
+[  404.078558] PM: Preparing system for mem sleep
+[  404.078992] Freezing user space processes ... (elapsed 0.13 seconds) done.
+[  404.256781] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[  404.298810] PM: Entering mem sleep
+[  404.319510] Suspending console(s) (use no_console_suspend to debug)
+[  404.367337] clocks on: adm_clk
+[  404.367614] wakeup wake lock: gpio_input
+[  404.414894] PM: Finishing wakeup.
+[  404.435482] Restarting tasks ... +qmi_read 256
+[  404.477757] done.
+[  404.498305] microp_set_bkl(2)
+[  404.555676] request_suspend_state: wakeup (3->0) at 404600425145 (2010-08-24 13:30:33.684043751 UTC)
+[  404.585450] capella_cm3602_ioctl
+[  404.697661] suspend: exit suspend, ret = 0 (2010-08-24 13:30:33.826031461 UTC)
+[  404.697703] lcdc_resume: resuming
+[  404.744234] lcdc_unblank: ()
+[  404.744269] auo_panel_unblank
+[  406.776508] wlan: Return_dpc value is : 0
+[  406.779378] STA disconnect received 6
+[  406.780086] wlan: Return_dpc value is : 0
+[  406.799822] wlan: Return_dpc value is : 0
+[  406.810398] wlan: Return_dpc value is : 0
+[  406.814713] wlan: Return_dpc value is : 0
+[  406.866378] wlan: Return_dpc value is : 0
+[  406.881066] wlan: disassoc client!
+[  406.881907] wlan: wake lock 15 secs!
+[  406.881972] wlan: Link Down,16
+[  406.888835] wlan: disassoc client!
+[  407.315461] msm_i2c msm_i2c.0: error, status 43c8
+[  407.315688] msm_i2c msm_i2c.0: error, status 43c8
+[  407.890429] wlan: pfn: set ssid = RunarR
+[  407.890488] wlan: lightest is 1, weightest is 0, samessid = 0
+[  407.890530] wlan: connect to latest ssid, ignore!
+[  408.856800] wlan: wake lock 15 secs!
+[  408.856851] wlan: Link UP
+[  408.961274] STA connect received 1
+[  409.115829] wlan: Enter set packet filter
+[  409.121913] init: service 'dhcpcd' is being killed
+[  409.137062] mmc1: Starting deferred resume
+[  409.155417] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[  409.155447] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[  409.155476] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[  409.206577] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[  409.206605] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[  409.206632] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[  409.206656] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[  409.206724] mmc1: Deferred resume completed
+[  409.385849] init: waitpid returned pid 424, status = 00000100
+[  409.385883] init: process 'dhcpcd', pid 424 exited
+[  410.202188] wlan: wl_iw_set_btcoex_dhcp: DHCP session starts
+[  410.203529] wlan: wl_iw_set_power_mode: DHCP session starts
+[  410.204795] init: starting 'dhcpcd'
+[  412.205985] wlan: wl_iw_set_power_mode: DHCP session done
+[  412.207087] wlan: wl_iw_set_btcoex_dhcp: DHCP session done
+[  412.207104] wlan: wl_iw_set_btcoex_dhcp disable BT DHCP Timer
+[  412.208964] wlan: Enter set packet filter
+[  412.210032] wlan: start to add pkt filter 101
+[  414.843754] capella_cm3602_ioctl
+[  419.050379] init: no such service 'btld'
+[  419.050669] set bt power 1
+[  419.050678] bt power off
+[  419.057130] set bt power 0
+[  419.265628] bt power on
+[  419.269667] init: no such service 'btld'
+[  429.274602] init: no such service 'btld'
+[  430.275509] set bt power 1
+[  430.275556] bt power off
+[  444.647360] ACR=2728 FL=1256 RAAC=47
+[  480.786764] capella_cm3602_ioctl
+[  484.528981] capella_cm3602_ioctl
+[  488.303645] capella_cm3602_ioctl
+[  494.657543] ACR=2722 FL=1256 RAAC=47
+[  509.459402] init: waitpid returned pid 1270, status = 00000100
+[  509.459452] init: process 'rmnet-mtu', pid 1270 exited
+[  509.459489] init: process 'rmnet-mtu' killing any children in process group
+[  509.459797] init: starting 'rmnet-mtu'
+[  513.055899] capella_cm3602_ioctl
+[  514.008012] capella_cm3602_ioctl
+[  547.487035] ACR=2715 FL=1256 RAAC=47
+[  561.229540] msm_enqueue: queue event new max is 1
+[  561.229577] start sensor S_RES_PREVIEW config: 2658
+[  561.260514] msm_enqueue: queue control new max is 1
+[  561.335154] msm_enqueue: queue event new max is 2
+[  597.518394] ACR=2709 FL=1256 RAAC=47
+[  630.009928] init: waitpid returned pid 1469, status = 00000100
+[  630.009988] init: process 'rmnet-mtu', pid 1469 exited
+[  630.010035] init: process 'rmnet-mtu' killing any children in process group
+[  630.010395] init: starting 'rmnet-mtu'
+[  647.537850] ACR=2704 FL=1256 RAAC=46
+[  697.571323] ACR=2697 FL=1256 RAAC=46
+[  747.597391] ACR=2692 FL=1256 RAAC=46
+[  750.489521] init: waitpid returned pid 1566, status = 00000100
+[  750.489581] init: process 'rmnet-mtu', pid 1566 exited
+[  750.489628] init: process 'rmnet-mtu' killing any children in process group
+[  750.489931] init: starting 'rmnet-mtu'
+[  797.696857] ACR=2686 FL=1256 RAAC=46
+[  847.708064] ACR=2681 FL=1256 RAAC=46
+[  871.087055] init: waitpid returned pid 1627, status = 00000100
+[  871.087116] init: process 'rmnet-mtu', pid 1627 exited
+[  871.087164] init: process 'rmnet-mtu' killing any children in process group
+[  871.087459] init: starting 'rmnet-mtu'
+[  889.495241] msm_timer_set_next_event(5) clock dg_timer, alarm already expired, now fe808848, alarm fe80884a, late -2
+[  897.717341] ACR=2674 FL=1256 RAAC=45
+[  939.938763] capella_cm3602_ioctl
+[  947.733524] ACR=2669 FL=1256 RAAC=45
+[  957.632747] STA disconnect received 6
+[  957.643106] wlan: disassoc client!
+[  957.644039] wlan: wake lock 15 secs!
+[  957.644106] wlan: Link Down,16
+[  957.653646] wlan: disassoc client!
+[  958.712693] wlan: pfn: set ssid = RunarR
+[  958.712750] wlan: lightest is 1, weightest is 0, samessid = 0
+[  958.712792] wlan: connect to latest ssid, ignore!
+[  959.678324] wlan: wake lock 15 secs!
+[  959.678388] wlan: Link UP
+[  959.783055] STA connect received 1
+[  959.936210] wlan: Enter set packet filter
+[  959.950620] init: service 'dhcpcd' is being killed
+[  960.148626] init: waitpid returned pid 1315, status = 00000100
+[  960.148714] init: process 'dhcpcd', pid 1315 exited
+[  960.986147] wlan: wl_iw_set_btcoex_dhcp: DHCP session starts
+[  960.988760] wlan: wl_iw_set_power_mode: DHCP session starts
+[  960.992012] init: starting 'dhcpcd'
+[  962.994097] wlan: wl_iw_set_power_mode: DHCP session done
+[  962.996372] wlan: wl_iw_set_btcoex_dhcp: DHCP session done
+[  962.996423] wlan: wl_iw_set_btcoex_dhcp disable BT DHCP Timer
+[  963.000410] wlan: Enter set packet filter
+[  963.001762] wlan: start to add pkt filter 101
+[  991.643075] init: waitpid returned pid 1692, status = 00000100
+[  991.643138] init: process 'rmnet-mtu', pid 1692 exited
+[  991.643185] init: process 'rmnet-mtu' killing any children in process group
+[  991.643544] init: starting 'rmnet-mtu'
+[  997.737940] ACR=2662 FL=1256 RAAC=45
+[ 1008.730725] capella_cm3602_ioctl
+[ 1009.956222] request_suspend_state: sleep (0->3) at 1010000957236 (2010-08-24 13:40:39.084571884 UTC)
+[ 1009.960327] lcdc_blank: ()
+[ 1009.960368] auo_panel_blank
+[ 1010.208154] wlan: add pfn: RunarR
+[ 1010.208178] wlan: enable pfn!
+[ 1010.208645] lcdc_suspend: suspending
+[ 1010.936217] PM: Syncing filesystems ... done.
+[ 1011.036246] PM: Preparing system for mem sleep
+[ 1011.036539] Freezing user space processes ... (elapsed 0.05 seconds) done.
+[ 1011.110378] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[ 1011.133042] PM: Entering mem sleep
+[ 1011.144104] Suspending console(s) (use no_console_suspend to debug)
+[ 1011.171614] clocks on: adm_clk
+[ 1011.173102] wakeup wake lock: SMD_RPCCALL
+[ 1011.197571] PM: Finishing wakeup.
+[ 1011.208522] Restarting tasks ... +qmi_read 256
+[ 1011.230300] ACR=2660 FL=1256 RAAC=45
+[ 1011.264453] done.
+[ 1011.352850] suspend: exit suspend, ret = 0 (2010-08-24 13:41:19.678323336 UTC)
+[ 1012.174910] mmc1: Starting deferred resume
+[ 1012.194428] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[ 1012.194470] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[ 1012.194513] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[ 1012.245882] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[ 1012.245918] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[ 1012.245961] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[ 1012.246006] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[ 1012.246091] mmc1: Deferred resume completed
+[ 1012.335268] PM: Syncing filesystems ... done.
+[ 1012.435360] PM: Preparing system for mem sleep
+[ 1012.435975] Freezing user space processes ... (elapsed 0.06 seconds) done.
+[ 1012.523212] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[ 1012.550296] PM: Entering mem sleep
+[ 1012.563703] Suspending console(s) (use no_console_suspend to debug)
+[ 1012.591183] clocks on: adm_clk
+[ 1012.592686] wakeup wake lock: SMD_RPCCALL
+[ 1012.617248] PM: Finishing wakeup.
+[ 1012.628231] Restarting tasks ... +qmi_read 256
+[ 1012.653428] ACR=2660 FL=1256 RAAC=45
+[ 1012.677210] done.
+[ 1012.753410] suspend: exit suspend, ret = 0 (2010-08-24 13:42:11.659229170 UTC)
+[ 1013.593914] mmc1: Starting deferred resume
+[ 1013.613259] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[ 1013.613320] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[ 1013.613386] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[ 1013.664533] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[ 1013.664588] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[ 1013.664653] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[ 1013.664723] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[ 1013.664849] mmc1: Deferred resume completed
+[ 1013.744567] PM: Syncing filesystems ... done.
+[ 1013.844592] PM: Preparing system for mem sleep
+[ 1013.845025] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[ 1013.967372] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[ 1014.009489] PM: Entering mem sleep
+[ 1014.030245] Suspending console(s) (use no_console_suspend to debug)
+[ 1014.078706] clocks on: adm_clk
+[ 1014.080555] wakeup wake lock: SMD_RPCCALL
+[ 1014.125569] PM: Finishing wakeup.
+[ 1014.146105] Restarting tasks ... +qmi_read 256
+[ 1014.181520] ACR=2659 FL=1256 RAAC=45
+[ 1014.240944] done.
+[ 1014.309223] suspend: exit suspend, ret = 0 (2010-08-24 13:43:04.726701252 UTC)
+[ 1015.082142] mmc1: Starting deferred resume
+[ 1015.101511] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[ 1015.101571] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[ 1015.101637] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[ 1015.152825] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[ 1015.152881] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[ 1015.152946] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[ 1015.153014] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[ 1015.153140] mmc1: Deferred resume completed
+[ 1015.232820] PM: Syncing filesystems ... done.
+[ 1015.332823] PM: Preparing system for mem sleep
+[ 1015.333696] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[ 1015.455723] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[ 1015.497875] PM: Entering mem sleep
+[ 1015.518641] Suspending console(s) (use no_console_suspend to debug)
+[ 1015.567080] clocks on: adm_clk
+[ 1015.568914] wakeup wake lock: SMD_RPCCALL
+[ 1015.614356] PM: Finishing wakeup.
+[ 1015.634906] Restarting tasks ... +qmi_read 256
+[ 1015.666175] done.
+[ 1015.687297] ACR=2659 FL=1256 RAAC=45
+[ 1015.710066] suspend: exit suspend, ret = 0 (2010-08-24 13:43:57.638844580 UTC)
+[ 1015.710833] mmc1: Starting deferred resume
+[ 1015.729754] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[ 1015.729805] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[ 1015.729864] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[ 1015.781051] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[ 1015.781098] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[ 1015.781155] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[ 1015.781215] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[ 1015.781332] mmc1: Deferred resume completed
+[ 1015.871255] PM: Syncing filesystems ... done.
+[ 1015.981098] PM: Preparing system for mem sleep
+[ 1015.981524] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[ 1016.103974] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[ 1016.146115] PM: Entering mem sleep
+[ 1016.167046] Suspending console(s) (use no_console_suspend to debug)
+[ 1016.199749] clocks on: adm_clk
+[ 1016.200841] wakeup wake lock: SMD_RPCCALL
+[ 1016.230840] PM: Finishing wakeup.
+[ 1016.244001] Restarting tasks ... +qmi_read 256
+[ 1016.272090] ACR=2658 FL=1256 RAAC=45
+[ 1016.295544] done.
+[ 1016.471255] suspend: exit suspend, ret = 0 (2010-08-24 13:44:50.768104592 UTC)
+[ 1017.200095] mmc1: Starting deferred resume
+[ 1017.219255] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[ 1017.219315] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[ 1017.219381] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[ 1017.270904] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[ 1017.270968] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[ 1017.271034] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[ 1017.271103] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[ 1017.271227] mmc1: Deferred resume completed
+[ 1017.350670] PM: Syncing filesystems ... done.
+[ 1017.450615] PM: Preparing system for mem sleep
+[ 1017.451483] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[ 1017.566025] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[ 1017.593092] PM: Entering mem sleep
+[ 1017.606385] Suspending console(s) (use no_console_suspend to debug)
+[ 1017.639229] clocks on: adm_clk
+[ 1017.640799] wakeup wake lock: SMD_RPCCALL
+[ 1017.669980] PM: Finishing wakeup.
+[ 1017.683172] Restarting tasks ... +qmi_read 256
+[ 1017.707338] ACR=2658 FL=1256 RAAC=45
+[ 1017.733451] done.
+[ 1017.910592] suspend: exit suspend, ret = 0 (2010-08-24 13:45:42.768228545 UTC)
+[ 1018.639335] mmc1: Starting deferred resume
+[ 1018.658596] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[ 1018.658658] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[ 1018.658725] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[ 1018.710369] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[ 1018.710425] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[ 1018.710491] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[ 1018.710556] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[ 1018.710677] mmc1: Deferred resume completed
+[ 1018.789964] PM: Syncing filesystems ... done.
+[ 1018.889926] PM: Preparing system for mem sleep
+[ 1018.890355] Freezing user space processes ... (elapsed 0.08 seconds) done.
+[ 1019.012896] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[ 1019.054966] PM: Entering mem sleep
+[ 1019.075713] Suspending console(s) (use no_console_suspend to debug)
+[ 1019.124000] clocks on: adm_clk
+[ 1019.125850] wakeup wake lock: SMD_RPCCALL
+[ 1019.170912] PM: Finishing wakeup.
+[ 1019.184080] Restarting tasks ... +qmi_read 256
+[ 1019.230054] done.
+[ 1019.277358] suspend: exit suspend, ret = 0 (2010-08-24 13:45:59.649511459 UTC)
+[ 1019.407565] mmc1: Starting deferred resume
+[ 1019.426926] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[ 1019.426955] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[ 1019.426987] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[ 1019.478521] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[ 1019.478544] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[ 1019.478575] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[ 1019.478608] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[ 1019.478678] mmc1: Deferred resume completed
+[ 1021.678268] PM: Syncing filesystems ... done.
+[ 1023.298556] PM: Preparing system for mem sleep
+[ 1023.623822] Freezing user space processes ... 
+[ 1023.645270] Freezing of tasks aborted after 0.00 seconds (359 tasks refusing to freeze):
+[ 1023.673555] 
+[ 1023.687610] Restarting tasks ... +qmi_read 256
+[ 1023.732188] done.
+[ 1023.800548] suspend: exit suspend, ret = -16 (2010-08-24 13:46:04.172697928 UTC)
+[ 1024.137737] PM: Syncing filesystems ... done.
+[ 1024.227864] PM: Preparing system for mem sleep
+[ 1024.228481] Freezing user space processes ... 
+[ 1024.251443] AKM8973 AKECS_TransRBUFF: Data not ready
+[ 1024.295192] (elapsed 0.06 seconds) done.
+[ 1024.308608] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[ 1024.335555] PM: Entering mem sleep
+[ 1024.348759] Suspending console(s) (use no_console_suspend to debug)
+[ 1024.376914] clocks on: adm_clk
+[ 1024.377737] wakeup wake lock: SMD_RPCCALL
+[ 1024.401948] PM: Finishing wakeup.
+[ 1024.412813] Restarting tasks ... +qmi_read 256
+[ 1024.430461] done.
+[ 1024.442146] suspend: exit suspend, ret = 0 (2010-08-24 13:46:04.815274595 UTC)
+[ 1024.442524] mmc1: Starting deferred resume
+[ 1024.455989] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[ 1024.456018] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[ 1024.456050] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[ 1024.507465] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[ 1024.507490] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[ 1024.507521] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[ 1024.507554] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[ 1024.507626] mmc1: Deferred resume completed
+[ 1024.596765] PM: Syncing filesystems ... done.
+[ 1024.686797] PM: Preparing system for mem sleep
+[ 1025.022138] Freezing user space processes ... (elapsed 0.04 seconds) done.
+[ 1025.108757] Freezing remaining freezable tasks ... (elapsed 0.00 seconds) done.
+[ 1025.150813] PM: Entering mem sleep
+[ 1025.163987] Suspending console(s) (use no_console_suspend to debug)
+[ 1025.195841] clocks on: adm_clk
+[ 1025.196046] wakeup wake lock: gpio_input
+[ 1025.226778] PM: Finishing wakeup.
+[ 1025.239884] Restarting tasks ... +qmi_read 256
+[ 1025.265928] done.
+[ 1025.279123] microp_set_bkl(2)
+[ 1025.293065] suspend: exit suspend, ret = 0 (2010-08-24 13:46:29.593787082 UTC)
+[ 1025.324841] request_suspend_state: wakeup (3->0) at 1025380323547 (2010-08-24 13:46:29.625554584 UTC)
+[ 1025.327439] lcdc_resume: resuming
+[ 1025.328275] capella_cm3602_ioctl
+[ 1025.448977] lcdc_unblank: ()
+[ 1025.449010] auo_panel_unblank
+[ 1025.864658] msm_i2c msm_i2c.0: error, status 43c8
+[ 1025.864806] msm_i2c msm_i2c.0: error, status 43c8
+[ 1028.369278] ACR=2657 FL=1256 RAAC=45
+[ 1028.622221] mmc1: Starting deferred resume
+[ 1028.634707] clock-wince: pc_clk_set_rate: id=21 rate=144000
+[ 1028.634754] clock-wince: set mdns: 21, 144000; bitidx=8, offset=ac, ns=0
+[ 1028.634799] clock-wince: set_mdns_host_clock: 21, freq=144000 calc_freq=144000 pll0=19200000 expected pll =19200000
+[ 1028.696318] clock-wince: pc_clk_set_rate: id=21 rate=50000000
+[ 1028.696353] clock-wince: set mdns: 21, 50000000; bitidx=8, offset=ac, ns=0
+[ 1028.696391] PLL1: MODE=00000007 L=00000028 M=00000000 N=00000001 freq=768000000 Hz (768 MHz)
+[ 1028.696430] clock-wince: set_mdns_host_clock: 21, freq=50000000 calc_freq=50000000 pll1=768000000 expected pll =768000000
+[ 1028.696519] mmc1: Deferred resume completed
+[ 1028.808149] STA disconnect received 6
+[ 1028.821061] wlan: disassoc client!
+[ 1028.821709] wlan: wake lock 15 secs!
+[ 1028.821747] wlan: Link Down,16
+[ 1028.838459] wlan: disassoc client!
+[ 1029.890905] wlan: pfn: set ssid = RunarR
+[ 1029.890936] wlan: lightest is 1, weightest is 0, samessid = 0
+[ 1029.890951] wlan: connect to latest ssid, ignore!
+[ 1030.858660] wlan: wake lock 15 secs!
+[ 1030.858696] wlan: Link UP
+[ 1030.933632] capella_cm3602_ioctl
+[ 1030.954764] STA connect received 1
+[ 1031.112378] wlan: Enter set packet filter
+[ 1031.119317] init: service 'dhcpcd' is being killed
+[ 1031.399302] init: waitpid returned pid 1741, status = 00000100
+[ 1031.399332] init: process 'dhcpcd', pid 1741 exited
+[ 1032.145075] wlan: wl_iw_set_btcoex_dhcp: DHCP session starts
+[ 1032.146478] wlan: wl_iw_set_power_mode: DHCP session starts
+[ 1032.147828] init: starting 'dhcpcd'
+[ 1034.149354] wlan: wl_iw_set_power_mode: DHCP session done
+[ 1034.150985] wlan: wl_iw_set_btcoex_dhcp: DHCP session done
+[ 1034.151019] wlan: wl_iw_set_btcoex_dhcp disable BT DHCP Timer
+[ 1034.154038] wlan: Enter set packet filter
+[ 1034.155438] wlan: start to add pkt filter 101
+[ 1046.066983] capella_cm3602_ioctl
+[ 1049.985205] capella_cm3602_ioctl
+[ 1059.005869] msm_i2c msm_i2c.0: error, status 21d0
+[ 1060.984585] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1060.984730] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1060.984885] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1061.005256] msm_i2c msm_i2c.0: error, status 21d0
+[ 1062.984583] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1062.984724] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1062.984880] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1063.005256] msm_i2c msm_i2c.0: error, status 21d0
+[ 1064.984584] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1064.984727] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1064.984880] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1065.005243] msm_i2c msm_i2c.0: error, status 21d0
+[ 1065.233376] capella_cm3602_ioctl
+[ 1066.984622] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1066.984734] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1066.984870] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1067.005268] msm_i2c msm_i2c.0: error, status 21d0
+[ 1068.984641] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1068.984764] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1068.984895] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1069.005278] msm_i2c msm_i2c.0: error, status 21d0
+[ 1070.984591] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1070.984736] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1070.984889] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1071.005255] msm_i2c msm_i2c.0: error, status 21d0
+[ 1072.984582] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1072.984853] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1072.985009] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1073.005253] msm_i2c msm_i2c.0: error, status 21d0
+[ 1074.984639] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1074.984755] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1074.984887] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1075.005279] msm_i2c msm_i2c.0: error, status 21d0
+[ 1075.116823] pcm_out: open
+[ 1075.117753] dal_attach: status = 0, name = 'DAL_AQ_AUD'
+[ 1075.120910] audio_update_acdb (17306899, 607)
+[ 1075.121060]  ACDB MAP: 607 -> 607
+[ 1075.122210] acdb ret: 0 C B0226000 244 0
+[ 1075.122231] acdb: 580 bytes for device 607, rate 48000.
+[ 1075.122250] res1 = 580
+[ 1075.122264] res2 = 580
+[ 1075.122276] call audio_set_table
+[ 1075.122630] audio_out_open: 1000 44100 2
+[ 1075.193032] open done!
+[ 1075.211447] Audio: htcleo_speaker_enable 1
+[ 1076.984700] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1076.984833] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1076.984967] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1077.005343] msm_i2c msm_i2c.0: error, status 21d0
+[ 1077.014518] msm_timer_set_next_event(5) clock dg_timer, alarm already expired, now 3427a4bf, alarm 3427a4c1, late -2
+[ 1078.293918] Audio: htcleo_speaker_enable 0
+[ 1078.294793] audio_cb: s=2 e=01075c54 status=20
+[ 1078.306423] pcm_out: release
+[ 1078.326875] audio callback: unknown session 2
+[ 1078.984587] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1078.984731] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1078.984886] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1078.986914] ACR=2650 FL=1256 RAAC=45
+[ 1079.005273] msm_i2c msm_i2c.0: error, status 21d0
+[ 1080.984573] msm_i2c msm_i2c.0: Error waiting for notbusy
+[ 1080.984715] msm_i2c msm_i2c.0: i2c_scl: 0, i2c_sda: 0
+[ 1080.984870] msm_i2c msm_i2c.0: Bus busy cleared after 1 clock cycles, status 0, intf 300
+[ 1081.004609] htcleo-microp 0-0066: i2c_read_block retry over 10
+[ 1081.004660] htcleo-microp 0-0066: gsensor_read_acceleration: i2c_read_block fail

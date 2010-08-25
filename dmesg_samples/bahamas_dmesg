@@ -1,0 +1,647 @@
+<6>[    0.000000] Initializing cgroup subsys cpu
+<5>[    0.000000] Linux version 2.6.29-gf922713 (htc-kernel@and18-2) (gcc version 4.2.1) #117 PREEMPT Tue Sep 29 18:11:07 CST 2009
+<4>[    0.000000] CPU: ARMv6-compatible processor [4117b362] revision 2 (ARMv6TEJ), cr=00c5387f
+<4>[    0.000000] CPU: VIPT aliasing data cache, VIPT aliasing instruction cache
+<4>[    0.000000] Machine: bahamas
+<7>[    0.000000] find the hwid tag
+<7>[    0.000000] parse_tag_hwid: hwid = 0x1
+<4>[    0.000000] bahamas_fixup:hwid=0x1
+<7>[    0.000000] find the skuid tag
+<7>[    0.000000] parse_tag_skuid: hwid = 0x1fc01
+<4>[    0.000000] bahamas_fixup:skuid=0x1fc01
+<7>[    0.000000] find the engineer tag
+<7>[    0.000000] parse_tag_engineerid: hwid = 0x0
+<4>[    0.000000] bahamas_fixup:engineerid=0x0
+<7>[    0.000000] find the flash id tag
+<7>[    0.000000] parse_tag_monodie: mono-die = 0x0
+<7>[    0.000000] find the smi tag
+<7>[    0.000000] parse_tag_smi: smi size = 0
+<7>[    0.000000] find the hwid tag
+<7>[    0.000000] parse_tag_hwid: hwid = 0x1
+<7>[    0.000000] find the skuid tag
+<7>[    0.000000] parse_tag_skuid: hwid = 0x1fc01
+<4>[    0.000000] Ignoring unrecognised tag 0x4d534d74
+<7>[    0.000000] find the engineer tag
+<7>[    0.000000] parse_tag_engineerid: hwid = 0x0
+<7>[    0.000000] find the flash id tag
+<7>[    0.000000] parse_tag_monodie: mono-die = 0x0
+<4>[    0.000000] Ignoring unrecognised tag 0x5441000a
+<6>[    0.000000] TP Data size = 10 , 0x41387898, size = 32
+<6>[    0.000000] TP Data size = 10 , 0x41387898
+<6>[    0.000000] 58 <6>03 <6>6b <6>03 <6>a4 <6>00 <6>6b <6>03 <6>fc <6>01 <6>00 <6>02 <6>5b <6>03 <6>8e <6>00 <6>9f <6>00 <6>91 <6>00 <6>49 <6>27 <6>71 <6>7d <6>00 <6>00 <6>00 <6>00 <6>00 <6>00 <6>00 <6>00 <4>Ignoring unrecognised tag 0x43294329
+<4>[    0.000000] Memory policy: ECC disabled, Data cache writeback
+<7>[    0.000000] On node 0 totalpages: 49152
+<7>[    0.000000] free_area_init_node: node 0, pgdat c03ccb14, node_mem_map c0481000
+<7>[    0.000000]   Normal zone: 1152 pages used for memmap
+<7>[    0.000000]   Normal zone: 0 pages reserved
+<7>[    0.000000]   Normal zone: 48000 pages, LIFO batch:15
+<4>[    0.000000] bahamas_init_map_io()
+<4>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 48000
+<5>[    0.000000] Kernel command line: board_bahamas.disable_uart3=0 board_bahamas.usb_h2w_sw=0 board_bahamas.disable_sdcard=0 diag.enabled=0 board_bahamas.debug_uart=0 smisize=0  androidboot.baseband=3.35.07.20 androidboot.cid=HTC__038 androidboot.carrier=HTC-India androidboot.mid=CLIC11000 androidboot.keycaps=qwerty androidboot.mode=normal androidboot.serialno=XXXXXXXXXX androidboot.bootloader=0.52.0001 no_console_suspend=1 console=null
+<3>[    0.000000] Unknown boot option `diag.enabled=0': ignoring
+<3>[    0.000000] Unknown boot option `board_bahamas.debug_uart=0': ignoring
+<3>[    0.000000] Unknown boot option `androidboot.baseband=3.35.07.20': ignoring
+<3>[    0.000000] Unknown boot option `androidboot.bootloader=0.52.0001': ignoring
+<4>[    0.000000] bahamas_init_irq()
+<4>[    0.000000] PID hash table entries: 1024 (order: 10, 4096 bytes)
+<6>[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+<6>[    0.001129] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+<6>[    0.022430] Memory: 82MB 110MB = 192MB total
+<5>[    0.022491] Memory: 189756KB available (3532K code, 887K data, 120K init)
+<6>[    0.023101] Calibrating delay loop... 478.41 BogoMIPS (lpj=2392064)
+<4>[    0.270568] Mount-cache hash table entries: 512
+<6>[    0.271667] Initializing cgroup subsys debug
+<6>[    0.271728] Initializing cgroup subsys cpuacct
+<6>[    0.271728] Initializing cgroup subsys freezer
+<6>[    0.271789] CPU: Testing write buffer coherency: ok
+<6>[    0.274810] net_namespace: 748 bytes
+<6>[    0.276428] NET: Registered protocol family 16
+<4>[    0.277496] bahamas_init() revision=128
+<6>[    3.863250] acpu_clock_init()
+<6>[    3.863616] ACPU running at 480000 KHz
+<6>[    3.863677] Acquire 'boot-time' perf_lock
+<6>[    3.866149] bahamas_init_mmc
+<4>[    3.866699] bahamas_is_3M_camera, PCBID=0x80
+<6>[    3.876800] Acquire 'boot-time' readahead_lock
+<4>[    3.877227] bio: create slab <bio-0> at 0
+<6>[    3.879119] msm_i2c_probe
+<6>[    3.879333] msm_i2c_probe: clk_ctl 35d, 100000 Hz
+<6>[    3.883148] Bluetooth: Core ver 2.15
+<6>[    3.884033] NET: Registered protocol family 31
+<6>[    3.884063] Bluetooth: HCI device and connection manager initialized
+<6>[    3.884124] Bluetooth: HCI socket layer initialized
+<6>[    3.886566] NET: Registered protocol family 2
+<6>[    3.887054] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
+<6>[    3.888122] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+<6>[    3.888610] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
+<6>[    3.888854] TCP: Hash tables configured (established 8192 bind 8192)
+<6>[    3.888885] TCP reno registered
+<6>[    3.889343] NET: Registered protocol family 1
+<6>[    3.890625] Unpacking initramfs...<7>Switched to high resolution mode on CPU 0
+<4>[    3.945465]  done
+<6>[    3.945678] Freeing initrd memory: 156K
+<6>[    3.948455] smd_init()
+<6>[    3.948516] smd_core_init()
+<6>[    3.948699] smd_core_init() done
+<6>[    3.949615] smd_alloc_channel() 'SMD_RPCCALL' cid=2, shared=f810d900
+<6>[    3.949951] smd_alloc_channel() 'SMD_DATA5' cid=11, shared=f8115950
+<6>[    3.950195] smd_alloc_channel() 'SMD_DATA6' cid=12, shared=f8119978
+<6>[    3.950408] smd_alloc_channel() 'SMD_DATA7' cid=13, shared=f811d9a0
+<6>[    3.950683] smd_alloc_channel() 'SMD_DATA11' cid=17, shared=f8111928
+<6>[    3.950927] smd_alloc_channel() 'SMD_DATA5_CNTL' cid=38, shared=f81219c8
+<6>[    3.951141] smd_alloc_channel() 'SMD_DATA6_CNTL' cid=39, shared=f81259f0
+<6>[    3.951354] smd_alloc_channel() 'SMD_DATA7_CNTL' cid=40, shared=f8129a18
+<6>[    3.953948] SMD: ch 2 OPENING -> OPENED
+<6>[    3.957946] Acquire 'boot-time' idle_lock
+<6>[    3.958221] perflock_notifier_call: cpufreq lock speed 528000
+<6>[    3.958251] active perf lock 'boot-time'
+<6>[    3.959411] WiFi: control device registered.
+<6>[    3.962310] bahamas_bt_fastclock_power: 0
+<6>[    3.963287] htc_pwrsink_probe: initialized completed, total_sink=38mA
+<6>[    3.963500] H2W: Registering H2W (headset) driver
+<6>[    3.963562] [H2W] Full Speed USB Mode: 0
+<6>[    3.963562] [H2W] HTC Headset Support: 0
+<6>[    3.963592] [H2W] H2W Device Support: 0
+<6>[    3.976135] RPC_TIME_TOD_SET_APPS_BASES:
+<6>[    3.976165] 	tick = 181899
+<6>[    3.976165] 	stamp = 855697092
+<6>[    3.976440] H2W route = GPIO 
+<6>[    3.977294] input: h2w headset as /devices/virtual/input/input0
+<6>[    3.977386] H2W: Registering H2W (headset) driver finish
+<3>[    3.977752] Audiojack: Registering in audiojack_probe
+<6>[    3.995300] batt: M2A_RPC: cable_update: none at 412783233 (1970-01-01 00:00:00.412722198 UTC)
+<6>[    3.995391] batt: Update SMEM: cable type 0
+<4>[    3.995422]  at 412844268 (1970-01-01 00:00:00.412844268 UTC)
+<6>[    3.996185] batt: A2M_RPC: get_batt_info: batt_id=2, batt_vol=3805, batt_temp=365, batt_current=5, level=56, charging_source=0, charging_enabled=0, full_bat=1100000 at 413698760 (1970-01-01 00:00:00.413607207 UTC)
+<6>[    4.191741] smd_alloc_channel() 'SMD_GPSNMEA' cid=27, shared=f812dbf0
+<6>[    4.310852] smd_alloc_channel() 'SMD_DS' cid=0, shared=f8131c18
+<6>[    4.311492] smd_alloc_channel() 'SMD_DATA1' cid=7, shared=f8135c40
+<6>[    4.311920] smd_alloc_channel() 'SMD_DATA2' cid=8, shared=f8139c68
+<6>[    4.312225] smd_alloc_channel() 'SMD_DATA3' cid=9, shared=f813dc90
+<6>[    4.312530] smd_alloc_channel() 'SMD_DATA4' cid=10, shared=f8141cb8
+<6>[    4.495086] ashmem: initialized
+<4>[    4.496917] yaffs Sep 29 2009 18:07:44 Installing. 
+<6>[    4.497375] alg: No test for cipher_null (cipher_null-generic)
+<6>[    4.498168] alg: No test for digest_null (digest_null-generic)
+<6>[    4.498565] alg: No test for compress_null (compress_null-generic)
+<6>[    4.503814] alg: No test for stdrng (krng)
+<6>[    4.503997] io scheduler noop registered
+<6>[    4.504028] io scheduler anticipatory registered (default)
+<6>[    4.504577] mddi: init() base=0xe4878000 irq=16
+<6>[    4.582824] mddi cmd send rtd: int 3a000, stat 8063, rtd val f
+<4>[    4.583007] mfr_name = 0, product_code = 0
+<7>[    4.583038] mddi_fixup: mfr_name = 0x101, product_code = 0x154
+<6>[    4.583068] mddi: registering panel mddi_c_0101_0154
+<6>[    4.583068] mddi: publish: 
+<6>[    4.585571] vsync on gpio 97 now 0
+<6>[    4.586486] msmfb_probe() installing 240 x 320 panel
+<4>[    4.587524] +mddi_client_nt35399_init()
+<6>[    4.588928] msm_serial: detected port #2
+<6>[    4.589141] msm_serial.2: ttyMSM2 at MMIO 0xa9c00000 (irq = 11) is a MSM
+<6>[    4.589782] msm_serial: driver initialized
+<6>[    4.590270] msm_serial_hs.0: ttyHS0 at MMIO 0xa0200000 (irq = 45) is a MSM HS UART
+<6>[    4.590911] msm_serial_hs module loaded
+<6>[    4.595367] loop: module loaded
+<6>[    4.595520] pmem: 1 init
+<6>[    4.596282] pmem_adsp: 0 init
+<6>[    4.597076] pmem_camera: 0 init
+<6>[    4.598083] PPP generic driver version 2.4.2
+<6>[    4.598510] PPP Deflate Compression module registered
+<6>[    4.598541] PPP BSD Compression module registered
+<6>[    4.600250] PPP MPPE Compression module registered
+<6>[    4.600311] NET: Registered protocol family 24
+<6>[    4.600433] PPPoL2TP kernel driver, V1.0
+<6>[    4.601440] tun: Universal TUN/TAP device driver, 1.6
+<6>[    4.601470] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+<6>[    4.602233] rmnet0 (): not using net_device_ops yet
+<6>[    4.603332] rmnet1 (): not using net_device_ops yet
+<6>[    4.604309] rmnet2 (): not using net_device_ops yet
+<6>[    4.605163] Linux video capture interface: v2.00
+<6>[    4.656127] mt9t013:kobject creat and add
+<6>[    4.656219] mt9t013:sysfs_create_file
+<6>[    4.765319] msm_v4l2: msm_v4l2_init
+<6>[    4.766571] allocated dma buffer at ffc47000, dma_addr 7e31000
+<6>[    4.766784] read CFG0 = aa5400c0, CFG1 = 87472
+<6>[    4.766815] CFG0 = e85408c0, CFG1 = 87472
+<6>[    4.766845] CFG0: cw/page=3 ud_sz=516 ecc_sz=10 spare_sz=0 num_addr_cycles=5
+<6>[    4.767303] NAND_READ_ID = 5590bc2c
+<6>[    4.767395] status: e03120
+<6>[    4.767425] nandid: 5590bc2c maker 2c device bc
+<6>[    4.767456] CFG0: cw/page=3 ud_sz=512 ecc_sz=10 spare_sz=4
+<6>[    4.767852] DEV_CMD1: f00f3000
+<6>[    4.767883] <6>NAND_EBI2_ECC_BUF_CFG: 1ff
+<6>[    4.767913] flash_id: 5590bc2c size 20000000
+<5>[    4.767944] Creating 6 MTD partitions on "msm_nand":
+<5>[    4.767974] 0x00001ff60000-0x000020000000 : "misc"
+<5>[    4.769378] 0x0000026c0000-0x000002bc0000 : "recovery"
+<5>[    4.770446] 0x000002bc0000-0x000002e40000 : "boot"
+<5>[    4.771331] 0x000002e40000-0x00000c440000 : "system"
+<5>[    4.772430] 0x00000c440000-0x000015a40000 : "cache"
+<5>[    4.773834] 0x000015a40000-0x00001ff60000 : "userdata"
+<6>[    4.775482] usb_probe() io=e4884000, irq=47, dma=ffc48000(7e3a000)
+<7>[    4.776245] usb_function_register: adb
+<7>[    4.776672] usb_function_register: usb_mass_storage
+<7>[    4.777465] usb_function_register: diag
+<6>[    4.777648] usb0 (): not using net_device_ops yet
+<7>[    4.778564] usb_function_register: ether
+<7>[    4.779663] usb_function_register: modem
+<6>[    4.779724] msm_hsusb: functions bound. starting.
+<6>[    4.780181] usb_mass_storage usb_mass_storage: Number of LUNs=1
+<7>[    4.780242] usb_bind_driver: usb_mass_storage
+<6>[    4.780273] adb_bind() c5039880, c5039a80
+<6>[    4.780609] adb_bind() allocated 32 rx and 4 tx requests
+<7>[    4.781219] usb_bind_driver: adb
+<7>[    4.781433] usb_bind_driver: ether
+<7>[    4.781463] diag_bind() c50398c0, c5039ae0
+<7>[    4.781585] diag_bind() allocated 4 rx and 4 tx requests
+<7>[    4.782196] usb_bind_driver: diag
+<4>[    4.782226] gs_bind:modem
+<7>[    4.782257] usb_bind_driver: modem
+<4>[    4.782287] gs_bind:nmea
+<7>[    4.782287] usb_bind_driver: nmea
+<7>[    4.782318] usb_function_register: nmea
+<6>[    4.782897] hsusb: IDLE -> ONLINE
+<6>[    4.783020] hsusb: reset controller
+<6>[    4.783569] tssc_manager_init
+<6>[    4.783721] tssc_manager_probe
+<7>[    4.783752] tssc_manager_input_init:
+<7>[    4.783905] tssc_power_on():
+<6>[    4.784606] input: tssc-manager as /devices/virtual/input/input1
+<6>[    4.784973] tssc_manager_input_init: Start touchscreen tssc-manager in interrupt mode
+<4>[    4.785217] tp_init_module():
+<4>[    4.785217] TP_IOC_GETMFG=-2147188479
+<4>[    4.785247] 
+<3>[    4.785491] misc_register(): OK
+<6>[    4.786254] GPIO Matrix Keypad Driver: Start keypad matrix for bahamas-keypad in interrupt mode
+<6>[    4.786529] GPIO Input Driver: Start gpio inputs for bahamas-keypad in interrupt mode
+<6>[    4.787139] input: bahamas-keypad as /devices/virtual/input/input2
+<6>[    4.788269] using input dev h2w headset for key reset
+<6>[    4.788360] using input dev bahamas-keypad for key reset
+<6>[    4.789703] rs30000048:915823fc rs30000048:915823fc: rtc core: registered msm_rtc as rtc0
+<6>[    4.789855] AKM8973 compass driver: init
+<6>[    4.789978] akm8973_probe: Interrupt mode!!
+<6>[    4.791534] input: compass as /devices/virtual/input/input3
+<6>[    4.791931] gpio_keys_scan_keys: key 1-6b, 0 (20) changed to 0
+<6>[    4.792816] BMA150 G-sensor driver: init
+<6>[    4.795166] microp-i2c 0-0066: microp version [02][03]
+<6>[    4.795532] Registered led device: green
+<6>[    4.795745] Registered led device: amber
+<6>[    4.795959] Registered led device: lcd-backlight
+<6>[    4.796173] Registered led device: lcd-backlight-gate
+<6>[    4.796386] Registered led device: button-backlight
+<3>[    4.797729] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.797760] msm_i2c msm_i2c.0: Error during data xfer (-5)(66)
+<3>[    4.808990] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.809051] msm_i2c msm_i2c.0: Error during data xfer (-5)(66)
+<3>[    4.820220] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.820251] msm_i2c msm_i2c.0: Error during data xfer (-5)(66)
+<6>[    4.830352] msm_hsusb_phy_reset
+<3>[    4.831939] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.832031] msm_i2c msm_i2c.0: Error during data xfer (-5)(66)
+<3>[    4.843292] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.843353] msm_i2c msm_i2c.0: Error during data xfer (-5)(66)
+<4>[    4.853454] ulpi: write 0x40 to 0x31
+<4>[    4.853485] ulpi: write 0x1d to 0x0d
+<4>[    4.853485] ulpi: write 0x1d to 0x10
+<7>[    4.853546] flush_endpoint_hw
+<7>[    4.853576] flush_endpoint_hw...done
+<6>[    4.853607] usb: notify offline
+<7>[    4.853637] fsg_configure: 0, 0, 0
+<6>[    4.853698] hsusb: ONLINE -> OFFLINE
+<7>[    4.853729] flush_endpoint_hw
+<7>[    4.853759] flush_endpoint_hw...done
+<7>[    4.853790] fsg_configure: 0, 0, 0
+<3>[    4.855102] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.855194] msm_i2c msm_i2c.0: Error during data xfer (-5)(66)
+<3>[    4.866363] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.866455] msm_i2c msm_i2c.0: Error during data xfer (-5)(66)
+<3>[    4.879241] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.879302] msm_i2c msm_i2c.0: Error during data xfer (-5)(66)
+<3>[    4.890441] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.890502] msm_i2c msm_i2c.0: Error during data xfer (-5)(66)
+<6>[    4.903472] device-mapper: uevent: version 1.0.3
+<6>[    4.904327] device-mapper: ioctl: 4.14.0-ioctl (2008-04-23) initialised: dm-devel@redhat.com
+<6>[    4.904479] Bluetooth: HCI UART driver ver 2.2
+<6>[    4.904510] Bluetooth: HCI H4 protocol initialized
+<6>[    4.904541] Bluetooth: HCILL protocol initialized
+<6>[    4.904571] perflock_notifier_call: cpufreq lock speed 528000
+<6>[    4.904602] active perf lock 'boot-time'
+<6>[    4.906280] mmc0: Qualcomm MSM SDCC at 0x00000000a0400000 irq 24,0 dma 8
+<6>[    4.906311] mmc0: 4 bit data mode enabled
+<6>[    4.906341] mmc0: MMC clock 144000 -> 50000000 Hz, PCLK 80000000 Hz
+<6>[    4.906341] mmc0: Slot eject status = 1
+<6>[    4.906372] mmc0: Power save feature enable = 1
+<6>[    4.906402] mmc0: DM non-cached buffer at ffc4a000, dma_addr 0x07e97000
+<6>[    4.906402] mmc0: DM cmd busaddr 0x07e97000, cmdptr busaddr 0x07e97300
+<7>[    4.906982] msmsdcc_platform_status_irq: 102
+<6>[    4.907012] mmc1: Slot status change detected (0 -> 1)
+<6>[    4.907592] bahamas_sdslot_switchvdd: Disabling SD slot power
+<6>[    4.907897] mmc1: Qualcomm MSM SDCC at 0x00000000a0500000 irq 26,102 dma 8
+<6>[    4.907928] mmc1: 4 bit data mode enabled
+<6>[    4.907958] mmc1: MMC clock 144000 -> 50000000 Hz, PCLK 80000000 Hz
+<6>[    4.907989] mmc1: Slot eject status = 0
+<6>[    4.907989] mmc1: Power save feature enable = 1
+<6>[    4.908020] mmc1: DM non-cached buffer at ffc4b000, dma_addr 0x07e99000
+<6>[    4.908050] mmc1: DM cmd busaddr 0x07e99000, cmdptr busaddr 0x07e99300
+<6>[    4.917327] logger: created 64K log 'log_main'
+<6>[    4.917572] logger: created 256K log 'log_events'
+<6>[    4.917816] logger: created 64K log 'log_radio'
+<6>[    4.917999] ram_console: got buffer at 2d9b000, size 20000
+<6>[    4.918304] ram_console: found existing buffer, size 114660, start 52622
+<6>[    5.461090] console [ram-1] enabled
+<4>[    5.527435] Netfilter messages via NETLINK v0.30.
+<4>[    5.527984] nf_conntrack version 0.5.0 (3072 buckets, 12288 max)
+<4>[    5.528625] CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Please use
+<4>[    5.529052] nf_conntrack.acct=1 kernel paramater, acct=1 nf_conntrack module option or
+<4>[    5.529418] sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+<6>[    5.530151] xt_time: kernel timezone is -0000
+<6>[    5.531005] ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    5.531433] TCP cubic registered
+<6>[    5.531677] NET: Registered protocol family 17
+<6>[    5.532104] NET: Registered protocol family 15
+<6>[    5.532379] Bluetooth: L2CAP ver 2.13
+<6>[    5.532714] Bluetooth: L2CAP socket layer initialized
+<6>[    5.533142] Bluetooth: SCO (Voice Link) ver 0.6
+<6>[    5.533355] Bluetooth: SCO socket layer initialized
+<6>[    5.535034] Bluetooth: RFCOMM socket layer initialized
+<6>[    5.535369] Bluetooth: RFCOMM TTY layer initialized
+<6>[    5.535766] Bluetooth: RFCOMM ver 1.11
+<6>[    5.535980] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+<6>[    5.536224] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+<6>[    5.537353] clock_late_init() disabled 20 unused clocks
+<6>[    5.537628] perflock_notifier_call: screen_on_policy_req 1, policy_min 480000
+<6>[    5.538055] perflock_notifier_call: cpufreq lock speed 528000
+<6>[    5.538269] active perf lock 'boot-time'
+<6>[    5.540771] rs30000048:915823fc rs30000048:915823fc: setting system clock to 2010-02-23 16:26:42 UTC (1266942402)
+<6>[    5.541412] Freeing init memory: 120K
+<4>[    5.541748] Warning: unable to open an initial console.
+<6>[    5.553588] bahamas_sdslot_switchvdd: Setting level to 2900
+<3>[    5.576507] mmc1: Command timeout [cmd=5 cs=0x4]
+<3>[    5.582733] mmc1: Command timeout [cmd=5 cs=0x4]
+<3>[    5.588958] mmc1: Command timeout [cmd=5 cs=0x4]
+<3>[    5.595031] mmc1: Command timeout [cmd=5 cs=0x4]
+<6>[    5.602233] bahamas_sdslot_switchvdd: Setting level to 2800
+<6>[    5.773681] yaffs: dev is 32505859 name is "mtdblock3"
+<6>[    5.774108] yaffs: passed flags ""
+<4>[    5.774322] yaffs: Attempting MTD mount on 31.3, "mtdblock3"
+<4>[    5.836700] mmc1: host does not support reading read-only switch. assuming write-enable.
+<6>[    5.837158] mmc1: new SD card at address aaaa
+<6>[    5.838348] mmcblk0: mmc1:aaaa SU02G 1.84 GiB 
+<6>[    5.839294]  mmcblk0: p1
+<4>[   14.107818] yaffs_read_super: isCheckpointed 0
+<3>[   14.108978] msm_nand_write_oob b800000 800 1c failed -5
+<3>[   14.109741] msm_nand_write_oob b800800 800 1c failed -5
+<3>[   14.110260] msm_nand_write_oob b801000 800 1c failed -5
+<3>[   14.110931] msm_nand_write_oob b801800 800 1c failed -5
+<3>[   14.111450] msm_nand_write_oob b802000 800 1c failed -5
+<3>[   14.112152] msm_nand_write_oob b802800 800 1c failed -5
+<3>[   14.112792] msm_nand_write_oob b803000 800 1c failed -5
+<3>[   14.113525] msm_nand_write_oob b803800 800 1c failed -5
+<3>[   14.114044] msm_nand_write_oob b804000 800 1c failed -5
+<3>[   14.114776] msm_nand_write_oob b804800 800 1c failed -5
+<3>[   14.115295] msm_nand_write_oob b805000 800 1c failed -5
+<3>[   14.115997] msm_nand_write_oob b805800 800 1c failed -5
+<3>[   14.116546] msm_nand_write_oob b806000 800 1c failed -5
+<3>[   14.117065] msm_nand_write_oob b806800 800 1c failed -5
+<3>[   14.117767] msm_nand_write_oob b807000 800 1c failed -5
+<3>[   14.118316] msm_nand_write_oob b807800 800 1c failed -5
+<3>[   14.119018] msm_nand_write_oob b808000 800 1c failed -5
+<3>[   14.119537] msm_nand_write_oob b808800 800 1c failed -5
+<3>[   14.120239] msm_nand_write_oob b809000 800 1c failed -5
+<3>[   14.120758] msm_nand_write_oob b809800 800 1c failed -5
+<3>[   14.121459] msm_nand_write_oob b80a000 800 1c failed -5
+<3>[   14.122009] msm_nand_write_oob b80a800 800 1c failed -5
+<3>[   14.122802] msm_nand_write_oob b80b000 800 1c failed -5
+<3>[   14.123352] msm_nand_write_oob b80b800 800 1c failed -5
+<3>[   14.124084] msm_nand_write_oob b80c000 800 1c failed -5
+<3>[   14.124603] msm_nand_write_oob b80c800 800 1c failed -5
+<3>[   14.125122] msm_nand_write_oob b80d000 800 1c failed -5
+<3>[   14.125823] msm_nand_write_oob b80d800 800 1c failed -5
+<3>[   14.126373] msm_nand_write_oob b80e000 800 1c failed -5
+<3>[   14.127075] msm_nand_write_oob b80e800 800 1c failed -5
+<3>[   14.127624] msm_nand_write_oob b80f000 800 1c failed -5
+<3>[   14.128326] msm_nand_write_oob b80f800 800 1c failed -5
+<3>[   14.128875] msm_nand_write_oob b810000 800 1c failed -5
+<3>[   14.129577] msm_nand_write_oob b810800 800 1c failed -5
+<3>[   14.130096] msm_nand_write_oob b811000 800 1c failed -5
+<3>[   14.130798] msm_nand_write_oob b811800 800 1c failed -5
+<3>[   14.131347] msm_nand_write_oob b812000 800 1c failed -5
+<3>[   14.132049] msm_nand_write_oob b812800 800 1c failed -5
+<3>[   14.132720] msm_nand_write_oob b813000 800 1c failed -5
+<3>[   14.133300] msm_nand_write_oob b813800 800 1c failed -5
+<3>[   14.134033] msm_nand_write_oob b814000 800 1c failed -5
+<3>[   14.134582] msm_nand_write_oob b814800 800 1c failed -5
+<3>[   14.135284] msm_nand_write_oob b815000 800 1c failed -5
+<3>[   14.135833] msm_nand_write_oob b815800 800 1c failed -5
+<3>[   14.136535] msm_nand_write_oob b816000 800 1c failed -5
+<3>[   14.137084] msm_nand_write_oob b816800 800 1c failed -5
+<3>[   14.137786] msm_nand_write_oob b817000 800 1c failed -5
+<3>[   14.138305] msm_nand_write_oob b817800 800 1c failed -5
+<3>[   14.139038] msm_nand_write_oob b818000 800 1c failed -5
+<3>[   14.139556] msm_nand_write_oob b818800 800 1c failed -5
+<3>[   14.140258] msm_nand_write_oob b819000 800 1c failed -5
+<3>[   14.140777] msm_nand_write_oob b819800 800 1c failed -5
+<3>[   14.141296] msm_nand_write_oob b81a000 800 1c failed -5
+<3>[   14.142028] msm_nand_write_oob b81a800 800 1c failed -5
+<3>[   14.142547] msm_nand_write_oob b81b000 800 1c failed -5
+<3>[   14.143341] msm_nand_write_oob b81b800 800 1c failed -5
+<3>[   14.143890] msm_nand_write_oob b81c000 800 1c failed -5
+<3>[   14.144592] msm_nand_write_oob b81c800 800 1c failed -5
+<3>[   14.145141] msm_nand_write_oob b81d000 800 1c failed -5
+<3>[   14.145843] msm_nand_write_oob b81d800 800 1c failed -5
+<3>[   14.146392] msm_nand_write_oob b81e000 800 1c failed -5
+<3>[   14.147094] msm_nand_write_oob b81e800 800 1c failed -5
+<3>[   14.147644] msm_nand_write_oob b81f000 800 1c failed -5
+<3>[   14.148345] msm_nand_write_oob b81f800 800 1c failed -5
+<3>[   14.148895] msm_nand_write_oob b820000 800 1c failed -5
+<3>[   14.149414] msm_nand_write_oob b820800 800 1c failed -5
+<3>[   14.150115] msm_nand_write_oob b821000 800 1c failed -5
+<3>[   14.150665] msm_nand_write_oob b821800 800 1c failed -5
+<3>[   14.151397] msm_nand_write_oob b822000 800 1c failed -5
+<3>[   14.151916] msm_nand_write_oob b822800 800 1c failed -5
+<3>[   14.152648] msm_nand_write_oob b823000 800 1c failed -5
+<3>[   14.153198] msm_nand_write_oob b823800 800 1c failed -5
+<3>[   14.153900] msm_nand_write_oob b824000 800 1c failed -5
+<3>[   14.154449] msm_nand_write_oob b824800 800 1c failed -5
+<3>[   14.155120] msm_nand_write_oob b825000 800 1c failed -5
+<3>[   14.155670] msm_nand_write_oob b825800 800 1c failed -5
+<3>[   14.156341] msm_nand_write_oob b826000 800 1c failed -5
+<3>[   14.156890] msm_nand_write_oob b826800 800 1c failed -5
+<3>[   14.157409] msm_nand_write_oob b827000 800 1c failed -5
+<3>[   14.158142] msm_nand_write_oob b827800 800 1c failed -5
+<3>[   14.158660] msm_nand_write_oob b828000 800 1c failed -5
+<3>[   14.159362] msm_nand_write_oob b828800 800 1c failed -5
+<3>[   14.159881] msm_nand_write_oob b829000 800 1c failed -5
+<3>[   14.160614] msm_nand_write_oob b829800 800 1c failed -5
+<3>[   14.161132] msm_nand_write_oob b82a000 800 1c failed -5
+<3>[   14.161865] msm_nand_write_oob b82a800 800 1c failed -5
+<3>[   14.162384] msm_nand_write_oob b82b000 800 1c failed -5
+<3>[   14.163208] msm_nand_write_oob b82b800 800 1c failed -5
+<3>[   14.163787] msm_nand_write_oob b82c000 800 1c failed -5
+<3>[   14.164337] msm_nand_write_oob b82c800 800 1c failed -5
+<3>[   14.164886] msm_nand_write_oob b82d000 800 1c failed -5
+<3>[   14.165435] msm_nand_write_oob b82d800 800 1c failed -5
+<3>[   14.166137] msm_nand_write_oob b82e000 800 1c failed -5
+<3>[   14.166687] msm_nand_write_oob b82e800 800 1c failed -5
+<3>[   14.167388] msm_nand_write_oob b82f000 800 1c failed -5
+<3>[   14.167907] msm_nand_write_oob b82f800 800 1c failed -5
+<3>[   14.168609] msm_nand_write_oob b830000 800 1c failed -5
+<3>[   14.169158] msm_nand_write_oob b830800 800 1c failed -5
+<3>[   14.169860] msm_nand_write_oob b831000 800 1c failed -5
+<3>[   14.170379] msm_nand_write_oob b831800 800 1c failed -5
+<3>[   14.171081] msm_nand_write_oob b832000 800 1c failed -5
+<3>[   14.171600] msm_nand_write_oob b832800 800 1c failed -5
+<3>[   14.172119] msm_nand_write_oob b833000 800 1c failed -5
+<3>[   14.172912] msm_nand_write_oob b833800 800 1c failed -5
+<3>[   14.173461] msm_nand_write_oob b834000 800 1c failed -5
+<3>[   14.174194] msm_nand_write_oob b834800 800 1c failed -5
+<3>[   14.174743] msm_nand_write_oob b835000 800 1c failed -5
+<3>[   14.175445] msm_nand_write_oob b835800 800 1c failed -5
+<3>[   14.175964] msm_nand_write_oob b836000 800 1c failed -5
+<3>[   14.176696] msm_nand_write_oob b836800 800 1c failed -5
+<3>[   14.177215] msm_nand_write_oob b837000 800 1c failed -5
+<3>[   14.177917] msm_nand_write_oob b837800 800 1c failed -5
+<3>[   14.178466] msm_nand_write_oob b838000 800 1c failed -5
+<3>[   14.179168] msm_nand_write_oob b838800 800 1c failed -5
+<3>[   14.179687] msm_nand_write_oob b839000 800 1c failed -5
+<4>[   14.179931] save exit: isCheckpointed 1
+<6>[   14.180816] yaffs: dev is 32505861 name is "mtdblock5"
+<6>[   14.181060] yaffs: passed flags ""
+<4>[   14.181427] yaffs: Attempting MTD mount on 31.5, "mtdblock5"
+<4>[   14.260192] yaffs: restored from checkpoint
+<4>[   14.260559] yaffs_read_super: isCheckpointed 1
+<6>[   14.264648] yaffs: dev is 32505860 name is "mtdblock4"
+<6>[   14.264892] yaffs: passed flags ""
+<4>[   14.265319] yaffs: Attempting MTD mount on 31.4, "mtdblock4"
+<4>[   14.270355] yaffs: restored from checkpoint
+<4>[   14.270690] yaffs_read_super: isCheckpointed 1
+<3>[   14.575286] init: service 'console' requires console
+<3>[   14.679687] init: cannot find '/system/bin/playmp3', disabling 'bootsound'
+<3>[   14.727294] init: cannot find '/system/etc/install-recovery.sh', disabling 'flash_recovery'
+<6>[   14.847015] warning: `adbd' uses 32-bit capabilities (legacy support in use)
+<6>[   14.847442] enabling adb function
+<6>[   15.357452] SMD: ch 0 OPENING -> OPENED
+<6>[   15.359741] qmi: smd closed
+<6>[   15.360015] SMD: ch 38 OPENING -> OPENED
+<6>[   15.360229] qmi: smd opened
+<6>[   15.360748] qmi: smd closed
+<6>[   15.360961] SMD: ch 39 OPENING -> OPENED
+<6>[   15.361175] qmi: smd opened
+<6>[   15.361633] qmi: smd closed
+<6>[   15.361877] SMD: ch 40 OPENING -> OPENED
+<6>[   15.362091] qmi: smd opened
+<6>[   15.362945] qmi: ctl: wds use client_id 0x01
+<6>[   15.363861] qmi: ctl: wds use client_id 0x01
+<6>[   15.364288] qmi: ctl: wds use client_id 0x01
+<6>[   17.507751] snd_rpc_thread() start
+<6>[   17.510559] snd_set_device 1 1 1
+<6>[   17.512420] snd: rpc_reply status 0
+<3>[   19.730194] init: sys_prop: Unable to stop service ctl [btips] uid: 9999 pid:56
+<6>[   31.902465] audio_mp3_enable()
+<6>[   31.902923] audmgr_rpc_thread() start
+<6>[   31.905120] audmgr: rpc_reply status 0
+<6>[   31.917846] audmgr: rpc READY handle=0x00000000
+<6>[   31.980651] audmgr: rpc CODEC_CONFIG volume=0x00002ff4
+<6>[   31.988433] adsp:INIT_INFO Event
+<6>[   31.988800] adsp: opening module AUDPLAY0TASK
+<6>[   31.990875] adsp: module AUDPLAY0TASK has been registered
+<6>[   31.991363] msm_adsp_enable() 'AUDPLAY0TASK'state[0] id[17227120]
+<6>[   31.992797] adsp: rpc event=0, proc_id=2, module=17227120, image=0
+<6>[   31.993408] adsp: module AUDPLAY0TASK: READY
+<6>[   31.993743] audpp: enable
+<6>[   31.994171] adsp: opening module AUDPPTASK
+<3>[   31.994476] mp3:unexpected message from decoder 
+<6>[   31.995117] adsp: module AUDPPTASK has been registered
+<6>[   31.995544] msm_adsp_enable() 'AUDPPTASK'state[0] id[17227122]
+<6>[   31.996948] adsp: rpc event=0, proc_id=2, module=17227122, image=0
+<6>[   31.997558] adsp: module AUDPPTASK: READY
+<6>[   31.999023] audpp: ENABLE
+<6>[   32.002288] audio_mp3_dsp_event: CFG_MSG ENABLE
+<4>[   32.004699] adsp: waiting for DSP write ready
+<6>[   32.005950] audpp: status 0 1 0
+<6>[   32.006317] mp3:decoder status: init 
+<6>[   32.007690] audpp: status 0 3 0
+<6>[   32.007904] mp3:decoder status: play 
+<6>[   42.493957] audpp: DMA missed
+<6>[   42.495635] audio_flush: flush decoder
+<6>[   42.498382] audio_mp3_disable()
+<6>[   42.499664] audpp: status 0 0 0
+<6>[   42.500061] mp3:decoder status: sleep 
+<6>[   42.500305] audio_mp3_dsp_event: CFG_MSG DISABLE
+<6>[   42.501525] audpp: disable
+<6>[   42.503021] audpp: DISABLE
+<6>[   42.503509] msm_adsp_disable() 'AUDPPTASK'
+<6>[   42.504791] adsp: closing module AUDPPTASK
+<6>[   42.505035] adsp: set module AUDPPTASK ops as NULL
+<6>[   42.505462] msm_adsp_disable() 'AUDPLAY0TASK'
+<6>[   42.506866] adsp: closing module AUDPLAY0TASK
+<6>[   42.507293] adsp: set module AUDPLAY0TASK ops as NULL
+<6>[   42.507537] adsp: disable interrupt
+<6>[   42.508789] audmgr: rpc_reply status 0
+<6>[   42.539367] audmgr: DISABLED
+<6>[   45.603363] batt: SMEM_BATT: get_batt_info: batt_id=2, batt_vol=3792, batt_temp=361, batt_current=5, level=56, charging_source=0, charging_enabled=0, full_bat=1100000 at 42021242757 (2010-02-23 16:27:22.562622093 UTC)
+<6>[   45.604492] batt: SMEM_BATT: get_batt_info: batt_id=2, batt_vol=3792, batt_temp=361, batt_current=5, level=56, charging_source=0, charging_enabled=0, full_bat=1100000 at 42022341389 (2010-02-23 16:27:22.563751243 UTC)
+<6>[   46.000152] [R] request_suspend_state: wakeup (3->0) at 42417574547 (2010-02-23 16:27:22.959381129 UTC)
+<6>[   46.927337] snd_set_volume 256 0 5
+<6>[   46.929016] snd: rpc_reply status 0
+<6>[   47.020660] snd_set_volume 256 0 5
+<6>[   47.026184] snd: rpc_reply status 0
+<6>[   47.687377] touch_calibration: Point 1 844, 865.
+<6>[   47.687622] touch_calibration: Point 2 167, 870.
+<6>[   47.687835] touch_calibration: Point 3 497, 529.
+<6>[   47.688232] touch_calibration: Point 4 815, 130.
+<6>[   47.688446] touch_calibration: Point 5 176, 141.
+<6>[   47.688842] touch_calibration: do calibration ok.
+<6>[   47.689056] touch_calibration: x max 119, x min 899.
+<6>[   47.689270] touch_calibration: y max 78, y min 923.
+<6>[   47.689636] touch_calibration:  x same direction, y same direction.
+<4>[   52.682891] msmfb_start_dma 45.593 ms after vsync request
+<6>[   63.791442] batt: M2A_RPC: cable_update: USB at 60209139490 (2010-02-23 16:27:40.750701932 UTC)
+<6>[   63.792114] batt: Update SMEM: cable type 2
+<4>[   63.792327]  at 60209780359 (2010-02-23 16:27:40.751403836 UTC)
+<6>[   63.792907] [Port list] port_list is disabled.
+<6>[   63.793151] batt: power_supply_changed: none -> AC at 60210817957 (2010-02-23 16:27:40.752441434 UTC)
+<6>[   63.793823] hsusb: OFFLINE -> ONLINE
+<6>[   63.794158] hsusb: reset controller
+<6>[   63.832763] msm_hsusb_phy_reset
+<4>[   63.852905] ulpi: write 0x40 to 0x31
+<4>[   63.853240] ulpi: write 0x1d to 0x0d
+<4>[   63.853454] ulpi: write 0x1d to 0x10
+<7>[   63.853851] flush_endpoint_hw
+<7>[   63.854064] flush_endpoint_hw...done
+<6>[   63.854278] usb: notify offline
+<7>[   63.854522] fsg_configure: 0, 0, 0
+<6>[   63.859741] usb: suspend
+<6>[   63.860229] batt: SMEM_BATT: get_batt_info: batt_id=2, batt_vol=3792, batt_temp=361, batt_current=5, level=56, charging_source=2, charging_enabled=1, full_bat=1100000 at 60278109217 (2010-02-23 16:27:40.819488553 UTC)
+<6>[   63.861267] batt: SMEM_BATT: get_batt_info: batt_id=2, batt_vol=3792, batt_temp=361, batt_current=5, level=56, charging_source=2, charging_enabled=1, full_bat=1100000 at 60279146814 (2010-02-23 16:27:40.820526151 UTC)
+<6>[   63.875488] Release 'boot-time' perf_lock
+<3>[   63.949462] init: sys_prop: permission denied uid:2000  name:adb.connected
+<6>[   64.089904] usb: reset
+<7>[   64.090393] usb: reset...done
+<6>[   64.092041] batt: usb_status_notifier_func: online=1, g_usb_online=0<6>usb: portchange USB_SPEED_HIGH
+<4>[   64.092834]  at 60510256429 (2010-02-23 16:27:41.051300071 UTC)
+<6>[   64.093078] batt: Update SMEM: cable type 1
+<4>[   64.093292]  at 60510744710 (2010-02-23 16:27:41.052337670 UTC)
+<6>[   64.093750] batt: power_supply_changed: AC -> USB at 60511385579 (2010-02-23 16:27:41.053009056 UTC)
+<6>[   64.269744] usb: reset
+<7>[   64.270019] usb: reset...done
+<6>[   64.272033] usb: portchange USB_SPEED_HIGH
+<7>[   64.517059] fsg_configure: 1, 0, 0
+<7>[   64.517639] gs_configure done
+<7>[   64.518035] gs_configure done
+<6>[   64.518554] usb_mass_storage usb_mass_storage: config #1
+<6>[   64.805175] batt: SMEM_BATT: get_batt_info: batt_id=2, batt_vol=3792, batt_temp=361, batt_current=5, level=56, charging_source=1, charging_enabled=1, full_bat=1100000 at 61223055506 (2010-02-23 16:27:41.764404325 UTC)
+<6>[   64.806243] batt: SMEM_BATT: get_batt_info: batt_id=2, batt_vol=3792, batt_temp=361, batt_current=5, level=56, charging_source=1, charging_enabled=1, full_bat=1100000 at 61224093104 (2010-02-23 16:27:41.765502958 UTC)
+<6>[   64.963226] batt: SMEM_BATT: get_batt_info: batt_id=2, batt_vol=3792, batt_temp=361, batt_current=5, level=56, charging_source=1, charging_enabled=1, full_bat=1100000 at 61381289148 (2010-02-23 16:27:41.922485378 UTC)
+<6>[   64.964294] batt: SMEM_BATT: get_batt_info: batt_id=2, batt_vol=3792, batt_temp=361, batt_current=5, level=56, charging_source=1, charging_enabled=1, full_bat=1100000 at 61382174157 (2010-02-23 16:27:41.923553494 UTC)
+<6>[   64.968109] batt: SMEM_BATT: get_batt_info: batt_id=2, batt_vol=3792, batt_temp=361, batt_current=5, level=56, charging_source=1, charging_enabled=1, full_bat=1100000 at 61385988854 (2010-02-23 16:27:41.927368191 UTC)
+<6>[   64.969146] batt: SMEM_BATT: get_batt_info: batt_id=2, batt_vol=3792, batt_temp=361, batt_current=5, level=56, charging_source=1, charging_enabled=1, full_bat=1100000 at 61387026452 (2010-02-23 16:27:41.928405788 UTC)
+<3>[   65.519989] init: sys_prop: permission denied uid:2000  name:adb.connected
+<6>[   68.845947] [Port list] Add port [16650]
+<6>[   68.846191] [Port list] [1] = 16650
+<6>[   68.894653] audio_mp3_enable()
+<6>[   68.897369] audmgr: rpc_reply status 0
+<6>[   68.910156] audmgr: rpc READY handle=0x00000000
+<6>[   68.976715] audmgr: rpc CODEC_CONFIG volume=0x00002ff4
+<6>[   68.977050] adsp: opening module AUDPLAY0TASK
+<6>[   68.979370] adsp: module AUDPLAY0TASK has been registered
+<6>[   68.979827] msm_adsp_enable() 'AUDPLAY0TASK'state[0] id[17227120]
+<6>[   68.981201] adsp: rpc event=0, proc_id=2, module=17227120, image=0
+<6>[   68.981781] adsp: module AUDPLAY0TASK: READY
+<6>[   68.982116] audpp: enable
+<6>[   68.982543] adsp: opening module AUDPPTASK
+<3>[   68.982940] mp3:unexpected message from decoder 
+<6>[   68.983551] adsp: module AUDPPTASK has been registered
+<6>[   68.983978] msm_adsp_enable() 'AUDPPTASK'state[0] id[17227122]
+<6>[   68.990600] adsp: rpc event=0, proc_id=2, module=17227122, image=0
+<6>[   68.991241] adsp: module AUDPPTASK: READY
+<6>[   68.992736] audpp: ENABLE
+<6>[   68.996002] audio_mp3_dsp_event: CFG_MSG ENABLE
+<4>[   68.998382] adsp: waiting for DSP write ready
+<6>[   68.999633] audpp: status 0 1 0
+<6>[   68.999847] mp3:decoder status: init 
+<6>[   69.001342] audpp: status 0 3 0
+<6>[   69.001586] mp3:decoder status: play 
+<4>[   69.582580] msmfb_start_dma 20.263 ms after vsync request
+<4>[   70.316741] msmfb_start_dma 65.795 ms after vsync request
+<6>[   74.701873] audpp: DMA missed
+<6>[   74.703704] audio_flush: flush decoder
+<6>[   74.711914] audio_mp3_disable()
+<6>[   74.713317] audpp: status 0 0 0
+<6>[   74.713562] mp3:decoder status: sleep 
+<6>[   74.713958] audio_mp3_dsp_event: CFG_MSG DISABLE
+<6>[   74.715179] audpp: disable
+<6>[   74.716400] msm_adsp_disable() 'AUDPPTASK'
+<6>[   74.716796] audpp: DISABLE
+<6>[   74.718170] adsp: closing module AUDPPTASK
+<6>[   74.718414] adsp: set module AUDPPTASK ops as NULL
+<6>[   74.718841] msm_adsp_disable() 'AUDPLAY0TASK'
+<6>[   74.720367] adsp: closing module AUDPLAY0TASK
+<6>[   74.720794] adsp: set module AUDPLAY0TASK ops as NULL
+<6>[   74.721038] adsp: disable interrupt
+<6>[   74.722381] audmgr: rpc_reply status 0
+<6>[   74.757781] audmgr: DISABLED
+<4>[   75.362884] msmfb_start_dma 22.644 ms after vsync request
+<4>[   76.337036] msmfb_start_dma 32.470 ms after vsync request
+<4>[   77.924041] wds: 0020 @ 01
+<6>[   77.924285] qmi: wds: got handle 0x028f1240
+<4>[   77.924652] wds: 0022 @ ff
+<6>[   77.925048] qmi: wds: CONNECTED
+<4>[   77.925933] wds: 002d @ 01
+<4>[   77.926147] qmi: got network profile
+<6>[   77.927032] rmnet_open()
+<6>[   77.927398] SMD: ch 11 OPENING -> OPENED
+<6>[   83.807189] [R] request_suspend_state: sleep (0->3) at 80224581385 (2010-02-23 16:28:00.766418485 UTC)
+<6>[   83.807708] [R] early_suspend bin
+<6>[   83.882385] [R] turn off backlight
+<6>[   83.882781] Release 'boot-time' readahead_lock
+<6>[   83.953491] Release 'boot-time' idle_lock
+<6>[   84.152923] perflock_notifier_call: screen_off_policy_req 1, policy_min 245760
+<6>[   84.153381] perflock_notifier_call: cpufreq lock speed 528000
+<6>[   84.153594] active perf lock 'usb'
+<6>[   84.153991] [R] early_suspend end
+<4>[   84.850585] wds: 0021 @ 01
+<6>[   84.850860] qmi: wds: network stopped
+<6>[   84.851684] rmnet_stop()
+<4>[   85.552703] wds: 0022 @ ff
+<6>[   85.552978] qmi: wds: DISCONNECTED

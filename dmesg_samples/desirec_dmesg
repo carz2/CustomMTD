@@ -1,0 +1,706 @@
+<6>[    0.000000] Initializing cgroup subsys cpu
+<5>[    0.000000] Linux version 2.6.29-8a03cb9a (htc-kernel@and18-2) (gcc version 4.4.0 (GCC) ) #1 PREEMPT Wed Mar 17 20:10:15 CST 2010
+<4>[    0.000000] CPU: ARMv6-compatible processor [4117b362] revision 2 (ARMv6TEJ), cr=00c5387f
+<4>[    0.000000] CPU: VIPT aliasing data cache, VIPT aliasing instruction cache
+<4>[    0.000000] Machine: desirec
+<7>[    0.000000] find the flash id tag
+<7>[    0.000000] parse_tag_monodie: mono-die = 0x0
+<7>[    0.000000] find the smi tag
+<7>[    0.000000] parse_tag_smi: smi size = 32
+<7>[    0.000000] find the hwid tag
+<7>[    0.000000] parse_tag_hwid: hwid = 0x0
+<7>[    0.000000] find the skuid tag
+<7>[    0.000000] parse_tag_skuid: hwid = 0x21e01
+<7>[    0.000000] tag_panel_parsing: panel type = 4
+<7>[    0.000000] find the engineer tag
+<7>[    0.000000] parse_tag_engineerid: 0x0
+<7>[    0.000000] find the flash id tag
+<7>[    0.000000] parse_tag_monodie: mono-die = 0x0
+<4>[    0.000000] Ignoring unrecognised tag 0x41387898
+<4>[    0.000000] Ignoring unrecognised tag 0x43294329
+<4>[    0.000000] Memory policy: ECC disabled, Data cache writeback
+<7>[    0.000000] On node 0 totalpages: 50688
+<7>[    0.000000] free_area_init_node: node 0, pgdat c0421a78, node_mem_map c0547000
+<7>[    0.000000]   Normal zone: 652 pages used for memmap
+<7>[    0.000000]   Normal zone: 0 pages reserved
+<7>[    0.000000]   Normal zone: 50036 pages, LIFO batch:15
+<4>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 50036
+<5>[    0.000000] Kernel command line: board_desirec.disable_uart3=0 board_desirec.usb_h2w_sw=0 board_desirec.disable_sdcard=0 diag.enabled=0 board_desirec.debug_uart=0 smisize=32  androidboot.baseband=2.42.00.04.12 androidboot.cid=VZW__001 androidboot.carrier=COMMON androidboot.mid=PB0010000 androidboot.keycaps=qwerty androidboot.mode=normal androidboot.serialno=XXXXXXXXXX androidboot.bootloader=1.49.0000 no_console_suspend=1 console=null
+<3>[    0.000000] Unknown boot option `board_desirec.usb_h2w_sw=0': ignoring
+<3>[    0.000000] Unknown boot option `board_desirec.debug_uart=0': ignoring
+<3>[    0.000000] Unknown boot option `androidboot.baseband=2.42.00.04.12': ignoring
+<3>[    0.000000] Unknown boot option `androidboot.bootloader=1.49.0000': ignoring
+<4>[    0.000000] desirec_init_irq()
+<4>[    0.000000] PID hash table entries: 1024 (order: 10, 4096 bytes)
+<6>[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+<6>[    0.001068] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+<6>[    0.020538] Memory: 110MB 88MB = 198MB total
+<5>[    0.020568] Memory: 195064KB available (3852K code, 1367K data, 124K init)
+<6>[    0.021148] Calibrating delay loop... 478.41 BogoMIPS (lpj=2392064)
+<4>[    0.270660] Mount-cache hash table entries: 512
+<6>[    0.271850] Initializing cgroup subsys debug
+<6>[    0.271911] Initializing cgroup subsys cpuacct
+<6>[    0.271942] Initializing cgroup subsys freezer
+<6>[    0.271972] CPU: Testing write buffer coherency: ok
+<6>[    0.276977] net_namespace: 996 bytes
+<6>[    0.278503] NET: Registered protocol family 16
+<6>[    0.279541] desirec_init() revision = 2
+<6>[    2.123687] acpu_clock_init()
+<6>[    2.124481] ACPU running at 480000 KHz
+<6>[    2.124542] Acquire 'boot-time' perf_lock
+<6>[    2.140289] Acquire 'boot-time' readahead_lock
+<4>[    2.140747] bio: create slab <bio-0> at 0
+<6>[    2.142425] msm_i2c_probe
+<6>[    2.142761] msm_i2c_probe: clk_ctl 35d, 100000 Hz
+<6>[    2.146759] Bluetooth: Core ver 2.15
+<6>[    2.147521] NET: Registered protocol family 31
+<6>[    2.147552] Bluetooth: HCI device and connection manager initialized
+<6>[    2.147583] Bluetooth: HCI socket layer initialized
+<6>[    2.150390] NET: Registered protocol family 2
+<6>[    2.150848] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
+<6>[    2.151947] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+<6>[    2.152618] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
+<6>[    2.153045] TCP: Hash tables configured (established 8192 bind 8192)
+<6>[    2.153076] TCP reno registered
+<6>[    2.153564] NET: Registered protocol family 1
+<7>[    2.153930] Switched to high resolution mode on CPU 0
+<6>[    2.155059] Unpacking initramfs... done
+<6>[    2.208862] Freeing initrd memory: 160K
+<6>[    2.209777] [Port list] init()
+<6>[    2.209838] [Port list] Virtual Address for port_list: [f8149a10]
+<6>[    2.209838] [Port list] Physical Address for port_list: [1F49A10]
+<6>[    2.210449] smd_init()
+<6>[    2.210479] smd_core_init()
+<6>[    2.210662] smd_core_init() done
+<3>[    2.210693] msm_init_last_radio_log: could not retrieve SMEM_CLKREGIM_BSP
+<6>[    2.210968] smd_alloc_channel() cid=01 size=08192 'SMD_DIAG'
+<6>[    2.211273] smd_alloc_channel() cid=02 size=08192 'SMD_RPCCALL'
+<6>[    2.211486] smd_alloc_channel() cid=11 size=65536 'SMD_DATA5'
+<6>[    2.211700] smd_alloc_channel() cid=12 size=08192 'SMD_DATA6'
+<6>[    2.211944] smd_alloc_channel() cid=13 size=08192 'SMD_DATA7'
+<6>[    2.212127] smd_alloc_channel() cid=38 size=08192 'SMD_DATA5_CNTL'
+<6>[    2.212371] smd_alloc_channel() cid=39 size=08192 'SMD_DATA6_CNTL'
+<6>[    2.212585] smd_alloc_channel() cid=40 size=08192 'SMD_DATA7_CNTL'
+<3>[    2.215454] smem_log_init: no power log or log_idx allocated, smem_log disabled<6>SMD: ch 2 0 -> 1
+<6>[    2.217407] SMD: ch 2 1 -> 2
+<6>[    2.223083] Acquire 'boot-time' halt_lock
+<6>[    2.223388] perflock_notifier_call: cpufreq lock speed 528000
+<6>[    2.223419] active perf lock 'boot-time'
+<6>[    2.224975] desirec_init_panel: enter.
+<6>[    2.225006] desirec_init_panel: init EID panel
+<4>[    2.231628] desirec_bt_fastclock_power: 0
+<6>[    2.238037] H2W: htc_35mm_remote Registering H2W (headset) Driver
+<6>[    2.249786] H2W route = 0 
+<6>[    2.249969] H2W -> GPIO
+<6>[    2.250793] input: h2w headset as /devices/virtual/input/input0
+<6>[    2.251068] H2W: Registering H2W (headset) driver finish
+<3>[    2.251495] Audiojack: Registering in audiojack_probe
+<6>[    2.264495] ashmem: initialized
+<4>[    2.266265] yaffs Mar 17 2010 20:08:46 Installing. 
+<6>[    2.274414] alg: No test for stdrng (krng)
+<6>[    2.274597] io scheduler noop registered
+<6>[    2.274627] io scheduler anticipatory registered
+<6>[    2.274627] io scheduler deadline registered (default)
+<6>[    2.275115] mddi: init() base=0xd4858000 irq=16
+<7>[    2.275421] mddi runs at 106000000
+<6>[    2.275817] mddi cmd send rtd: int 3a000, stat 8063, rtd val 11
+<4>[    2.275909] panel_eid_fixup: enter.
+<6>[    2.275939] mddi: registering panel mddi_c_0101_0000
+<6>[    2.275970] mddi: publish: 
+<6>[    2.276794] CABC enabled
+<6>[    2.278045] vsync on gpio 97 now 0
+<6>[    2.278930] msmfb_probe() installing 320 x 480 panel
+<6>[    2.280883] rev_crc_err_count 1, INT 3a001
+<6>[    2.280944] rev: unknown reverse packet: len=0009 type=0049 CURR_REV_PTR=24d2c057
+<6>[    2.280944] 
+<6>[    2.280975]  09<6> 00<6> 49<6> 00<6> 00<6> 80<6> 00<6> 60<6> 29<6> 00<6> 00<6>
+<6>[    2.281036] mddi: resetting rev ptr
+<6>[    2.281127] mddi_remote_read: failed, sent MDDI_CMD_SEND_RTD: int 3a001, stat 8063, rtd val 10 curr_rev_ptr 24d2c057
+<6>[    2.281524] Registered led device: lcd-backlight
+<4>[    2.281738] samsung_wait: wait failed (-1), mask = 0x0
+<6>[    2.283630] msm_serial: detected port #2
+<6>[    2.283966] msm_serial.2: ttyMSM2 at MMIO 0xa9c00000 (irq = 11) is a MSM
+<6>[    2.284545] msm_serial: driver initialized
+<6>[    2.284729] TI chip
+<6>[    2.285064] msm_serial_hs.0: ttyHS0 at MMIO 0xa0200000 (irq = 45) is a MSM HS UART
+<6>[    2.285614] msm_serial_hs module loaded
+<6>[    2.285919] msm_serial_hs module loaded
+<6>[    2.286041] pmem: 1 init
+<6>[    2.286712] pmem_adsp: 0 init
+<6>[    2.287597] pmem_camera: 0 init
+<6>[    2.288543] PPP generic driver version 2.4.2
+<6>[    2.288940] PPP Deflate Compression module registered
+<6>[    2.288970] PPP BSD Compression module registered
+<6>[    2.290496] PPP MPPE Compression module registered
+<6>[    2.290557] NET: Registered protocol family 24
+<6>[    2.292449] rmnet0 (): not using net_device_ops yet
+<6>[    2.293518] rmnet1 (): not using net_device_ops yet
+<6>[    2.294830] rmnet2 (): not using net_device_ops yet
+<6>[    2.296630] allocated dma buffer at ffa47000, dma_addr 24d0d000
+<6>[    2.296783] read CFG0 = aa5400c0, CFG1 = 8744e
+<6>[    2.296813] CFG0 = e85408c0, CFG1 = 8744e
+<6>[    2.296844] CFG0: cw/page=3 ud_sz=516 ecc_sz=10 spare_sz=0 num_addr_cycles=5
+<6>[    2.296966] NAND_READ_ID = 5590bc2c
+<6>[    2.297180] status: e03120
+<6>[    2.297210] nandid: 5590bc2c maker 2c device bc
+<6>[    2.297302] CFG0: cw/page=3 ud_sz=512 ecc_sz=10 spare_sz=4
+<6>[    2.297393] DEV_CMD1: f00f3000
+<6>[    2.297515] <6>NAND_EBI2_ECC_BUF_CFG: 1ff
+<6>[    2.297515] flash_id: 5590bc2c size 20000000
+<5>[    2.297546] Creating 6 MTD partitions on "msm_nand":
+<5>[    2.297607] 0x00001ff60000-0x000020000000 : "misc"
+<5>[    2.299652] 0x000002c60000-0x000003160000 : "recovery"
+<5>[    2.305969] 0x000003160000-0x0000033e0000 : "boot"
+<5>[    2.309448] 0x0000033e0000-0x00000dde0000 : "system"
+<6>[    2.323364] batt: M2A_RPC: cable_update: USB at 479616733 (1970-01-01 00:00:00.479586216 UTC)
+<6>[    2.323425] batt: htc_cable_status_update: 0 -> 1
+<6>[    2.323455] msm_hsusb_set_vbus_state: 1
+<6>[    2.324615] batt: A2M_RPC: get_batt_info: batt_id=1, batt_vol=3878, batt_temp=324, batt_current=1, level=71, charging_source=1, charging_enabled=1, full_bat=1300000, over_vchg=0 at 480898472 (1970-01-01 00:00:00.480806920 UTC)
+<6>[    2.417449] smd_alloc_channel() cid=27 size=08192 'SMD_GPSNMEA'
+<6>[    2.447601] smd_alloc_channel() cid=00 size=08192 'SMD_DS'
+<6>[    2.449462] smd_alloc_channel() cid=07 size=08192 'SMD_DATA1'
+<6>[    2.449890] smd_alloc_channel() cid=08 size=08192 'SMD_DATA2'
+<3>[    2.450225] smd_alloc_v2: ch9 buffer allocate fail
+<3>[    2.450256] smem_find(23, 16424): wrong size 40
+<3>[    2.450256] smd_alloc_v1: cid 9 does not exist
+<6>[    2.450286] smd_alloc_channel() cid=09 size=08192 'SMD_DATA3'
+<6>[    2.450683] smd_alloc_channel() cid=10 size=65536 'SMD_DATA4'
+<6>[    2.451110] smd_alloc_channel() cid=26 size=08192 'SMD_DATA20'
+<5>[    2.525573] 0x00000dde0000-0x000015fe0000 : "cache"
+<5>[    2.678466] 0x000015fe0000-0x00001ff60000 : "userdata"
+<6>[    2.851989] usb_probe() io=d4864000, irq=47, dma=ffa48000(24cf9000)
+<6>[    2.852844] usb_function_register() 'adb'
+<6>[    2.853240] usb_function_register() 'usb_mass_storage'
+<6>[    2.853515] SMD: ch 1 0 -> 1
+<6>[    2.853637] SMD: ch 1 1 -> 2
+<6>[    2.854339] usb_function_register() 'diag'
+<6>[    2.854522] usb0 (): not using net_device_ops yet
+<6>[    2.855407] usb_function_register() 'ether'
+<6>[    2.856506] usb_function_register() 'modem'
+<6>[    2.856567] usb_function_register() 'nmea'
+<6>[    2.856628] usb_function_register() 'serial'
+<7>[    2.856658] usb_try_to_bind: functions bound. starting.
+<7>[    2.856689] usb_bind_func() 'usb_mass_storage'
+<6>[    2.857116] usb_mass_storage usb_mass_storage: Number of LUNs=1
+<7>[    2.857147] usb_bind_func() 'adb'
+<7>[    2.857849] usb_bind_func() 'diag'
+<7>[    2.857879] diag:diag_bind() d3afa8a0, d3afaaa0
+<7>[    2.858032] diag:diag_bind() allocated 4 rx and 4 tx requests
+<7>[    2.858734] usb_bind_func() 'serial'
+<4>[    2.858764] gs_bind:serial
+<7>[    2.858795] usb_bind_func() 'ether'
+<7>[    2.858978] usb_bind_func() 'modem'
+<4>[    2.858978] gs_bind:modem
+<7>[    2.859008] usb_bind_func() 'nmea'
+<4>[    2.859008] gs_bind:nmea
+<6>[    2.860076] hsusb: IDLE -> ONLINE
+<6>[    2.860229] hsusb: reset controller
+<3>[    2.861267] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    2.861358] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<4>[    2.893920] desirec_phy_reset
+<4>[    2.933898] ulpi: write 0x40 to 0x31
+<4>[    2.933929] ulpi: write 0x01 to 0x0d
+<4>[    2.933959] ulpi: write 0x01 to 0x10
+<7>[    2.934020] usb: notify offline
+<6>[    2.934082] do_set_config: new_config = 0, fsg->config = 0, usb_get_connect_type = 0
+<6>[    2.934173] usb:usb_switch_dummy_serial_num_by_GPIO, usb_id_pin_gpio 0
+<6>[    2.934173] usb: mfg_USB_ID_pin_status: 1, ID_Pin 1: 1,usb_switch_dummy_serial_num_by_GPIO 
+<6>[    2.937164] usb: suspend
+<6>[    2.953918] usb: not AC charger
+<6>[    2.953979] batt: [htc_batt]usb notify online = 1
+<4>[    2.954010]  at 1110231987 (1970-01-01 00:00:01.110201470 UTC)
+<6>[    2.954040] batt: Update SMEM: cable type 1
+<4>[    2.954071]  at 1110262505 (1970-01-01 00:00:01.110262505 UTC)
+<6>[    2.964660] synaptics_ts_probe: Product Major Version 1
+<6>[    2.965393] synaptics_ts_probe: Product Minor Version 4
+<6>[    2.966125] synaptics_ts_probe: product property 2
+<6>[    2.966827] synaptics_ts_probe: device control 81
+<6>[    2.967529] synaptics_ts_probe: interrupt enable 1
+<6>[    2.969451] synaptics_ts_probe: 0xe0: 1 1 1 2 1 4 0 0
+<6>[    2.970581] synaptics_ts_probe: Sensor properties 701
+<6>[    2.974029] synaptics_ts_probe: max_x 3778, max_y 5862
+<6>[    2.974060] synaptics_ts_probe: inactive_x -118 -118, inactive_y -61 -427
+<6>[    2.974090] synaptics_ts_probe: snap_x 0-0 0-0, snap_y 0-0 0-0
+<6>[    2.974609] input: synaptics-rmi-touchscreen as /devices/virtual/input/input1
+<6>[    2.975006] ENABLE_IME_IMPROVEMENT: x pixel size 11, y pixel size 11, margin 118, 3660, 61, 5435.
+<6>[    2.975708] synaptics_ts_probe: Start touchscreen synaptics-rmi-touchscreen in interrupt mode
+<3>[    3.024169] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.024230] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.034484] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.034545] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<6>[    3.036254] usb: reset
+<6>[    3.038543] usb: portchange USB_SPEED_HIGH
+<6>[    3.044830] batt: [htc_batt]usb notify online = 1
+<3>[    3.044891] msm_i2c msm_i2c.0: error, status 43c8
+<4>[    3.044921]  at 1201143852 (1970-01-01 00:00:01.201052299 UTC)
+<6>[    3.044952] batt: Update SMEM: cable type 1
+<4>[    3.044982]  at 1201174369 (1970-01-01 00:00:01.201174369 UTC)
+<3>[    3.045410] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.055664] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.055755] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.066009] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.066101] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.076324] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.076385] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.086639] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.086700] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.096954] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.097015] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.107269] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.107330] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.117553] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.117614] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.127685] melfas-tsi-ts 0-0022: i2c_write_block retry over 10
+<3>[    3.127716] melfas_i2c_op_mode_switch: melfas_i2c_write_block failed (0x55)
+<3>[    3.152893] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.152954] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.163269] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.163330] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.173797] msm_i2c msm_i2c.0: error, status 83c8
+<3>[    3.173889] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.184295] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.184356] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.194610] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.194671] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<7>[    3.201232] gs_configure done
+<7>[    3.201538] gs_configure done
+<7>[    3.201782] gs_configure done
+<6>[    3.206146] do_set_config: new_config = 1, fsg->config = 0, usb_get_connect_type = 1
+<3>[    3.206176] msm_i2c msm_i2c.0: error, status c8
+<6>[    3.206237] usb_mass_storage usb_mass_storage: config #1
+<6>[    3.206390] do_set_config: uevent = 1
+<3>[    3.206451] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.216766] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.216827] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.227142] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.227355] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.237670] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.237731] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.247985] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.248046] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.258148] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    3.258148] melfas_i2c_op_mode_switch: melfas_i2c_read_block failed (0x1)
+<3>[    3.268432] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.268493] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.278808] msm_i2c msm_i2c.0: error, status c8
+<3>[    3.278900] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.289154] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.289245] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.299530] msm_i2c msm_i2c.0: error, status 83c8
+<3>[    3.299591] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.309844] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.309906] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.320159] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.320220] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.330474] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.330535] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.340759] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.340820] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.351074] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.351135] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.361358] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.361419] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.371490] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    3.371520] melfas_i2c_op_mode_switch: melfas_i2c_read_block failed (0x1)
+<3>[    3.381713] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.381774] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.392028] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.392089] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.402404] msm_i2c msm_i2c.0: error, status c8
+<3>[    3.402435] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.412719] msm_i2c msm_i2c.0: error, status c8
+<3>[    3.412780] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.423065] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.423156] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.433441] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.433502] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.443786] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.443878] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.454132] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.454193] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.464416] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.464508] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.474731] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.474822] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.484893] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    3.484893] melfas_i2c_op_mode_switch: melfas_i2c_read_block failed (0x1)
+<3>[    3.495117] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.495178] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.505401] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.505462] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.515686] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.515747] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.526000] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.526062] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.536315] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.536376] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.546600] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.546661] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.556915] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.556976] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.567199] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.567260] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.577484] msm_i2c msm_i2c.0: error, status 83c8
+<3>[    3.577575] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.587799] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.587860] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.597930] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    3.597961] melfas_i2c_op_mode_switch: melfas_i2c_read_block failed (0x1)
+<3>[    3.608154] msm_i2c msm_i2c.0: error, status 83c8
+<3>[    3.608215] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.618438] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.618499] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.628753] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.628814] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.639038] msm_i2c msm_i2c.0: error, status 83c8
+<3>[    3.639099] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.649353] msm_i2c msm_i2c.0: error, status 83c8
+<3>[    3.649414] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.659637] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.659698] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.669952] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.670013] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.680267] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.680328] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.690551] msm_i2c msm_i2c.0: error, status 83c8
+<3>[    3.690643] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.700866] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.700927] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.710998] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    3.711029] melfas_i2c_op_mode_switch: melfas_i2c_read_block failed (0x1)
+<3>[    3.711212] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.711273] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.721527] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.721588] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.731842] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.731903] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.742126] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.742187] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.752441] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.752502] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.762725] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.762786] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.773040] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.773101] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.783325] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.783386] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.793640] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.793701] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.803985] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.804046] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.814117] melfas-tsi-ts 0-0022: i2c_write_block retry over 10
+<3>[    3.814147] melfas_i2c_op_mode_switch: melfas_i2c_write_block failed (0x55)
+<3>[    3.839324] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.839385] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.849609] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.849670] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.859924] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.859985] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.870208] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.870269] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.880523] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.880584] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.890838] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.890930] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.901184] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.901245] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.911499] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.911560] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.921813] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.921875] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.932098] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.932159] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.942260] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    3.942291] melfas_i2c_op_mode_switch: melfas_i2c_read_block failed (0x1)
+<3>[    3.952453] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.952514] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.962768] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.962829] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.973083] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.973144] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.983367] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    3.983428] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    3.993682] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    3.993743] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.004028] msm_i2c msm_i2c.0: error, status e3c8
+<3>[    4.004089] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.014343] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.014404] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.024658] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.024719] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.034942] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.035003] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.045257] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.045318] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.055389] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    4.055389] melfas_i2c_op_mode_switch: melfas_i2c_read_block failed (0x1)
+<3>[    4.065612] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.065673] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.075897] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.075958] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.086212] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.086273] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.096496] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.096557] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.106811] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.106872] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.117095] msm_i2c msm_i2c.0: error, status 83c8
+<3>[    4.117156] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.127441] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.127502] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.137725] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.137786] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.148040] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.148101] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.158325] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.158386] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.168487] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    4.168518] melfas_i2c_op_mode_switch: melfas_i2c_read_block failed (0x1)
+<3>[    4.178710] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.178771] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.188995] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.189056] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.199310] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.199371] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.209594] msm_i2c msm_i2c.0: error, status e3c8
+<3>[    4.209655] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.219909] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.219970] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.230194] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.230255] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.240509] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.240570] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.250823] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.250885] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.261138] msm_i2c msm_i2c.0: error, status 83c8
+<3>[    4.261199] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.271423] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.271484] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.281555] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    4.281585] melfas_i2c_op_mode_switch: melfas_i2c_read_block failed (0x1)
+<3>[    4.291778] msm_i2c msm_i2c.0: error, status e3c8
+<3>[    4.291839] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.302062] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.302124] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.312377] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.312438] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.322692] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.322753] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.333007] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.333068] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.343292] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.343353] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.353607] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.353668] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.363922] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.363952] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.374176] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.374237] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.384490] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.384552] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.394622] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    4.394653] melfas_i2c_op_mode_switch: melfas_i2c_read_block failed (0x1)
+<3>[    4.394683] 
+<3>[    4.394683] melfas_i2c_op_mode_switch: Can't change operation mode: 0x02!!
+<3>[    4.394683] 
+<3>[    4.394866] msm_i2c msm_i2c.0: error, status e3c8
+<3>[    4.394927] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.405181] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.405242] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.415466] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.415527] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.425781] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.425842] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.436096] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.436157] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.446441] msm_i2c msm_i2c.0: error, status c8
+<3>[    4.446533] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.456787] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.456848] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.467102] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.467193] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.477416] msm_i2c msm_i2c.0: error, status 63c8
+<3>[    4.477478] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.487731] msm_i2c msm_i2c.0: error, status 43c8
+<3>[    4.487792] msm_i2c msm_i2c.0: Error during data xfer (-5)
+<3>[    4.497863] melfas-tsi-ts 0-0022: i2c_read_block retry over 10
+<3>[    4.497894] melfas_ts_probe: melfas_i2c_read_block failed (0x1)
+<4>[    4.497955] melfas-tsi-ts: probe of 0-0022 failed with error -5
+<6>[    4.498931] GPIO Matrix Keypad Driver: Start keypad matrix for desirec-keypad... in interrupt mode
+<6>[    4.499114] GPIO Input Driver: Start gpio inputs for desirec-keypad... in interrupt mode
+<6>[    4.500122] input: desirec-keypad as /devices/virtual/input/input2
+<6>[    4.501007] input: desirec-nav as /devices/virtual/input/input3
+<6>[    4.501586] capella_cm3602_probe: probe
+<6>[    4.502014] input: proximity as /devices/virtual/input/input4
+<6>[    4.502532] capella_cm3602_setup
+<6>[    4.502624] proximity 0
+<6>[    4.503417] using input dev h2w headset for key reset
+<6>[    4.503479] using input dev desirec-keypad for key reset
+<6>[    4.503509] using input dev desirec-nav for key reset
+<6>[    4.503692] Linux video capture interface: v2.00
+<6>[    4.503967] msm_v4l2: msm_v4l2_init
+<6>[    4.504577] s5k3e2fx_sensor_probe
+<6>[    5.126129] s5k3e2fx:kobject creat and add
+<6>[    5.126220] s5k3e2fx:sysfs_create_file
+<6>[    5.128540] using rtc device, msm_rtc, for alarms<6>rs30000048:00010001 rs30000048:00010001: rtc core: registered msm_rtc as rtc0
+<6>[    5.128692] AKM8973 compass driver: init
+<6>[    5.130523] input: compass as /devices/virtual/input/input5
+<6>[    5.131378] BMA150 G-sensor driver: init
+<6>[    5.134155] microp-i2c 0-0066: microp version [01][11]
+<6>[    5.134460] Registered led device: green
+<6>[    5.134643] Registered led device: amber
+<6>[    5.134887] Registered led device: button-backlight
+<6>[    5.135070] Registered led device: vtkey-backlight
+<6>[    5.135253] Registered led device: jogball-backlight
+<6>[    5.159423] input: lightsensor-level as /devices/virtual/input/input6
+<6>[    5.160156] proximity 1
+<3>[    5.160339] tpa6130 HP AMP: init
+<6>[    5.161071] device-mapper: uevent: version 1.0.3
+<6>[    5.161895] device-mapper: ioctl: 4.14.0-ioctl (2008-04-23) initialised: dm-devel@redhat.com
+<6>[    5.162048] Bluetooth: HCI UART driver ver 2.2
+<6>[    5.162078] Bluetooth: HCI H4 protocol initialized
+<6>[    5.162078] Bluetooth: HCILL protocol initialized
+<6>[    5.162139] perflock_notifier_call: cpufreq lock speed 528000
+<6>[    5.162170] active perf lock 'boot-time'
+<6>[    5.164154] mmc0: Qualcomm MSM SDCC at 0x00000000a0400000 irq 24,0 dma 8
+<6>[    5.164184] mmc0: Platform slot type: Not defined
+<6>[    5.164215] mmc0: 4 bit data mode enabled
+<6>[    5.164215] mmc0: MMC clock 144000 -> 50000000 Hz, PCLK 80000000 Hz
+<6>[    5.164245] mmc0: Slot eject status = 1
+<6>[    5.164245] mmc0: Power save feature enable = 1
+<6>[    5.164276] mmc0: DM non-cached buffer at ffa4c000, dma_addr 0x24dbd000
+<6>[    5.164306] mmc0: DM cmd busaddr 0x24dbd000, cmdptr busaddr 0x24dbd300
+<7>[    5.164916] msmsdcc_platform_status_irq: 102
+<6>[    5.164947] mmc1: Slot status change detected (0 -> 1)
+<4>[    5.165435] desirec_sdslot_switchvdd: Disabling SD slot power
+<6>[    5.165740] mmc1: Qualcomm MSM SDCC at 0x00000000a0500000 irq 26,102 dma 8
+<6>[    5.165740] mmc1: Platform slot type: SD
+<6>[    5.165771] mmc1: 4 bit data mode enabled
+<6>[    5.165771] mmc1: MMC clock 144000 -> 50000000 Hz, PCLK 80000000 Hz
+<6>[    5.165802] mmc1: Slot eject status = 0
+<6>[    5.165802] mmc1: Power save feature enable = 1
+<6>[    5.165832] mmc1: DM non-cached buffer at ffa4d000, dma_addr 0x24dbf000
+<6>[    5.165863] mmc1: DM cmd busaddr 0x24dbf000, cmdptr busaddr 0x24dbf300
+<6>[    5.191467] logger: created 64K log 'log_main'
+<6>[    5.191711] logger: created 256K log 'log_events'
+<6>[    5.191955] logger: created 64K log 'log_radio'
+<6>[    5.192108] ram_console: got buffer at 7a0000, size 20000
+<6>[    5.192382] ram_console: found existing buffer, size 37289, start 37289
+<6>[    5.402221] console [ram-1] enabled
+<6>[    5.574005] oprofile: using arm/armv6
+<4>[    5.574432] Netfilter messages via NETLINK v0.30.
+<4>[    5.574829] nf_conntrack version 0.5.0 (3168 buckets, 12672 max)
+<4>[    5.575714] CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Please use
+<4>[    5.576171] nf_conntrack.acct=1 kernel paramater, acct=1 nf_conntrack module option or
+<4>[    5.576416] sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+<6>[    5.577301] xt_time: kernel timezone is -0000
+<6>[    5.578063] ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    5.578735] TCP cubic registered
+<6>[    5.579528] NET: Registered protocol family 10
+<6>[    5.581024] lo: Disabled Privacy Extensions
+<6>[    5.583374] Mobile IPv6
+<6>[    5.583648] IPv6 over IPv4 tunneling driver
+<6>[    5.585113] sit0: Disabled Privacy Extensions
+<6>[    5.586853] ip6tnl0: Disabled Privacy Extensions
+<6>[    5.587402] NET: Registered protocol family 17
+<6>[    5.587738] NET: Registered protocol family 15
+<6>[    5.588226] Bluetooth: L2CAP ver 2.13
+<6>[    5.588470] Bluetooth: L2CAP socket layer initialized
+<6>[    5.588928] Bluetooth: SCO (Voice Link) ver 0.6
+<6>[    5.589172] Bluetooth: SCO socket layer initialized
+<4>[    5.596496] desirec_sdslot_switchvdd: Setting level to 2900
+<6>[    5.619140] Bluetooth: RFCOMM socket layer initialized
+<6>[    5.619598] Bluetooth: RFCOMM TTY layer initialized
+<6>[    5.620025] Bluetooth: RFCOMM ver 1.11
+<6>[    5.620269] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+<6>[    5.620727] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+<6>[    5.621582] clock_late_init() disabled 17 unused clocks
+<4>[    5.622253] desirec_wifi_init: start
+<6>[    5.623443] perflock_notifier_call: screen_on_policy_req 1,policy_min 480000
+<6>[    5.623718] perflock_notifier_call: cpufreq lock speed 528000
+<6>[    5.623962] active perf lock 'boot-time'
+<6>[    5.628234] rs30000048:00010001 rs30000048:00010001: setting system clock to 2010-06-18 02:08:51 UTC (1276826931)
+<6>[    5.628997] Freeing init memory: 124K
+<4>[    5.629638] Warning: unable to open an initial console.
+<3>[    5.630371] mmc1: Command timeout (cmd= 5 mci_st=00000004)
+<3>[    5.636688] mmc1: Command timeout (cmd= 5 mci_st=00000004)
+<3>[    5.642852] mmc1: Command timeout (cmd= 5 mci_st=00000004)
+<3>[    5.648986] mmc1: Command timeout (cmd= 5 mci_st=00000004)
+<4>[    5.656219] desirec_sdslot_switchvdd: Setting level to 2800
+<4>[    5.864715] mmc1: host does not support reading read-only switch. assuming write-enable.
+<6>[    5.865234] mmc1: new high speed SDHC card at address aaaa
+<6>[    5.874023] mmcblk0: mmc1:aaaa SU08G 7.40 GiB 
+<6>[    5.874786]  mmcblk0: p1
+<6>[    5.964813] yaffs: dev is 32505859 name is "mtdblock3"
+<6>[    5.965301] yaffs: passed flags ""
+<4>[    5.965545] yaffs: Attempting MTD mount on 31.3, "mtdblock3"
+<4>[    6.214080] yaffs: restored from checkpoint
+<4>[    6.214843] yaffs_read_super: isCheckpointed 1
+<6>[    6.215911] yaffs: dev is 32505861 name is "mtdblock5"
+<6>[    6.216369] yaffs: passed flags ""
+<4>[    6.216613] yaffs: Attempting MTD mount on 31.5, "mtdblock5"
+<4>[    6.313720] yaffs: restored from checkpoint
+<4>[    6.315155] yaffs_read_super: isCheckpointed 1
+<6>[    6.339904] yaffs: dev is 32505860 name is "mtdblock4"
+<6>[    6.340362] yaffs: passed flags ""
+<4>[    6.340606] yaffs: Attempting MTD mount on 31.4, "mtdblock4"
+<4>[    6.347900] yaffs: restored from checkpoint
+<4>[    6.348266] yaffs_read_super: isCheckpointed 1
+<3>[    6.408905] init: service 'console' requires console
+<3>[    6.509033] init: cannot find '/system/etc/install-recovery.sh', disabling 'flash_recovery'
+<3>[    6.559570] init: cannot find '/system/bin/htcipcd', disabling 'htcipcd'
+<6>[    6.648529] warning: `adbd' uses 32-bit capabilities (legacy support in use)
+<6>[    6.649291] hsusb: ONLINE -> RESET
+<6>[    6.649566] hsusb: reset controller
+<4>[    6.683990] desirec_phy_reset
+<4>[    6.745849] usb_ept_queue_xfer() tried to queue request while offline
+<3>[    6.747070] init: sys_prop: permission denied uid:2000  name:adb.connected
+<4>[    6.754272] ulpi: write 0x40 to 0x31
+<4>[    6.754730] ulpi: write 0x01 to 0x0d
+<4>[    6.759246] ulpi: write 0x01 to 0x10
+<4>[    6.764312] usb_ept_queue_xfer() tried to queue request while offline
+<7>[    6.764739] usb: notify offline
+<6>[    6.765258] do_set_config: new_config = 0, fsg->config = 1, usb_get_connect_type = 1
+<4>[    6.765960] usb_ept_queue_xfer() tried to queue request while offline
+<6>[    6.768737] hsusb: RESET -> ONLINE
+<6>[    6.771728] usb: suspend
+<3>[    6.773773] init: sys_prop: permission denied uid:2000  name:adb.connected
+<6>[    6.912384] usb: reset
+<6>[    6.914672] usb: portchange USB_SPEED_HIGH
+<7>[    7.077697] gs_configure done
+<7>[    7.078399] gs_configure done
+<7>[    7.078826] gs_configure done
+<6>[    7.079284] do_set_config: new_config = 1, fsg->config = 0, usb_get_connect_type = 1
+<6>[    7.079772] usb_mass_storage usb_mass_storage: config #1
+<6>[    7.079986] do_set_config: uevent = 1
+<6>[    7.221191] SMD: ch 0 0 -> 1
+<6>[    7.221527] SMD: ch 0 1 -> 2
+<6>[    7.223388] SMD: ch 38 0 -> 1
+<6>[    7.223724] SMD: ch 38 1 -> 2
+<6>[    7.224151] qmi: smd opened
+<6>[    7.225921] qmi: ctl: wds use client_id 0x01
+<6>[    7.227386] SMD: ch 39 0 -> 1
+<6>[    7.227935] SMD: ch 39 1 -> 2
+<6>[    7.228149] qmi: smd opened
+<6>[    7.230255] qmi: ctl: wds use client_id 0x01
+<6>[    7.234222] SMD: ch 40 0 -> 1
+<6>[    7.234741] SMD: ch 40 1 -> 2
+<6>[    7.234985] qmi: smd opened
+<6>[    7.235839] qmi: ctl: wds use client_id 0x01
+<3>[    7.360992] init: sys_prop: permission denied uid:2000  name:adb.connected
+<6>[    9.349914] snd_set_device 1 1 1
+<6>[    9.354431] snd_rpc_thread() start
+<6>[    9.354980] snd: rpc_reply status 0
+<6>[    9.359252] snd_set_volume 256 0 5
+<6>[    9.361114] snd: rpc_reply status 0
+<6>[   12.113098] SMD: ch 9 0 -> 1
+<6>[   12.113433] SMD: ch 9 1 -> 2
+<6>[   12.487060] [Port list] Add port [9734]
+<6>[   12.487548] [Port list] [1] = 9734
+<7>[   22.284454] turn on backlight.
+<6>[   22.284912] brightness = 255, BC_MANUAL ls-(off)
+<7>[   22.285583] desirec_panel_unblank: enter.
+<7>[   22.285827] desirec_set_backlight: enter.
+<6>[   22.973052] hw3d_open: pid 90 tid 94 opening client node
+<4>[   22.974822] remapping device 3b3
+<6>[   22.993103] hw3d_open: pid 83 tid 87 opening master node
