@@ -19,7 +19,7 @@
 ###############################################################################################
 
 
-version=1.5.5
+version=1.5.4
 ##
 
 readdmesg ()
@@ -269,7 +269,7 @@ then
 	done
 	eval dataSizeHex=$(printf %x `expr $(printf %d $(awk '/'userdata'/ {print $3}' $dmesgmtdpart)) - $(printf %d 0x${DataStartHex})`)
 # lol, I should tidy that up 
-	$dmesg |awk '/Kernel command line/ {sub (/serialno=.+\ a/,"serialno=XXXXXXXXXXXX a"); print $0}' |tee -a $logfile
+	$dmesg |awk '/Kernel command line/ {sub (/serialno=.+\ a/,"serialno=XXXXXXXXXXXX a"); print $0}' >> $logfile
 	if [ "$mode" = "recovery" ];
 	then
 		echo "dev:    size   erasesize  name" > $mtdpart
@@ -314,8 +314,6 @@ then
 	Mode=recovery
 	boot=recovery
 	readdmesg
-	# this is going to fail on a device as busybox awk doesn't have strtonum
-	awk '{print $1" "$2" "$3" "(strtonum($3)-strtonum($2))/1048576}' $dmesgmtdpart|tee -a $logfile
 	recoverymode
 	CreateCMDline
 	testrun
@@ -323,17 +321,16 @@ then
 	Mode=boot
 	boot=boot
 	readdmesg
-	$dmesg|sed s/serialno=.*\ a/serialno=XXXXXXXXXX\ a/g>$wkdir/dmesg
     CreateCMDline
     testrun
 	flashimg
 	cd $wkdir
-	tardir=`$dmesg|awk -F\:\  '/Machine:/ {print $2}'`_CustomMTD
+	tardir=`$dmesg|awk -F_ '/Kernel command line/ {print $2}'|sed s/.disable//`_CustomMTD
 	mkdir $tardir
-	for i in dmesg mtd mtdpartmap boot* recovery*;do
+	for i in mtd mtdpartmap boot* recovery*;do
 		mv $i $tardir
 	done
-	tar -cz $tardir -f ${sdcard}/${tardir}.tar.gz
+	tar -cz $tardir -f $sdcard/${tardir}.tar.gz
 	exit
 fi
 

@@ -2,14 +2,14 @@
 # 2010-07-01 Firerat
 # Patch update(r)-script to run boot.img MTD Patcher
 #
-version=1.5.5
+version=1.5.4
 startdir=`pwd`
 
 me=$0
 echo $me
 if [ "`echo $me|cut -c 1`" != "/" ];
 then
-	AutoMTDPatchTools=`pwd`/`dirname $me`/AutoMTDPatchTools
+	AutoMTDPatchTools=`pwd`/AutoMTDPatchTools
 else
 	AutoMTDPatchTools=`dirname $me`/AutoMTDPatchTools
 fi
@@ -25,13 +25,11 @@ then
 	echo "Custom Partition Layout - ROM zip patcher"
 	echo "Version $version"
 	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo "usage"
-	echo "$me <ROM Zip to patch>"
+	echo "useage"
+	echo "$me <ROM Zip to flash>"
 	exit 1
 fi
 
-unziprom ()
-{
 if [ "`unzip -l $ROMZIP|egrep -q \"update-script|updater-script\";echo $?`" != "0" ];
 then
 	echo "$ROMZIP does not appear to be a valid recovery flashable zip file"
@@ -50,7 +48,7 @@ else
 	cd $tempdir
 	tar vxf ${AutoMTDPatchTools}/${TOOLS}.tar.gz
 fi
-}
+
 main ()
 {
 for update in update updater;do
@@ -119,67 +117,7 @@ cd ${startdir}
 rm -r ${tempdir}
 return
 }
-zip_or_img ()
-{
-for ext in zip img;do
-	if [ "`echo $ROMZIP|grep -q $ext\$;echo $?`" = "0" ];
-	then
-		mode=$ext
-		break
-	fi
-done
-if [ "$mode" = "" ];
-then
-	echo "$ROMZIP .. unknown file extension"
-	echo "can't do anything :( "
-	exit 1
-fi
-return
-}
-mkrecovery_zip ()
-{
-startdir=`pwd`
-tempdir=${startdir}/`basename $ROMZIP .img`
-updaterscript=${tempdir}/META-INF/com/google/android/updater-script
-updaterbinary=${tempdir}/META-INF/com/google/android/update-binary
-install -d $tempdir
-cp $ROMZIP $tempdir
-install -D $AutoMTDPatchTools/update-binary $updaterbinary
-echo "ui_print(\"`basename $ROMZIP`\");" > $updaterscript
-echo "assert(package_extract_file(\"`basename $ROMZIP`\", \"/tmp/recovery.img\")," >> $updaterscript
-echo "       write_raw_image(\"/tmp/recovery.img\", \"recovery\")," >> $updaterscript
-echo "ui_print(\"Auto CustomMTD v${version}\");" >> $updaterscript
-echo "package_extract_dir(\"MTDPartPatcher\", \"/tmp\");" >> $updaterscript
-echo "set_perm(0, 0, 0777, \"/tmp/patchbootimg.sh\");" >> $updaterscript
-echo "set_perm(0, 0, 0777, \"/tmp/unpackbootimg\");" >> $updaterscript
-echo "set_perm(0, 0, 0777, \"/tmp/mkbootimg\");" >> $updaterscript
-echo "run_program(\"/tmp/patchbootimg.sh\", \"recovery\");" >> $updaterscript
-echo "ui_print(\"Patching recovery image...\");" >> $updaterscript
-echo "ui_print(\"Auto CustomMTD Patched\");" >> $updaterscript
-echo "       delete(\"/tmp/recovery.img\"));" >> $updaterscript
-echo "show_progress(0.100000, 0);" >> $updaterscript
-cd $tempdir
-tar vxf ${AutoMTDPatchTools}/${TOOLS}.tar.gz
-ROMZIP=${startdir}/`basename $ROMZIP .img`.zip
-outputzip=${startdir}/`basename $ROMZIP .zip`_AutoMTD.zip
-zip -r $ROMZIP *
-cd ${startdir}
-java -jar ${AutoMTDPatchTools}/signapk.jar ${AutoMTDPatchTools}/testkey.x509.pem ${AutoMTDPatchTools}/testkey.pk8 $ROMZIP ${outputzip}
-rm $ROMZIP
-return
-}
-zip_or_img
-if [ "$mode" = "zip" ];
-then
-	unziprom
-	main
-	zipsign
-	TidyUp
-	exit 0
-fi
-if [ "$mode" = "img" ];
-then
-	mkrecovery_zip
-	TidyUp
-	exit 0
-fi
+main
+zipsign
+TidyUp
+exit
