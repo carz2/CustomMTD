@@ -83,7 +83,7 @@ run_program("/tmp/patchbootimg.sh", "test");
 ui_print("Please see /sdcard/<device_CustomMTD.tar.gz");
 EOF
 zip -r ${outdir}/test-v${version}-CustomMTD.zip META-INF MTDPartPatcher
-sign ${outdir}/boot-v${version}-CustomMTD.zip
+sign ${outdir}/test-v${version}-CustomMTD.zip
 return
 }
 sign ()

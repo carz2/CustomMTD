@@ -1,0 +1,893 @@
+<5>[    0.000000] Linux version 2.6.27 (handlerexploit@build) (gcc version 4.2.1) #1 PREEMPT Fri Apr 30 23:23:45 CDT 2010
+<4>[    0.000000] CPU: ARMv6-compatible processor [4117b362] revision 2 (ARMv6TEJ), cr=00c5387f
+<4>[    0.000000] Machine: Morrison
+<4>[    0.000000] mot_fixup: smi_64m=1, ddr_mono=1
+<4>[    0.000000] mot_fixup: mot_hw_rev=a00
+<4>[    0.000000] mot_fixup: cmdline="console=ttyMSM2,115200n8 androidboot.serialno=TA1880AKZ4"
+<4>[    0.000000] mot_fixup: bank[0]=10000000@10000000
+<4>[    0.000000] mot_fixup: bank[1]=8000000@20000000
+<4>[    0.000000] mot_fixup: ramconsole_resource[0]=2a00000..2a20000
+<4>[    0.000000] mot_fixup: msm_fb_resources[0]=2800000..2a00000
+<4>[    0.000000] mot_fixup: android_pmem_pdata.start=0
+<4>[    0.000000] mot_fixup: android_pmem_adsp_pdata.start=0
+<4>[    0.000000] mot_fixup: android_pmem_camera_pdata.start=0
+<4>[    0.000000] mot_fixup: android_pmem_gpu1_pdata.start=2000000
+<4>[    0.000000] Ignoring unrecognised tag 0x00000000
+<6>[    0.000000] Partition (from atag) boot -- Offset:2d00000 Size:300000
+<6>[    0.000000] Partition (from atag) system -- Offset:3000000 Size:8ac0000
+<6>[    0.000000] Partition (from atag) userdata -- Offset:bac0000 Size:df80000
+<6>[    0.000000] Partition (from atag) misc -- Offset:19a40000 Size:40000
+<6>[    0.000000] Partition (from atag) recovery -- Offset:19a80000 Size:500000
+<6>[    0.000000] Partition (from atag) cache -- Offset:19f80000 Size:6000000
+<6>[    0.000000] Partition (from atag) splash -- Offset:1ff80000 Size:80000
+<4>[    0.000000] Memory policy: ECC disabled, Data cache writeback
+<7>[    0.000000] On node 0 totalpages: 65536
+<7>[    0.000000] free_area_init_node: node 0, pgdat c054096c, node_mem_map c0651000
+<7>[    0.000000]   DMA zone: 65024 pages, LIFO batch:15
+<6>[    0.000000] allocating 8388608 bytes at c103d000 (1103d000 physical) for pmem
+<6>[    0.000000] allocating 10485760 bytes at c183d000 (1183d000 physical) for camera pmem
+<6>[    0.000000] allocating 12582912 bytes at c223d000 (1223d000 physical) for adsp pmem
+<4>[    0.000000] CPU0: D VIPT write-back cache
+<4>[    0.000000] CPU0: I cache: 32768 bytes, associativity 4, 32 byte lines, 256 sets
+<4>[    0.000000] CPU0: D cache: 32768 bytes, associativity 4, 32 byte lines, 256 sets
+<4>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+<5>[    0.000000] Kernel command line: console=ttyMSM2,115200n8 androidboot.serialno=TA1880AKZ4
+<3>[    0.000000] Unknown boot option `androidboot.serialno=TA1880AKZ4': ignoring
+<4>[    0.000000] PID hash table entries: 1024 (order: 10, 4096 bytes)
+<4>[    0.000000] Console: colour dummy device 80x30
+<6>[    0.000361] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+<6>[    0.001808] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+<6>[    0.021701] Memory: 256MB = 256MB total
+<5>[    0.021746] Memory: 222208KB available (4976K code, 1281K data, 164K init)
+<6>[    0.022813] Calibrating delay loop... 527.56 BogoMIPS (lpj=2637824)
+<4>[    0.270583] Mount-cache hash table entries: 512
+<6>[    0.271748] CPU: Testing write buffer coherency: ok
+<6>[    0.274223] net_namespace: 772 bytes
+<6>[    0.275426] NET: Registered protocol family 16
+<6>[    0.276465] acpu_clock_init()
+<6>[    0.276650] L val: PLL0: 12, PLL1: 50, PLL2: 55
+<6>[    0.276728] Turbo mode supported and enabled.
+<4>[    0.276755] Suboptimal up stepping for CPU freq 245760 KHz.
+<6>[    0.276818] ACPU running at 528000 KHz
+<6>[    0.276843] CPU-Freq  PLL  DIV  AHB-Freq  ADIV  AXI-Freq Dn Up
+<6>[    0.276870]    19200   -1    1     19200     1     30720 -1  9
+<6>[    0.276895]    61440    0    4     61440     1     30720 -1  8
+<6>[    0.276920]    81920    0    3     40960     2     61440 -1  8
+<6>[    0.276945]   120000    1    8     40000     3     61440 -1 10
+<6>[    0.276970]   122880    0    2     61440     2     61440 -1  8
+<6>[    0.276995]   160000    1    6     53333     3     61440 -1 10
+<6>[    0.277020]   176000    2    6     88000     2     61440 -1 11
+<6>[    0.277045]   240000    1    4     60000     4     61440 -1 12
+<6>[    0.277070]   245760    0    1     81920     3     61440 -1 12
+<6>[    0.277095]   264000    2    4     88000     3    120000 -1 11
+<6>[    0.277120]   320000    1    3    106666     3    120000  3 -1
+<6>[    0.277145]   352000    2    3     88000     4    120000  6 -1
+<6>[    0.277170]   480000    1    2    120000     4    120000  7 -1
+<6>[    0.277195]   528000    2    2    132000     4    160000 11 -1
+<6>[    0.277218] 5 scaling frequencies supported.
+<6>[    0.277263] morrison_setup, hw_rev: a00 ...
+<6>[    0.287015] msm_i2c_probe
+<6>[    0.287180] msm_i2c_probe: clk_ctl 35a, 100000 Hz
+<6>[    0.289055] accel_probe: I2C device with address 0x18 is LIS331DLH accelerometer
+<6>[    0.289093] accel_probe: swapped axes parameter 0x00
+<6>[    0.289115] accel_probe: platform data for 'stmicro', num_resources 1
+<6>[    0.289161] accel_irq_config_edge: GPIO 18 configured as an interrupt line, irq 82, current value 0
+<6>[    0.289345] accel_irq_config_edge: irq = 82
+<6>[    0.289745] input: accelerometer as /devices/virtual/input/input0
+<6>[    0.289788] accel_i2c_set_config: mode=0 (power off), odr=-1 (10Hz), fs=0
+<6>[    0.289803] 
+<6>[    0.292558] accel_probe: driver installed successfully
+<6>[    0.294883] accel_irq_bottom_half_job: status 0x00, src_1 0x00, src_2 0x00  force 0
+<6>[    0.320383] Bluetooth: Core ver 2.13
+<6>[    0.320965] NET: Registered protocol family 31
+<6>[    0.320996] Bluetooth: HCI device and connection manager initialized
+<6>[    0.321026] Bluetooth: HCI socket layer initialized
+<6>[    0.352761] NET: Registered protocol family 2
+<3>[    0.352983] prevening battery charging since battery temp cannot be obtained
+<7>[    0.360385] Switched to high resolution mode on CPU 0
+<6>[    0.440698] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
+<6>[    0.441573] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+<6>[    0.442248] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
+<6>[    0.442590] TCP: Hash tables configured (established 8192 bind 8192)
+<6>[    0.442613] TCP reno registered
+<6>[    0.470716] NET: Registered protocol family 1
+<6>[    0.471605] checking if image is initramfs... it is
+<6>[    0.610555] Freeing initrd memory: 241K
+<3>[    0.613016] check_and_connect: init rpc failed! rc = -113
+<6>[    0.613141] smd_init()
+<6>[    0.613165] smd_core_init()
+<6>[    0.613305] smd_core_init() done
+<6>[    0.614016] smd_alloc_channel() 'DS' cid=0
+<6>[    0.614283] smd_alloc_channel() 'DIAG' cid=1
+<6>[    0.614451] smd_alloc_channel() 'RPCCALL' cid=2
+<6>[    0.614598] smd_alloc_channel() 'DATA1' cid=7
+<6>[    0.614731] smd_alloc_channel() 'DATA2' cid=8
+<6>[    0.614868] smd_alloc_channel() 'DATA3' cid=9
+<6>[    0.615003] smd_alloc_channel() 'DATA4' cid=10
+<6>[    0.615175] smd_alloc_channel() 'DATA5' cid=11
+<6>[    0.615348] smd_alloc_channel() 'DATA6' cid=12
+<6>[    0.615496] smd_alloc_channel() 'DATA7' cid=13
+<6>[    0.615636] smd_alloc_channel() 'DATA11' cid=17
+<6>[    0.615781] smd_alloc_channel() 'DATA5_CNTL' cid=38
+<6>[    0.615931] smd_alloc_channel() 'DATA6_CNTL' cid=39
+<6>[    0.616073] smd_alloc_channel() 'DATA7_CNTL' cid=40
+<6>[    0.619818] SMD Control Port Driver Initialized.
+<6>[    0.621318] SMD: ch 2 CLOSED -> OPENING
+<6>[    0.621445] SMD: ch 2 OPENING -> OPENED
+<6>[    0.622093] ADSP: rs3000000a:00010000 -- 0
+<6>[    0.624753] hw3d: 0 init
+<6>[    0.625690] HEADSET: Registering headset driver
+<6>[    0.626586] input: headset as /devices/virtual/input/input1
+<3>[    0.648101] rpcrouter:Server create rejected, version = 0program (30000012)
+<3>[    0.648151] rpcrouter:Server create rejected, version = 0program (3000fe00)
+<3>[    0.653190] rpcrouter:Server create rejected, version = 0program (30000066)
+<6>[    0.653573] RPC_TIME_TOD_SET_APPS_BASES:
+<6>[    0.653585] 	tick = 201259
+<6>[    0.653593] 	stamp = 0
+<6>[    0.660846] ashmem: initialized
+<4>[    0.663171] yaffs Apr 30 2010 23:15:37 Installing. 
+<6>[    0.663295] msgmni has been set to 434
+<6>[    0.663756] io scheduler noop registered
+<6>[    0.663780] io scheduler anticipatory registered (default)
+<6>[    0.664281] msm_fb_probe: resource fbram = 0xd0c00000 phys=0x2800000
+<6>[    0.665066] MDP HW Base Address = 0xaa200000
+<6>[    0.666571] primary mddi base address = 0xaa600000
+<4>[    0.690573] 
+<4>[    0.690583] get client id=0x0 h=320 w=480
+<4>[    0.690593] 
+<6>[    0.744710] panel USERID=6, REV:2
+<6>[    0.744735] enabling esd detect
+<6>[    0.745346] FrameBuffer[0] 320x480 size=614400 bytes is registered successfully!
+<4>[    0.745478] load_565rle_image: Can not open /logo.rle
+<4>[    0.745508] msmfb registered_early_suspend
+<6>[    0.745926] lmxxxx_set_pwm: setting PWM to 0
+<4>[    0.746875] tvenc: probe of tvenc.327680 failed with error -1
+<6>[    0.790828] diagfwd initializing ..
+<6>[    0.791596] SMD: ch 1 CLOSED -> OPENING
+<6>[    0.791630] diag opened SMD port ; r = 0
+<6>[    0.791705] SMD: ch 1 OPENING -> OPENED
+<6>[    0.792020] diagchar initializing ..
+<6>[    0.792410] diagchar initialized
+<3>[    0.797440] dcc_tty_probe: probing to DCC failed
+<6>[    0.797623] msm_serial: detected port #2
+<6>[    0.797780] msm_serial.2: ttyMSM2 at MMIO 0xa9c00000 (irq = 11) is a MSM
+<6>[    0.797883] msm_serial: console setup on port #2
+<6>[    0.797923] console [ttyMSM2] enabled
+<6>[    1.564150] msm_serial: driver initialized
+<6>[    1.567615] msm_serial_hs.0: ttyHS0 at MMIO 0xa0200000 (irq = 45) is a MSM HS UART
+<6>[    1.575745] msm_serial_hs module loaded
+<6>[    1.582245] brd: module loaded
+<6>[    1.585613] loop: module loaded
+<6>[    1.585930] pmem: 1 init
+<6>[    1.588198] pmem_camera: 1 init
+<6>[    1.591580] pmem_adsp: 0 init
+<6>[    1.594470] pmem_gpu0: 0 init
+<6>[    1.597308] pmem_gpu1: 0 init
+<6>[    1.601371] logger: created 128K log 'log_main'
+<6>[    1.604066] logger: created 256K log 'log_events'
+<6>[    1.608656] logger: created 64K log 'log_radio'
+<6>[    1.613216] ram_console: got buffer at 2a00000, size 20000
+<6>[    1.618541] ram_console: found existing buffer, size 75915, start 75915
+<6>[    1.628655] console [ram-1] enabled
+<6>[    2.465208] fun camera_misc_init camera misc init
+<6>[    2.465224] 
+<6>[    2.471326] PPP generic driver version 2.4.2
+<6>[    2.475464] PPP Deflate Compression module registered
+<6>[    2.480208] PPP BSD Compression module registered
+<6>[    2.486504] PPP MPPE Compression module registered
+<6>[    2.489648] NET: Registered protocol family 24
+<6>[    2.494303] PPPoL2TP kernel driver, V1.0
+<6>[    2.497976] SLIP: version 0.8.4-NET3.019-NEWTTY (dynamic channels, max=256) (6 bit encapsulation enabled).
+<6>[    2.507683] CSLIP: code copyright 1989 Regents of the University of California.
+<6>[    2.515768] tun: Universal TUN/TAP device driver, 1.6
+<6>[    2.519968] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+<6>[    2.528723] Linux video capture interface: v2.00
+<6>[    2.531673] msm_camera: mt9p012_init called
+<6>[    2.534951] msm_camera: mt9p012_probe called!
+<6>[    2.589374] msm_camera: mt9p012_probe succeeded!
+<6>[    4.050738] msm_camera: EEPROM read successfully 
+<6>[    4.071486] msm_camera: mt9p012_sensor_power_on
+<6>[    4.112373] msm_camera: mt9p012 AF addr = 0x45
+<6>[    4.137753] msm_camera: mt9p012 mclk = 48000000
+<6>[    4.225486] msm_camera: mt9p012 model_id = 0x2803
+<6>[    4.226391] msm_camera: mt9p012 revision = 2
+<6>[    4.296506] msm_camera: mt9p012_sensor_power_off
+<6>[    4.301856] msm_camera: mt9p012_probe_init: rc = 0
+<6>[    4.302531] msm_camera: msm_camera setup finishes!
+<6>[    4.306218] msm_camera: DONE: msm_camera_drv_start rc = 0
+<6>[    4.311565] msm_v4l2: msm_v4l2_init
+<6>[    4.315730] allocated dma buffer at ffc2e000, dma_addr 1fa4a000
+<6>[    4.321078] ONFI probe : CRC Check failed on ONFI Parameter data 
+<6>[    4.326750] status: e00020
+<6>[    4.329326] nandid: 5510bcad maker ad device bc
+<6>[    4.333896] Found a supported NAND device
+<6>[    4.337831] NAND Id  : 0x5510bcad
+<6>[    4.341173] Buswidth : 16 Bits 
+<6>[    4.344255] Density  : 512 MByte
+<6>[    4.347463] Pagesize : 2048 Bytes
+<6>[    4.350791] Erasesize: 131072 Bytes
+<6>[    4.354248] Oobsize  : 64 Bytes
+<6>[    4.357360] CFG0 Init  : 0xe85408c0 
+<6>[    4.360949] CFG1 Init  : 0x0004745e 
+<6>[    4.364479] ECCBUFCFG  : 0x00000203 
+<5>[    4.368063] Creating 7 MTD partitions on "msm_nand":
+<5>[    4.373024] 0x02d00000-0x03000000 : "boot"
+<5>[    4.380453] 0x03000000-0x0bac0000 : "system"
+<5>[    4.473511] 0x0bac0000-0x19a40000 : "userdata"
+<5>[    4.623854] 0x19a40000-0x19a80000 : "misc"
+<5>[    4.625544] 0x19a80000-0x19f80000 : "recovery"
+<5>[    4.631489] 0x19f80000-0x1ff80000 : "cache"
+<5>[    4.695823] 0x1ff80000-0x20000000 : "splash"
+<6>[    4.698084] msm_hsusb_rpc_connect: rpc connect success vers = 10001
+<6>[    4.700853] msm_chg_rpc_connect: rpc connect success vers = 10001
+<6>[    4.707004] usb_set_composition: composition set to product id = 2d67
+<6>[    4.713303] phy info:(2)
+<6>[    4.715873] usb_probe() io=d080a000, irq=47, dma=ffc2f000(1fa58000)
+<6>[    4.730616] msm_hsusb_reset_rework_installed: rework: (16777216)
+<6>[    4.731016] usb_probe: reset rework is installed
+<6>[    4.736436] Created the sysfs entry successfully 
+<6>[    4.742081] usb_function_register: name = 'adb',  map = 1
+<6>[    4.746038] usb_function_register: name = 'usb_mass_storage',  map = 4
+<6>[    4.752303] usb_set_composition: composition set to product id = 2d67
+<3>[    4.759609] msm_hsusb_is_serial_num_null: rpc call success
+<3>[    4.764846] msm_hsusb_send_serial_number: rpc call failed! error: -22
+<3>[    4.771196] msm_hsusb_send_productID: rpc call success
+<6>[    4.775656] msm_hsusb: functions bound. starting.
+<6>[    4.780366] usb_bind_func() (usb_mass_storage)
+<6>[    4.785189] usb_start: pm_app_rpc connect failed
+<3>[    4.789354] msm_pm_app_rpc_close: rpc_close failed before call, rc = 0
+<6>[    4.796838] usb_function_register: name = 'diag',  map = 0
+<6>[    4.801696] msm_hsusb_phy_reset
+<6>[    4.805111] usb_function_register: name = 'modem',  map = 3
+<6>[    4.810048] usb_ether_setup()
+<6>[    4.814019] usb_function_register: name = 'ethernet',  map = 2
+<6>[    4.871504] sfh7743_probe: Enter....
+<6>[    4.872118] input: proximity as /devices/virtual/input/input2
+<6>[    4.901149] sfh7743_probe: initialized gpio_int[29] irq[93] gpio_en[16]
+<7>[    4.902874] RTC Registering with rs30000048:00020000
+<7>[    4.908283] msm_rtc: dev (254:0)
+<6>[    4.910498] rs30000048:00020000 rs30000048:00020000: rtc core: registered msm_rtc as rtc0
+<7>[    4.918853] msm_rtc_secure: dev (254:1)
+<6>[    4.922386] rs30000048:00020000 rs30000048:00020000: rtc core: registered msm_rtc_secure as rtc1
+<6>[    4.931349] i2c /dev entries driver
+<3>[    4.935038] i2c-gpio: platform_driver_register
+<3>[    4.939064] i2c_gpio_probe
+<3>[    4.941769] i2c_bit_add_numbered_bus
+<6>[    4.945679] i2c-gpio i2c-gpio.1: using pins 61 (SDA) and 60 (SCL, no clock stretching)
+<6>[    4.953686] sfh7743: presence [0]
+<6>[    4.993598] hsusb suspend interrupt
+<6>[    5.100488] hsusb reset interrupt
+<6>[    5.102761] hsusb resume: speed = HIGH
+<4>[    5.230608] ADP5588 Keypad Dev ID : 0x2,Body ID 0  Name : adp5588_morrison , RST 1
+<6>[    5.233044] input: adp5588_morrison as /devices/virtual/input/input3
+<6>[    5.260533] hsusb reset interrupt
+<6>[    5.262806] hsusb resume: speed = HIGH
+<6>[    5.290851] ADP5588 : Start keypad adp5588_morrison in interrupt mode irq 85 
+<6>[    5.311426] input: compass as /devices/virtual/input/input4
+<6>[    5.341264] Bluetooth: HCI UART driver ver 2.2
+<6>[    5.341549] Bluetooth: HCI H4 protocol initialized
+<6>[    5.344873] Bluetooth: HCI BCSP protocol initialized
+<6>[    5.349913] BLUETOOTH: /proc/bt_power created
+<6>[    5.354296] BLUETOOTH: /proc/bt_stat created
+<6>[    5.358433] BLUETOOTH: /proc/bt_status created
+<6>[    5.362943] BLUETOOTH: /proc/bt_irq created
+<6>[    5.367021] BLUETOOTH: bt_power: Bluetooth power is off, and BT module is in reset.
+<6>[    5.374711] Bluetooth: MSM Sleep Mode Driver Ver 1.1
+<6>[    5.380656] 
+<6>[    5.380676] *********** Charger Type: HOST PC
+<6>[    5.380688] 
+<6>[    5.388000] msm_chg_usb_charger_connected
+<6>[    5.391343] hsusb: IDLE -> ONLINE
+<7>[    5.394615] msmsdcc_platform_status_irq: 81
+<6>[    5.398360] mmc0: Slot status change detected (0 -> 1)
+<6>[    5.404166] mmc0: Qualcomm MSM SDCC at 0x00000000a0400000 irq 24,81 dma 8
+<6>[    5.410245] mmc0: 4 bit data mode enabled
+<6>[    5.414340] mmc0: polling status mode disabled
+<6>[    5.418916] mmc0: MMC clock 144000 -> 49152000 Hz, PCLK 80000000 Hz
+<6>[    5.424961] mmc0: Slot eject status = 0
+<6>[    5.428745] mmc0: Power save feature enable = 1
+<6>[    5.433283] mmc0: DM non-cached buffer at ffc31000, dma_addr 0x1fa88000
+<6>[    5.439858] mmc0: DM cmd busaddr 0x1fa88000, cmdptr busaddr 0x1fa88300
+<4>[    5.446840] mot_sdcc_wifi_status_notify_register:  status_notify callback registered dev_ptr cfa81de0
+<6>[    5.456213] mmc1: Qualcomm MSM SDCC at 0x00000000a0500000 irq 26,0 dma 8
+<6>[    5.462613] mmc1: 4 bit data mode enabled
+<6>[    5.466483] mmc1: polling status mode disabled
+<6>[    5.470951] mmc1: MMC clock 144000 -> 49152000 Hz, PCLK 80000000 Hz
+<6>[    5.477125] mmc1: Slot eject status = 1
+<6>[    5.480791] mmc1: Power save feature enable = 1
+<6>[    5.485465] mmc1: DM non-cached buffer at ffc32000, dma_addr 0x1fa89000
+<6>[    5.491906] mmc1: DM cmd busaddr 0x1fa89000, cmdptr busaddr 0x1fa89300
+<6>[    5.499195] lm3535_init: enter
+<6>[    5.501805] lm3535_probe: interim display
+<6>[    5.505648] lm3535_probe: enter (morrison), I2C address = 0x38, flags = 0x0
+<6>[    5.512616] lm3535_probe: morrison Pa00, resistor = 0x30, zones: 0x2 0xbd 0xfe 0xff
+<6>[    5.520206] lm3535_probe: display id = 0x0
+<6>[    5.524783] hsusb set_configuration wValue = 1 usbcmd = 1
+<6>[    5.529560] usb_mass_storage usb_mass_storage: config #1
+<6>[    5.561240] lm3535_setup: revision 5 (0x1)
+<4>[    5.729121] mmc0: host does not support reading read-only switch. assuming write-enable.
+<6>[    5.731718] mmc0: new high speed SDHC card at address 9130
+<6>[    5.737940] mmcblk0: mmc0:9130 SD04G 3870720KiB 
+<6>[    5.742331]  mmcblk0: p1 p2 p3
+<6>[    5.950594] lm3535_configure: ALS Register: 0xf8, zone 0
+<6>[    5.951946] Registered led device: lcd-backlight
+<6>[    5.955076] Registered led device: lcd-nr-backlight
+<6>[    5.960616] adp8862_init: enter
+<3>[    5.963074] pm7540_btn_leds_init: enter
+<3>[    5.967439] pm7540_btn_leds_probe: enter
+<6>[    5.970909] Registered led device: button-backlight
+<6>[    5.975658] Registered led device: button-tcmd
+<3>[    5.979939] lm3535_als_is_dark: enter, zone = 0
+<6>[    5.984483] pm7540_btn_leds_probe: ALS zone is 0
+<3>[    5.989044] pm7540_soc_leds_init: enter
+<3>[    5.993661] pm7540_soc_leds_probe: enter
+<3>[    5.996749] pm7540_soc_leds_probe: not motus; returning
+<4>[    6.002073] pm7540-soc-leds: probe of pm7540-soc-leds.0 failed with error -22
+<3>[    6.009501] pm7540_kpd_leds_init: platform_driver_register returned 0
+<3>[    6.015914] pm7540_kpd_leds_probe: not motus; returning.
+<4>[    6.020881] pm7540-kpd-leds: probe of pm7540-kpd-leds.0 failed with error -22
+<3>[    6.027928] pm7540_kpd_leds_init: platform_device_register returned 0
+<3>[    6.034396] keypad_leds_init: enter
+<6>[    6.038696] Registered led device: keyboard-backlight
+<6>[    6.043131] Registered led device: keyboard1-backlight
+<6>[    6.048111] Registered led device: keyboard2-backlight
+<6>[    6.053316] Registered led device: keyboard-tcmd
+<6>[    6.057894] Registered led device: keyboard1-tcmd
+<6>[    6.062661] Registered led device: keyboard2-tcmd
+<3>[    6.067066] lm3535_als_is_dark: enter, zone = 0
+<6>[    6.071659] keypad_leds_probe: ALS zone = 0
+<3>[    6.075764] cam_led_init: enter
+<6>[    6.079583] cam_led_probe: enter
+<3>[    6.082178] cam_led_probe: NOT Motus or Zeppelin; aborting.
+<4>[    6.087659] camera-led: probe of camera-led.0 failed with error -22
+<3>[    6.093946] cam_led_init: exit
+<3>[    6.096939] fan5646_init: enter
+<3>[    6.100516] fan5646_init: platform_driver_register returned 0
+<6>[    6.106099] fan5646_probe: enter
+<6>[    6.109243] Registered led device: messaging
+<3>[    6.113383] fan5646_init: platform_device_register returned 0
+<0>[    6.119443] Motorola software version: R6380CP1_042.01<6>Advanced Linux Sound Architecture Driver Version 1.0.17.
+<6>[    6.129631] ASoC version 0.13.2
+<6>[    6.133693] asoc: ASOC <-> MSM_7200A mapping ok
+<6>[    6.137944] ALSA device list:
+<6>[    6.139806]   #0: msm-audio (MSM-CARD)
+<4>[    6.143871] Netfilter messages via NETLINK v0.30.
+<4>[    6.148573] nf_conntrack version 0.5.0 (4096 buckets, 16384 max)
+<4>[    6.154643] CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Plase use
+<4>[    6.161583] nf_conntrack.acct=1 kernel paramater, acct=1 nf_conntrack module option or
+<4>[    6.169403] sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+<4>[    6.175689] ctnetlink v0.93: registering with nfnetlink.
+<6>[    6.181661] ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    6.186531] arp_tables: (C) 2002 David S. Miller
+<6>[    6.190911] TCP cubic registered
+<6>[    6.194491] NET: Registered protocol family 10
+<6>[    6.199644] lo: Disabled Privacy Extensions
+<6>[    6.204476] Mobile IPv6
+<6>[    6.204998] IPv6 over IPv4 tunneling driver
+<6>[    6.210174] sit0: Disabled Privacy Extensions
+<6>[    6.214914] ip6tnl0: Disabled Privacy Extensions
+<6>[    6.218376] NET: Registered protocol family 17
+<6>[    6.222708] NET: Registered protocol family 15
+<6>[    6.227041] Bluetooth: L2CAP ver 2.11
+<6>[    6.230654] Bluetooth: L2CAP socket layer initialized
+<6>[    6.235661] Bluetooth: SCO (Voice Link) ver 0.6
+<6>[    6.240161] Bluetooth: SCO socket layer initialized
+<6>[    6.245529] Bluetooth: RFCOMM socket layer initialized
+<6>[    6.250241] Bluetooth: RFCOMM TTY layer initialized
+<6>[    6.255089] Bluetooth: RFCOMM ver 1.10
+<6>[    6.258731] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+<6>[    6.264106] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+<6>[    6.270906] RPC: Registered udp transport module.
+<6>[    6.274614] RPC: Registered tcp transport module.
+<6>[    6.279861] clock_late_init() disabled 15 unused clocks
+<6>[    6.285161] msm_chg_usb_i_is_available
+<3>[    6.288379] prevening battery charging since battery temp cannot be obtained
+<6>[    6.310376] adp5588: using input dev headset for key reset
+<6>[    6.340368] adp5588: using input dev adp5588_morrison for key reset
+<6>[    6.341759] GPIO Input Driver: Start gpio inputs for morrison-kpd in interrupt mode
+<6>[    6.348886] GPIO Input Driver: Start gpio inputs for morrison-kpd in interrupt mode
+<6>[    6.356929] input: morrison-kpd as /devices/virtual/input/input5
+<6>[    6.450361] adp5588: using input dev morrison-kpd for key reset
+<4>[    6.453058] key08_ts_probe: Enter
+<4>[    6.454298] key08_ts_init: misc_register(pf) returns 0
+<4>[    6.459111] key08_ts_probe: paltform data for 'key08', num_resources 1
+<4>[    6.465759] key08_ts_probe: Got resource. Normal Addr: 0x11, Bootloader: 0x5f
+<4>[    6.472781] key08_ts_probe: attached, client: 0xcf858600
+<4>[    6.478039] key08_ts_probe: irq: 0x69
+<3>[    6.481699] key08_ts_probe STARTED
+<3>[    6.485051] key08_ts_probe Getting Versions
+<4>[    6.501151] key08_ts_probe: (1) receiving from 0x11(number of bytes: 6, type: 7): 0x70, 0x90, 0x30, 0x36, 0xe, 0xe
+<4>[    6.521106] key08_ts_probe: (2) receiving from 0x11(number of bytes: 6, type: 7): 0x70, 0x50, 0x30, 0x36, 0xe, 0xe
+<4>[    6.541114] key08_ts_probe: (3) receiving from 0x11(number of bytes: 6, type: 7): 0x70, 0x10, 0x30, 0x36, 0xe, 0xe
+<4>[    6.561168] key08_ts_probe: (4) receiving from 0x11(number of bytes: 6, type: 7): 0x70, 0x0, 0x30, 0x36, 0xe, 0xe
+<4>[    6.581093] key08_ts_probe: Got all data.
+<4>[    6.601119] key08_ts_probe: Chip ID 0x30
+<4>[    6.621164] key08_ts_probe: Product Code Version 0x36
+<4>[    6.621468] key08_ts_probe Initializing Panel 
+<3>[    6.625074] key08_ts_probe: max_x 1023, max_y 1023
+<3>[    6.629803] key08_ts_probe: inactive_x 0 0, inactive_y 0 0
+<6>[    6.720819] input: touchscreen as /devices/virtual/input/input6
+<6>[    6.810358] adp5588: using input dev touchscreen for key reset
+<4>[    6.810723] key08_ts_probe Gpio request
+<4>[    6.814416] key08_ts_probe: ret from gpio_direction_input = 0
+<3>[    6.820154] key08_ts_probe: gpio_request KEY08_TS_GPIO =  1
+<6>[    6.825871] key08_ts_probe: Start touchscreen touchscreen in interrupt mode
+<4>[    6.890365] key08_ts_probe: GPIO 84: 1
+<4>[    6.890600] key08_ts_probe: Exit
+<6>[    6.892760] rs30000048:00020000 rs30000048:00020000: setting system clock to 2010-03-17 18:43:38 UTC (1268851418)
+<6>[    6.908906] Freeing init memory: 164K
+<3>[    6.916723] init: /init.rc: 179: invalid service name 'travis_is_a_noob_at_scripting'
+<3>[    6.919143] init: /init.rc: 189: invalid command 'shutdown'
+<3>[    6.924705] init: /init.rc: 190: invalid command 'shutdown'
+<3>[    7.164285] init: cannot open '/initlogo.rle'
+<6>[    7.172391] yaffs: dev is 32505857 name is "mtdblock1"
+<6>[    7.172715] yaffs: passed flags ""
+<4>[    7.175315] yaffs: Attempting MTD mount on 31.1, "mtdblock1"
+<4>[    7.229591] yaffs: restored from checkpoint
+<4>[    7.229921] yaffs_read_super: isCheckpointed 1
+<6>[    7.233491] yaffs: dev is 32505858 name is "mtdblock2"
+<6>[    7.237761] yaffs: passed flags ""
+<4>[    7.241195] yaffs: Attempting MTD mount on 31.2, "mtdblock2"
+<4>[    7.655419] yaffs: restored from checkpoint
+<4>[    7.662818] yaffs_read_super: isCheckpointed 1
+<6>[    7.678109] yaffs: dev is 32505861 name is "mtdblock5"
+<6>[    7.678433] yaffs: passed flags ""
+<4>[    7.681159] yaffs: Attempting MTD mount on 31.5, "mtdblock5"
+<4>[    7.690104] yaffs: restored from checkpoint
+<4>[    7.690973] yaffs_read_super: isCheckpointed 1
+<3>[    7.825764] init: cannot find '/system/bin/playmp3', disabling 'bootsound'
+<3>[    7.884046] init: cannot find '/system/etc/install-recovery.sh', disabling 'flash_recovery'
+<3>[    7.917075] init: cannot find '/system/bin/fmradioserver', disabling 'fmradio'
+<3>[    7.924158] init: cannot find '/system/bin/akmd2', disabling 'akmd2'
+<3>[    7.938510] init: cannot find '/system/bin/tcmd_engine', disabling 'tcmd'
+<3>[    7.949803] init: cannot find '/system/bin/port_bridge', disabling 'port_bridge'
+<3>[    7.956586] init: cannot find '/system/bin/fuel_gauge', disabling 'fuel_gauge'
+<6>[    8.022063] SMD: ch 38 CLOSED -> OPENING
+<6>[    8.022398] SMD: ch 38 OPENING -> OPENED
+<6>[    8.025463] enabling adb function
+<6>[    8.027598] usb_function_enable: name = adb, enable = 1
+<6>[    8.049170] SMD: ch 39 CLOSED -> OPENING
+<6>[    8.049485] SMD: ch 39 OPENING -> OPENED
+<6>[    8.052273] SMD: ch 40 CLOSED -> OPENING
+<6>[    8.055368] SMD: ch 40 OPENING -> OPENED
+<6>[    8.407111] warning: `rild' uses 32-bit capabilities (legacy support in use)
+<6>[    9.040474] ether_configure() 0
+<6>[    9.041784] usb_set_composition: composition set to product id = 2d66
+<3>[    9.045134] msm_hsusb_is_serial_num_null: rpc call success
+<3>[    9.050536] msm_hsusb_send_serial_number: rpc call failed! error: -22
+<3>[    9.056993] msm_hsusb_send_productID: rpc call success
+<6>[    9.068009] msm_hsusb_phy_reset
+<6>[    9.217253] hsusb suspend interrupt
+<6>[    9.218404] msm_chg_usb_i_is_not_available
+<6>[    9.323926] hsusb reset interrupt
+<6>[    9.326213] hsusb resume: speed = HIGH
+<6>[    9.330468] 
+<6>[    9.330489] *********** Charger Type: HOST PC
+<6>[    9.330501] 
+<6>[    9.341059] msm_chg_usb_charger_connected
+<6>[    9.342521] hsusb: IDLE -> ONLINE
+<6>[    9.484800] hsusb reset interrupt
+<6>[    9.487088] hsusb resume: speed = HIGH
+<6>[    9.704206] hsusb set_configuration wValue = 1 usbcmd = 80001
+<6>[    9.704721] usb_mass_storage usb_mass_storage: config #1
+<6>[   10.213203] msm_chg_usb_i_is_available
+<6>[   10.368461] snd_set_volume 16 0 15
+<6>[   10.369608] snd_set_volume 25 0 15
+<6>[   10.370624] snd_set_volume 12 0 15
+<6>[   10.374459] snd_set_volume 3 0 15
+<6>[   10.377079] snd_set_volume 5 0 15
+<6>[   10.387256] snd_set_volume 4 0 15
+<6>[   10.388166] snd_set_volume 8 0 15
+<6>[   10.389071] snd_set_volume 9 0 15
+<6>[   10.393298] snd_set_volume 10 0 15
+<6>[   10.395689] snd_set_volume 16 0 15
+<6>[   10.399089] snd_set_volume 25 0 15
+<6>[   10.404256] snd_set_volume 22 0 15
+<6>[   10.406206] snd_set_volume 23 0 15
+<6>[   10.409726] snd_set_volume 6 0 15
+<6>[   10.413571] snd_set_volume 27 0 15
+<6>[   10.457783] snd_set_device 25 1 1
+<6>[   10.461811] snd_set_volume 16 0 15
+<6>[   10.462743] snd_set_volume 25 0 15
+<6>[   10.463879] snd_set_volume 12 0 15
+<6>[   10.467053] snd_set_volume 3 0 15
+<6>[   10.471101] snd_set_volume 5 0 15
+<6>[   10.473696] snd_set_volume 4 0 15
+<6>[   10.476963] snd_set_volume 8 0 15
+<6>[   10.480621] snd_set_volume 9 0 15
+<6>[   10.484219] snd_set_volume 10 0 15
+<6>[   10.488226] snd_set_volume 16 0 15
+<6>[   10.491176] snd_set_volume 25 0 15
+<6>[   10.493723] snd_set_volume 22 0 15
+<6>[   10.497428] snd_set_volume 23 0 15
+<6>[   10.500584] snd_set_volume 6 0 15
+<6>[   10.503834] snd_set_volume 27 0 15
+<6>[   52.544231] request_suspend_state: wakeup (3->0) at 52543898333 (2010-03-17 18:44:24.151468334 UTC)
+<6>[   52.559554] lm3535_brightness_set: lcd-backlight, 0x1e (30)
+<6>[   52.559914] <6>lm3535_convert_value: v=30, z=0, res=0x28bec170, reg=0x44
+<6>[   52.589371] lm3535_brightness_set: zone 0, 0x79 => 0x44, 53 steps, ramp time 159000us
+<4>[   53.518241] bcm_wlan_power_on: power_mode 1
+<3>[   53.518693] mot_sdcc_wlan_power: WLAN power control on 1 
+<3>[   53.740409] mot_sdcc_wlan_power: WLAN power ON
+<7>[   53.740704] mmc1: card_present 1
+<6>[   53.742468] mmc1: Slot status change detected (0 -> 1)
+<7>[   53.823539] mmc1: queuing CIS tuple 0x80 length 51
+<7>[   53.831616] mmc1: queuing CIS tuple 0x80 length 7
+<7>[   53.835068] mmc1: queuing CIS tuple 0x80 length 2
+<7>[   53.844059] mmc1: queuing CIS tuple 0x80 length 9
+<7>[   53.845924] mmc1: queuing CIS tuple 0x00 length 0
+<7>[   53.849421] mmc1: queuing CIS tuple 0x00 length 0
+<7>[   53.854174] mmc1: queuing CIS tuple 0x00 length 0
+<7>[   53.858764] mmc1: queuing CIS tuple 0x00 length 0
+<4>[   53.864229] 
+<4>[   53.864246] Dongle Host Driver, version 4.217.34.9
+<4>[   53.864258] Compiled in /home/demoshadow/platform/system/wlan/bcm/osrc/open-src/src/dhd/linux/../.. on Mar 26 2010 at 22:35:55
+<7>[   53.889824] mmc1: queuing CIS tuple 0x00 length 0
+<7>[   53.891843] mmc1: queuing CIS tuple 0x00 length 0
+<7>[   53.895233] mmc1: queuing CIS tuple 0x00 length 0
+<7>[   53.899894] mmc1: queuing CIS tuple 0x00 length 0
+<7>[   53.904704] mmc1: queuing CIS tuple 0x00 length 0
+<7>[   53.909281] mmc1: queuing CIS tuple 0x00 length 0
+<7>[   53.914021] mmc1: queuing CIS tuple 0x00 length 0
+<7>[   53.920256] mmc1: queuing CIS tuple 0x00 length 2
+<6>[   53.925544] mmc1: new SDIO card at address 0001
+<4>[   53.932874] F1 signature read @0x18000000=0x5264325
+<4>[   53.946059] DHD: dongle ram size is set to 393216(orig 393216)
+<4>[   54.345028] eth0: Broadcom Dongle Host Driver mac=00:26:ba:50:0f:73
+<6>[   55.224839] snd_set_volume 16 0 13
+<6>[   55.225981] snd_set_volume 25 0 13
+<6>[   55.226978] snd_set_volume 12 0 13
+<6>[   55.230159] snd_set_volume 3 0 13
+<6>[   55.233581] snd_set_volume 5 0 13
+<6>[   55.237038] snd_set_volume 4 0 13
+<6>[   55.240001] snd_set_volume 8 0 13
+<6>[   55.257129] snd_set_volume 9 0 13
+<6>[   55.258068] snd_set_volume 10 0 13
+<6>[   55.260143] snd_set_volume 16 0 13
+<6>[   55.263308] snd_set_volume 25 0 13
+<6>[   55.265656] snd_set_volume 22 0 13
+<6>[   55.269074] snd_set_volume 23 0 13
+<6>[   55.272758] snd_set_volume 6 0 13
+<6>[   55.275864] snd_set_volume 27 0 13
+<4>[   55.644338] wl_iw_set_essid: join SSID=Motorola
+<7>[   65.000435] eth0: no IPv6 routers present
+<3>[   65.660539] Client Status: RevReq=0, CrcErr=4
+<6>[   72.546653] audmgr_rpc_thread() start
+<6>[   72.548640] ++++++++++++++++++++++++++++++
+<6>[   72.551025] audmgr: rpc_reply status 0
+<6>[   72.626806] audmgr: rpc READY handle=0x00000000
+<6>[   72.689916] audmgr: rpc CODEC_CONFIG volume=0x00000000
+<6>[   72.800798] audpp: enable
+<6>[   72.806213] adsp:INIT_INFO Event
+<6>[   72.807218] adsp: opening module AUDPPTASK
+<6>[   72.808710] adsp: module AUDPPTASK has been registered
+<6>[   72.813161] msm_adsp_enable() 'AUDPPTASK'state[0] id[17227122]
+<6>[   72.819885] adsp: rpc event=0, proc_id=2, module=17227122, image=0
+<6>[   72.825375] adsp: module AUDPPTASK: READY
+<6>[   72.875346] audpp: unhandled msg id ffffffff
+<6>[   72.875943] audpp: ENABLE
+<3>[   72.876653] adsp: failed to write queue 124, retry
+<6>[   77.800564] audpp: disable
+<6>[   77.800779] msm_adsp_disable() 'AUDPPTASK'
+<6>[   77.801798] audpp: DISABLE
+<6>[   77.830728] adsp: disable interrupt
+<6>[   77.831089] adsp: closing module AUDPPTASK
+<6>[   77.850553] audmgr: rpc_reply status 0
+<3>[   77.873424] audmgr: DISABLED
+<6>[   77.873726] ------------------------------
+<6>[  138.781626] mtd-hack: found driver msm_nand modname <NULL>
+<6>[  138.781983] mtd-hack: device <NULL>
+<6>[  138.784993] mtd-hack: mtd name msm_nand, type 4, size 13763950439290634240
+<5>[  138.791960] Creating 9 MTD partitions on "msm_nand":
+<5>[  138.796830] 0x00000000-0x00020000 : "h_header"
+<5>[  138.810176] 0x00020000-0x02d00000 : "h_unknown"
+<5>[  138.850126] 0x02d00000-0x03000000 : "h_boot"
+<5>[  138.861611] 0x03000000-0x0bac0000 : "h_system"
+<5>[  138.970634] 0x0bac0000-0x19a40000 : "h_userdata"
+<5>[  139.141331] 0x19a40000-0x19a80000 : "h_misc"
+<5>[  139.150859] 0x19a80000-0x19f80000 : "h_recovery"
+<5>[  139.163948] 0x19f80000-0x1ff80000 : "h_cache"
+<5>[  139.242126] 0x1ff80000-0x20000000 : "h_splash"
+<6>[  139.251943] mtd hack loaded<6>lm3535_brightness_set: lcd-backlight, 0x1c (28)
+<6>[  144.554866] <6>lm3535_convert_value: v=28, z=0, res=0x288df540, reg=0x44
+<6>[  144.560648] lm3535_brightness_set: zone 0, 0x44 => 0x44, 0 steps, ramp time 0us
+<6>[  144.570538] lm3535_brightness_set: lcd-backlight, 0x1b (27)
+<6>[  144.573040] <6>lm3535_convert_value: v=27, z=0, res=0x2875a698, reg=0x43
+<6>[  144.580085] lm3535_brightness_set: zone 0, 0x44 => 0x43, 1 steps, ramp time 50000us
+<6>[  144.591800] lm3535_brightness_set: lcd-backlight, 0x19 (25)
+<6>[  144.592918] <6>lm3535_convert_value: v=25, z=0, res=0x28453828, reg=0x43
+<6>[  144.599998] lm3535_brightness_set: zone 0, 0x43 => 0x43, 0 steps, ramp time 0us
+<6>[  144.607940] lm3535_brightness_set: lcd-backlight, 0x18 (24)
+<6>[  144.612561] <6>lm3535_convert_value: v=24, z=0, res=0x282d1860, reg=0x43
+<6>[  144.619496] lm3535_brightness_set: zone 0, 0x43 => 0x43, 0 steps, ramp time 0us
+<6>[  144.627441] lm3535_brightness_set: lcd-backlight, 0x16 (22)
+<6>[  144.632076] <6>lm3535_convert_value: v=22, z=0, res=0x27fd07b0, reg=0x43
+<6>[  144.639050] lm3535_brightness_set: zone 0, 0x43 => 0x43, 0 steps, ramp time 0us
+<6>[  144.646790] lm3535_brightness_set: lcd-backlight, 0x15 (21)
+<6>[  144.651618] <6>lm3535_convert_value: v=21, z=0, res=0x27e516c8, reg=0x42
+<6>[  144.658558] lm3535_brightness_set: zone 0, 0x43 => 0x42, 1 steps, ramp time 50000us
+<6>[  144.666770] lm3535_brightness_set: lcd-backlight, 0x14 (20)
+<6>[  144.671481] <6>lm3535_convert_value: v=20, z=0, res=0x27cd3580, reg=0x42
+<6>[  144.678458] lm3535_brightness_set: zone 0, 0x42 => 0x42, 0 steps, ramp time 0us
+<6>[  151.555151] lm3535_brightness_set: lcd-backlight, 0x12 (18)
+<6>[  151.555516] <6>lm3535_convert_value: v=18, z=0, res=0x279da1d0, reg=0x42
+<6>[  151.562313] lm3535_brightness_set: zone 0, 0x42 => 0x42, 0 steps, ramp time 0us
+<6>[  151.571113] lm3535_brightness_set: lcd-backlight, 0x11 (17)
+<6>[  151.574673] <6>lm3535_convert_value: v=17, z=0, res=0x2785ef68, reg=0x42
+<6>[  151.581821] lm3535_brightness_set: zone 0, 0x42 => 0x42, 0 steps, ramp time 0us
+<6>[  151.589406] lm3535_brightness_set: lcd-backlight, 0xf (15)
+<6>[  151.594234] <6>lm3535_convert_value: v=15, z=0, res=0x2756b978, reg=0x41
+<6>[  151.601341] lm3535_brightness_set: zone 0, 0x42 => 0x41, 1 steps, ramp time 50000us
+<6>[  151.609231] lm3535_brightness_set: lcd-backlight, 0xe (14)
+<6>[  151.614008] <6>lm3535_convert_value: v=14, z=0, res=0x273f35f0, reg=0x41
+<6>[  151.621219] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  151.628658] lm3535_brightness_set: lcd-backlight, 0xd (13)
+<6>[  151.633616] <6>lm3535_convert_value: v=13, z=0, res=0x2727c208, reg=0x41
+<6>[  151.640436] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  151.648134] lm3535_brightness_set: lcd-backlight, 0xc (12)
+<6>[  151.652889] <6>lm3535_convert_value: v=12, z=0, res=0x27105dc0, reg=0x41
+<6>[  151.659871] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  151.667693] lm3535_brightness_set: lcd-backlight, 0xa (10)
+<6>[  151.672356] <6>lm3535_convert_value: v=10, z=0, res=0x26e1c410, reg=0x41
+<6>[  151.679293] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  151.687061] lm3535_brightness_set: lcd-backlight, 0x9 (9)
+<6>[  151.691688] <6>lm3535_convert_value: v=9, z=0, res=0x26ca8ea8, reg=0x41
+<6>[  151.698576] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  151.706311] lm3535_brightness_set: lcd-backlight, 0x8 (8)
+<6>[  151.710978] <6>lm3535_convert_value: v=8, z=0, res=0x26b368e0, reg=0x40
+<6>[  151.717831] lm3535_brightness_set: zone 0, 0x41 => 0x40, 1 steps, ramp time 50000us
+<6>[  151.725938] lm3535_brightness_set: lcd-backlight, 0x6 (6)
+<6>[  151.730726] <6>lm3535_convert_value: v=6, z=0, res=0x26854c30, reg=0x40
+<6>[  151.737466] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  151.745716] lm3535_brightness_set: lcd-backlight, 0x5 (5)
+<6>[  151.749791] <6>lm3535_convert_value: v=5, z=0, res=0x266e5548, reg=0x40
+<6>[  151.756813] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  151.764499] lm3535_brightness_set: lcd-backlight, 0x4 (4)
+<6>[  151.769031] <6>lm3535_convert_value: v=4, z=0, res=0x26576e00, reg=0x40
+<6>[  151.776093] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  151.783749] lm3535_brightness_set: lcd-backlight, 0x2 (2)
+<6>[  151.788329] <6>lm3535_convert_value: v=2, z=0, res=0x2629ce50, reg=0x40
+<6>[  151.795599] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  151.803068] lm3535_brightness_set: lcd-backlight, 0x1 (1)
+<6>[  151.807568] <6>lm3535_convert_value: v=1, z=0, res=0x2e, reg=0x2e
+<6>[  151.814114] lm3535_brightness_set: zone 0, 0x40 => 0x2e, 18 steps, ramp time 108000us
+<6>[  151.822298] lm3535_brightness_set: lcd-backlight, 0x0 (0)
+<6>[  151.827239] lm3535_brightness_set: zone 0, 0x2e => 0x0, 46 steps, ramp time 138000us
+<6>[  151.854174] request_suspend_state: sleep (0->3) at 151853844998 (2010-03-17 18:46:03.461415000 UTC)
+<6>[  151.857688] early_suspend: call handlers
+<6>[  151.866196] accel_suspend: driver suspended
+<6>[  151.867560] keypad_leds_suspend: driver suspended, event = 2
+<6>[  151.950540] pm7540_btn_leds_suspend: driver suspended, event = 2
+<6>[  151.950956] lm3535_suspend: called with pm message 2
+<6>[  151.955898] lm3535_brightness_set: lcd-backlight, 0x0 (0)
+<6>[  151.964456] lm3535_brightness_set: zone 0, 0x0 => 0x0, 0 steps, ramp time 0us
+<6>[  152.039781] disabling esd detect
+<4>[  152.040061] xmit_panel_seq()
+<4>[  152.040400] ...
+<4>[  152.046713] xmit_panel_seq() done
+<6>[  152.047183] msm_fb_mddi_power_save(0)
+<6>[  152.060465] early_suspend: sync
+<4>[  152.282165] save exit: isCheckpointed 1
+<4>[  152.286283] save exit: isCheckpointed 1
+<6>[  228.494781] request_suspend_state: wakeup (3->0) at 228494446666 (2010-03-17 18:47:20.102016668 UTC)
+<6>[  228.498416] late_resume: call handlers
+<6>[  228.502188] msm_fb_mddi_power_save(1)
+<6>[  228.608159] panel USERID=6, REV:2
+<4>[  228.608384] xmit_panel_seq()
+<4>[  228.640916] .......................................
+<4>[  228.657128] xmit_panel_seq() done
+<6>[  228.657351] enabling esd detect
+<6>[  228.659828] lm3535_resume: resuming
+<6>[  229.040948] lm3535_configure: ALS Register: 0xf8, zone 0
+<6>[  229.043559] lm3535_brightness_set: lcd-backlight, 0x1e (30)
+<6>[  229.046564] <6>lm3535_convert_value: v=30, z=0, res=0x28bec170, reg=0x44
+<6>[  229.053366] lm3535_brightness_set: zone 0, 0x0 => 0x44, 68 steps, ramp time 102000us
+<6>[  229.061143] lm3535_resume: driver resumed
+<6>[  229.064654] pm7540_btn_leds_resume: resuming, ALS zone is 0, value 255
+<6>[  229.450373] keypad_leds_resume: resuming, ALS zone is 0, values 0 0 0
+<6>[  229.452224] keypad_leds_resume: driver resumed
+<6>[  229.458956] accel_resume: driver resumed
+<6>[  229.459551] late_resume: done
+<3>[  231.207004] mdp_ppp: invalid image!
+<3>[  231.286188] mdp_ppp: invalid image!
+<6>[  288.646573] lm3535_brightness_set: lcd-backlight, 0x1c (28)
+<6>[  288.646934] <6>lm3535_convert_value: v=28, z=0, res=0x288df540, reg=0x44
+<6>[  288.653738] lm3535_brightness_set: zone 0, 0x44 => 0x44, 0 steps, ramp time 0us
+<6>[  288.662691] lm3535_brightness_set: lcd-backlight, 0x1b (27)
+<6>[  288.666126] <6>lm3535_convert_value: v=27, z=0, res=0x2875a698, reg=0x43
+<6>[  288.673271] lm3535_brightness_set: zone 0, 0x44 => 0x43, 1 steps, ramp time 50000us
+<6>[  288.681449] lm3535_brightness_set: lcd-backlight, 0x19 (25)
+<6>[  288.685971] <6>lm3535_convert_value: v=25, z=0, res=0x28453828, reg=0x43
+<6>[  288.693131] lm3535_brightness_set: zone 0, 0x43 => 0x43, 0 steps, ramp time 0us
+<6>[  288.700788] lm3535_brightness_set: lcd-backlight, 0x18 (24)
+<6>[  288.705534] <6>lm3535_convert_value: v=24, z=0, res=0x282d1860, reg=0x43
+<6>[  288.712781] lm3535_brightness_set: zone 0, 0x43 => 0x43, 0 steps, ramp time 0us
+<6>[  288.720288] lm3535_brightness_set: lcd-backlight, 0x16 (22)
+<6>[  288.725134] <6>lm3535_convert_value: v=22, z=0, res=0x27fd07b0, reg=0x43
+<6>[  288.732148] lm3535_brightness_set: zone 0, 0x43 => 0x43, 0 steps, ramp time 0us
+<6>[  288.739786] lm3535_brightness_set: lcd-backlight, 0x15 (21)
+<6>[  288.744679] <6>lm3535_convert_value: v=21, z=0, res=0x27e516c8, reg=0x42
+<6>[  288.751659] lm3535_brightness_set: zone 0, 0x43 => 0x42, 1 steps, ramp time 50000us
+<6>[  288.759676] lm3535_brightness_set: lcd-backlight, 0x14 (20)
+<6>[  288.764538] <6>lm3535_convert_value: v=20, z=0, res=0x27cd3580, reg=0x42
+<6>[  288.771554] lm3535_brightness_set: zone 0, 0x42 => 0x42, 0 steps, ramp time 0us
+<6>[  295.647108] lm3535_brightness_set: lcd-backlight, 0x12 (18)
+<6>[  295.647469] <6>lm3535_convert_value: v=18, z=0, res=0x279da1d0, reg=0x42
+<6>[  295.654243] lm3535_brightness_set: zone 0, 0x42 => 0x42, 0 steps, ramp time 0us
+<6>[  295.663224] lm3535_brightness_set: lcd-backlight, 0x11 (17)
+<6>[  295.666628] <6>lm3535_convert_value: v=17, z=0, res=0x2785ef68, reg=0x42
+<6>[  295.673776] lm3535_brightness_set: zone 0, 0x42 => 0x42, 0 steps, ramp time 0us
+<6>[  295.681449] lm3535_brightness_set: lcd-backlight, 0xf (15)
+<6>[  295.686069] <6>lm3535_convert_value: v=15, z=0, res=0x2756b978, reg=0x41
+<6>[  295.693228] lm3535_brightness_set: zone 0, 0x42 => 0x41, 1 steps, ramp time 50000us
+<6>[  295.701256] lm3535_brightness_set: lcd-backlight, 0xe (14)
+<6>[  295.705863] <6>lm3535_convert_value: v=14, z=0, res=0x273f35f0, reg=0x41
+<6>[  295.713163] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  295.720718] lm3535_brightness_set: lcd-backlight, 0xd (13)
+<6>[  295.725304] <6>lm3535_convert_value: v=13, z=0, res=0x2727c208, reg=0x41
+<6>[  295.732458] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  295.740066] lm3535_brightness_set: lcd-backlight, 0xc (12)
+<6>[  295.744844] <6>lm3535_convert_value: v=12, z=0, res=0x27105dc0, reg=0x41
+<6>[  295.751846] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  295.761189] lm3535_brightness_set: lcd-backlight, 0xa (10)
+<6>[  295.764198] <6>lm3535_convert_value: v=10, z=0, res=0x26e1c410, reg=0x41
+<6>[  295.771358] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  295.778963] lm3535_brightness_set: lcd-backlight, 0x9 (9)
+<6>[  295.783649] <6>lm3535_convert_value: v=9, z=0, res=0x26ca8ea8, reg=0x41
+<6>[  295.790518] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  295.798231] lm3535_brightness_set: lcd-backlight, 0x8 (8)
+<6>[  295.802914] <6>lm3535_convert_value: v=8, z=0, res=0x26b368e0, reg=0x40
+<6>[  295.809808] lm3535_brightness_set: zone 0, 0x41 => 0x40, 1 steps, ramp time 50000us
+<6>[  295.818063] lm3535_brightness_set: lcd-backlight, 0x6 (6)
+<6>[  295.822539] <6>lm3535_convert_value: v=6, z=0, res=0x26854c30, reg=0x40
+<6>[  295.829409] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  295.837199] lm3535_brightness_set: lcd-backlight, 0x5 (5)
+<6>[  295.841804] <6>lm3535_convert_value: v=5, z=0, res=0x266e5548, reg=0x40
+<6>[  295.848698] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  295.856446] lm3535_brightness_set: lcd-backlight, 0x4 (4)
+<6>[  295.861183] <6>lm3535_convert_value: v=4, z=0, res=0x26576e00, reg=0x40
+<6>[  295.867938] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  295.875736] lm3535_brightness_set: lcd-backlight, 0x2 (2)
+<6>[  295.880253] <6>lm3535_convert_value: v=2, z=0, res=0x2629ce50, reg=0x40
+<6>[  295.887316] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  295.894976] lm3535_brightness_set: lcd-backlight, 0x1 (1)
+<6>[  295.899821] <6>lm3535_convert_value: v=1, z=0, res=0x2e, reg=0x2e
+<6>[  295.906106] lm3535_brightness_set: zone 0, 0x40 => 0x2e, 18 steps, ramp time 108000us
+<6>[  295.914436] lm3535_brightness_set: lcd-backlight, 0x0 (0)
+<6>[  295.919174] lm3535_brightness_set: zone 0, 0x2e => 0x0, 46 steps, ramp time 138000us
+<6>[  295.945926] request_suspend_state: sleep (0->3) at 295945599999 (2010-03-17 18:48:27.553170001 UTC)
+<6>[  295.949468] early_suspend: call handlers
+<6>[  295.957846] accel_suspend: driver suspended
+<6>[  295.986016] keypad_leds_suspend: driver suspended, event = 2
+<6>[  296.060568] pm7540_btn_leds_suspend: driver suspended, event = 2
+<6>[  296.060983] lm3535_suspend: called with pm message 2
+<6>[  296.065924] lm3535_brightness_set: lcd-backlight, 0x0 (0)
+<6>[  296.079656] lm3535_brightness_set: zone 0, 0x0 => 0x0, 0 steps, ramp time 0us
+<6>[  296.148819] disabling esd detect
+<4>[  296.149104] xmit_panel_seq()
+<4>[  296.149361] ...
+<4>[  296.155803] xmit_panel_seq() done
+<6>[  296.156281] msm_fb_mddi_power_save(0)
+<6>[  296.170414] early_suspend: sync
+<4>[  296.392668] save exit: isCheckpointed 1
+<6>[  420.012836] request_suspend_state: wakeup (3->0) at 420012504999 (2010-03-17 18:50:31.620075001 UTC)
+<6>[  420.016461] late_resume: call handlers
+<6>[  420.020111] msm_fb_mddi_power_save(1)
+<6>[  420.143584] panel USERID=6, REV:2
+<4>[  420.143811] xmit_panel_seq()
+<4>[  420.179328] .......................................
+<4>[  420.288783] xmit_panel_seq() done
+<6>[  420.289004] enabling esd detect
+<6>[  420.292881] lm3535_resume: resuming
+<6>[  420.680623] lm3535_configure: ALS Register: 0xf8, zone 0
+<6>[  420.683124] lm3535_brightness_set: lcd-backlight, 0x1e (30)
+<6>[  420.686283] <6>lm3535_convert_value: v=30, z=0, res=0x28bec170, reg=0x44
+<6>[  420.693014] lm3535_brightness_set: zone 0, 0x0 => 0x44, 68 steps, ramp time 102000us
+<6>[  420.700759] lm3535_resume: driver resumed
+<6>[  420.704313] pm7540_btn_leds_resume: resuming, ALS zone is 0, value 255
+<6>[  421.110540] keypad_leds_resume: resuming, ALS zone is 0, values 0 0 0
+<6>[  421.116965] keypad_leds_resume: driver resumed
+<6>[  421.122430] accel_resume: driver resumed
+<6>[  421.122706] late_resume: done
+<6>[  424.116401] ++++++++++++++++++++++++++++++
+<6>[  424.118486] audmgr: rpc_reply status 0
+<6>[  424.136825] audmgr: rpc READY handle=0x00000000
+<6>[  424.199393] audmgr: rpc CODEC_CONFIG volume=0x00000000
+<6>[  424.300460] audpp: enable
+<6>[  424.300665] adsp: opening module AUDPPTASK
+<6>[  424.310581] adsp: module AUDPPTASK has been registered
+<6>[  424.310925] msm_adsp_enable() 'AUDPPTASK'state[0] id[17227122]
+<6>[  424.317516] adsp: rpc event=0, proc_id=2, module=17227122, image=0
+<6>[  424.322371] adsp: module AUDPPTASK: READY
+<6>[  424.326145] audpp: unhandled msg id ffffffff
+<6>[  424.330623] audpp: ENABLE
+<3>[  424.332988] adsp: failed to write queue 124, retry
+<6>[  429.188021] audpp: disable
+<6>[  429.188236] msm_adsp_disable() 'AUDPPTASK'
+<6>[  429.189231] audpp: DISABLE
+<6>[  429.194008] adsp: disable interrupt
+<6>[  429.195384] adsp: closing module AUDPPTASK
+<6>[  429.200989] audmgr: rpc_reply status 0
+<3>[  429.231394] audmgr: DISABLED
+<6>[  429.231701] ------------------------------
+<3>[  465.705328] msm_nand_read_oob: unsupported ops->len, 512
+<6>[  476.667189] lm3535_brightness_set: lcd-backlight, 0x1c (28)
+<6>[  476.667553] <6>lm3535_convert_value: v=28, z=0, res=0x288df540, reg=0x44
+<6>[  476.674513] lm3535_brightness_set: zone 0, 0x44 => 0x44, 0 steps, ramp time 0us
+<6>[  476.683243] lm3535_brightness_set: lcd-backlight, 0x1b (27)
+<6>[  476.686711] <6>lm3535_convert_value: v=27, z=0, res=0x2875a698, reg=0x43
+<6>[  476.693846] lm3535_brightness_set: zone 0, 0x44 => 0x43, 1 steps, ramp time 50000us
+<6>[  476.701904] lm3535_brightness_set: lcd-backlight, 0x19 (25)
+<6>[  476.706588] <6>lm3535_convert_value: v=25, z=0, res=0x28453828, reg=0x43
+<6>[  476.713743] lm3535_brightness_set: zone 0, 0x43 => 0x43, 0 steps, ramp time 0us
+<6>[  476.721424] lm3535_brightness_set: lcd-backlight, 0x18 (24)
+<6>[  476.726119] <6>lm3535_convert_value: v=24, z=0, res=0x282d1860, reg=0x43
+<6>[  476.733251] lm3535_brightness_set: zone 0, 0x43 => 0x43, 0 steps, ramp time 0us
+<6>[  476.740958] lm3535_brightness_set: lcd-backlight, 0x16 (22)
+<6>[  476.745649] <6>lm3535_convert_value: v=22, z=0, res=0x27fd07b0, reg=0x43
+<6>[  476.752799] lm3535_brightness_set: zone 0, 0x43 => 0x43, 0 steps, ramp time 0us
+<6>[  476.760494] lm3535_brightness_set: lcd-backlight, 0x15 (21)
+<6>[  476.765181] <6>lm3535_convert_value: v=21, z=0, res=0x27e516c8, reg=0x42
+<6>[  476.772439] lm3535_brightness_set: zone 0, 0x43 => 0x42, 1 steps, ramp time 50000us
+<6>[  476.780303] lm3535_brightness_set: lcd-backlight, 0x14 (20)
+<6>[  476.785159] <6>lm3535_convert_value: v=20, z=0, res=0x27cd3580, reg=0x42
+<6>[  476.792173] lm3535_brightness_set: zone 0, 0x42 => 0x42, 0 steps, ramp time 0us
+<6>[  483.667684] lm3535_brightness_set: lcd-backlight, 0x12 (18)
+<6>[  483.668049] <6>lm3535_convert_value: v=18, z=0, res=0x279da1d0, reg=0x42
+<6>[  483.674991] lm3535_brightness_set: zone 0, 0x42 => 0x42, 0 steps, ramp time 0us
+<6>[  483.684721] lm3535_brightness_set: lcd-backlight, 0x11 (17)
+<6>[  483.687206] <6>lm3535_convert_value: v=17, z=0, res=0x2785ef68, reg=0x42
+<6>[  483.694366] lm3535_brightness_set: zone 0, 0x42 => 0x42, 0 steps, ramp time 0us
+<6>[  483.702026] lm3535_brightness_set: lcd-backlight, 0xf (15)
+<6>[  483.706683] <6>lm3535_convert_value: v=15, z=0, res=0x2756b978, reg=0x41
+<6>[  483.713773] lm3535_brightness_set: zone 0, 0x42 => 0x41, 1 steps, ramp time 50000us
+<6>[  483.721833] lm3535_brightness_set: lcd-backlight, 0xe (14)
+<6>[  483.726441] <6>lm3535_convert_value: v=14, z=0, res=0x273f35f0, reg=0x41
+<6>[  483.733599] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  483.741258] lm3535_brightness_set: lcd-backlight, 0xd (13)
+<6>[  483.745916] <6>lm3535_convert_value: v=13, z=0, res=0x2727c208, reg=0x41
+<6>[  483.753013] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  483.760734] lm3535_brightness_set: lcd-backlight, 0xc (12)
+<6>[  483.765328] <6>lm3535_convert_value: v=12, z=0, res=0x27105dc0, reg=0x41
+<6>[  483.772623] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  483.780084] lm3535_brightness_set: lcd-backlight, 0xa (10)
+<6>[  483.784894] <6>lm3535_convert_value: v=10, z=0, res=0x26e1c410, reg=0x41
+<6>[  483.791869] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  483.799533] lm3535_brightness_set: lcd-backlight, 0x9 (9)
+<6>[  483.804228] <6>lm3535_convert_value: v=9, z=0, res=0x26ca8ea8, reg=0x41
+<6>[  483.811156] lm3535_brightness_set: zone 0, 0x41 => 0x41, 0 steps, ramp time 0us
+<6>[  483.818773] lm3535_brightness_set: lcd-backlight, 0x8 (8)
+<6>[  483.823509] <6>lm3535_convert_value: v=8, z=0, res=0x26b368e0, reg=0x40
+<6>[  483.830421] lm3535_brightness_set: zone 0, 0x41 => 0x40, 1 steps, ramp time 50000us
+<6>[  483.838421] lm3535_brightness_set: lcd-backlight, 0x6 (6)
+<6>[  483.843116] <6>lm3535_convert_value: v=6, z=0, res=0x26854c30, reg=0x40
+<6>[  483.850003] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  483.857736] lm3535_brightness_set: lcd-backlight, 0x5 (5)
+<6>[  483.862494] <6>lm3535_convert_value: v=5, z=0, res=0x266e5548, reg=0x40
+<6>[  483.869249] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  483.882618] lm3535_brightness_set: lcd-backlight, 0x4 (4)
+<6>[  483.882968] <6>lm3535_convert_value: v=4, z=0, res=0x26576e00, reg=0x40
+<6>[  483.889481] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  483.899364] lm3535_brightness_set: lcd-backlight, 0x2 (2)
+<6>[  483.901819] <6>lm3535_convert_value: v=2, z=0, res=0x2629ce50, reg=0x40
+<6>[  483.908664] lm3535_brightness_set: zone 0, 0x40 => 0x40, 0 steps, ramp time 0us
+<6>[  483.916464] lm3535_brightness_set: lcd-backlight, 0x1 (1)
+<6>[  483.921061] <6>lm3535_convert_value: v=1, z=0, res=0x2e, reg=0x2e
+<6>[  483.927438] lm3535_brightness_set: zone 0, 0x40 => 0x2e, 18 steps, ramp time 108000us
+<6>[  483.935701] lm3535_brightness_set: lcd-backlight, 0x0 (0)
+<6>[  483.940651] lm3535_brightness_set: zone 0, 0x2e => 0x0, 46 steps, ramp time 138000us
+<6>[  483.967281] request_suspend_state: sleep (0->3) at 483966954999 (2010-03-17 18:51:35.574525000 UTC)
+<6>[  483.970999] early_suspend: call handlers
+<6>[  483.979151] accel_suspend: driver suspended
+<6>[  484.006156] keypad_leds_suspend: driver suspended, event = 2
+<6>[  484.092259] pm7540_btn_leds_suspend: driver suspended, event = 2
+<6>[  484.092674] lm3535_suspend: called with pm message 2
+<6>[  484.097644] lm3535_brightness_set: lcd-backlight, 0x0 (0)
+<6>[  484.108908] lm3535_brightness_set: zone 0, 0x0 => 0x0, 0 steps, ramp time 0us
+<6>[  484.168494] disabling esd detect
+<4>[  484.168773] xmit_panel_seq()
+<4>[  484.169036] ...
+<4>[  484.175603] xmit_panel_seq() done
+<6>[  484.176089] msm_fb_mddi_power_save(0)
+<6>[  484.190413] early_suspend: sync
+<4>[  484.407896] save exit: isCheckpointed 1
