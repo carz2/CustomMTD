@@ -6,7 +6,7 @@ if [ ! -e "$outdir" ];
 then
 	install -d $outdir
 fi
-signtools=$(dirname $(find $PWD -name signapk.jar))
+signtools=$(dirname $(find $PWD -name signapk.jar|grep -v \.repo))
 if [ "$?" != "0" ];
 then
 	echo "signapk.jar not found, files will not be signed"
