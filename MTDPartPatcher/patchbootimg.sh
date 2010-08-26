@@ -49,6 +49,7 @@ then
         eval SizeKBytes=\$${partition}SizeKBytes
         eval ${partition}CL=`echo "${SizeKBytes}K@${StartHex}\(${partition}\)"`
     done
+#TODO - workout the order of partitions
 	CLInit="mtdparts=msm_nand:${miscCL},${recoveryCL},${bootCL}"
 else
     echo -e "${boot} Patcher v${version}\npartition layout not found in dmesg\nand Dream/Magic not found\nPlease use ${boot} patcher early" >> $logfile
@@ -294,6 +295,7 @@ then
 		# this is testing on the actual device
 		wkdir=/tmp
 		dmesg="dmesg"
+		sdcard=/sdcard
 	else
 		# this is testing a dmesg log file
 		wkdir=`pwd`
