@@ -281,7 +281,7 @@ then
 	echo "mtd4: $cacheSizeHex 00020000 \"cache\"" >> $mtdpart
 	echo "mtd5: $dataSizeHex 00020000 \"userdata\"" >> $mtdpart
 	echo "$boot"|tee -a $logfile
-	cat mtd|awk --non-decimal-data '{printf "%-7s %-10s %-10s %-10s % 8.3f %s",$1,$2,$3,$4,(("0x"$2)+0)/1048576,"M""\n"}'|sed s/\ 0.000\ M/size\ M/|tee -a $logfile
+	cat mtd|awk '{printf "%-7s %-10s %-10s %-10s % 8.3f %s",$1,$2,$3,$4,(("0x"$2)+0)/1048576,"M""\n"}'|sed s/\ 0.000\ M/size\ M/|tee -a $logfile
 	echo "$origcmdline $KCMDline"|tee -a $logfile
 fi
 return
@@ -296,14 +296,17 @@ then
 		wkdir=/tmp
 		dmesg="dmesg"
 		sdcard=/sdcard
+		mapfile=/sdcard/mtdpartmap.txt
+		mtdpart=$wkdir/mtd
+		cp /proc/mtd $mtdpart
 	else
 		# this is testing a dmesg log file
 		wkdir=`pwd`
 		sdcard=$wkdir/sdcard
 		dmesg="cat $2"
+		mtdpart=$wkdir/mtd
+		mapfile=$wkdir/mtdpartmap.txt
 	fi
-	mapfile=$wkdir/mtdpartmap.txt
-	mtdpart=$wkdir/mtd
 	dmesgmtdpart=$wkdir/mtdpartmap
 	logfile=$wkdir/recovery.log
 	echo mapfile=$wkdir/mtdpartmap.txt
