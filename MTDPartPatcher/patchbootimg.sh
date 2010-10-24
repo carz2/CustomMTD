@@ -13,6 +13,7 @@
 # 2010-08-13 Firerat, added 'All in One' script launcher
 # 2010-08-13 Firerat, comment out 'fallback for dream/sapphire"
 # 2010-08-15 Firerat, added a 'test' mode, so I can get the cmdline from a devices dmesg
+# 2010-10-24 Firerat, get the end of userdata partition ( so we can work out its size )
 
 ###############################################################################################
 
@@ -38,7 +39,7 @@ for sanity in misc recovery boot system;do
 done
 if [ "$sain" = "y" ];
 then
-    for partition in misc recovery boot;do
+    for partition in misc recovery boot userdata;do
         eval ${partition}StartHex=`awk '/'$partition'/ {print $2}' $dmesgmtdpart`
         eval ${partition}EndHex=`awk '/'$partition'/ {print $3}' $dmesgmtdpart`
     done
@@ -50,6 +51,8 @@ then
         eval ${partition}CL=`echo "${SizeKBytes}K@${StartHex}\(${partition}\)"`
     done
 #TODO - workout the order of partitions
+
+
 	CLInit="mtdparts=msm_nand:${miscCL},${recoveryCL},${bootCL}"
 else
     echo -e "${boot} Patcher v${version}\npartition layout not found in dmesg\nand Dream/Magic not found\nPlease use ${boot} patcher early" >> $logfile
@@ -153,12 +156,12 @@ fi
 cacheStartBytes=`expr $systemStartBytes + $systemBytes`
 cacheStartHex=`printf '%X' $cacheStartBytes`
 
-# data size is 'wildcard' -@ uses remaining space
-DataKBytes=-
 DataStartBytes=`expr $cacheStartBytes + $cacheBytes`
 DataStartHex=`printf '%X' ${DataStartBytes}`
+DataBytes=`expr $(printf '%d' ${userdataEndHex}) - $DataStartBytes`
+DataKBytes=`expr ${DataBytes} \/ 1024`
 
-KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}@0x${DataStartHex}(userdata)"
+KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
 return
 }
 
