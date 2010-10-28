@@ -19,6 +19,7 @@
 # 2010-10-27 Firerat, stripped out the test mode, it was bugging me, will add better one TODO
 # 2010-10-27 Firerat, boot mode now gets the full cmdline from /proc/cmdline.. much cleaner
 # 2010-10-27 Firerat, added cache to sanity check
+# 2010-10-28 Firerat, added a remove feature ( to return to stock SPL MTD partitions )
 
 ###############################################################################################
 
@@ -282,9 +283,14 @@ if [ "$boot" = "recovery" -o "$boot" = "boot" ];
 then
 	if [ "$boot" = "recovery" ];
 	then
-		readdmesg
-		recoverymode
-		CreateCMDline
+		if [ "$opt" = "remove" ];
+		then
+			KCMDline=""
+		else
+			readdmesg
+			recoverymode
+			CreateCMDline
+		fi
 	else
 		GetCMDline
 	fi
