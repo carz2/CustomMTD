@@ -14,13 +14,18 @@
 # 2010-08-13 Firerat, comment out 'fallback for dream/sapphire"
 # 2010-08-15 Firerat, added a 'test' mode, so I can get the cmdline from a devices dmesg
 # 2010-10-24 Firerat, get the end of userdata partition ( so we can work out its size )
+# 2010-10-27 Firerat, bumped version to 1.5.6
+# 2010-10-27 Firerat, added an init.rc patcher, to fix broken roms that don't run boot scripts
+# 2010-10-27 Firerat, stripped out the test mode, it was bugging me, will add better one TODO
+# 2010-10-27 Firerat, boot mode now gets the full cmdline from /proc/cmdline.. much cleaner
+# 2010-10-27 Firerat, added cache to sanity check
 
 ###############################################################################################
 
 ###############################################################################################
 
 
-version=1.5.5
+version=1.5.6
 ##
 
 readdmesg ()
@@ -28,7 +33,7 @@ readdmesg ()
 $dmesg|awk '/0x.+: "/ {sub(/-/," ");gsub(/"/,"");gsub(/0x/,"");printf $6" 0x"toupper ($3)" 0x"toupper ($4)"\n"}' > $dmesgmtdpart
 
 # need a sanity check, what if recovery had been running for ages and the dmesg buffer had been filled?
-for sanity in misc recovery boot system;do
+for sanity in misc recovery boot system cache userdata;do
     if [ `grep -q $sanity $dmesgmtdpart;echo $?` = "0" ];
     then
         sain=y
@@ -50,8 +55,6 @@ then
         eval SizeKBytes=\$${partition}SizeKBytes
         eval ${partition}CL=`echo "${SizeKBytes}K@${StartHex}\(${partition}\)"`
     done
-#TODO - workout the order of partitions
-
 
 	CLInit="mtdparts=msm_nand:${miscCL},${recoveryCL},${bootCL}"
 else
@@ -63,96 +66,47 @@ return
 
 recoverymode ()
 {
-if [ "$testmode" = "n" ];
-then 
-	mount $sdcard
-fi
-# new mtdpartmap config
-if [ -e $mapfile ];
+if [ ! -e $mapfile ];
 then
+	echo "${boot} Patcher v${version}\n$mapfile does not exist, please create it with system and cache size, e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
+	exit
+else
 	busybox dos2unix $mapfile
-	if [ "`egrep -q \"mtd|spl\" $mapfile;echo $?`" != "0" ];
+	systemMB=`awk '/mtd/ {print $2}' $mapfile`
+	cacheMB=`awk '/mtd/ {print $3}' $mapfile`
+	FakeSPL=`awk '/spl/ {print $2}' $mapfile`
+	
+	if [ "$cacheMB" -lt "2" -o "$cacheMB" = "" ];
 	then
-		systemMB=`awk '{print $1}' $mapfile`
-		cacheMB=`awk '{print $2}' $mapfile`
-		if [ "$cacheMB" -lt "2" ];
-		then
-			# need at least 2mb cache for recovery to not complain
-			cacheMB=2
-		fi
-	else
-		systemMB=`awk '/mtd/ {print $2}' $mapfile`
-		cacheMB=`awk '/mtd/ {print $3}' $mapfile`
-		FakeSPL=`awk '/spl/ {print $2}' $mapfile`
-		
-		if [ "$systemMB" = "" ];
-		then
-			if [ "`egrep -q "trout|sapphire" /proc/cmdline;echo $?`" = "0" ];
-			then
-		    	systemMB=90
-			else
-				echo "${boot} Patcher v${version}\nTrout/Sapphire not detected, please configure system size\n with in $mapfile\n e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
-				exit
-			fi
-		fi
-		if [ "$cacheMB" = "" ];
-		then
-			cacheMB=2
-		fi
+	# need at least 2mb cache for recovery to not complain
+		cacheMB=2
 	fi
-else
-	systemMB=90
-	cacheMB=2
-	FakeSPL=""
-fi
+		
+	if [ "$systemMB" = "" ];
+	then
+		echo "${boot} Patcher v${version}\nPlease configure system size\n with in $mapfile\n e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
+		exit
+	fi
 
-if [ "$FakeSPL" = "" ];
-then
-	CLInit="$CLInit"
-else
-	CLInit="androidboot.bootloader=$FakeSPL $CLInit"
+	if [ "$FakeSPL" = "" ];
+	then
+		CLInit="$CLInit"
+	else
+		CLInit="androidboot.bootloader=$FakeSPL $CLInit"
+	fi
 fi
 return
 }
 
 CreateCMDline ()
 {
+systemStartHex=`awk '/system/ { print $2 }' $dmesgmtdpart`
+systemStartBytes=`printf %d $(awk '/system/ { print $2 }' $dmesgmtdpart)`
+systemSizeKBytes=`expr $systemMB \* 1024`
+systemBytes=`expr $systemSizeKBytes \* 1024`
 
-if [ "$sain" = "y" ];
-then
-    systemStartHex=`awk '/system/ { print $2 }' $dmesgmtdpart`
-    systemStartBytes=`printf %d $(awk '/system/ { print $2 }' $dmesgmtdpart)`
-elif [ "`egrep -q "trout|sapphire" /proc/cmdline;echo $?`" = "0" ];
-then
-    systemStartBytes=48496640
-    systemStartHex=`printf '%X' $systemStartBytes`
-else
-    echo -e "${boot} Patcher v${version}\n" >> $logfile
-    echo "erm, shouldn't have got this far" >> $logfile
-	exit
-fi
-
-if [ "$boot" = "recovery" ];
-then
-	systemSizeKBytes=`expr $systemMB \* 1024`
-	systemBytes=`expr $systemSizeKBytes \* 1024`
-else
-	systemSizeHex=`awk '/system/ { print "0x"$2 }' $mtdpart`
-	cacheSizeHex=`awk '/cache/ { print "0x"$2 }' $mtdpart`
-	systemBytes=`printf '%d' $systemSizeHex`
-	systemSizeKBytes=`expr $systemBytes \/ 1024`
-fi
-
-if [ "$boot" = "recovery" ];
-then
-	cacheSizeKBytes=`expr $cacheMB \* 1024`
-	cacheBytes=`expr $cacheSizeKBytes \* 1024`
-else
-	cacheSizeHex=`awk '/cache/ { print "0x"$2 }' $mtdpart`
-	cacheBytes=`printf '%d' $cacheSizeHex`
-	cacheSizeKBytes=`expr $cacheBytes \/ 1024`
-fi
-
+cacheSizeKBytes=`expr $cacheMB \* 1024`
+cacheBytes=`expr $cacheSizeKBytes \* 1024`
 cacheStartBytes=`expr $systemStartBytes + $systemBytes`
 cacheStartHex=`printf '%X' $cacheStartBytes`
 
@@ -165,18 +119,30 @@ KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKB
 return
 }
 
-flashimg ()
+GetCMDline ()
+{
+KCMDline="mtdparts`cat /proc/cmdline|awk -Fmtdparts '{print $2}'`"
+if [ "$KCMDline" = "mtdparts" ];
+then
+	KCMDline=""
+fi
+return
+}
+
+dumpimg ()
 {
 dump_image ${boot} $wkdir/${boot}.img
 $wkdir/unpackbootimg $wkdir/${boot}.img $wkdir/
-ls
+rm $wkdir/${boot}.img
 origcmdline=`awk '{sub(/mtdparts.+)/,"");sub(/androidboot.bootloader=.+\...\...../,"");print}' $wkdir/${boot}.img-cmdline`
+return
+}
+
+flashimg ()
+{
 $wkdir/mkbootimg --kernel $wkdir/${boot}.img-zImage --ramdisk $wkdir/${boot}.img-ramdisk.gz -o $wkdir/${boot}.img --cmdline "$origcmdline $KCMDline" --base `cat $wkdir/${boot}.img-base`
-if [ "$testmode" = "n" ];
-then
-	erase_image ${boot}
-	flash_image ${boot} $wkdir/${boot}.img
-fi
+erase_image ${boot}
+flash_image ${boot} $wkdir/${boot}.img
 return
 }
 
@@ -189,9 +155,9 @@ then
 # 2010-08-05 Firerat, bind mount cache to sd ext partition, and mount mtdblock4 for Clockwork recovery's use
 busybox umount /cache
 # Bind mount /sd-ext/cache ( or /system/sd/cache ) to /cache
-if [ "`egrep -q "sd-ext|/system/sd" /proc/mounts;echo $?`" = "0" ];
+if [ "`busybox egrep -q "sd-ext|/system/sd" /proc/mounts;echo $?`" = "0" ];
 then
-    sdmount=`egrep "sd-ext|/system/sd" /proc/mounts|awk '{ print $2 }'`
+    sdmount=`busybox egrep "sd-ext|/system/sd" /proc/mounts|busybox awk '{ print $2 }'`
     cacheDir=${sdmount}/cache
 else
 	cacheDir=/data/cache
@@ -234,15 +200,13 @@ EOF
 	then
 		ln -s /system/etc/super /system/etc/init.d
 	fi
-	#TODO inject a run-parts into init.rc,
-	# assuming the init.rc has an import and the init is compatible
 	install -m 700 -o 0 -g 0 -D $wkdir/06BindCache /system/etc/init.d/06BindCache
 fi
 return
 }
 AllInOnePatch ()
 {
-#start the 'all in one' with configured options ( if avaliable )
+# start the 'all in one' with configured options ( if avaliable )
 if [ -e $mapfile ];
 then
 	if [ "`grep -q aio $mapfile;echo $?`" = "0" ];
@@ -256,94 +220,56 @@ then
 		aioversion=`awk '/Version\=\"Version/ { gsub(/\./,"");print $2+0 }' $aiopatch`
 		if [ "$aioversion" -gt "136" ];
 		then
-			sh +x $aiopatch sdext $aioOPTs
+			sh -x $aiopatch sdext $aioOPTs
 		fi
 	fi
 fi
 return
 }
-testrun ()
+
+runparts ()
 {
-if [ "$testmode" = "y" ];
+# hack runparts into ramdisk
+# wish I didn't have to do this,
+if [ "$boot" != "boot" ];
 then
-	for partition in misc recovery boot system cache;do
-		eval SizeKBytes=\$${partition}SizeKBytes
-		eval ${partition}SizeHex="$( printf %X `expr $SizeKBytes \* 1024`|awk '{printf "%08s",$1}')"
-	done
-	eval dataSizeHex=$(printf %x `expr $(printf %d $(awk '/'userdata'/ {print $3}' $dmesgmtdpart)) - $(printf %d 0x${DataStartHex})`)
-# lol, I should tidy that up 
-	if [ "$boot" = "recovery" ];
+	return
+fi
+if [ "`ls /system/etc/init.d/*user*;echo $?`" = "0" ];
+then
+    return
+fi
+
+if [ -e "/system/xbin/busybox" -o -e "/system/xbin/xbin.sqf" ];
+then
+	mkdir rd
+	cd rd
+	zcat ../${boot}.img-ramdisk.gz |cpio -i
+	if [ "`busybox egrep -qi \"service\ sysinit|run-parts\" init.rc;echo $?`" != "0" ];
 	then
-	$dmesg |awk '/Kernel command line/ {sub (/serialno=.+\ a/,"serialno=XXXXXXXXXXXX a"); print $0}' |tee -a $logfile
+		sed '/class_start default/ i \ \ \ \ # start runparts script\n\ \ \ \ \/system\/bin\/sh \/system/runparts.sh\n' -i init.rc
+		find * | cpio -o -H newc | gzip > ../${boot}.img-ramdisk.gz
 	fi
-	echo "dev: size erasesize name " > $mtdpart
-	echo "mtd0: $miscSizeHex 00020000 \"misc\"" >> $mtdpart
-	echo "mtd1: $recoverySizeHex 00020000 \"recovery\"" >> $mtdpart
-	echo "mtd2: $bootSizeHex 00020000 \"boot\"" >> $mtdpart
-	echo "mtd3: $systemSizeHex 00020000 \"system\"" >> $mtdpart
-	echo "mtd4: $cacheSizeHex 00020000 \"cache\"" >> $mtdpart
-	echo "mtd5: $dataSizeHex 00020000 \"userdata\"" >> $mtdpart
-	echo "$boot"|tee -a $logfile
-	cat mtd|awk '{printf "%-7s %-10s %-10s %-10s % 8.3f %s",$1,$2,$3,$4,(("0x"$2)+0)/1048576,"M""\n"}'|sed s/\ 0.000\ M/size\ M/|tee -a $logfile
-	echo "$origcmdline $KCMDline"|tee -a $logfile
+	cd ../
+	rm -r rd
+	cat > /dev/runparts.sh << "EOF"
+export PATH=/sbin:/system/sbin:/system/bin:/system/xbin
+if [ -e "/system/xbin/logwrapper" ];
+then
+	/system/xbin/logwrapper /system/xbin/busybox echo -e "====================================================================\nShoehorned run-parts\nPlease Pester the ROM Dev to include run-parts in the ROM by default\n====================================================================" 
+	/system/xbin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d
+else
+	/system/xbin/busybox run-parts /system/etc/init.d
+fi
+EOF
+	install -m 000 -o 0 -g 0 /dev/runparts.sh /system/runparts.sh
 fi
 return
 }
 #end functions
 
-if [ "$1" = "test" ];
-then
-	if [ "$#" = "1" ];
-	then
-		# this is testing on the actual device
-		wkdir=/tmp
-		dmesg="dmesg"
-		sdcard=/sdcard
-		mapfile=/sdcard/mtdpartmap.txt
-		mtdpart=$wkdir/mtd
-		cp /proc/mtd $mtdpart
-	else
-		# this is testing a dmesg log file
-		wkdir=`pwd`
-		sdcard=$wkdir/sdcard
-		dmesg="cat $2"
-		mtdpart=$wkdir/mtd
-		mapfile=$wkdir/mtdpartmap.txt
-	fi
-	dmesgmtdpart=$wkdir/mtdpartmap
-	logfile=$wkdir/recovery.log
-	echo mapfile=$wkdir/mtdpartmap.txt
-	echo mtdpart=$wkdir/mtd
-	echo dmesgmtdpart=$wkdir/mtdpartmap
-	echo logfile=$wkdir/recovery.log
-	testmode=y
-	Mode=recovery
-	boot=recovery
-	readdmesg
-	# this is going to fail on a device as busybox awk doesn't have strtonum
-	awk '{printf "%-9s %s %s %8.3f %s",$1,$2,$3,(strtonum($3)-strtonum($2))/1048576,"M\n"}' $dmesgmtdpart|tee -a $logfile
-	recoverymode
-	CreateCMDline
-	testrun
-	flashimg
-	Mode=boot
-	boot=boot
-	readdmesg
-	$dmesg|sed s/serialno=.*\ a/serialno=XXXXXXXXXX\ a/g>$wkdir/dmesg
-    CreateCMDline
-    testrun
-	flashimg
-	cd $wkdir
-	tardir=`$dmesg|awk -F\:\  '/Machine:/ {print $2}'`_CustomMTD
-	mkdir $tardir
-	for i in dmesg mtd mtdpartmap boot* recovery*;do
-		mv $i $tardir
-	done
-	tar -cz $tardir -f ${sdcard}/${tardir}.tar.gz
-	exit
-fi
-
-Mode=$1
+boot=$1
+opt=$2
 wkdir=/tmp
 sdcard=/sdcard
 mapfile=$sdcard/mtdpartmap.txt
@@ -352,29 +278,30 @@ dmesgmtdpart=/dev/mtdpartmap
 logfile=$wkdir/recovery.log
 dmesg=dmesg
 testmode=n
-if [ "$Mode" = "recovery" -o "$Mode" = "boot" ];
+if [ "$boot" = "recovery" -o "$boot" = "boot" ];
 then
-	readdmesg
-	if [ "$Mode" = "recovery" ];
+	if [ "$boot" = "recovery" ];
 	then
-		boot=recovery
+		readdmesg
 		recoverymode
+		CreateCMDline
 	else
-		if [ "$Mode" = "boot" ];
-		then
-			boot=boot
-		fi
+		GetCMDline
 	fi
-	CreateCMDline
-	flashimg
-	
-	if [ "$Mode" = "boot" ];
+	dumpimg	
+	if [ "$boot" = "boot" ];
 	then
 		bindcache
-	AllInOnePatch
+		# for now do runparts patching as an option
+		if [ "$opt" = "runparts" ];
+		then
+			runparts
+		fi
+		AllInOnePatch
 	fi
+	flashimg
 else
-    echo -e "CustomMTD Patcher v${version}\nNo Argument given, script needs either:\nboot, recovery or test [dmesglogfile] )" >> $logfile
+    echo -e "CustomMTD Patcher v${version}\nNo Argument given, script needs either:\nboot or recovery" >> $logfile
 
 	exit
 fi

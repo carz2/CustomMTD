@@ -86,6 +86,26 @@ zip -r ${outdir}/test-v${version}-CustomMTD.zip META-INF MTDPartPatcher
 sign ${outdir}/test-v${version}-CustomMTD.zip
 return
 }
+
+patchrunparts ()
+{
+cat > $updater << "EOF"
+set_progress(1.000000);
+EOF
+echo "ui_print(\"CustomMTD Patcher v${version}\");" >> $updater
+cat >> $updater << "EOF"
+ui_print("Boot Mode with run-parts patch");
+ui_print("Extracting Patch Tools...");
+package_extract_dir("MTDPartPatcher", "/tmp");
+set_perm(0, 0, 0700, "/tmp/patchbootimg.sh");
+set_perm(0, 0, 0700, "/tmp/mkbootimg");
+set_perm(0, 0, 0700, "/tmp/unpackbootimg");
+run_program("/tmp/patchbootimg.sh", "boot", "runparts");
+EOF
+zip -r ${outdir}/boot-rpp-v${version}-CustomMTD.zip META-INF MTDPartPatcher
+sign ${outdir}/boot-rpp-v${version}-CustomMTD.zip
+return
+}
 sign ()
 {
 if [ "$signtools" = "skip" ];
@@ -124,5 +144,6 @@ return
 boot
 AutoMTD
 recovery
-Test
+#Test
+patchrunparts
 rm META-INF/com/google/android/updater-script
