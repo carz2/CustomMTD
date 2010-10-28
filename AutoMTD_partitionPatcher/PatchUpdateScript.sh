@@ -2,7 +2,7 @@
 # 2010-07-01 Firerat
 # Patch update(r)-script to run boot.img MTD Patcher
 #
-version=1.5.5
+version=1.5.6
 startdir=`pwd`
 
 me=$0
