@@ -126,8 +126,8 @@ ui_print("& reboot to recovery for changes");
 ui_print("to take effect");
 ui_print("Run boot patcher on restored ROM");
 EOF
-zip -r ${outdir}/boot-rpp-v${version}-CustomMTD.zip META-INF MTDPartPatcher
-sign ${outdir}/boot-rpp-v${version}-CustomMTD.zip
+zip -r ${outdir}/remove-v${version}-CustomMTD.zip META-INF MTDPartPatcher
+sign ${outdir}/remove-v${version}-CustomMTD.zip
 return
 }
 sign ()
