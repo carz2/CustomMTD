@@ -1,7 +1,7 @@
 #!/bin/bash
 version=`awk -F \= '/^version=/ { print $2 }' MTDPartPatcher/patchbootimg.sh`
 updater=META-INF/com/google/android/updater-script
-outdir=../CustomMTD_out
+outdir=../CustomMTD_out/v${version}
 if [ ! -e "$outdir" ];
 then
 	install -d $outdir
@@ -159,6 +159,7 @@ else
 	then
 		mv ${outdir}/`basename $file .${ext}`_S.${file} ${outdir}/${file}
 	else
+		rm ${file}
 		echo "signed file : ${outdir}/`basename $file .${ext}`_S.${ext}"
 	fi
 fi
