@@ -2,6 +2,8 @@
 # 2010-07-01 Firerat
 # Patch update(r)-script to run boot.img MTD Patcher
 #
+#TODO test dependencies ( java etc. )
+#TODO  Firerat !! you lazy barstool, do a windows version..
 version=1.5.6
 startdir=`pwd`
 
