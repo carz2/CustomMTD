@@ -20,6 +20,9 @@
 # 2010-10-27 Firerat, boot mode now gets the full cmdline from /proc/cmdline.. much cleaner
 # 2010-10-27 Firerat, added cache to sanity check
 # 2010-10-28 Firerat, added a remove feature ( to return to stock SPL MTD partitions )
+# 2010-10-30 Firerat, get every partition from dmesg, better device compatibility, e.g. Evo4g has wimax partition 
+# 2010-10-30 Firerat, thinking of bumping up to v2.0.0, then use tags for versions and branches from device specific 'fixes' ( if any )
+
 
 ###############################################################################################
 
@@ -45,19 +48,19 @@ for sanity in misc recovery boot system cache userdata;do
 done
 if [ "$sain" = "y" ];
 then
-    for partition in misc recovery boot userdata;do
+	CLInit="mtdparts=msm_nand:"
+    for partition in `cat $dmesgmtdpart|awk '!/system|cache|userdata/ {print $1}'`;do
         eval ${partition}StartHex=`awk '/'$partition'/ {print $2}' $dmesgmtdpart`
         eval ${partition}EndHex=`awk '/'$partition'/ {print $3}' $dmesgmtdpart`
     done
-    for partition in misc recovery boot;do
+    for partition in `cat $dmesgmtdpart|awk '!/system|cache|userdata/ {print $1}'`;do
         eval StartHex=\$${partition}StartHex
         eval EndHex=\$${partition}EndHex
         eval ${partition}SizeKBytes=`expr \( $(printf %d $EndHex) - $(printf %d $StartHex) \) \/ 1024 `
         eval SizeKBytes=\$${partition}SizeKBytes
-        eval ${partition}CL=`echo "${SizeKBytes}K@${StartHex}\(${partition}\)"`
+		CLInit="${CLInit}`echo \"${SizeKBytes}K@${StartHex}\(${partition}\)\"`,"
     done
-
-	CLInit="mtdparts=msm_nand:${miscCL},${recoveryCL},${bootCL}"
+	CLInit="`echo $CLInit|sed s/,\$//`"
 else
     echo -e "${boot} Patcher v${version}\npartition layout not found in dmesg\nand Dream/Magic not found\nPlease use ${boot} patcher early" >> $logfile
     exit
