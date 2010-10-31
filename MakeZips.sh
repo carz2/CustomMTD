@@ -138,31 +138,11 @@ then
 	return
 fi
 for file in $@;do
-	if [ "`echo $file|egrep -iq ".apk$";echo $?`" = "0" ];
-	then
-		ext=apk
-	elif [ "`echo $file|egrep -iq ".zip$";echo $?`" = "0" ];
-    then
-		ext=zip
-	else
-		ext=skip
-	fi
-
-if [ "$ext" = "skip" ];
-then
-	echo "skipping $file"
-else
 	echo "signing ${file}..."
 	java -jar ${signtools}/signapk.jar ${signtools}/testkey.x509.pem ${signtools}/testkey.pk8 $file ${outdir}/`basename $file .${ext}`_S.${ext}
 	echo "signing ${file} complete"
-	if [ "$ext" = "apk"  ];
-	then
-		mv ${outdir}/`basename $file .${ext}`_S.${file} ${outdir}/${file}
-	else
-		rm ${file}
-		echo "signed file : ${outdir}/`basename $file .${ext}`_S.${ext}"
-	fi
-fi
+	rm ${file}
+	echo "signed file : ${outdir}/`basename $file .${ext}`_S.${ext}"
 done 
 return
 }
