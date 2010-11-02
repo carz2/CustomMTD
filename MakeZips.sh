@@ -138,6 +138,7 @@ then
 	return
 fi
 for file in $@;do
+	ext=zip
 	echo "signing ${file}..."
 	java -jar ${signtools}/signapk.jar ${signtools}/testkey.x509.pem ${signtools}/testkey.pk8 $file ${outdir}/`basename $file .${ext}`_S.${ext}
 	echo "signing ${file} complete"
