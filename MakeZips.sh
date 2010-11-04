@@ -106,30 +106,6 @@ zip -r ${outdir}/boot-rpp-v${version}-CustomMTD.zip META-INF MTDPartPatcher
 sign ${outdir}/boot-rpp-v${version}-CustomMTD.zip
 return
 }
-backtostockmtd ()
-{
-cat > $updater << "EOF"
-set_progress(1.000000);
-EOF
-echo "ui_print(\"CustomMTD Patcher v${version}\");" >> $updater
-cat >> $updater << "EOF"
-ui_print("Removal mode");
-ui_print("Extracting Patch Tools...");
-package_extract_dir("MTDPartPatcher", "/tmp");
-set_perm(0, 0, 0700, "/tmp/patchbootimg.sh");
-set_perm(0, 0, 0700, "/tmp/mkbootimg");
-set_perm(0, 0, 0700, "/tmp/unpackbootimg");
-run_program("/tmp/patchbootimg.sh", "recovery", "remove");
-ui_print("Custom MTD removed");
-ui_print("Please wipe system,cache & data");
-ui_print("& reboot to recovery for changes");
-ui_print("to take effect");
-ui_print("Run boot patcher on restored ROM");
-EOF
-zip -r ${outdir}/remove-v${version}-CustomMTD.zip META-INF MTDPartPatcher
-sign ${outdir}/remove-v${version}-CustomMTD.zip
-return
-}
 sign ()
 {
 if [ "$signtools" = "skip" ];
@@ -152,5 +128,4 @@ AutoMTD
 recovery
 #Test
 patchrunparts
-backtostockmtd
 rm META-INF/com/google/android/updater-script
