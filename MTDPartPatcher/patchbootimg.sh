@@ -22,6 +22,7 @@
 # 2010-10-28 Firerat, added a remove feature ( to return to stock SPL MTD partitions )
 # 2010-10-30 Firerat, get every partition from dmesg, better device compatibility, e.g. Evo4g has wimax partition 
 # 2010-10-30 Firerat, thinking of bumping up to v2.0.0, then use tags for versions and branches from device specific 'fixes' ( if any )
+# 2010-11-04 Firerat, Stripped out a load of crap
 
 
 ###############################################################################################
@@ -29,7 +30,7 @@
 ###############################################################################################
 
 
-version=1.5.7rc2
+version=1.5.7
 ##
 
 readdmesg ()
@@ -62,7 +63,7 @@ then
     done
 	CLInit="`echo $CLInit|sed s/,\$//`"
 else
-    echo -e "${boot} Patcher v${version}\npartition layout not found in dmesg\nand Dream/Magic not found\nPlease use ${boot} patcher early" >> $logfile
+    echo -e "${boot} Patcher v${version}\npartition layout not found in dmesg" >> $logfile
     exit
 fi
 return
@@ -72,7 +73,7 @@ recoverymode ()
 {
 if [ ! -e $mapfile ];
 then
-	echo "${boot} Patcher v${version}\n$mapfile does not exist, please create it with system and cache size, e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
+	echo "${boot} Patcher v${version}\n$mapfile does not exist,\nplease create it with system and cache size, e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
 	exit
 else
 	busybox dos2unix $mapfile
@@ -215,69 +216,6 @@ EOF
 fi
 return
 }
-AllInOnePatch ()
-{
-# start the 'all in one' with configured options ( if avaliable )
-if [ -e $mapfile ];
-then
-	if [ "`grep -q aio $mapfile;echo $?`" = "0" ];
-	then
-		aioOPTs=`awk '/aio/ { $1 = "" ;print}' $mapfile`
-		aiopatch=`ls -t $sdcard/fr-patch*txt|head -n 1`
-	fi
-	
-	if [ "$aiopatch" != "" ];
-	then
-		aioversion=`awk '/Version\=\"Version/ { gsub(/\./,"");print $2+0 }' $aiopatch`
-		if [ "$aioversion" -gt "136" ];
-		then
-			sh -x $aiopatch sdext $aioOPTs
-		fi
-	fi
-fi
-return
-}
-
-runparts ()
-{
-# hack runparts into ramdisk
-# wish I didn't have to do this,
-#TODO, remove and offer as a separate package
-if [ "$boot" != "boot" ];
-then
-	return
-fi
-if [ "`ls /system/etc/init.d/*user*;echo $?`" = "0" ];
-then
-    return
-fi
-
-if [ -e "/system/xbin/busybox" -o -e "/system/xbin/xbin.sqf" ];
-then
-	mkdir rd
-	cd rd
-	zcat ../${boot}.img-ramdisk.gz |cpio -i
-	if [ "`busybox egrep -qi \"service\ sysinit|run-parts\" init.rc;echo $?`" != "0" ];
-	then
-		sed '/class_start default/ i \ \ \ \ # start runparts script\n\ \ \ \ \/system\/bin\/sh \/system/runparts.sh\n' -i init.rc
-		find * | cpio -o -H newc | gzip > ../${boot}.img-ramdisk.gz
-	fi
-	cd ../
-	rm -r rd
-	cat > /dev/runparts.sh << "EOF"
-export PATH=/sbin:/system/sbin:/system/bin:/system/xbin
-if [ -e "/system/xbin/logwrapper" ];
-then
-	/system/xbin/logwrapper /system/xbin/busybox echo -e "====================================================================\nShoehorned run-parts\nPlease Pester the ROM Dev to include run-parts in the ROM by default\n====================================================================" 
-	/system/xbin/logwrapper /system/xbin/busybox run-parts /system/etc/init.d
-else
-	/system/xbin/busybox run-parts /system/etc/init.d
-fi
-EOF
-	install -m 000 -o 0 -g 0 /dev/runparts.sh /system/runparts.sh
-fi
-return
-}
 #end functions
 
 boot=$1
@@ -289,31 +227,18 @@ mtdpart=/proc/mtd
 dmesgmtdpart=/dev/mtdpartmap
 logfile=$wkdir/recovery.log
 dmesg=dmesg
-testmode=n
-if [ "$boot" = "recovery" -o "$boot" = "boot" ];
+if [ "$boot" = "recovery" ];
 then
-	if [ "$boot" = "recovery" ];
-	then
-		recoverymode
-		readdmesg
-		CreateCMDline
-	else
-		GetCMDline
-	fi
-	dumpimg	
-	if [ "$boot" = "boot" ];
-	then
-		bindcache
-		# for now do runparts patching as an option
-		if [ "$opt" = "runparts" ];
-		then
-			runparts
-		fi
-		AllInOnePatch
-	fi
-	flashimg
+	recoverymode
+	readdmesg
+	CreateCMDline
+elif [ "$boot" = "boot" ];
+then
+	GetCMDline
+	bindcache
 else
     echo -e "CustomMTD Patcher v${version}\nNo Argument given, script needs either:\nboot or recovery" >> $logfile
-
 	exit
 fi
+dumpimg
+flashimg
