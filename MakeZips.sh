@@ -35,7 +35,7 @@ return
 AutoMTD ()
 {
 tar -cz -f AutoMTD_partitionPatcher/AutoMTDPatchTools/MTDPartPatcher.tar.gz MTDPartPatcher
-sed s/version=...../version=${version}/ -i AutoMTD_partitionPatcher/PatchUpdateScript.sh 
+sed s/version=.*\$/version=${version}/ -i AutoMTD_partitionPatcher/PatchUpdateScript.sh 
 tar -cj -f ${outdir}/AutoMTD_partitionPatcher_v${version}.tar.bz2 AutoMTD_partitionPatcher
 # make zip for easy forum posting
 zip ${outdir}/AutoMTD_partitionPatcher_v${version}.zip ${outdir}/AutoMTD_partitionPatcher_v${version}.tar.bz2
