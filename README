@@ -6,6 +6,5 @@ MakeZips.sh, is a simple script to generate the various zip files
 patchbootimg.sh, is the main script this is executed in recovery via updater-script
 
 TODO: update this readme with usefull info
-      intergrate the remove/undo 'feature' into recovery patcher ( setting system size to 0 in mtdpartmap.txt would make some sense )
       check system and cache size make sense ( e.g. that they are not too large for what is available )
       get msm_nand kernel modules to use kernel cmdline ( so we can resize mtd without having to reboot )
