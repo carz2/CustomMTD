@@ -77,6 +77,13 @@ then
 else
 	busybox dos2unix $mapfile
 	systemMB=`awk '/mtd/ {print $2}' $mapfile`
+	if [ "$systemMB" = "0" ];
+	then
+		dumpimg
+		KCMDline=""
+		flashimg
+		exit
+	fi
 	cacheMB=`awk '/mtd/ {print $3}' $mapfile`
 	FakeSPL=`awk '/spl/ {print $2}' $mapfile`
 	
@@ -235,6 +242,7 @@ runparts ()
 {
 # hack runparts into ramdisk
 # wish I didn't have to do this,
+#TODO, remove and offer as a separate package
 if [ "$boot" != "boot" ];
 then
 	return
@@ -286,14 +294,9 @@ if [ "$boot" = "recovery" -o "$boot" = "boot" ];
 then
 	if [ "$boot" = "recovery" ];
 	then
-		if [ "$opt" = "remove" ];
-		then
-			KCMDline=""
-		else
-			readdmesg
-			recoverymode
-			CreateCMDline
-		fi
+		recoverymode
+		readdmesg
+		CreateCMDline
 	else
 		GetCMDline
 	fi
