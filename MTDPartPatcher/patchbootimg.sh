@@ -29,7 +29,7 @@
 ###############################################################################################
 
 
-version=1.5.6
+version=1.5.7rc2
 ##
 
 readdmesg ()
@@ -49,7 +49,7 @@ done
 if [ "$sain" = "y" ];
 then
 	CLInit="mtdparts=msm_nand:"
-    for partition in `cat $dmesgmtdpart|awk '!/system|cache|userdata/ {print $1}'`;do
+    for partition in `cat $dmesgmtdpart|awk '!/system|cache/ {print $1}'`;do
         eval ${partition}StartHex=`awk '/'$partition'/ {print $2}' $dmesgmtdpart`
         eval ${partition}EndHex=`awk '/'$partition'/ {print $3}' $dmesgmtdpart`
     done
@@ -58,7 +58,7 @@ then
         eval EndHex=\$${partition}EndHex
         eval ${partition}SizeKBytes=`expr \( $(printf %d $EndHex) - $(printf %d $StartHex) \) \/ 1024 `
         eval SizeKBytes=\$${partition}SizeKBytes
-		CLInit="${CLInit}`echo \"${SizeKBytes}K@${StartHex}\(${partition}\)\"`,"
+		CLInit="${CLInit}`echo \"${SizeKBytes}K@${StartHex}(${partition})\"`,"
     done
 	CLInit="`echo $CLInit|sed s/,\$//`"
 else
