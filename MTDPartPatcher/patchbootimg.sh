@@ -23,6 +23,7 @@
 # 2010-10-30 Firerat, get every partition from dmesg, better device compatibility, e.g. Evo4g has wimax partition 
 # 2010-10-30 Firerat, thinking of bumping up to v2.0.0, then use tags for versions and branches from device specific 'fixes' ( if any )
 # 2010-11-04 Firerat, Stripped out a load of crap
+# 2010-11-08 Firerat, Fixed loss of FakeSPL
 
 
 ###############################################################################################
@@ -49,7 +50,7 @@ for sanity in misc recovery boot system cache userdata;do
 done
 if [ "$sain" = "y" ];
 then
-	CLInit="mtdparts=msm_nand:"
+	CLInit="$CLInit mtdparts=msm_nand:"
     for partition in `cat $dmesgmtdpart|awk '!/system|cache/ {print $1}'`;do
         eval ${partition}StartHex=`awk '/'$partition'/ {print $2}' $dmesgmtdpart`
         eval ${partition}EndHex=`awk '/'$partition'/ {print $3}' $dmesgmtdpart`
