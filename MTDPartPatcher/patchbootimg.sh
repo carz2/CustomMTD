@@ -24,6 +24,7 @@
 # 2010-10-30 Firerat, thinking of bumping up to v2.0.0, then use tags for versions and branches from device specific 'fixes' ( if any )
 # 2010-11-04 Firerat, Stripped out a load of crap
 # 2010-11-08 Firerat, Fixed loss of FakeSPL
+# 2010-11-13 Firerat, oops, Fixed bindcahe logic ( need to get the size of cache )
 
 
 ###############################################################################################
@@ -161,6 +162,7 @@ return
 
 bindcache ()
 {
+cacheSizeKBytes=`df |awk '/ \/cache$/ {print $2}'`
 if [ "`expr $cacheSizeKBytes \/ 1024`" -lt "30" ];
 then
 	cat > $wkdir/06BindCache << "EOF"
