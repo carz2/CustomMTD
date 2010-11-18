@@ -25,6 +25,7 @@
 # 2010-11-04 Firerat, Stripped out a load of crap
 # 2010-11-08 Firerat, Fixed loss of FakeSPL
 # 2010-11-13 Firerat, oops, Fixed bindcahe logic ( need to get the size of cache )
+# 2010-11-18 Firerat, fixed https://github.com/Firerat/CustomMTD/issues#issue/1
 
 
 ###############################################################################################
@@ -32,7 +33,7 @@
 ###############################################################################################
 
 
-version=1.5.7
+version=1.5.8-Alpha
 ##
 
 readdmesg ()
@@ -148,7 +149,7 @@ dumpimg ()
 dump_image ${boot} $wkdir/${boot}.img
 $wkdir/unpackbootimg $wkdir/${boot}.img $wkdir/
 rm $wkdir/${boot}.img
-origcmdline=`awk '{sub(/mtdparts.+)/,"");sub(/androidboot.bootloader=.+\...\...../,"");print}' $wkdir/${boot}.img-cmdline`
+origcmdline=`awk '{gsub(/\ .\ /,"");sub(/mtdparts.+)/,"");sub(/androidboot.bootloader=.+\ /,"");print}' $wkdir/${boot}.img-cmdline|awk '{$1=$1};1'`
 return
 }
 
