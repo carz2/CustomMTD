@@ -1,12 +1,12 @@
 #!/bin/bash
 version=`awk -F \= '/^version=/ { print $2 }' MTDPartPatcher/patchbootimg.sh`
 updater=META-INF/com/google/android/updater-script
-outdir=../CustomMTD_out
+outdir=../CustomMTD_out/v${version}
 if [ ! -e "$outdir" ];
 then
 	install -d $outdir
 fi
-signtools=$(dirname $(find $PWD -name signapk.jar))
+signtools=$(dirname $(find $PWD -name signapk.jar|grep -v \.repo))
 if [ "$?" != "0" ];
 then
 	echo "signapk.jar not found, files will not be signed"
@@ -35,7 +35,7 @@ return
 AutoMTD ()
 {
 tar -cz -f AutoMTD_partitionPatcher/AutoMTDPatchTools/MTDPartPatcher.tar.gz MTDPartPatcher
-sed s/version=...../version=${version}/ -i AutoMTD_partitionPatcher/PatchUpdateScript.sh 
+sed s/version=.*\$/version=${version}/ -i AutoMTD_partitionPatcher/PatchUpdateScript.sh 
 tar -cj -f ${outdir}/AutoMTD_partitionPatcher_v${version}.tar.bz2 AutoMTD_partitionPatcher
 # make zip for easy forum posting
 zip ${outdir}/AutoMTD_partitionPatcher_v${version}.zip ${outdir}/AutoMTD_partitionPatcher_v${version}.tar.bz2
@@ -86,6 +86,7 @@ zip -r ${outdir}/test-v${version}-CustomMTD.zip META-INF MTDPartPatcher
 sign ${outdir}/test-v${version}-CustomMTD.zip
 return
 }
+
 sign ()
 {
 if [ "$signtools" = "skip" ];
@@ -94,35 +95,17 @@ then
 	return
 fi
 for file in $@;do
-	if [ "`echo $file|egrep -iq ".apk$";echo $?`" = "0" ];
-	then
-		ext=apk
-	elif [ "`echo $file|egrep -iq ".zip$";echo $?`" = "0" ];
-    then
-		ext=zip
-	else
-		ext=skip
-	fi
-
-if [ "$ext" = "skip" ];
-then
-	echo "skipping $file"
-else
+	ext=zip
 	echo "signing ${file}..."
 	java -jar ${signtools}/signapk.jar ${signtools}/testkey.x509.pem ${signtools}/testkey.pk8 $file ${outdir}/`basename $file .${ext}`_S.${ext}
 	echo "signing ${file} complete"
-	if [ "$ext" = "apk"  ];
-	then
-		mv ${outdir}/`basename $file .${ext}`_S.${file} ${outdir}/${file}
-	else
-		echo "signed file : ${outdir}/`basename $file .${ext}`_S.${ext}"
-	fi
-fi
+	rm ${file}
+	echo "signed file : ${outdir}/`basename $file .${ext}`_S.${ext}"
 done 
 return
 }
 boot
 AutoMTD
 recovery
-Test
+#Test
 rm META-INF/com/google/android/updater-script
