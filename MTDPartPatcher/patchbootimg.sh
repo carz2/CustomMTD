@@ -91,7 +91,7 @@ then
 else
 	busybox dos2unix $mapfile
 	systemMB=`awk '/mtd/ {print $2}' $mapfile`
-	if [ "$systemMB" = "0" ];
+	if [ "$systemMB" = "0" -o "$opt" = "remove" ];
 	then
 		dumpimg
 		KCMDline=""

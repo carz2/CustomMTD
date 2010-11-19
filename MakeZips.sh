@@ -66,6 +66,29 @@ sign ${outdir}/recovery-v${version}-CustomMTD.zip
 return
 }
 
+remove ()
+{
+cat > $updater << "EOF"
+set_progress(1.000000);
+EOF
+echo "ui_print(\"CustomMTD Patcher v${version}\");" >> $updater
+cat >> $updater << "EOF"
+ui_print("Remove Mode");
+ui_print("Extracting Patch Tools...");
+package_extract_dir("MTDPartPatcher", "/tmp");
+set_perm(0, 0, 0700, "/tmp/patchbootimg.sh");
+set_perm(0, 0, 0700, "/tmp/mkbootimg");
+set_perm(0, 0, 0700, "/tmp/unpackbootimg");
+run_program("/tmp/patchbootimg.sh", "remove");
+ui_print("Custom MTD written");
+ui_print("Please wipe system,cache & data");
+ui_print("& reboot to recovery for changes");
+ui_print("to take effect");
+EOF
+zip -r ${outdir}/remove-v${version}-CustomMTD.zip META-INF MTDPartPatcher
+sign ${outdir}/remove-v${version}-CustomMTD.zip
+return
+}
 Test ()
 {
 cat > $updater << "EOF"
@@ -107,5 +130,6 @@ return
 boot
 AutoMTD
 recovery
+remove
 #Test
 rm META-INF/com/google/android/updater-script
