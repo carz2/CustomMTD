@@ -53,10 +53,20 @@ done
 if [ "$sain" = "y" ];
 then
 	CLInit="$CLInit mtdparts=msm_nand:"
-    for partition in `cat $dmesgmtdpart|awk '!/system|cache/ {print $1}'`;do
+    for partition in `cat $dmesgmtdpart|awk '{print $1}'`;do
         eval ${partition}StartHex=`awk '/'$partition'/ {print $2}' $dmesgmtdpart`
         eval ${partition}EndHex=`awk '/'$partition'/ {print $3}' $dmesgmtdpart`
     done
+
+	#Get resizable nand size ( mb )
+	SCD_Total=0
+	for partition in system cache userdata;do
+        eval StartHex=\$${partition}StartHex
+        eval EndHex=\$${partition}EndHex
+        eval ${partition}SizeMBytes=`expr \( $(printf %d $EndHex) - $(printf %d $StartHex) \) \/ 1048576`
+        eval SCD_Total=`expr \$${partition}SizeMBytes + $SCD_Total`
+	done
+
     for partition in `cat $dmesgmtdpart|awk '!/system|cache|userdata/ {print $1}'`;do
         eval StartHex=\$${partition}StartHex
         eval EndHex=\$${partition}EndHex
