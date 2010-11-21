@@ -8,3 +8,4 @@ patchbootimg.sh, is the main script this is executed in recovery via updater-scr
 TODO: update this readme with usefull info
       check system and cache size make sense ( e.g. that they are not too large for what is available )
       get msm_nand kernel modules to use kernel cmdline ( so we can resize mtd without having to reboot )
+      check if the mtd sizes are actually being changed ( so we can AutoFormat the partitions, oe less thing for the user to do/forget )
