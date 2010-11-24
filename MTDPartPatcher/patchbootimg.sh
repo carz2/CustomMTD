@@ -138,7 +138,7 @@ else
 	mindatasize=0
 fi
 
-if [ "$usertotal" -lt "$mindatasize" ];
+if [ "$userdatasize" -lt "$mindatasize" ];
 then
 	exit
 fi
