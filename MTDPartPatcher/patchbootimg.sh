@@ -120,6 +120,28 @@ else
 		CLInit="androidboot.bootloader=$FakeSPL $CLInit"
 	fi
 fi
+checksizing
+return
+}
+checksizing ()
+{
+usertotal=`expr $systemMB + $cacheMB`
+userdatasize=`expr $SCD_Total - $usertotal`
+# check if user wants to override min data size
+if [ "`grep -q -i "anydatasize" $mapfile;echo $?`" != "0" ];
+then
+	# a freshly installed ROM should still boot with 50mb data
+	# However trickery to get things on to /sd-ext may be required
+	mindatasize=50
+else
+	# Might change this to 2, user needs to know what they are doing anyway
+	mindatasize=0
+fi
+
+if [ "$usertotal" -lt "$mindatasize" ];
+then
+	exit
+fi
 return
 }
 
