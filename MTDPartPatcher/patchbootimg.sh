@@ -196,7 +196,7 @@ return
 bindcache ()
 {
 cacheSizeKBytes=`df |awk '/ \/cache$/ {print $2}'`
-if [ "`expr $cacheSizeKBytes \/ 1024`" -lt "30" ];
+if [ "`expr $cacheSizeKBytes \/ 1024`" -lt "15" ];
 then
 	cat > $wkdir/06BindCache << "EOF"
 #!/system/bin/sh
