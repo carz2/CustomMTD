@@ -4,34 +4,8 @@
 # patch boot.img with custom partition table
 # Credits lbcoder
 # http://forum.xda-developers.com/showthread.php?t=704560
-# 2010-07-06 Firerat, added androidboot.bootloader=1.33.2005
-# 2010-08-05 Firerat, ROM Manger compatible cache
-# 2010-08-05 Firerat, legacy /system/sd support in cache bind mount
-# 2010-08-05 Firerat, get partition table from dmesg
-# 2010-08-06 Firerat, consolidated recovery and boot script into one ( makes life much easier )
-# 2010-08-13 Firerat, reverted the 0x0.. strip, fixed typo in cmdline creation 
-# 2010-08-13 Firerat, added 'All in One' script launcher
-# 2010-08-13 Firerat, comment out 'fallback for dream/sapphire"
-# 2010-08-15 Firerat, added a 'test' mode, so I can get the cmdline from a devices dmesg
-# 2010-10-24 Firerat, get the end of userdata partition ( so we can work out its size )
-# 2010-10-27 Firerat, bumped version to 1.5.6
-# 2010-10-27 Firerat, added an init.rc patcher, to fix broken roms that don't run boot scripts
-# 2010-10-27 Firerat, stripped out the test mode, it was bugging me, will add better one TODO
-# 2010-10-27 Firerat, boot mode now gets the full cmdline from /proc/cmdline.. much cleaner
-# 2010-10-27 Firerat, added cache to sanity check
-# 2010-10-28 Firerat, added a remove feature ( to return to stock SPL MTD partitions )
-# 2010-10-30 Firerat, get every partition from dmesg, better device compatibility, e.g. Evo4g has wimax partition 
-# 2010-10-30 Firerat, thinking of bumping up to v2.0.0, then use tags for versions and branches from device specific 'fixes' ( if any )
-# 2010-11-04 Firerat, Stripped out a load of crap
-# 2010-11-08 Firerat, Fixed loss of FakeSPL
-# 2010-11-13 Firerat, oops, Fixed bindcahe logic ( need to get the size of cache )
-# 2010-11-18 Firerat, fixed https://github.com/Firerat/CustomMTD/issues#issue/1
-
-
-###############################################################################################
-
-###############################################################################################
-
+# 
+# https://github.com/Firerat/CustomMTD
 
 version=1.5.8-Alpha
 ##
