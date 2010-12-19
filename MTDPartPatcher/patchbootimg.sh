@@ -93,10 +93,7 @@ else
 	systemMB=`awk '/mtd/ {print $2}' $mapfile`
 	if [ "$systemMB" = "0" -o "$opt" = "remove" ];
 	then
-		dumpimg
-		KCMDline=""
-		flashimg
-		exit
+        removecmtd
 	fi
 	cacheMB=`awk '/mtd/ {print $3}' $mapfile`
 	FakeSPL=`awk '/spl/ {print $2}' $mapfile`
@@ -252,6 +249,14 @@ EOF
 fi
 return
 }
+
+removecmtd ()
+{
+dumpimg
+KCMDline=""
+flashimg
+exit
+}
 #end functions
 
 boot=$1
@@ -263,6 +268,10 @@ mtdpart=/proc/mtd
 dmesgmtdpart=/dev/mtdpartmap
 logfile=$wkdir/recovery.log
 dmesg=dmesg
+if [ "$opt" = "remove" ];
+then
+    removecmtd
+fi
 if [ "$boot" = "recovery" ];
 then
 	recoverymode
