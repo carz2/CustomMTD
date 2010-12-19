@@ -84,6 +84,16 @@ else
         exit
     fi
 
+    # make sure we are sizing in units of 128k ( 0.125 MB )
+    for UserSize in $systemMB $cacheMB;do
+       if [ "`expr $(echo|awk '{printf "%g", '$UserSize' / 0.125}') \* 1;echo $?`" != "0" ];
+       then
+           echo "$UserSize not divisable by 0.125" >> $logfile
+           #TODO better error msg, I want to redo all feedback anyway
+           exit
+       fi
+    done
+
     if [ "$FakeSPL" = "" ];
     then
         CLInit="$CLInit"
