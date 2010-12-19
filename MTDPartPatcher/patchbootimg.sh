@@ -1,10 +1,10 @@
 #!/sbin/sh
-# patchbootimg.sh 
+# patchbootimg.sh
 # 2010-06-24 Firerat
 # patch boot.img with custom partition table
 # Credits lbcoder
 # http://forum.xda-developers.com/showthread.php?t=704560
-# 
+#
 # https://github.com/Firerat/CustomMTD
 
 version=1.5.8-Alpha
@@ -26,29 +26,29 @@ for sanity in misc recovery boot system cache userdata;do
 done
 if [ "$sain" = "y" ];
 then
-	CLInit="$CLInit mtdparts=msm_nand:"
+    CLInit="$CLInit mtdparts=msm_nand:"
     for partition in `cat $dmesgmtdpart|awk '{print $1}'`;do
         eval ${partition}StartHex=`awk '/'$partition'/ {print $2}' $dmesgmtdpart`
         eval ${partition}EndHex=`awk '/'$partition'/ {print $3}' $dmesgmtdpart`
     done
 
-	#Get resizable nand size ( mb )
-	SCD_Total=0
-	for partition in system cache userdata;do
+    #Get resizable nand size ( mb )
+    SCD_Total=0
+    for partition in system cache userdata;do
         eval StartHex=\$${partition}StartHex
         eval EndHex=\$${partition}EndHex
         eval ${partition}SizeMBytes=`expr \( $(printf %d $EndHex) - $(printf %d $StartHex) \) \/ 1048576`
         eval SCD_Total=`expr \$${partition}SizeMBytes + $SCD_Total`
-	done
+    done
 
     for partition in `cat $dmesgmtdpart|awk '!/system|cache|userdata/ {print $1}'`;do
         eval StartHex=\$${partition}StartHex
         eval EndHex=\$${partition}EndHex
         eval ${partition}SizeKBytes=`expr \( $(printf %d $EndHex) - $(printf %d $StartHex) \) \/ 1024 `
         eval SizeKBytes=\$${partition}SizeKBytes
-		CLInit="${CLInit}`echo \"${SizeKBytes}K@${StartHex}(${partition})\"`,"
+        CLInit="${CLInit}`echo \"${SizeKBytes}K@${StartHex}(${partition})\"`,"
     done
-	CLInit="`echo $CLInit|sed s/,\$//`"
+    CLInit="`echo $CLInit|sed s/,\$//`"
 else
     echo -e "${boot} Patcher v${version}\npartition layout not found in dmesg" >> $logfile
     exit
@@ -60,36 +60,36 @@ recoverymode ()
 {
 if [ ! -e $mapfile ];
 then
-	echo "${boot} Patcher v${version}\n$mapfile does not exist,\nplease create it with system and cache size, e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
-	exit
+    echo "${boot} Patcher v${version}\n$mapfile does not exist,\nplease create it with system and cache size, e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
+    exit
 else
-	busybox dos2unix $mapfile
-	systemMB=`awk '/mtd/ {print $2}' $mapfile`
-	if [ "$systemMB" = "0" -o "$opt" = "remove" ];
-	then
+    busybox dos2unix $mapfile
+    systemMB=`awk '/mtd/ {print $2}' $mapfile`
+    if [ "$systemMB" = "0" -o "$opt" = "remove" ];
+    then
         removecmtd
-	fi
-	cacheMB=`awk '/mtd/ {print $3}' $mapfile`
-	FakeSPL=`awk '/spl/ {print $2}' $mapfile`
-	
-	if [ "$cacheMB" -lt "2" -o "$cacheMB" = "" ];
-	then
-	# need at least 2mb cache for recovery to not complain
-		cacheMB=2
-	fi
-		
-	if [ "$systemMB" = "" ];
-	then
-		echo "${boot} Patcher v${version}\nPlease configure system size\n with in $mapfile\n e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
-		exit
-	fi
+    fi
+    cacheMB=`awk '/mtd/ {print $3}' $mapfile`
+    FakeSPL=`awk '/spl/ {print $2}' $mapfile`
 
-	if [ "$FakeSPL" = "" ];
-	then
-		CLInit="$CLInit"
-	else
-		CLInit="androidboot.bootloader=$FakeSPL $CLInit"
-	fi
+    if [ "$cacheMB" -lt "2" -o "$cacheMB" = "" ];
+    then
+    # need at least 2mb cache for recovery to not complain
+        cacheMB=2
+    fi
+
+    if [ "$systemMB" = "" ];
+    then
+        echo "${boot} Patcher v${version}\nPlease configure system size\n with in $mapfile\n e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
+        exit
+    fi
+
+    if [ "$FakeSPL" = "" ];
+    then
+        CLInit="$CLInit"
+    else
+        CLInit="androidboot.bootloader=$FakeSPL $CLInit"
+    fi
 fi
 checksizing
 return
@@ -101,17 +101,17 @@ userdatasize=`echo|awk '{printf "%f",'$SCD_Total' - '$usertotal'}'`
 # check if user wants to override min data size
 if [ "`grep -q -i "anydatasize" $mapfile;echo $?`" != "0" ];
 then
-	# a freshly installed ROM should still boot with 50mb data
-	# However trickery to get things on to /sd-ext may be required
-	mindatasize=50
+    # a freshly installed ROM should still boot with 50mb data
+    # However trickery to get things on to /sd-ext may be required
+    mindatasize=50
 else
-	# Might change this to 2, user needs to know what they are doing anyway
-	mindatasize=0
+    # Might change this to 2, user needs to know what they are doing anyway
+    mindatasize=0
 fi
 
 if [ "$userdatasize" -lt "$mindatasize" ];
 then
-	exit
+    exit
 fi
 return
 }
@@ -142,7 +142,7 @@ GetCMDline ()
 KCMDline="mtdparts`cat /proc/cmdline|awk -Fmtdparts '{print $2}'`"
 if [ "$KCMDline" = "mtdparts" ];
 then
-	KCMDline=""
+    KCMDline=""
 fi
 return
 }
@@ -169,7 +169,7 @@ bindcache ()
 cacheSizeKBytes=`df |awk '/ \/cache$/ {print $2}'`
 if [ "`expr $cacheSizeKBytes \/ 1024`" -lt "15" ];
 then
-	cat > $wkdir/06BindCache << "EOF"
+    cat > $wkdir/06BindCache << "EOF"
 #!/system/bin/sh
 # 2010-08-05 Firerat, bind mount cache to sd ext partition, and mount mtdblock4 for Clockwork recovery's use
 busybox umount /cache
@@ -179,47 +179,47 @@ then
     sdmount=`busybox egrep "sd-ext|/system/sd" /proc/mounts|busybox awk '{ print $2 }'`
     cacheDir=${sdmount}/cache
 else
-	cacheDir=/data/cache
+    cacheDir=/data/cache
 fi
 
 if [ ! -d $cacheDir ];
 then
-	busybox install -m 771 -o 1000 -g 2001 -d $cacheDir
+    busybox install -m 771 -o 1000 -g 2001 -d $cacheDir
 fi
     busybox mount -o bind $cacheDir /cache
 if [ ! -d $cacheDir/dalvik-cache ];
 then
-	busybox install -m 771 -o 1000 -g 1000 -d $cacheDir/dalvik-cache
+    busybox install -m 771 -o 1000 -g 1000 -d $cacheDir/dalvik-cache
 fi
 
 if [ ! -d /dev/cache ];
 then
-	busybox install -d /dev/cache
+    busybox install -d /dev/cache
 fi
 
 if [ "`grep -q \"/dev/cache\" /proc/mounts;echo $?`" != "0" ];
 then
-	busybox mount -t yaffs2 -o nosuid,nodev /dev/block/mtdblock4 /dev/cache
+    busybox mount -t yaffs2 -o nosuid,nodev /dev/block/mtdblock4 /dev/cache
 fi
 if [ ! -d /dev/cache/recovery ];
 then
-	busybox install -m 770 -o 1000 -g 2001 -d /dev/cache/recovery
+    busybox install -m 770 -o 1000 -g 2001 -d /dev/cache/recovery
 fi
 if [ ! -L $cacheDir/recovery ];
 then
-	ln -s /dev/cache/recovery $cacheDir/recovery
+    ln -s /dev/cache/recovery $cacheDir/recovery
 fi
 EOF
-	if [ "`grep -q system /proc/mounts;echo $?`" != "0" ];
-	then
-		mount /system
-	fi
-	# grr, why rename init.d?
-	if [ ! -e /system/etc/init.d -a -d /system/etc/super ];
-	then
-		ln -s /system/etc/super /system/etc/init.d
-	fi
-	install -m 700 -o 0 -g 0 -D $wkdir/06BindCache /system/etc/init.d/06BindCache
+    if [ "`grep -q system /proc/mounts;echo $?`" != "0" ];
+    then
+        mount /system
+    fi
+    # grr, why rename init.d?
+    if [ ! -e /system/etc/init.d -a -d /system/etc/super ];
+    then
+        ln -s /system/etc/super /system/etc/init.d
+    fi
+    install -m 700 -o 0 -g 0 -D $wkdir/06BindCache /system/etc/init.d/06BindCache
 fi
 return
 }
@@ -248,16 +248,16 @@ then
 fi
 if [ "$boot" = "recovery" ];
 then
-	recoverymode
-	readdmesg
-	CreateCMDline
+    recoverymode
+    readdmesg
+    CreateCMDline
 elif [ "$boot" = "boot" ];
 then
-	GetCMDline
-	bindcache
+    GetCMDline
+    bindcache
 else
     echo -e "CustomMTD Patcher v${version}\nNo Argument given, script needs either:\nboot or recovery" >> $logfile
-	exit
+    exit
 fi
 dumpimg
 flashimg

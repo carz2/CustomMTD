@@ -11,9 +11,9 @@ me=$0
 echo $me
 if [ "`echo $me|cut -c 1`" != "/" ];
 then
-	AutoMTDPatchTools=`pwd`/`dirname $me`/AutoMTDPatchTools
+    AutoMTDPatchTools=`pwd`/`dirname $me`/AutoMTDPatchTools
 else
-	AutoMTDPatchTools=`dirname $me`/AutoMTDPatchTools
+    AutoMTDPatchTools=`dirname $me`/AutoMTDPatchTools
 fi
 echo $AutoMTDPatchTools
 ROMZIP=$1
@@ -24,33 +24,33 @@ ScriptType=0
 
 if [ "$#" != "1" ];
 then
-	echo "Custom Partition Layout - ROM zip patcher"
-	echo "Version $version"
-	echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-	echo "usage"
-	echo "$me <ROM Zip to patch>"
-	exit 1
+    echo "Custom Partition Layout - ROM zip patcher"
+    echo "Version $version"
+    echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    echo "usage"
+    echo "$me <ROM Zip to patch>"
+    exit 1
 fi
 
 unziprom ()
 {
 if [ "`unzip -l $ROMZIP|egrep -q \"update-script|updater-script\";echo $?`" != "0" ];
 then
-	echo "$ROMZIP does not appear to be a valid recovery flashable zip file"
-	echo "NB, make sure you have provided the full path !"
-	exit 1
+    echo "$ROMZIP does not appear to be a valid recovery flashable zip file"
+    echo "NB, make sure you have provided the full path !"
+    exit 1
 else
-	if [  -e "`basename $ROMZIP .zip`" ];
-	then
-		rm -rf `basename $ROMZIP .zip`
-	fi
-	
-	tempdir=`basename $ROMZIP .zip`
-	install -d $tempdir
-	cp $ROMZIP ${tempdir}/
-	ROMZIP=`basename $ROMZIP`
-	cd $tempdir
-	tar vxf ${AutoMTDPatchTools}/${TOOLS}.tar.gz
+    if [  -e "`basename $ROMZIP .zip`" ];
+    then
+        rm -rf `basename $ROMZIP .zip`
+    fi
+
+    tempdir=`basename $ROMZIP .zip`
+    install -d $tempdir
+    cp $ROMZIP ${tempdir}/
+    ROMZIP=`basename $ROMZIP`
+    cd $tempdir
+    tar vxf ${AutoMTDPatchTools}/${TOOLS}.tar.gz
 fi
 }
 main ()
@@ -59,32 +59,32 @@ for update in update updater;do
 unzip $ROMZIP ${ScriptPath}${update}-script
 if [ "$?" = "0" ];
 then
-	ScriptType=$update
-	break
+    ScriptType=$update
+    break
 fi
 done
 
 if [ "$ScriptType" = "0" ];
 then
-	echo "No update(r)-script found in zip, are you sure this is a flashable ROM?"
-	exit 1
+    echo "No update(r)-script found in zip, are you sure this is a flashable ROM?"
+    exit 1
 
 elif [ "$ScriptType" = "update" ];
 then
-	UpdateScript
-	return
+    UpdateScript
+    return
 elif [ "$ScriptType" = "updater" ];
 then
-	UpdaterScript
-	return
+    UpdaterScript
+    return
 else
-	echo "Something went very wrong.."
-	echo "looked like I found the script, but I don't recongnise it..."
-	exit 2
+    echo "Something went very wrong.."
+    echo "looked like I found the script, but I don't recongnise it..."
+    exit 2
 fi
 return
 }
-	
+
 UpdateScript ()
 {
 sed \
@@ -106,7 +106,7 @@ return
 }
 zipsign ()
 {
-zip -r $ROMZIP META-INF $TOOLS  
+zip -r $ROMZIP META-INF $TOOLS
 echo "signing $ROMZIP...."
 outputzip=`basename $ROMZIP .zip`-AutoMTD.zip
 java -jar ${AutoMTDPatchTools}/signapk.jar ${AutoMTDPatchTools}/testkey.x509.pem ${AutoMTDPatchTools}/testkey.pk8 $ROMZIP ${startdir}/${outputzip}
@@ -124,17 +124,17 @@ return
 zip_or_img ()
 {
 for ext in zip img;do
-	if [ "`echo $ROMZIP|grep -q $ext\$;echo $?`" = "0" ];
-	then
-		mode=$ext
-		break
-	fi
+    if [ "`echo $ROMZIP|grep -q $ext\$;echo $?`" = "0" ];
+    then
+        mode=$ext
+        break
+    fi
 done
 if [ "$mode" = "" ];
 then
-	echo "$ROMZIP .. unknown file extension"
-	echo "can't do anything :( "
-	exit 1
+    echo "$ROMZIP .. unknown file extension"
+    echo "can't do anything :( "
+    exit 1
 fi
 return
 }
@@ -173,15 +173,15 @@ return
 zip_or_img
 if [ "$mode" = "zip" ];
 then
-	unziprom
-	main
-	zipsign
-	TidyUp
-	exit 0
+    unziprom
+    main
+    zipsign
+    TidyUp
+    exit 0
 fi
 if [ "$mode" = "img" ];
 then
-	mkrecovery_zip
-	TidyUp
-	exit 0
+    mkrecovery_zip
+    TidyUp
+    exit 0
 fi

@@ -4,13 +4,13 @@ updater=META-INF/com/google/android/updater-script
 outdir=../CustomMTD_out/v${version}
 if [ ! -e "$outdir" ];
 then
-	install -d $outdir
+    install -d $outdir
 fi
 signtools=$(dirname $(find $PWD -name signapk.jar|grep -v \.repo))
 if [ "$?" != "0" ];
 then
-	echo "signapk.jar not found, files will not be signed"
-	signtools=skip
+    echo "signapk.jar not found, files will not be signed"
+    signtools=skip
 fi
 boot ()
 {
@@ -114,16 +114,16 @@ sign ()
 {
 if [ "$signtools" = "skip" ];
 then
-	echo "skipping signing"
-	return
+    echo "skipping signing"
+    return
 fi
 for file in $@;do
-	ext=zip
-	echo "signing ${file}..."
-	java -jar ${signtools}/signapk.jar ${signtools}/testkey.x509.pem ${signtools}/testkey.pk8 $file ${outdir}/`basename $file .${ext}`_S.${ext}
-	echo "signing ${file} complete"
-	rm ${file}
-	echo "signed file : ${outdir}/`basename $file .${ext}`_S.${ext}"
+    ext=zip
+    echo "signing ${file}..."
+    java -jar ${signtools}/signapk.jar ${signtools}/testkey.x509.pem ${signtools}/testkey.pk8 $file ${outdir}/`basename $file .${ext}`_S.${ext}
+    echo "signing ${file} complete"
+    rm ${file}
+    echo "signed file : ${outdir}/`basename $file .${ext}`_S.${ext}"
 done 
 return
 }
