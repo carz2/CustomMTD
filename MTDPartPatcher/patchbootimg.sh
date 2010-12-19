@@ -125,8 +125,8 @@ return
 }
 checksizing ()
 {
-usertotal=`expr $systemMB + $cacheMB`
-userdatasize=`expr $SCD_Total - $usertotal`
+usertotal=`echo|awk '{printf "%f",'$systemMB' + '$cacheMB'}'`
+userdatasize=`echo|awk '{printf "%f",'$SCD_Total' - '$usertotal'}'`
 # check if user wants to override min data size
 if [ "`grep -q -i "anydatasize" $mapfile;echo $?`" != "0" ];
 then
@@ -149,18 +149,18 @@ CreateCMDline ()
 {
 systemStartHex=`awk '/system/ { print $2 }' $dmesgmtdpart`
 systemStartBytes=`printf %d $(awk '/system/ { print $2 }' $dmesgmtdpart)`
-systemSizeKBytes=`expr $systemMB \* 1024`
-systemBytes=`expr $systemSizeKBytes \* 1024`
+systemSizeKBytes=`echo|awk '{printf "%f",'$systemMB' * 1024}'`
+systemBytes=`echo|awk '{printf "%f",'$systemSizeKBytes' * 1024}'`
 
-cacheSizeKBytes=`expr $cacheMB \* 1024`
-cacheBytes=`expr $cacheSizeKBytes \* 1024`
-cacheStartBytes=`expr $systemStartBytes + $systemBytes`
-cacheStartHex=`printf '%X' $cacheStartBytes`
+cacheSizeKBytes=`echo|awk '{printf "%f",'$cacheMB' * 1024}'`
+cacheBytes=`echo|awk '{printf "%f",'$cacheSizeKBytes' * 1024}'`
+cacheStartBytes=`echo|awk '{printf "%f",'$systemStartBytes' + '$systemBytes'}'`
+cacheStartHex=`echo|awk '{printf "%X",'$cacheStartBytes'}'`
 
-DataStartBytes=`expr $cacheStartBytes + $cacheBytes`
-DataStartHex=`printf '%X' ${DataStartBytes}`
-DataBytes=`expr $(printf '%d' ${userdataEndHex}) - $DataStartBytes`
-DataKBytes=`expr ${DataBytes} \/ 1024`
+DataStartBytes=`echo|awk '{printf "%f",'$cacheStartBytes' + '$cacheBytes'}'`
+DataStartHex=`echo|awk '{printf "%X",'$DataStartBytes'}'`
+DataBytes=`echo|awk '{printf "%f",'$(printf '%d' ${userdataEndHex})' - '$DataStartBytes'}'`
+DataKBytes=`echo|awk '{printf "%f",$'DataBytes' / 1024}'`
 
 KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
 return
