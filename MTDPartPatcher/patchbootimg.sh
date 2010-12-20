@@ -38,8 +38,8 @@ then
         eval StartHex=\$${partition}StartHex
         eval EndHex=\$${partition}EndHex
         eval ${partition}SizeMBytes=`expr \( $(printf %d $EndHex) - $(printf %d $StartHex) \) \/ 1048576`
-        eval SCD_Total=`expr \$${partition}SizeMBytes + $SCD_Total`
     done
+SCD_Total=`echo|awk '{printf "%g",'$systemSizeMBytes' + '$cacheSizeMBytes' + '$userdataSizeMBytes' }'`
 
     for partition in `cat $dmesgmtdpart|awk '!/system|cache|userdata/ {print $1}'`;do
         eval StartHex=\$${partition}StartHex
@@ -65,14 +65,15 @@ then
 else
     busybox dos2unix $mapfile
     systemMB=`awk '/mtd/ {print $2}' $mapfile`
-    if [ "$systemMB" = "0" -o "$opt" = "remove" ];
+    if [ "$systemMB" = "0" ];
     then
         removecmtd
     fi
     cacheMB=`awk '/mtd/ {print $3}' $mapfile`
     FakeSPL=`awk '/spl/ {print $2}' $mapfile`
 
-    if [ "$cacheMB" -lt "2" -o "$cacheMB" = "" ];
+    # Meh, need whole numbers
+    if [ "`echo|awk '{printf "%d" '$cacheMB' * 10}'`" -lt "15" -o "$cacheMB" = "" ];
     then
     # need at least 2mb cache for recovery to not complain
         cacheMB=2
@@ -86,7 +87,8 @@ else
 
     # make sure we are sizing in units of 128k ( 0.125 MB )
     for UserSize in $systemMB $cacheMB;do
-       if [ "`expr $(echo|awk '{printf "%g", '$UserSize' / 0.125}') \* 1;echo $?`" != "0" ];
+       expr $(echo|awk '{printf "%g", '$UserSize' / 0.125}') \* 1
+       if [ "$?" != "0" ];
        then
            echo "$UserSize not divisable by 0.125" >> $logfile
            #TODO better error msg, I want to redo all feedback anyway
@@ -101,7 +103,6 @@ else
         CLInit="androidboot.bootloader=$FakeSPL $CLInit"
     fi
 fi
-checksizing
 return
 }
 checksizing ()
@@ -119,8 +120,9 @@ else
     mindatasize=0
 fi
 
-if [ "$userdatasize" -lt "$mindatasize" ];
+if [ "`echo|awk '{printf "%d", '$userdatasize'}'`" -lt "$mindatasize" ];
 then
+    echo "data size will be less than 50mb,, exiting"
     exit
 fi
 return
@@ -260,6 +262,7 @@ if [ "$boot" = "recovery" ];
 then
     recoverymode
     readdmesg
+    checksizing
     CreateCMDline
 elif [ "$boot" = "boot" ];
 then
