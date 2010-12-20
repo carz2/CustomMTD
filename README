@@ -6,6 +6,22 @@ MakeZips.sh, is a simple script to generate the various zip files
 patchbootimg.sh, is the main script this is executed in recovery via updater-script
 
 TODO: update this readme with usefull info
-      check system and cache size make sense ( e.g. that they are not too large for what is available )
-      get msm_nand kernel modules to use kernel cmdline ( so we can resize mtd without having to reboot )
-      check if the mtd sizes are actually being changed ( so we can AutoFormat the partitions, oe less thing for the user to do/forget )
+      get msm_nand kernel modules to use kernel cmdline
+          ( so we can resize mtd without having to reboot )
+      check if the mtd sizes are actually being changed
+          ( so we can AutoFormat the partitions, one less thing for the user to do/forget )
+
+New in v1.5.8-Alpha
+
+Checks are made against the Nand size and user set size,
+if data will be less than 50, patch bails out
+User can opt to skip the 50mb limit by adding the line
+anydatasize
+to /sdcard/mtdpartmap.txt
+
+
+User can size system and cache in blocks of 128k ( 0.125mb )
+e.g.
+mtd 67.5 1.5
+will give system size 67.5 and cache 1.5
+valid 'fractions' are .125 .250 .375 .5 .625 .75 and .875
