@@ -132,10 +132,10 @@ CreateCMDline ()
 {
 systemStartHex=`awk '/system/ { print $2 }' $dmesgmtdpart`
 systemStartBytes=`printf %d $(awk '/system/ { print $2 }' $dmesgmtdpart)`
-systemSizeKBytes=`echo|awk '{printf "%f",'$systemMB' * 1024}'`
+systemSizeKBytes=`echo|awk '{printf "%d",'$systemMB' * 1024}'`
 systemBytes=`echo|awk '{printf "%f",'$systemSizeKBytes' * 1024}'`
 
-cacheSizeKBytes=`echo|awk '{printf "%f",'$cacheMB' * 1024}'`
+cacheSizeKBytes=`echo|awk '{printf "%d",'$cacheMB' * 1024}'`
 cacheBytes=`echo|awk '{printf "%f",'$cacheSizeKBytes' * 1024}'`
 cacheStartBytes=`echo|awk '{printf "%f",'$systemStartBytes' + '$systemBytes'}'`
 cacheStartHex=`echo|awk '{printf "%X",'$cacheStartBytes'}'`
@@ -143,7 +143,7 @@ cacheStartHex=`echo|awk '{printf "%X",'$cacheStartBytes'}'`
 DataStartBytes=`echo|awk '{printf "%f",'$cacheStartBytes' + '$cacheBytes'}'`
 DataStartHex=`echo|awk '{printf "%X",'$DataStartBytes'}'`
 DataBytes=`echo|awk '{printf "%f",'$(printf '%d' ${userdataEndHex})' - '$DataStartBytes'}'`
-DataKBytes=`echo|awk '{printf "%f",$'DataBytes' / 1024}'`
+DataKBytes=`echo|awk '{printf "%d",'$DataBytes' / 1024}'`
 
 KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
 return
