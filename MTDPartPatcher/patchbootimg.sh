@@ -7,7 +7,7 @@
 #
 # https://github.com/Firerat/CustomMTD
 
-version=1.5.8-Alpha
+version=1.5.8-Beta
 ##
 
 readdmesg ()
@@ -58,7 +58,7 @@ return
 
 recoverymode ()
 {
-if [ ! -e $mapfile ];
+if [ ! -e $mapfile -a "$opt" != "testrun" ];
 then
     echo "${boot} Patcher v${version}\n$mapfile does not exist,\nplease create it with system and cache size, e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
     exit
@@ -81,8 +81,14 @@ else
 
     if [ "$systemMB" = "" ];
     then
-        echo "${boot} Patcher v${version}\nPlease configure system size\n with in $mapfile\n e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
-        exit
+        if [ "$opt" = "testrun" ];
+        then
+            systemMB=93.75
+            echo "inserted system size for testrun"
+        else
+            echo "${boot} Patcher v${version}\nPlease configure system size\n with in $mapfile\n e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
+            exit
+        fi
     fi
 
     # make sure we are sizing in units of 128k ( 0.125 MB )
@@ -170,9 +176,9 @@ return
 
 flashimg ()
 {
-$wkdir/mkbootimg --kernel $wkdir/${boot}.img-zImage --ramdisk $wkdir/${boot}.img-ramdisk.gz -o $wkdir/${boot}.img --cmdline "$origcmdline $KCMDline" --base `cat $wkdir/${boot}.img-base`
-erase_image ${boot}
-flash_image ${boot} $wkdir/${boot}.img
+$1 $wkdir/mkbootimg --kernel $wkdir/${boot}.img-zImage --ramdisk $wkdir/${boot}.img-ramdisk.gz -o $wkdir/${boot}.img --cmdline "$origcmdline $KCMDline" --base `cat $wkdir/${boot}.img-base`
+$1 erase_image ${boot}
+$1 flash_image ${boot} $wkdir/${boot}.img
 return
 }
 
@@ -244,7 +250,7 @@ flashimg
 exit
 }
 #end functions
-
+me=$0
 boot=$1
 opt=$2
 wkdir=/tmp
@@ -254,6 +260,15 @@ mtdpart=/proc/mtd
 dmesgmtdpart=/dev/mtdpartmap
 logfile=$wkdir/recovery.log
 dmesg=dmesg
+if [ "$boot" = "test" ];
+then
+    dmesg > /sdcard/cMTD-testoutput.txt
+    busybox sed s/serialno=.*\ a/serialno=XXXXXXXXXX\ a/g -i /sdcard/cMTD-testoutput.txt
+    sh -x $me recovery testrun >> /sdcard/cMTD-testoutput.txt 2>&1
+    busybox unix2dos /sdcard/cMTD-testoutput.txt
+    exit
+fi
+
 if [ "$opt" = "remove" ];
 then
     removecmtd
@@ -273,4 +288,9 @@ else
     exit
 fi
 dumpimg
-flashimg
+if [ "$opt" = "testrun" ];
+then
+    flashimg echo
+else
+    flashimg
+fi

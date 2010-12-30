@@ -103,7 +103,9 @@ set_perm(0, 0, 0700, "/tmp/patchbootimg.sh");
 set_perm(0, 0, 0700, "/tmp/mkbootimg");
 set_perm(0, 0, 0700, "/tmp/unpackbootimg");
 run_program("/tmp/patchbootimg.sh", "test");
-ui_print("Please see /sdcard/<device_CustomMTD.tar.gz");
+ui_print("Test Mode complete, see ");
+ui_print("/sdcard/cMTD-testoutput.txt");
+ui_print("for full output");
 EOF
 zip -r ${outdir}/test-v${version}-CustomMTD.zip META-INF MTDPartPatcher
 sign ${outdir}/test-v${version}-CustomMTD.zip
@@ -131,5 +133,5 @@ boot
 AutoMTD
 recovery
 remove
-#Test
+Test
 rm META-INF/com/google/android/updater-script
