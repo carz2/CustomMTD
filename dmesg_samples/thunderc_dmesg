@@ -1,0 +1,785 @@
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Linux version 2.6.32.9 (lge@android-build) (gcc version 4.4.0 (GCC) ) #2 PREEMPT Wed Oct 13 23:25:56 KST 2010
+[    0.000000] CPU: ARMv6-compatible processor [4117b365] revision 5 (ARMv6TEJ), cr=00c5387f
+[    0.000000] CPU: VIPT aliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine: THUNDER Sprint board (LGE LS670)
+[    0.000000] Partition (from atag) boot -- Offset:141 Size:38
+[    0.000000] Partition (from atag) cache -- Offset:179 Size:3e1
+[    0.000000] Partition (from atag) recovery -- Offset:55a Size:38
+[    0.000000] Partition (from atag) splash -- Offset:592 Size:a
+[    0.000000] Partition (from atag) FOTA_STO -- Offset:59c Size:38
+[    0.000000] Partition (from atag) system -- Offset:5d4 Size:4f4
+[    0.000000] Partition (from atag) userdata -- Offset:ac8 Size:527
+[    0.000000] Partition (from atag) misc -- Offset:fef Size:4
+[    0.000000] Partition (from atag) persist -- Offset:ff3 Size:c
+[    0.000000] Memory policy: ECC disabled, Data cache writeback
+[    0.000000] On node 0 totalpages: 122112
+[    0.000000] free_area_init_node: node 0, pgdat c05cbec8, node_mem_map c0785000
+[    0.000000]   Normal zone: 954 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 121158 pages, LIFO batch:31
+[    0.000000] allocating 28794880 bytes at c122c000 (1342c000 physical) for mdp pmem arena
+[    0.000000] allocating 11419648 bytes at c2da2000 (14fa2000 physical) for adsp pmem arena
+[    0.000000] allocating 372736 bytes (at 80000 physical) for audio pmem arena
+[    0.000000] allocating 614400 bytes at c3886000 (15a86000 physical) for fb
+[    0.000000] allocating 114688 bytes at c3a00000 (15c00000 physical) for kernel ebi1 pmem arena
+[    0.000000] allocating 2097152 bytes at c3a1c000 (at 15c1c000 physical) for KGSL
+[    0.000000] L210 cache controller enabled
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 121158
+[    0.000000] Kernel command line: mem=477M console=ttyMSM2,115200n8 androidboot.hardware=thunderc uart_console=enable recovery=on lge.rev=10
+[    0.000000] UART CONSOLE : enable
+[    0.000000] BOARD: H/W revision = 1.2
+[    0.000000] PID hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Memory: 477MB = 477MB total
+[    0.000000] Memory: 431744KB available (5184K code, 2170K data, 144K init, 0K highmem)
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] NR_IRQS:261
+[    0.000000] Console: colour dummy device 80x30
+[    0.000000] Calibrating delay loop... 599.65 BogoMIPS (lpj=2998272)
+[    0.220101] Mount-cache hash table entries: 512
+[    0.220633] Initializing cgroup subsys debug
+[    0.220655] Initializing cgroup subsys cpuacct
+[    0.220670] Initializing cgroup subsys freezer
+[    0.220701] CPU: Testing write buffer coherency: 
+[    0.220795] Initialized Zero page successfully
+[    0.220843] ok
+[    0.222931] NET: Registered protocol family 16
+[    0.223561] smem_find(137, 64): wrong size 56
+[    0.223678] socinfo_init: v2, id=44, ver=1.2, raw_id=992, raw_ver=2
+[    0.223706] acpu_clock_init()
+[    0.223871] L val: PLL0: 50, PLL1: 12, PLL2: 62
+[    0.223993] ACPU running at 600000 KHz
+[    0.224010] Id CPU-KHz PLL DIV AHB-KHz ADIV AXI-KHz D0 D1 D2 U0 U1 U2
+[    0.224036]  0   19200  -1   1   19200    1   30720 -1 -1 -1  1  4  3
+[    0.224061]  1  120000   0   8   60000    2   61440 -1 -1 -1  5  4  3
+[    0.224086]  2  122880   1   2   61440    2   61440  1 -1 -1  5  4  3
+[    0.224111]  3  200000   2   6   66667    3   61440  1  2 -1  5  4  6
+[    0.224136]  4  245760   1   1  122880    2   61440  1  2  3  7 -1  6
+[    0.224163]  5  320000   0   3  160000    2  160000  1  2  3  7 -1  6
+[    0.224188]  6  400000   2   3  133333    3  160000  5  4  3  7 -1  8
+[    0.224213]  7  480000   0   2  160000    3  160000  5  4  6 -1 -1  8
+[    0.224238]  8  600000   2   2  200000    3  200000  7 -1  6 -1 -1 -1
+[    0.224256] Shared PLL control available.
+[    0.224270] 5 scaling frequencies supported.
+[    0.225725] RAM CONSOLE START ADDR : 804257792
+[    0.225738] RAM CONSOLE END ADDR   : 804519935
+[    0.225835] ram_console: got buffer at 2ff00000, size 40000
+[    0.225890] ram_console: no valid data in buffer (sig = 0xfebfeeff)
+[    0.225915] console [ram-1] enabled
+[    1.538806] bio: create slab <bio-0> at 0
+[    1.539355] msm_i2c_probe
+[    1.539470] msm_i2c_probe: clk_ctl 315, 400000 Hz
+[    1.540855] Bluetooth: Core ver 2.15
+[    1.541003] NET: Registered protocol family 31
+[    1.541018] Bluetooth: HCI device and connection manager initialized
+[    1.541040] Bluetooth: HCI socket layer initialized
+[    1.541198] Switching to clocksource dg_timer
+[    1.542176] NET: Registered protocol family 2
+[    1.542388] IP route cache hash table entries: 4096 (order: 2, 16384 bytes)
+[    1.542881] TCP established hash table entries: 16384 (order: 5, 131072 bytes)
+[    1.543403] TCP bind hash table entries: 16384 (order: 4, 65536 bytes)
+[    1.543725] TCP: Hash tables configured (established 16384 bind 16384)
+[    1.543745] TCP reno registered
+[    1.543928] NET: Registered protocol family 1
+[    1.544186] Trying to unpack rootfs image as initramfs...
+[    1.791856] Freeing initrd memory: 2220K
+[    1.794641] smd probe
+[    1.794665] smd_core_init()
+[    1.794758] smd_core_init() done
+[    1.794780] smd_alloc_loopback_channel: 'local_loopback' cid=100
+[    1.795873] smd_alloc_channel() 'DS' cid=0
+[    1.795990] smd_alloc_channel() 'DIAG' cid=1
+[    1.796086] smd_alloc_channel() 'RPCCALL' cid=2
+[    1.796210] smd_alloc_channel() 'DATA1' cid=7
+[    1.796303] smd_alloc_channel() 'DATA2' cid=8
+[    1.796403] smd_alloc_channel() 'DATA3' cid=9
+[    1.796496] smd_alloc_channel() 'DATA4' cid=10
+[    1.796590] smd_alloc_channel() 'DATA5' cid=11
+[    1.796706] smd_alloc_channel() 'DATA6' cid=12
+[    1.796808] smd_alloc_channel() 'DATA7' cid=13
+[    1.796915] smd_alloc_channel() 'DAL00' cid=38
+[    1.797011] smd_alloc_channel() 'DATA5_CNTL' cid=39
+[    1.797120] smd_alloc_channel() 'DATA6_CNTL' cid=40
+[    1.797225] smd_alloc_channel() 'DATA7_CNTL' cid=41
+[    1.797425] Notify: smsm init
+[    1.798316] SMD Packet Port Driver Initialized.
+[    1.798835] SMD: ch 2 0 -> 1
+[    1.798943] SMD: ch 2 1 -> 2
+[    1.799308] [adsp.c:adsp_init] rs3000000a -- 0
+[    1.800018] [audpp.c:audpp_probe] Number of decoder supported 5
+[    1.800038] [audpp.c:audpp_probe] Number of concurrency supported 7
+[    1.800058] [audpp.c:audpp_probe] module_name:AUDPLAY0TASK
+[    1.800076] [audpp.c:audpp_probe] queueid:13
+[    1.800091] [audpp.c:audpp_probe] decid:0
+[    1.800106] [audpp.c:audpp_probe] nr_codec_support:11
+[    1.800121] [audpp.c:audpp_probe] module_name:AUDPLAY1TASK
+[    1.800138] [audpp.c:audpp_probe] queueid:14
+[    1.800153] [audpp.c:audpp_probe] decid:1
+[    1.800168] [audpp.c:audpp_probe] nr_codec_support:5
+[    1.800183] [audpp.c:audpp_probe] module_name:AUDPLAY2TASK
+[    1.800200] [audpp.c:audpp_probe] queueid:15
+[    1.800215] [audpp.c:audpp_probe] decid:2
+[    1.800230] [audpp.c:audpp_probe] nr_codec_support:5
+[    1.800245] [audpp.c:audpp_probe] module_name:AUDPLAY3TASK
+[    1.800261] [audpp.c:audpp_probe] queueid:16
+[    1.800276] [audpp.c:audpp_probe] decid:3
+[    1.800291] [audpp.c:audpp_probe] nr_codec_support:4
+[    1.800308] [audpp.c:audpp_probe] module_name:AUDPLAY4TASK
+[    1.800325] [audpp.c:audpp_probe] queueid:17
+[    1.800338] [audpp.c:audpp_probe] decid:4
+[    1.800353] [audpp.c:audpp_probe] nr_codec_support:1
+[    1.802108] thunderc_gpio_earsense_work_func: ear sense detected : ejected
+[    1.802290] lge_mtd_direct_access_init: finished
+[    1.802481] diagcmd_probe:lg_fw_diagcmd
+[    1.804140] input: ats_input as /devices/virtual/input/input0
+[    1.822558] thunderc_gpio_earsense_work_func: ear sense detected : ejected
+[    1.835385] /home/dojip.kim/thunder/ls670_final/android/kernel/drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+[    1.835848] ashmem: initialized
+[    1.836516] yaffs Oct 13 2010 22:56:33 Installing. 
+[    1.836565] msgmni has been set to 848
+[    1.841105] alg: No test for stdrng (krng)
+[    1.841186] io scheduler noop registered
+[    1.841201] io scheduler deadline registered (default)
+[    1.842353] AAT28XX init start
+[    1.842530] msm_fb_probe:  phy_Addr = 0x15a86000 virt = 0xde100000
+[    1.843176] MDP HW Base phy_Address = 0xaa200000 virt = 0xde200000
+[    1.843613] primary mddi base phy_addr = 0xaa600000 virt = 0xde054000
+[    1.854143] mddi_novatek_lcd_probe: started.
+[    1.854243] mddi_novatek_lcd_init: setting up panel info.
+[    1.854490] mddi_novatek_lcd_probe: started.
+[    1.957663] mddi_novatek_lcd_on: started.
+[    1.958208] Console: switching to colour frame buffer device 40x30
+[    1.958293] FrameBuffer[0] 320x480 size=614400 bytes is registered successfully!
+[    1.958356] load_565rle_image: Can not open /logo.rle
+[    1.966458] diagfwd initializing ..
+[    1.966881] SMD: ch 1 0 -> 1
+[    1.966900] diag opened SMD port ; r = 0
+[    1.966976] SMD: ch 1 1 -> 2
+[    1.967071] diagchar initializing ..
+[    1.967293] diagchar initialized
+[    1.967685] msm_serial: detected port #2
+[    1.967796] msm_serial.2: ttyMSM2 at MMIO 0xa9c00000 (irq = 11) is a MSM
+[    1.967913] msm_serial: console setup on port #2
+[    2.798331] console [ttyMSM2] enabled
+[    2.802216] msm_serial: driver initialized
+[    2.806156] msm_serial_hs.0: ttyHS0 at MMIO 0xa0200000 (irq = 45) is a MSM HS UART
+[    2.813904] msm_serial_hs module loaded
+[    2.820284] brd: module loaded
+[    2.823458] loop: module loaded
+[    2.823668] pmem: Initializing pmem_kernel_ebi1 (in-kernel)
+[    2.829176] pmem: Initializing pmem (user-space) as cached
+[    2.835853] pmem: Initializing pmem_adsp (user-space) as non-cached
+[    2.841521] pmem: Initializing pmem_audio (user-space) as non-cached
+[    2.847474] LGE: Android Vibrator Driver Init
+[    2.851659] mddi_novatek_vsync_set_handler : handler = c01b9b8c
+[    2.858119] LGE: Android Vibrator Initialization was done
+[    2.863253] msm_nand_probe: phys addr 0xa0a00000 
+[    2.867433] msm_nand_probe: dmac 0x7
+[    2.871028] msm_nand_probe: allocated dma buffer at ffc0f000, dma_addr 2f0c2000
+[    2.878803] status: c00020
+[    2.880973] nandid: 5590bc2c maker 2c device bc
+[    2.885514] ONFI probe : Found an ONFI compliant device MT29F4G16ABBDA3W    ,
+[    2.892616] Found a supported NAND device
+[    2.896594] NAND Id  : 0x5590bc2c
+[    2.899893] Buswidth : 16 Bits 
+[    2.903029] Density  : 512 MByte
+[    2.906229] Pagesize : 2048 Bytes
+[    2.909528] Erasesize: 131072 Bytes
+[    2.913011] Oobsize  : 64 Bytes
+[    2.916126] CFG0 Init  : 0xa85408c0 
+[    2.919684] CFG1 Init  : 0x0004745e 
+[    2.923254] ECCBUFCFG  : 0x00000203 
+[    2.926813] Creating 9 MTD partitions on "msm_nand":
+[    2.931771] 0x000002820000-0x000002f20000 : "boot"
+[    2.937424] 0x000002f20000-0x00000ab40000 : "cache"
+[    2.942078] 0x00000ab40000-0x00000b240000 : "recovery"
+[    2.947166] 0x00000b240000-0x00000b380000 : "splash"
+[    2.952058] 0x00000b380000-0x00000ba80000 : "FOTA_STO"
+[    2.957123] 0x00000ba80000-0x000015900000 : "system"
+[    2.962114] 0x000015900000-0x00001fde0000 : "userdata"
+[    2.967218] 0x00001fde0000-0x00001fe60000 : "misc"
+[    2.972021] 0x00001fe60000-0x00001ffe0000 : "persist"
+[    2.977193] SLIP: version 0.8.4-NET3.019-NEWTTY (dynamic channels, max=256) (6 bit encapsulation enabled).
+[    2.986114] CSLIP: code copyright 1989 Regents of the University of California.
+[    2.994098] brcm_static_buf_init: initialize wifi_alloc_data
+[    2.999054] Section [3] initial allocation success size[139264]!!!
+[    3.005233] Section [2] initial allocation success size[32768]!!!
+[    3.011281] Section [1] initial allocation success size[12288]!!!
+[    3.017348] Section [0] initial allocation success size[12288]!!!
+[    3.023509] rmnet_init
+[    3.027199] __msm_rpc_connect: server not found 3000001a:20001
+[    3.153853] USB Cable type: msm_chg_LG_cable_type(): -1
+[    3.154546] usb_probe: io=de060000, irq=47, dma=ffc11000(2f144000)
+[    3.160064] usb_function_register: name = 'adb',  map = 4
+[    3.165213] usb_function_register: name = 'mass_storage',  map = 3
+[    3.171394] usb_function_register: name = 'diag',  map = 1
+[    3.177093] usb_function_register: name = 'modem',  map = 0
+[    3.182216] usb_function_register: name = 'nmea',  map = 2
+[    3.187651] usb_set_composition: composition set to product id = 618e
+[    3.317173] USB Cable type: msm_chg_LG_cable_type(): -1
+[    3.318923] msm_hsusb: functions bound. starting.
+[    3.321468] usb_bind_func() (modem)
+[    3.324954] usb_bind_func() (diag)
+[    3.328308] usb_bind_func() (nmea)
+[    3.331723] usb_bind_func() (mass_storage)
+[    3.335946] usb_bind_func() (adb)
+[    3.339109] usb_start: pm_app_rpc connect failed
+[    3.343708] usb_function_register: name = 'ethernet',  map = 5
+[    3.349966] input: touch_mcs6000 as /devices/virtual/input/input1
+[    3.356454] GPIO Matrix Keypad Driver: Start keypad matrix for thunder_keypad in interrupt mode
+[    3.364583] input: thunder_keypad as /devices/virtual/input/input2
+[    3.370946] KR3DM accelerometer driver
+[    3.374269] KR3DH accelerometer driver
+[    3.378099] using input dev ats_input for key reset
+[    3.382759] using input dev thunder_keypad for key reset
+[    3.388401] RTC Registering with rs30000048
+[    3.393304] msm_rpc_client_req: RPC call was not successful (3)
+[    3.398104] msmrtc_setup_cb: RPC client registration for PROC:12 failed
+[    3.404718] msmrtc_probe: Could not initialize RPC callback
+[    3.410758] using rtc device, msm_rtc, for alarms
+[    3.414798] msm_rtc: dev (254:0)
+[    3.418184] rs30000048 rs30000048.65536: rtc core: registered msm_rtc as rtc0
+[    3.425476] msm_rtc_secure: dev (254:1)
+[    3.429093] rs30000048 rs30000048.65536: rtc core: registered msm_rtc_secure as rtc1
+[    3.436903] i2c /dev entries driver
+[    3.441368] Registered led device: lcd-backlight
+[    3.444889] aat2870bl:aat28xx_probe: Registering led class dev successfully.
+[    3.452484] aat2870bl:aat28xx_probe: done
+[    3.456091] i2c-gpio i2c-gpio.2: using pins 89 (SDA) and 88 (SCL)
+[    3.462349] [Touch] ts_set_vreg() onoff:1
+[    3.477894] USB Cable type: msm_chg_LG_cable_type(): -1
+[    3.478023] khlee debug : 24974 -------->25036 
+[    3.484071] usb_set_composition: composition set to product id = 61cc
+[    3.521236] MCS6000 F/W Version [0x17]
+[    3.541243] MCS6000 H/W Revision [0x10]
+[    3.541544] i2c-gpio i2c-gpio.3: using pins 91 (SDA) and 90 (SCL)
+[    3.545904] [Ecompass] ecom_power_set() onoff 1, prev_status 0
+[    3.553643] input: Acompass as /devices/virtual/input/input3
+[    3.557664] i2c-gpio i2c-gpio.4: using pins 108 (SDA) and 107 (SCL)
+[    3.570111] input: accelerometer as /devices/virtual/input/input4
+[    3.570838] KR3DH 5-0019: KR3DH kr3dh: Accelerometer chip found
+[    3.576639] i2c-gpio i2c-gpio.5: using pins 3 (SDA) and 2 (SCL)
+[    3.582494] Linux video capture interface: v2.00
+[    3.587168] battery rpc: ept : 0xdcf59360, prog : 0x30000089, vers : 0x10001
+[    3.594038] charger rpc: ept : 0xdcf59260, prog : 0x3000001a, vers : 0x10001
+[    3.601649] msm_batt_get_charger_api_version(): num_of_chg_api_versions = 4  The chg api version = 0x00010004
+[    3.611829] USB Cable type: msm_chg_LG_cable_type(): -1
+[    3.616226]  batt_clnt_handle = 2
+[    3.620098] device-mapper: uevent: version 1.0.3
+[    3.624569] device-mapper: ioctl: 4.15.0-ioctl (2009-04-01) initialised: dm-devel@redhat.com
+[    3.632553] Bluetooth: HCI UART driver ver 2.2
+[    3.636891] Bluetooth: HCI H4 protocol initialized
+[    3.641684] Bluetooth: HCI BCSP protocol initialized
+[    3.646611] Bluetooth: MSM Sleep Mode Driver Ver 1.1
+[    3.651831] bluetooth_power_init
+[    3.654821] bt_power_probe
+[    3.659204] mmc0: Qualcomm MSM SDCC at 0x00000000a0400000 irq 24,113 dma 8
+[    3.664356] mmc0: 8 bit data mode disabled
+[    3.668398] mmc0: 4 bit data mode enabled
+[    3.672406] mmc0: polling status mode disabled
+[    3.676821] mmc0: MMC clock 144000 -> 49152000 Hz, PCLK 100000000 Hz
+[    3.683166] mmc0: Slot eject status = 0
+[    3.686974] mmc0: Power save feature enable = 1
+[    3.691504] mmc0: DM non-cached buffer at ffc13000, dma_addr 0x2f198000
+[    3.698088] mmc0: DM cmd busaddr 0x2f198000, cmdptr busaddr 0x2f198300
+[    3.705216] mmc1: Qualcomm MSM SDCC at 0x00000000a0500000 irq 26,157 dma 8
+[    3.711478] mmc1: 8 bit data mode disabled
+[    3.715533] mmc1: 4 bit data mode enabled
+[    3.719526] mmc1: polling status mode disabled
+[    3.723969] mmc1: MMC clock 144000 -> 49152000 Hz, PCLK 100000000 Hz
+[    3.730291] mmc1: Slot eject status = 1
+[    3.734121] mmc1: Power save feature enable = 1
+[    3.738628] mmc1: DM non-cached buffer at ffc14000, dma_addr 0x2f199000
+[    3.745234] mmc1: DM cmd busaddr 0x2f199000, cmdptr busaddr 0x2f199300
+[    3.752029] Registered led device: keyboard-backlight
+[    3.756786] __msm_rpc_connect: server not found 30000061:30001
+[    3.762608] __msm_rpc_connect: server not found 30000061:20001
+[    3.769959] Registered led device: button-backlight
+[    3.773984] logger: created 64K log 'log_main'
+[    3.777833] logger: created 256K log 'log_events'
+[    3.782561] logger: created 64K log 'log_radio'
+[    3.787009] logger: created 64K log 'log_system'
+[    3.791608] Advanced Linux Sound Architecture Driver Version 1.0.21.
+[    3.798173] No device for DAI CODEC_DAI
+[    3.801673] No device for DAI CPU_DAI
+[    3.805564] msm_soc: create pcms
+[    3.808811] asoc: CODEC_DAI <-> CPU_DAI mapping ok
+[    3.813308] msm_soc: ALSA MSM Mixer Setting
+[    3.818126] ALSA device list:
+[    3.820396]   #0: msm-audio (MSM-CARD)
+[    3.824254] Netfilter messages via NETLINK v0.30.
+[    3.828901] nf_conntrack version 0.5.0 (6786 buckets, 27144 max)
+[    3.835154] CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Please use
+[    3.842201] nf_conntrack.acct=1 kernel parameter, acct=1 nf_conntrack module option or
+[    3.850081] sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+[    3.856469] ctnetlink v0.93: registering with nfnetlink.
+[    3.861784] xt_time: kernel timezone is -0000
+[    3.866041] IPVS: Registered protocols (TCP, UDP, AH, ESP)
+[    3.871554] IPVS: Connection hash table configured (size=4096, memory=32Kbytes)
+[    3.878643] IPVS: Each connection entry needs 160 bytes at least
+[    3.884763] IPVS: ipvs loaded.
+[    3.887674] IPVS: [rr] scheduler registered.
+[    3.891936] IPVS: [wrr] scheduler registered.
+[    3.896263] IPVS: [lc] scheduler registered.
+[    3.900516] IPVS: [wlc] scheduler registered.
+[    3.904893] IPVS: [lblc] scheduler registered.
+[    3.909294] IPVS: [lblcr] scheduler registered.
+[    3.913811] IPVS: [dh] scheduler registered.
+[    3.918051] IPVS: [sh] scheduler registered.
+[    3.922318] IPVS: [sed] scheduler registered.
+[    3.926644] IPVS: [nq] scheduler registered.
+[    3.930908] IPVS: ftp: loaded support on port[0] = 21
+[    3.936279] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    3.941386] ClusterIP Version 0.8 loaded successfully
+[    3.946324] arp_tables: (C) 2002 David S. Miller
+[    3.950966] TCP cubic registered
+[    3.954381] NET: Registered protocol family 10
+[    3.959173] lo: Disabled Privacy Extensions
+[    3.963606] Mobile IPv6
+[    3.965101] IPv6 over IPv4 tunneling driver
+[    3.969856] sit0: Disabled Privacy Extensions
+[    3.974333] ip6tnl0: Disabled Privacy Extensions
+[    3.978376] NET: Registered protocol family 17
+[    3.982693] NET: Registered protocol family 15
+[    3.987088] Bluetooth: L2CAP ver 2.14
+[    3.990706] Bluetooth: L2CAP socket layer initialized
+[    3.995768] Bluetooth: SCO (Voice Link) ver 0.6
+[    4.000254] Bluetooth: SCO socket layer initialized
+[    4.005524] USB Cable type: msm_chg_LG_cable_type(): -1
+[    4.010434] Bluetooth: RFCOMM TTY layer initialized
+[    4.015236] Bluetooth: RFCOMM socket layer initialized
+[    4.020308] Bluetooth: RFCOMM ver 1.11
+[    4.024061] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+[    4.029336] Bluetooth: BNEP filters: protocol multicast
+[    4.034558] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    4.040954] clock_late_init() disabled 14 unused clocks
+[    4.046486] input: 7k_handset as /devices/virtual/input/input5
+[    4.051764] using input dev 7k_handset for key reset
+[    4.056446] __msm_rpc_connect: server not found 30000091:30001
+[    4.067638] msm_rpc_client_req: RPC call was not successful (4)
+[    4.073191] hs_rpc_cb_init: RPC client request failed for pwr key delay cmd, using normal mode
+[    4.082413] VFP support v0.3: implementor 41 architecture 1 part 20 variant b rev 5
+[    4.096583] input: proximity as /devices/virtual/input/input6
+[    4.096883] [Proxi] prox_power_set() onoff 1, prev_status 0
+[    4.104343] [Proxi] prox_power_set() onoff 0, prev_status 1
+[    4.108651] msmrtc_tod_proc_result: 02/20/2011 21:25:54 (06)
+[    4.113543] msmrtc_timeremote_set_time: 01/20/2011 21:25:54 (00)
+[    4.120763] msm_v4l2: msm_v4l2_init
+[    4.124796] Freeing init memory: 144K
+[    4.128791] msmrtc_tod_proc_result: 02/20/2011 21:25:54 (06)
+[    4.132339] msmrtc_timeremote_set_time: 01/20/2011 21:25:54 (00)
+[    4.140056] init: checking for android system.img fs update
+[    4.240579] init: mkdir /cache =0
+[    4.240784] yaffs: dev is 32505857 name is "mtdblock1"
+[    4.243533] yaffs: passed flags ""
+[    4.246783] yaffs: Attempting MTD mount on 31.1, "mtdblock1"
+[    4.273366] USB Cable type: msm_chg_LG_cable_type(): -1
+[    4.330969] mmc0: host does not support reading read-only switch. assuming write-enable.
+[    4.333488] mmc0: new high speed SDHC card at address aaaa
+[    4.339613] mmcblk0: mmc0:aaaa SU08G 7.40 GiB 
+[    4.343853]  mmcblk0: p1
+[    4.395641] USB Cable type: msm_chg_LG_cable_type(): -1
+[    4.921294] usb_lpm_enter: usb in low power mode
+[    4.921403] hsusb: IDLE -> OFFLINE
+[    8.572118] yaffs_read_super: isCheckpointed 0
+[    8.572293] init: HP:/dev/block/mtdblock1, /cache mounted(1)=0
+[    8.577808] init: chown /cache =0
+[    8.580573] init: chmod /cache =0
+[    8.584764] init: read_hpfs_file():fstart.bin is NULL
+[    8.588388] init: parsing init.rc
+[    8.724669] USB Cable type: msm_chg_LG_cable_type(): -1
+[    8.724801] msm-battery msm-battery: msm_batt_pif_show : Using PIF ZIG (0)
+[    8.731618] init: Unable to open persistent property directory /data/property errno: 2
+[    8.742706] enabling adb function
+[    8.742796] usb_function_enable: name = adb, enable = 1
+[    8.747623] usb_lpm_exit(): USB exited from low power mode
+[    9.081678] usb_set_composition: composition set to product id = 618e
+[    9.209991] USB Cable type: msm_chg_LG_cable_type(): -1
+[    9.342208] USB Cable type: msm_chg_LG_cable_type(): -1
+[    9.593243] USB Cable type: msm_chg_LG_cable_type(): -1
+[    9.606704] save exit: isCheckpointed 1
+[    9.720273] USB Cable type: msm_chg_LG_cable_type(): -1
+[   10.241309] usb_lpm_enter: usb in low power mode
+[   10.241424] hsusb: IDLE -> OFFLINE
+[   14.305321] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   14.446574] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   14.641838] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   14.742816] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   14.922774] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   15.084188] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   15.261741] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   15.362714] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   17.109371] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   17.290911] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   17.432504] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   17.614044] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   17.744968] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   17.906374] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   18.820208] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   19.001743] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   19.745081] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   19.906481] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   20.014546] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   20.135651] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   20.247336] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   20.388608] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   20.825561] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   20.986983] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   21.010944] save exit: isCheckpointed 1
+[   22.464928] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   22.646466] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   22.872213] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   23.033596] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   23.187921] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   23.369459] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   23.542531] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   23.724063] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   25.182341] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   25.404159] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   25.518776] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   25.660039] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   25.765709] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   25.886803] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   25.981399] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   26.122654] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   26.200376] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   26.341633] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   26.398876] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   26.519976] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   26.604449] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   26.725556] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   26.820531] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   26.921504] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   27.038971] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   27.139943] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   27.218958] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   27.340078] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   27.406984] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   27.528096] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   27.634556] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   27.735519] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   27.816064] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   27.937174] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   28.244134] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   28.405533] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   44.628996] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   44.770363] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   46.910614] [MTC] mtc_send_hdlc_packet: ioctl ignored
+[   47.072076] [MTC] mtc_send_hdlc_packet: ioctl ignored
++ version=1.5.8-Beta
++ me=/tmp/patchbootimg.sh
++ boot=recovery
++ opt=testrun
++ wkdir=/tmp
++ sdcard=/sdcard
++ mapfile=/sdcard/mtdpartmap.txt
++ mtdpart=/proc/mtd
++ dmesgmtdpart=/dev/mtdpartmap
++ logfile=/tmp/recovery.log
++ dmesg=dmesg
++ [ recovery = test ]
++ [ testrun = remove ]
++ [ recovery = recovery ]
++ recoverymode
++ [ ! -e /sdcard/mtdpartmap.txt -a testrun != testrun ]
++ busybox dos2unix /sdcard/mtdpartmap.txt
++ awk /mtd/ {print $2} /sdcard/mtdpartmap.txt
++ systemMB=120
++ [ 120 = 0 ]
++ awk /mtd/ {print $3} /sdcard/mtdpartmap.txt
++ cacheMB=5
++ awk /spl/ {print $2} /sdcard/mtdpartmap.txt
++ FakeSPL=1.33.2005
++ awk {printf "%d" 5 * 10}
++ echo
++ [ 050 -lt 15 -o 5 =  ]
++ [ 120 =  ]
++ awk {printf "%g", 120 / 0.125}
++ echo
++ expr 960 * 1
+960
++ [ 0 != 0 ]
++ awk {printf "%g", 5 / 0.125}
++ echo
++ expr 40 * 1
+40
++ [ 0 != 0 ]
++ [ 1.33.2005 =  ]
++ CLInit=androidboot.bootloader=1.33.2005 
++ return
++ readdmesg
++ awk /0x.+: "/ {sub(/-/," ");gsub(/"/,"");gsub(/0x/,"");printf $6" 0x"toupper ($3)" 0x"toupper ($4)"\n"}
++ dmesg
++ grep -q misc /dev/mtdpartmap
++ echo 0
++ [ 0 = 0 ]
++ sain=y
++ grep -q recovery /dev/mtdpartmap
++ echo 0
++ [ 0 = 0 ]
++ sain=y
++ grep -q boot /dev/mtdpartmap
++ echo 0
++ [ 0 = 0 ]
++ sain=y
++ grep -q system /dev/mtdpartmap
++ echo 0
++ [ 0 = 0 ]
++ sain=y
++ grep -q cache /dev/mtdpartmap
++ echo 0
++ [ 0 = 0 ]
++ sain=y
++ grep -q userdata /dev/mtdpartmap
++ echo 0
++ [ 0 = 0 ]
++ sain=y
++ [ y = y ]
++ CLInit=androidboot.bootloader=1.33.2005  mtdparts=msm_nand:
++ awk {print $1}
++ cat /dev/mtdpartmap
++ awk /boot/ {print $2} /dev/mtdpartmap
++ eval bootStartHex=0x000002820000
++ bootStartHex=0x000002820000
++ awk /boot/ {print $3} /dev/mtdpartmap
++ eval bootEndHex=0x000002F20000
++ bootEndHex=0x000002F20000
++ awk /cache/ {print $2} /dev/mtdpartmap
++ eval cacheStartHex=0x000002F20000
++ cacheStartHex=0x000002F20000
++ awk /cache/ {print $3} /dev/mtdpartmap
++ eval cacheEndHex=0x00000AB40000
++ cacheEndHex=0x00000AB40000
++ awk /recovery/ {print $2} /dev/mtdpartmap
++ eval recoveryStartHex=0x00000AB40000
++ recoveryStartHex=0x00000AB40000
++ awk /recovery/ {print $3} /dev/mtdpartmap
++ eval recoveryEndHex=0x00000B240000
++ recoveryEndHex=0x00000B240000
++ awk /splash/ {print $2} /dev/mtdpartmap
++ eval splashStartHex=0x00000B240000
++ splashStartHex=0x00000B240000
++ awk /splash/ {print $3} /dev/mtdpartmap
++ eval splashEndHex=0x00000B380000
++ splashEndHex=0x00000B380000
++ awk /FOTA_STO/ {print $2} /dev/mtdpartmap
++ eval FOTA_STOStartHex=0x00000B380000
++ FOTA_STOStartHex=0x00000B380000
++ awk /FOTA_STO/ {print $3} /dev/mtdpartmap
++ eval FOTA_STOEndHex=0x00000BA80000
++ FOTA_STOEndHex=0x00000BA80000
++ awk /system/ {print $2} /dev/mtdpartmap
++ eval systemStartHex=0x00000BA80000
++ systemStartHex=0x00000BA80000
++ awk /system/ {print $3} /dev/mtdpartmap
++ eval systemEndHex=0x000015900000
++ systemEndHex=0x000015900000
++ awk /userdata/ {print $2} /dev/mtdpartmap
++ eval userdataStartHex=0x000015900000
++ userdataStartHex=0x000015900000
++ awk /userdata/ {print $3} /dev/mtdpartmap
++ eval userdataEndHex=0x00001FDE0000
++ userdataEndHex=0x00001FDE0000
++ awk /misc/ {print $2} /dev/mtdpartmap
++ eval miscStartHex=0x00001FDE0000
++ miscStartHex=0x00001FDE0000
++ awk /misc/ {print $3} /dev/mtdpartmap
++ eval miscEndHex=0x00001FE60000
++ miscEndHex=0x00001FE60000
++ awk /persist/ {print $2} /dev/mtdpartmap
++ eval persistStartHex=0x00001FE60000
++ persistStartHex=0x00001FE60000
++ awk /persist/ {print $3} /dev/mtdpartmap
++ eval persistEndHex=0x00001FFE0000
++ persistEndHex=0x00001FFE0000
++ SCD_Total=0
++ eval StartHex=$systemStartHex
++ StartHex=0x00000BA80000
++ eval EndHex=$systemEndHex
++ EndHex=0x000015900000
++ printf %d 0x000015900000
++ printf %d 0x00000BA80000
++ expr ( 361758720 - 195559424 ) / 1048576
++ eval systemSizeMBytes=158
++ systemSizeMBytes=158
++ eval StartHex=$cacheStartHex
++ StartHex=0x000002F20000
++ eval EndHex=$cacheEndHex
++ EndHex=0x00000AB40000
++ printf %d 0x00000AB40000
++ printf %d 0x000002F20000
++ expr ( 179568640 - 49414144 ) / 1048576
++ eval cacheSizeMBytes=124
++ cacheSizeMBytes=124
++ eval StartHex=$userdataStartHex
++ StartHex=0x000015900000
++ eval EndHex=$userdataEndHex
++ EndHex=0x00001FDE0000
++ printf %d 0x00001FDE0000
++ printf %d 0x000015900000
++ expr ( 534642688 - 361758720 ) / 1048576
++ eval userdataSizeMBytes=164
++ userdataSizeMBytes=164
++ awk {printf "%g",158 + 124 + 164 }
++ echo
++ SCD_Total=446
++ awk !/system|cache|userdata/ {print $1}
++ cat /dev/mtdpartmap
++ eval StartHex=$bootStartHex
++ StartHex=0x000002820000
++ eval EndHex=$bootEndHex
++ EndHex=0x000002F20000
++ printf %d 0x000002F20000
++ printf %d 0x000002820000
++ expr ( 49414144 - 42074112 ) / 1024
++ eval bootSizeKBytes=7168
++ bootSizeKBytes=7168
++ eval SizeKBytes=$bootSizeKBytes
++ SizeKBytes=7168
++ echo 7168K@0x000002820000(boot)
++ CLInit=androidboot.bootloader=1.33.2005  mtdparts=msm_nand:7168K@0x000002820000(boot),
++ eval StartHex=$recoveryStartHex
++ StartHex=0x00000AB40000
++ eval EndHex=$recoveryEndHex
++ EndHex=0x00000B240000
++ printf %d 0x00000B240000
++ printf %d 0x00000AB40000
++ expr ( 186908672 - 179568640 ) / 1024
++ eval recoverySizeKBytes=7168
++ recoverySizeKBytes=7168
++ eval SizeKBytes=$recoverySizeKBytes
++ SizeKBytes=7168
++ echo 7168K@0x00000AB40000(recovery)
++ CLInit=androidboot.bootloader=1.33.2005  mtdparts=msm_nand:7168K@0x000002820000(boot),7168K@0x00000AB40000(recovery),
++ eval StartHex=$splashStartHex
++ StartHex=0x00000B240000
++ eval EndHex=$splashEndHex
++ EndHex=0x00000B380000
++ printf %d 0x00000B380000
++ printf %d 0x00000B240000
++ expr ( 188219392 - 186908672 ) / 1024
++ eval splashSizeKBytes=1280
++ splashSizeKBytes=1280
++ eval SizeKBytes=$splashSizeKBytes
++ SizeKBytes=1280
++ echo 1280K@0x00000B240000(splash)
++ CLInit=androidboot.bootloader=1.33.2005  mtdparts=msm_nand:7168K@0x000002820000(boot),7168K@0x00000AB40000(recovery),1280K@0x00000B240000(splash),
++ eval StartHex=$FOTA_STOStartHex
++ StartHex=0x00000B380000
++ eval EndHex=$FOTA_STOEndHex
++ EndHex=0x00000BA80000
++ printf %d 0x00000BA80000
++ printf %d 0x00000B380000
++ expr ( 195559424 - 188219392 ) / 1024
++ eval FOTA_STOSizeKBytes=7168
++ FOTA_STOSizeKBytes=7168
++ eval SizeKBytes=$FOTA_STOSizeKBytes
++ SizeKBytes=7168
++ echo 7168K@0x00000B380000(FOTA_STO)
++ CLInit=androidboot.bootloader=1.33.2005  mtdparts=msm_nand:7168K@0x000002820000(boot),7168K@0x00000AB40000(recovery),1280K@0x00000B240000(splash),7168K@0x00000B380000(FOTA_STO),
++ eval StartHex=$miscStartHex
++ StartHex=0x00001FDE0000
++ eval EndHex=$miscEndHex
++ EndHex=0x00001FE60000
++ printf %d 0x00001FE60000
++ printf %d 0x00001FDE0000
++ expr ( 535166976 - 534642688 ) / 1024
++ eval miscSizeKBytes=512
++ miscSizeKBytes=512
++ eval SizeKBytes=$miscSizeKBytes
++ SizeKBytes=512
++ echo 512K@0x00001FDE0000(misc)
++ CLInit=androidboot.bootloader=1.33.2005  mtdparts=msm_nand:7168K@0x000002820000(boot),7168K@0x00000AB40000(recovery),1280K@0x00000B240000(splash),7168K@0x00000B380000(FOTA_STO),512K@0x00001FDE0000(misc),
++ eval StartHex=$persistStartHex
++ StartHex=0x00001FE60000
++ eval EndHex=$persistEndHex
++ EndHex=0x00001FFE0000
++ printf %d 0x00001FFE0000
++ printf %d 0x00001FE60000
++ expr ( 536739840 - 535166976 ) / 1024
++ eval persistSizeKBytes=1536
++ persistSizeKBytes=1536
++ eval SizeKBytes=$persistSizeKBytes
++ SizeKBytes=1536
++ echo 1536K@0x00001FE60000(persist)
++ CLInit=androidboot.bootloader=1.33.2005  mtdparts=msm_nand:7168K@0x000002820000(boot),7168K@0x00000AB40000(recovery),1280K@0x00000B240000(splash),7168K@0x00000B380000(FOTA_STO),512K@0x00001FDE0000(misc),1536K@0x00001FE60000(persist),
++ sed s/,$//
++ echo androidboot.bootloader=1.33.2005 mtdparts=msm_nand:7168K@0x000002820000(boot),7168K@0x00000AB40000(recovery),1280K@0x00000B240000(splash),7168K@0x00000B380000(FOTA_STO),512K@0x00001FDE0000(misc),1536K@0x00001FE60000(persist),
++ CLInit=androidboot.bootloader=1.33.2005 mtdparts=msm_nand:7168K@0x000002820000(boot),7168K@0x00000AB40000(recovery),1280K@0x00000B240000(splash),7168K@0x00000B380000(FOTA_STO),512K@0x00001FDE0000(misc),1536K@0x00001FE60000(persist)
++ return
++ checksizing
++ awk {printf "%f",120 + 5}
++ echo
++ usertotal=125.000000
++ awk {printf "%f",446 - 125.000000}
++ echo
++ userdatasize=321.000000
++ grep -q -i anydatasize /sdcard/mtdpartmap.txt
++ echo 1
++ [ 1 != 0 ]
++ mindatasize=50
++ awk {printf "%d", 321.000000}
++ echo
++ [ 321 -lt 50 ]
++ return
++ CreateCMDline
++ awk /system/ { print $2 } /dev/mtdpartmap
++ systemStartHex=0x00000BA80000
++ awk /system/ { print $2 } /dev/mtdpartmap
++ printf %d 0x00000BA80000
++ systemStartBytes=195559424
++ awk {printf "%d",120 * 1024}
++ echo
++ systemSizeKBytes=122880
++ awk {printf "%f",122880 * 1024}
++ echo
++ systemBytes=125829120.000000
++ awk {printf "%d",5 * 1024}
++ echo
++ cacheSizeKBytes=5120
++ awk {printf "%f",5120 * 1024}
++ echo
++ cacheBytes=5242880.000000
++ awk {printf "%f",195559424 + 125829120.000000}
++ echo
++ cacheStartBytes=321388544.000000
++ awk {printf "%X",321388544.000000}
++ echo
++ cacheStartHex=13280000
++ awk {printf "%f",321388544.000000 + 5242880.000000}
++ echo
++ DataStartBytes=326631424.000000
++ awk {printf "%X",326631424.000000}
++ echo
++ DataStartHex=13780000
++ echo
++ printf %d 0x00001FDE0000
++ awk {printf "%f",534642688 - 326631424.000000}
++ DataBytes=208011264.000000
++ awk {printf "%d",208011264.000000 / 1024}
++ echo
++ DataKBytes=203136
++ KCMDline=androidboot.bootloader=1.33.2005 mtdparts=msm_nand:7168K@0x000002820000(boot),7168K@0x00000AB40000(recovery),1280K@0x00000B240000(splash),7168K@0x00000B380000(FOTA_STO),512K@0x00001FDE0000(misc),1536K@0x00001FE60000(persist),122880k@0x00000BA80000(system),5120k@0x13280000(cache),203136k@0x13780000(userdata)
++ return
++ dumpimg
++ dump_image recovery /tmp/recovery.img
++ /tmp/unpackbootimg /tmp/recovery.img /tmp/
+BOARD_KERNEL_CMDLINE mem=477M console=ttyMSM2,115200n8 androidboot.hardware=thunderc
+BOARD_KERNEL_BASE 12200000
++ rm /tmp/recovery.img
++ awk {$1=$1};1
++ awk {gsub(/\ .\ /,"");sub(/mtdparts.+)/,"");sub(/androidboot.bootloader=.+\ /,"");print} /tmp/recovery.img-cmdline
++ origcmdline=mem=477M console=ttyMSM2,115200n8 androidboot.hardware=thunderc
++ return
++ [ testrun = testrun ]
++ flashimg echo
++ cat /tmp/recovery.img-base
++ echo /tmp/mkbootimg --kernel /tmp/recovery.img-zImage --ramdisk /tmp/recovery.img-ramdisk.gz -o /tmp/recovery.img --cmdline mem=477M console=ttyMSM2,115200n8 androidboot.hardware=thunderc androidboot.bootloader=1.33.2005 mtdparts=msm_nand:7168K@0x000002820000(boot),7168K@0x00000AB40000(recovery),1280K@0x00000B240000(splash),7168K@0x00000B380000(FOTA_STO),512K@0x00001FDE0000(misc),1536K@0x00001FE60000(persist),122880k@0x00000BA80000(system),5120k@0x13280000(cache),203136k@0x13780000(userdata) --base 12200000
+/tmp/mkbootimg --kernel /tmp/recovery.img-zImage --ramdisk /tmp/recovery.img-ramdisk.gz -o /tmp/recovery.img --cmdline mem=477M console=ttyMSM2,115200n8 androidboot.hardware=thunderc androidboot.bootloader=1.33.2005 mtdparts=msm_nand:7168K@0x000002820000(boot),7168K@0x00000AB40000(recovery),1280K@0x00000B240000(splash),7168K@0x00000B380000(FOTA_STO),512K@0x00001FDE0000(misc),1536K@0x00001FE60000(persist),122880k@0x00000BA80000(system),5120k@0x13280000(cache),203136k@0x13780000(userdata) --base 12200000
++ echo erase_image recovery
+erase_image recovery
++ echo flash_image recovery /tmp/recovery.img
+flash_image recovery /tmp/recovery.img
++ return

@@ -10,6 +10,10 @@ TODO: update this readme with usefull info
           ( so we can resize mtd without having to reboot )
       check if the mtd sizes are actually being changed
           ( so we can AutoFormat the partitions, one less thing for the user to do/forget )
+      check the order of partitions
+          thunderc has presented a problem, cache is between boot and recovery, we can't shift recovery and have the spl boot it
+          to make practical use of the /cache partition the only thing I can think of atm is to instead use it for system
+          We still can't change its size, but at least we can have a larger data partition ( what was system is now a small cache)
 
 New in v1.5.8-Alpha
 
