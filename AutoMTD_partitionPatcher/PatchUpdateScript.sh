@@ -4,7 +4,7 @@
 #
 #TODO test dependencies ( java etc. )
 #TODO  Firerat !! you lazy barstool, do a windows version..
-version=1.5.8-Beta
+version=1.5.8
 startdir=`pwd`
 
 me=$0

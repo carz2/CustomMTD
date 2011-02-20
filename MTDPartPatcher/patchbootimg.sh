@@ -7,7 +7,7 @@
 #
 # https://github.com/Firerat/CustomMTD
 
-version=1.5.8-Beta
+version=1.5.8
 ##
 
 readdmesg ()
