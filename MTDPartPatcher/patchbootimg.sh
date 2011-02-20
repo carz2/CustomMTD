@@ -184,6 +184,8 @@ return
 
 bindcache ()
 {
+#TODO get rid of this script in favour of setting DOWNLOAD_CACHE
+# use a optional patch for ROMs which do not support DOWNLOAD_CACHE by default 
 cacheSizeKBytes=`df |awk '/ \/cache$/ {print $2}'`
 if [ "`expr $cacheSizeKBytes \/ 1024`" -lt "15" ];
 then
