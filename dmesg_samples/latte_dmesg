@@ -1,0 +1,489 @@
+<6>[    0.000000] Initializing cgroup subsys cpu
+<5>[    0.000000] Linux version 2.6.29-b2c573d7 (htc-kernel@and18-2) (gcc version 4.4.0 (GCC) ) #1 PREEMPT Mon May 10 13:02:37 CST 2010
+<4>[    0.000000] CPU: ARMv6-compatible processor [4117b365] revision 5 (ARMv6TEJ), cr=00c5387f
+<4>[    0.000000] CPU: VIPT aliasing data cache, VIPT aliasing instruction cache
+<4>[    0.000000] Machine: latte
+<7>[    0.000000] find the smi tag
+<7>[    0.000000] parse_tag_smi: smi size = 0
+<7>[    0.000000] find the hwid tag
+<7>[    0.000000] parse_tag_hwid: hwid = 0x0
+<7>[    0.000000] find the skuid tag
+<7>[    0.000000] parse_tag_skuid: hwid = 0x23202
+<7>[    0.000000] tag_panel_parsing: panel type = 8
+<7>[    0.000000] find the engineer tag
+<7>[    0.000000] parse_tag_engineerid: 0x0
+<7>[    0.000000] find the flash id tag
+<7>[    0.000000] parse_tag_monodie: mono-die = 0x0
+<6>[    0.000000] CAM_AWB_CAL Data size = 514 , 0x59504550, size = 2048
+<4>[    0.000000] Ignoring unrecognised tag 0x41387898
+<4>[    0.000000] BT Data size= 4, 0x43294329,00,00,00,00,00,00,00,00,Memory policy: ECC disabled, Data cache writeback
+<7>[    0.000000] On node 0 totalpages: 109568
+<7>[    0.000000] free_area_init_node: node 0, pgdat c0460978, node_mem_map c0583000
+<7>[    0.000000]   Normal zone: 856 pages used for memmap
+<7>[    0.000000]   Normal zone: 0 pages reserved
+<7>[    0.000000]   Normal zone: 108712 pages, LIFO batch:31
+<4>[    0.000000] latte_init_map_io()
+<6>[    0.000000] L210 cache controller enabled
+<4>[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 108712
+<5>[    0.000000] Kernel command line: board_espresso.disable_uart3=0 board_espresso.usb_h2w_sw=0 board_espresso.disable_sdcard=0 diag.enabled=0 board_espresso.debug_uart=0 smisize=0 userdata_sel=0 androidboot.emmc=false  androidboot.baseband=7.09.35.10 androidboot.cid=T-MOB010 androidboot.batt_poweron=good_battery androidboot.carrier=TMUS androidboot.mid=PB6510000 androidboot.keycaps=qwerty androidboot.mode=recovery androidboot.serialno=XXXXXXXXXX androidboot.bootloader=0.52.0000 no_console_suspend=1 console=null
+<3>[    0.000000] Unknown boot option `board_espresso.disable_uart3=0': ignoring
+<3>[    0.000000] Unknown boot option `board_espresso.usb_h2w_sw=0': ignoring
+<6>[    0.000000] smd_try_open(diag_set_enabled): 0
+<6>[    0.000000] smd_close((null))
+<3>[    0.000000] Unknown boot option `board_espresso.debug_uart=0': ignoring
+<3>[    0.000000] Unknown boot option `androidboot.emmc=false': ignoring
+<3>[    0.000000] Unknown boot option `androidboot.baseband=7.09.35.10': ignoring
+<3>[    0.000000] Unknown boot option `androidboot.bootloader=0.52.0000': ignoring
+<4>[    0.000000] latte_init_irq()
+<4>[    0.000000] PID hash table entries: 2048 (order: 11, 8192 bytes)
+<6>[    0.000000] Dentry cache hash table entries: 65536 (order: 6, 262144 bytes)
+<6>[    0.001251] Inode-cache hash table entries: 32768 (order: 5, 131072 bytes)
+<6>[    0.050201] Memory: 428MB = 428MB total
+<5>[    0.050231] Memory: 427776KB available (4064K code, 1395K data, 136K init)
+<6>[    0.050750] Calibrating delay loop... 599.65 BogoMIPS (lpj=2998272)
+<4>[    0.270294] Mount-cache hash table entries: 512
+<6>[    0.271026] Initializing cgroup subsys debug
+<6>[    0.271057] Initializing cgroup subsys cpuacct
+<6>[    0.271087] Initializing cgroup subsys freezer
+<6>[    0.271087] CPU: Testing write buffer coherency: ok
+<6>[    0.274322] net_namespace: 1032 bytes
+<6>[    0.275146] NET: Registered protocol family 16
+<4>[    0.275756] latte_init() revision = 0x80
+<7>[    2.482971] __capella_cm3602_power: Turn the capella_cm3602 power off
+<6>[    2.483062] acpu_clock_init()
+<6>[    2.483215] ACPU running at 600000 KHz
+<6>[    2.483245] Acquire 'boot-time' perf_lock
+<6>[    2.488342] latte_init_mmc
+<6>[    2.495758] Acquire 'boot-time' readahead_lock
+<4>[    2.496032] bio: create slab <bio-0> at 0
+<6>[    2.496826] msm_i2c_probe
+<6>[    2.497009] msm_i2c_probe: clk_ctl 315, 400000 Hz
+<6>[    2.498748] Bluetooth: Core ver 2.15
+<6>[    2.498992] NET: Registered protocol family 31
+<6>[    2.498992] Bluetooth: HCI device and connection manager initialized
+<6>[    2.499023] Bluetooth: HCI socket layer initialized
+<6>[    2.500457] NET: Registered protocol family 2
+<6>[    2.500701] IP route cache hash table entries: 4096 (order: 2, 16384 bytes)
+<6>[    2.501312] TCP established hash table entries: 16384 (order: 5, 131072 bytes)
+<6>[    2.501831] TCP bind hash table entries: 16384 (order: 4, 65536 bytes)
+<6>[    2.502166] TCP: Hash tables configured (established 16384 bind 16384)
+<6>[    2.502166] TCP reno registered
+<6>[    2.502441] NET: Registered protocol family 1
+<7>[    2.502655] Switched to high resolution mode on CPU 0
+<6>[    2.503234] Unpacking initramfs... done
+<6>[    2.658782] Freeing initrd memory: 716K
+<6>[    2.659393] smd_init()
+<6>[    2.659393] smd_core_init()
+<6>[    2.659484] smd_core_init() done
+<3>[    2.659515] msm_init_last_radio_log: last radio log is 6896 bytes long
+<6>[    2.659667] smd_alloc_channel() cid=00 size=08192 'SMD_DS'
+<6>[    2.659851] smd_alloc_channel() cid=01 size=08192 'SMD_DIAG'
+<6>[    2.659973] smd_alloc_channel() cid=02 size=08192 'SMD_RPCCALL'
+<6>[    2.660064] smd_alloc_channel() cid=07 size=32768 'SMD_DATA1'
+<6>[    2.660186] smd_alloc_channel() cid=08 size=08192 'SMD_DATA2'
+<6>[    2.660308] smd_alloc_channel() cid=09 size=08192 'SMD_DATA3'
+<6>[    2.660430] smd_alloc_channel() cid=11 size=32768 'SMD_DATA5'
+<6>[    2.660522] smd_alloc_channel() cid=12 size=32768 'SMD_DATA6'
+<6>[    2.660644] smd_alloc_channel() cid=13 size=32768 'SMD_DATA7'
+<6>[    2.660736] smd_alloc_channel() cid=15 size=08192 'SMD_DATA9'
+<6>[    2.660858] smd_alloc_channel() cid=27 size=08192 'SMD_GPSNMEA'
+<6>[    2.660980] smd_alloc_channel() cid=38 size=08192 'SMD_DAL00'
+<6>[    2.661071] smd_alloc_channel() cid=39 size=08192 'SMD_DATA5_CNTL'
+<6>[    2.661193] smd_alloc_channel() cid=40 size=08192 'SMD_DATA6_CNTL'
+<6>[    2.661315] smd_alloc_channel() cid=41 size=08192 'SMD_DATA7_CNTL'
+<6>[    2.663360] SMD: ch 2 0 -> 1
+<6>[    2.663482] SMD: ch 2 1 -> 2
+<6>[    2.665893] perflock_notifier_call: cpufreq lock speed 600000
+<6>[    2.665893] active perf lock 'boot-time'
+<6>[    2.685546] latte_bt_fastclock_power: 1
+<6>[    2.693756] latte_bt_fastclock_power: 0
+<6>[    2.699066] Registered led device: flashlight
+<6>[    2.699096] flashlight_probe: The Flashlight Driver is ready
+<6>[    2.699554] H2W: htc_35mm_remote Registering H2W (headset) Driver
+<6>[    2.700775] input: h2w headset as /devices/virtual/input/input0
+<6>[    2.701049] H2W: Registering H2W (headset) driver finish
+<3>[    2.701232] Audiojack: Registering in audiojack_probe
+<6>[    2.708038] atmega-microp 0-0066: microp version [06][20]
+<6>[    2.708923] Registered led device: amber
+<6>[    2.709045] Registered led device: green
+<6>[    2.709167] Registered led device: button-backlight
+<6>[    2.709289] Registered led device: keyboard-backlight
+<6>[    2.709350] microp_led_probe: succeeded
+<6>[    2.734069] batt: M2A_RPC: cable_update: USB at 531536903 (1970-01-01 00:00:00.531506385 UTC)
+<6>[    2.734130] batt: htc_cable_status_update: 0 -> 1
+<6>[    2.734130] msm_hsusb_set_vbus_state: 1
+<6>[    2.735107] ashmem: initialized
+<6>[    2.735504] batt: A2M_RPC: get_batt_info: batt_id=2, batt_vol=4145, batt_temp=264, batt_current=3, level=100, charging_source=1, charging_enabled=1, full_bat=1300000, over_vchg=0 at 532971229 (1970-01-01 00:00:00.532940712 UTC)
+<6>[    2.736480] fuse init (API version 7.11)
+<4>[    2.736785] yaffs May 10 2010 13:00:33 Installing. 
+<6>[    2.747863] alg: No test for stdrng (krng)
+<6>[    2.747955] io scheduler noop registered
+<6>[    2.747985] io scheduler anticipatory registered
+<6>[    2.748016] io scheduler deadline registered (default)
+<6>[    2.748352] mddi: init() base=0xdb058000 irq=16
+<7>[    2.748626] mddi runs at 106000000
+<6>[    2.748809] mddi cmd send rtd: int 3a000, stat 8063, rtd val 10
+<6>[    2.748870] mddi: registering panel mddi_c_0101_0000
+<6>[    2.748901] mddi: publish: 
+<6>[    2.749542] CABC enabled
+<6>[    2.750549] vsync on gpio 97 now 0
+<6>[    2.751037] msmfb_probe() installing 320 x 480 panel
+<6>[    2.751861] Registered led device: lcd-backlight
+<6>[    2.754089] msm_serial: detected port #2
+<6>[    2.754180] msm_serial.2: ttyMSM2 at MMIO 0xa9c00000 (irq = 11) is a MSM
+<6>[    2.754516] msm_serial: driver initialized
+<6>[    2.754608] TI chip
+<6>[    2.754730] msm_serial_hs.0: ttyHS0 at MMIO 0xa0200000 (irq = 45) is a MSM HS UART
+<6>[    2.755065] msm_serial_hs module loaded
+<6>[    2.755218] msm_serial_hs module loaded
+<6>[    2.757873] loop: module loaded
+<6>[    2.758026] pmem: 1 init
+<6>[    2.758880] pmem_adsp: 1 init
+<6>[    2.759613] pmem_camera: 0 init
+<6>[    2.760253] Android kernel panic handler initialized (bind=crashdata)
+<6>[    2.760375] spi_bma150_probe: G-sensor connect with microP: start initial
+<6>[    2.769042] __spi_bma150_set_mode: BMA get into SLEEP mode!
+<6>[    2.769195] PPP generic driver version 2.4.2
+<6>[    2.769409] PPP Deflate Compression module registered
+<6>[    2.769409] PPP BSD Compression module registered
+<6>[    2.772033] PPP MPPE Compression module registered
+<6>[    2.772064] NET: Registered protocol family 24
+<6>[    2.773284] rmnet0 (): not using net_device_ops yet
+<6>[    2.773925] rmnet1 (): not using net_device_ops yet
+<6>[    2.774536] rmnet2 (): not using net_device_ops yet
+<6>[    2.775512] allocated dma buffer at ffa47000, dma_addr 2d469000
+<6>[    2.775604] read CFG0 = aa5400c0, CFG1 = a7476
+<6>[    2.775634] CFG0 = e85408c0, CFG1 = a7476
+<6>[    2.775634] CFG0: cw/page=3 ud_sz=516 ecc_sz=10 spare_sz=0 num_addr_cycles=5
+<6>[    2.775726] NAND_READ_ID = 5500bcec
+<6>[    2.775878] status: c03120
+<6>[    2.775878] nandid: 5500bcec maker ec device bc
+<6>[    2.775970] CFG0: cw/page=3 ud_sz=512 ecc_sz=10 spare_sz=4
+<6>[    2.776062] DEV_CMD1: f00f3000
+<6>[    2.776123] <6>NAND_EBI2_ECC_BUF_CFG: 1ff
+<6>[    2.776153] flash_id: 5500bcec size 20000000
+<5>[    2.776153] Creating 6 MTD partitions on "msm_nand":
+<5>[    2.776184] 0x00001ff60000-0x000020000000 : "misc"
+<5>[    2.777709] 0x000002760000-0x000002b80000 : "recovery"
+<5>[    2.782104] 0x000002b80000-0x000002e40000 : "boot"
+<5>[    2.785339] 0x000002e40000-0x000011e40000 : "system"
+<5>[    3.016021] 0x000011e40000-0x000016e40000 : "cache"
+<5>[    3.095794] 0x000016e40000-0x00001ff60000 : "userdata"
+<6>[    3.240112] usb_probe() io=db064000, irq=47, dma=ffa48000(2d4c3000)
+<6>[    3.240661] usb_function_register() 'adb'
+<6>[    3.240783] ums: device id -1
+<6>[    3.240905] usb_function_register() 'usb_mass_storage'
+<6>[    3.241577] usb_function_register() 'diag'
+<6>[    3.241699] usb0 (): not using net_device_ops yet
+<6>[    3.242279] usb_function_register() 'ether'
+<6>[    3.242980] usb_function_register() 'modem'
+<6>[    3.243011] usb_function_register() 'nmea'
+<6>[    3.243011] usb_function_register() 'serial'
+<6>[    3.243408] usb_function_register() 'mtp_tunnel'
+<7>[    3.243438] usb_try_to_bind: functions bound. starting.
+<7>[    3.243438] usb_bind_func() 'usb_mass_storage'
+<6>[    3.243682] usb_mass_storage usb_mass_storage: Number of LUNs=1
+<7>[    3.243713] usb_bind_func() 'adb'
+<7>[    3.244201] usb_bind_func() 'diag'
+<7>[    3.244201] diag:diag_bind() da8c28a0, da8c2aa0
+<7>[    3.244323] diag:diag_bind() allocated 4 rx and 4 tx requests
+<7>[    3.244750] usb_bind_func() 'serial'
+<4>[    3.244750] gs_bind:serial
+<7>[    3.244781] usb_bind_func() 'mtp_tunnel'
+<7>[    3.244781] mtp_tunnel_bind() da8c28e0, da8c2b00
+<7>[    3.245330] usb_bind_func() 'ether'
+<7>[    3.245452] usb_bind_func() 'modem'
+<4>[    3.245452] gs_bind:modem
+<7>[    3.245483] usb_bind_func() 'nmea'
+<4>[    3.245483] gs_bind:nmea
+<6>[    3.245666] atmel_ts_init():
+<6>[    3.245819] latte_ts_power:1
+<6>[    3.245849] hsusb: IDLE -> ONLINE
+<6>[    3.246002] hsusb: reset controller
+<6>[    3.282806] msm_hsusb_phy_reset
+<4>[    3.302795] ulpi: write 0x2c to 0x31
+<4>[    3.302795] ulpi: write 0x31 to 0x32
+<4>[    3.302825] ulpi: write 0x1d to 0x0d
+<4>[    3.302825] ulpi: write 0x1d to 0x10
+<7>[    3.302886] usb: notify offline
+<6>[    3.302917] mtp_tunnel_configure: 0
+<6>[    3.302947] usb: Get USB ID PIN, mfg_df_serialno: 000000000000,usb_switch_dummy_serial_num_by_GPIO,usb_id_pin_gpio 19 
+<6>[    3.302978] usb: mfg_USB_ID_pin_status: 1, ID_Pin 1: 1,usb_switch_dummy_serial_num_by_GPIO 
+<6>[    3.303009] do_set_config: new_config = 0, fsg->config = 0, usb_get_connect_type = 0
+<6>[    3.306121] usb: suspend
+<6>[    3.322784] usb: not AC charger
+<6>[    3.322814] batt: Update SMEM: cable type 1 at 1120282036 (1970-01-01 00:00:01.120251518 UTC)
+<6>[    3.405212] usb: reset
+<6>[    3.405242] batt: Update SMEM: cable type 1 at 1202710011 (1970-01-01 00:00:01.202679494 UTC)
+<6>[    3.407501] usb: portchange USB_SPEED_HIGH
+<3>[    3.522857] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    3.522888] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<3>[    3.522949] i2c_smbus_write_byte_data failed
+<3>[    3.523040] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    3.523071] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<7>[    3.575378] gs_configure done
+<6>[    3.575378] mtp_tunnel_configure: 1
+<7>[    3.575653] gs_configure done
+<7>[    3.575836] gs_configure done
+<6>[    3.575897] do_set_config: new_config = 1, fsg->config = 0, usb_get_connect_type = 1
+<6>[    3.575958] usb_mass_storage usb_mass_storage: config #1
+<6>[    3.576019] do_set_config: uevent = 1
+<3>[    3.632873] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    3.632934] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<3>[    3.742858] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    3.742889] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<3>[    3.852844] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    3.852874] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<3>[    3.962860] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    3.962890] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<3>[    4.072845] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    4.072875] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<3>[    4.182861] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    4.182891] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<3>[    4.292877] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    4.292907] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<3>[    4.402862] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    4.402893] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<3>[    4.512878] msm_i2c msm_i2c.0: error, status c8 (2C)
+<3>[    4.512908] msm_i2c msm_i2c.0: Error during data xfer (-5) (2C)
+<3>[    4.622802] i2c_smbus_read_byte_data failed
+<4>[    4.622833] synaptics-rmi-ts: probe of 0-002c failed with error -5
+<6>[    4.622894] latte_ts_power:1
+<3>[    4.903045] msm_i2c msm_i2c.0: error, status c8 (2D)
+<3>[    4.903076] msm_i2c msm_i2c.0: Error during data xfer (-5) (2D)
+<6>[    5.013122] synaptics_ts_probe: Product Major Version 1
+<6>[    5.013488] synaptics_ts_probe: Product Minor Version 1
+<6>[    5.013824] synaptics_ts_probe: product property 2
+<6>[    5.014190] synaptics_ts_probe: device control 81
+<6>[    5.014587] synaptics_ts_probe: interrupt enable 1
+<6>[    5.015533] synaptics_ts_probe: 0xe0: 1 1 1 2 1 1 0 0
+<6>[    5.033172] synaptics_ts_probe: Sensor properties 701
+<6>[    5.073120] synaptics_ts_probe: max_x 3979, max_y 5888
+<6>[    5.073150] synaptics_ts_probe: inactive_x -12 -12, inactive_y -12 -12
+<6>[    5.073150] synaptics_ts_probe: snap_x 0-0 0-0, snap_y 0-0 0-0
+<6>[    5.073181] synaptics_ts_probe: margin_pixel_left: 8, margin_pixel_right: 20, margin_pixel_top: 20, margin_pixel_bottom: 8
+<6>[    5.073211] synaptics_ts_probe: ts_raw_width: 3955, ts_raw_height: 5864
+<6>[    5.073547] input: synaptics-rmi-touchscreen as /devices/virtual/input/input1
+<6>[    5.074157] synaptics_ts_probe: Start touchscreen synaptics-rmi-touchscreen in interrupt mode
+<6>[    5.074707] GPIO Input Driver: Start gpio inputs for latte-keypad-v2 in interrupt mode
+<6>[    5.075195] GPIO Matrix Keypad Driver: Start keypad matrix for latte-keypad-v2 in interrupt mode
+<6>[    5.075286] gpio_keys_scan_keys: key 5-0, 0 (49) changed to 1
+<6>[    5.075378] GPIO Input Driver: Start gpio inputs for latte-keypad-v2 in interrupt mode
+<6>[    5.075714] input: latte-keypad-v2 as /devices/virtual/input/input2
+<6>[    5.076110] capella_cm3602_probe: probe
+<6>[    5.076446] input: proximity as /devices/virtual/input/input3
+<6>[    5.076751] capella_cm3602_setup
+<6>[    5.077484] input: lightsensor-level as /devices/virtual/input/input4
+<6>[    5.077850] set_ls_kvalue: ALS calibrated als_kadc=0x6da5004f
+<6>[    5.077880] set_ls_kvalue: als_kadc=0x4f, als_gadc=0xc0
+<4>[    5.077880] ls_table: data[0] , data[0] = 0, 0
+<4>[    5.077911] ls_table: data[1] , data[1] = 0, d
+<4>[    5.077911] ls_table: data[2] , data[2] = 0, 1f
+<4>[    5.077941] ls_table: data[3] , data[3] = 0, 5a
+<4>[    5.077941] ls_table: data[4] , data[4] = 0, 7e
+<4>[    5.077972] ls_table: data[5] , data[5] = 0, a3
+<4>[    5.077972] ls_table: data[6] , data[6] = 0, c7
+<4>[    5.078002] ls_table: data[7] , data[7] = 3, ff
+<4>[    5.078002] ls_table: data[8] , data[8] = 3, ff
+<4>[    5.078033] ls_table: data[9] , data[9] = 3, ff
+<7>[    5.080230] __capella_cm3602_power: Turn the capella_cm3602 power on
+<6>[    5.080596] using input dev h2w headset for key reset
+<6>[    5.080627] using input dev latte-keypad-v2 for key reset
+<6>[    5.080749] gpio_keys_scan_keys: key 1-74, 0 (20) changed to 0
+<3>[    5.083312] curcial_oj_poweron:OJ:power status ok 
+<6>[    5.131042] OpticalJoystick Device ID: 0d
+<6>[    5.133544] OJ Driver: Revision : 02
+<6>[    5.136383] input: curcial-oj as /devices/virtual/input/input5
+<6>[    5.136566] using input dev curcial-oj for key reset
+<6>[    5.136718] OJ: driver loaded
+<6>[    5.136840] Linux video capture interface: v2.00
+<6>[    5.136901] msm_v4l2: msm_v4l2_init
+<4>[    5.136932] s5k4e1gx_init
+<4>[    5.137023] __s5k4e1gx_probe
+<4>[    5.137481] s5k4e1gx_sensor_probe()
+<6>[    5.137542] s5k4e1gx_probe called!
+<6>[    5.187652] s5k4e1gx_probe successed! rc = 0
+<6>[    5.232849] s5k4e1gx_sensor_init(): reseting sensor.
+<4>[    5.324768] sensor evt version : 0x10
+<4>[    5.324798] use analog_settings_evt3
+<6>[    5.333526] s5k4e1gx_sysfs_init : kobject_create_and_add
+<6>[    5.333557] s5k4e1gx_sysfs_init : sysfs_create_file
+<6>[    5.335418] using rtc device, msm_rtc, for alarms<6>rs30000048:00010004 rs30000048:00010004: rtc core: registered msm_rtc as rtc0
+<6>[    5.335510] AKM8973 compass driver: init
+<6>[    5.336456] input: compass as /devices/virtual/input/input6
+<6>[    5.337371] device-mapper: uevent: version 1.0.3
+<6>[    5.337860] device-mapper: ioctl: 4.14.0-ioctl (2008-04-23) initialised: dm-devel@redhat.com
+<6>[    5.337951] Bluetooth: HCI UART driver ver 2.2
+<6>[    5.337982] Bluetooth: HCI H4 protocol initialized
+<6>[    5.337982] Bluetooth: HCILL protocol initialized
+<6>[    5.338012] perflock_notifier_call: cpufreq lock speed 600000
+<6>[    5.338043] active perf lock 'boot-time'
+<7>[    5.338836] msmsdcc_platform_status_irq: 102
+<6>[    5.338836] mmc0: Slot status change detected (0 -> 1)
+<6>[    5.338928] mmc0: MMC_BUSCLK_PWRSAVE is enabled
+<6>[    5.339141] latte_sdslot_switchvdd: Disabling SD slot power
+<6>[    5.340454] mmc0: Qualcomm MSM SDCC at 0x00000000a0500000 irq 26,102 dma 8
+<6>[    5.340484] mmc0: Platform slot type: SD
+<6>[    5.340484] mmc0: 4 bit data mode enabled
+<6>[    5.340515] mmc0: MMC clock 144000 -> 50000000 Hz, PCLK 100000000 Hz
+<6>[    5.340515] mmc0: Slot eject status = 0
+<6>[    5.340545] mmc0: Power save feature enable = 1
+<6>[    5.340545] mmc0: DM non-cached buffer at ffa4c000, dma_addr 0x2d575000
+<6>[    5.340576] mmc0: DM cmd busaddr 0x2d575000, cmdptr busaddr 0x2d575300
+<6>[    5.340942] Registered led device: caps
+<6>[    5.341064] Registered led device: func
+<6>[    5.344268] logger: created 64K log 'log_main'
+<6>[    5.344421] logger: created 256K log 'log_events'
+<6>[    5.344573] logger: created 64K log 'log_radio'
+<6>[    5.344665] ram_console: got buffer at 2ff1b000, size 20000
+<6>[    5.344879] ram_console: found existing buffer, size 114660, start 2188
+<6>[    5.848663] console [ram-1] enabled
+<6>[    5.928222] oprofile: using arm/armv6
+<4>[    5.928710] Netfilter messages via NETLINK v0.30.
+<4>[    5.928985] nf_conntrack version 0.5.0 (6848 buckets, 27392 max)
+<4>[    5.929473] CONFIG_NF_CT_ACCT is deprecated and will be removed soon. Please use
+<4>[    5.929687] nf_conntrack.acct=1 kernel paramater, acct=1 nf_conntrack module option or
+<4>[    5.930053] sysctl net.netfilter.nf_conntrack_acct=1 to enable it.
+<6>[    5.930572] xt_time: kernel timezone is -0000
+<6>[    5.931243] ip_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    5.931579] TCP cubic registered
+<6>[    5.932403] NET: Registered protocol family 10
+<6>[    5.933532] lo: Disabled Privacy Extensions
+<6>[    5.934936] Mobile IPv6
+<6>[    5.935363] ip6_tables: (C) 2000-2006 Netfilter Core Team
+<6>[    5.935821] IPv6 over IPv4 tunneling driver
+<6>[    5.936798] sit0: Disabled Privacy Extensions
+<6>[    5.937988] ip6tnl0: Disabled Privacy Extensions
+<6>[    5.938323] NET: Registered protocol family 17
+<6>[    5.938720] NET: Registered protocol family 15
+<6>[    5.938964] Bluetooth: L2CAP ver 2.13
+<6>[    5.939147] Bluetooth: L2CAP socket layer initialized
+<6>[    5.939544] Bluetooth: SCO (Voice Link) ver 0.6
+<6>[    5.939758] Bluetooth: SCO socket layer initialized
+<6>[    5.946441] latte_sdslot_switchvdd: Setting level to 2900
+<6>[    5.992156] Bluetooth: RFCOMM socket layer initialized
+<6>[    5.992492] Bluetooth: RFCOMM TTY layer initialized
+<6>[    5.992889] Bluetooth: RFCOMM ver 1.11
+<6>[    5.993103] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+<6>[    5.993469] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+<6>[    5.994171] clock_late_init() disabled 19 unused clocks
+<6>[    5.994659] [Port list] init()
+<6>[    5.994873] [Port list] Virtual Address for port_list: [f8185a38]
+<6>[    5.995086] [Port list] Physical Address for port_list: [185A38]
+<4>[    5.995880] latte_wifi_init: start
+<6>[    5.996490] perflock_notifier_call: screen_on_policy_req 1,policy_min 480000
+<6>[    5.996856] perflock_notifier_call: cpufreq lock speed 600000
+<6>[    5.997070] active perf lock 'boot-time'
+<6>[    5.997436] VFP support v0.3: implementor 41 architecture 1 part 20 variant b rev 5
+<6>[    6.000976] rs30000048:00010004 rs30000048:00010004: setting system clock to 2010-12-30 15:52:48 UTC (1293724368)
+<6>[    6.001495] Freeing init memory: 136K
+<4>[    6.002044] Warning: unable to open an initial console.
+<3>[    6.002807] mmc0: Command timeout (cmd= 5 mci_st=00000004)
+<3>[    6.009033] mmc0: Command timeout (cmd= 5 mci_st=00000004)
+<3>[    6.015106] mmc0: Command timeout (cmd= 5 mci_st=00000004)
+<3>[    6.021331] mmc0: Command timeout (cmd= 5 mci_st=00000004)
+<6>[    6.028381] latte_sdslot_switchvdd: Setting level to 2850
+<4>[    6.170776] mmc0: host does not support reading read-only switch. assuming write-enable.
+<6>[    6.171020] mmc0: new high speed SDHC card at address 0002
+<3>[    6.176483] init: Unable to open persistent property directory /data/property errno: 2
+<6>[    6.183380] mmcblk0: mmc0:0002 SD16G 15.1 GiB 
+<6>[    6.184112]  mmcblk0: p1
+<6>[    6.266754] msmfb: pan_update in state(1)
+<6>[    6.266754] msmfb: full update starting
+<6>[    6.296325] msmfb: full update completed
+<6>[    6.296630] msmfb: turning on panel
+<6>[    6.299499] yaffs: dev is 32505860 name is "mtdblock4"
+<6>[    6.299896] yaffs: passed flags ""
+<4>[    6.300109] yaffs: Attempting MTD mount on 31.4, "mtdblock4"
+<7>[    6.336853] turn on backlight.
+<4>[    6.389831] block 261 is bad
+<4>[   10.800140] yaffs_read_super: isCheckpointed 0
+<6>[   11.973449] hsusb: ONLINE -> RESET
+<6>[   11.973693] hsusb: reset controller
+<3>[   11.996704] init: untracked pid 64 exited
+<3>[   11.997131] init: untracked pid 65 exited
+<3>[   12.010498] init: untracked pid 66 exited
+<6>[   12.012664] msm_hsusb_phy_reset
+<4>[   12.032714] ulpi: write 0x2c to 0x31
+<4>[   12.033111] ulpi: write 0x31 to 0x32
+<4>[   12.033294] ulpi: write 0x1d to 0x0d
+<4>[   12.033508] ulpi: write 0x1d to 0x10
+<4>[   12.034820] usb_ept_queue_xfer() tried to queue request while offline
+<7>[   12.035125] usb: notify offline
+<6>[   12.035644] mtp_tunnel_configure: 0
+<6>[   12.036163] hsusb: RESET -> ONLINE
+<6>[   12.036376] do_set_config: new_config = 0, fsg->config = 1, usb_get_connect_type = 1
+<6>[   12.039154] usb: suspend
+<6>[   12.170104] usb: reset
+<6>[   12.172393] usb: portchange USB_SPEED_HIGH
+<3>[   12.266571] FAT: bogus number of reserved sectors
+<6>[   12.266784] VFS: Can't find a valid FAT filesystem on dev mmcblk0.
+<7>[   12.339721] gs_configure done
+<6>[   12.339935] mtp_tunnel_configure: 1
+<7>[   12.340362] gs_configure done
+<7>[   12.340759] gs_configure done
+<6>[   12.341278] do_set_config: new_config = 1, fsg->config = 0, usb_get_connect_type = 1
+<6>[   12.341491] usb_mass_storage usb_mass_storage: config #1
+<6>[   12.341857] switch_set_state:sdev->state == state
+<6>[   12.342071] do_set_config: uevent = 1
+<6>[   16.407562] yaffs: dev is 32505859 name is "mtdblock3"
+<6>[   16.407775] yaffs: passed flags ""
+<4>[   16.407989] yaffs: Attempting MTD mount on 31.3, "mtdblock3"
+<4>[   16.633331] block 921 is bad
+<4>[   16.775207] block 1496 is bad
+<4>[   16.820434] block 1679 is bad
+<4>[   16.820922] block 1680 is bad
+<4>[   16.913116] Partially written block 592 detected
+<4>[   16.913452] Partially written block 592 detected
+<4>[   16.913970] Partially written block 592 detected
+<4>[   16.914306] Partially written block 592 detected
+<4>[   16.914611] Partially written block 592 detected
+<4>[   16.915130] Partially written block 592 detected
+<4>[   16.915435] Partially written block 592 detected
+<4>[   16.915954] Partially written block 592 detected
+<4>[   16.916259] Partially written block 592 detected
+<4>[   16.916778] Partially written block 592 detected
+<4>[   16.917114] Partially written block 592 detected
+<4>[   16.917419] Partially written block 592 detected
+<4>[   16.917938] Partially written block 592 detected
+<4>[   16.918243] Partially written block 592 detected
+<4>[   16.918762] Partially written block 592 detected
+<4>[   16.919067] Partially written block 592 detected
+<4>[   16.919403] Partially written block 592 detected
+<4>[   16.919891] Partially written block 592 detected
+<4>[   16.920227] Partially written block 592 detected
+<4>[   16.920745] Partially written block 592 detected
+<4>[   16.921051] Partially written block 592 detected
+<4>[   16.921386] Partially written block 592 detected
+<4>[   16.921905] Partially written block 592 detected
+<4>[   16.922210] Partially written block 592 detected
+<4>[   16.922760] Partially written block 592 detected
+<4>[   16.923095] Partially written block 592 detected
+<4>[   16.923400] Partially written block 592 detected
+<4>[   16.923919] Partially written block 592 detected
+<4>[   16.924224] Partially written block 592 detected
+<4>[   16.924713] Partially written block 592 detected
+<4>[   16.925048] Partially written block 592 detected
+<4>[   16.925415] Partially written block 592 detected
+<4>[   16.925903] Partially written block 592 detected
+<4>[   16.926239] Partially written block 592 detected
+<4>[   16.926727] Partially written block 592 detected
+<4>[   16.927062] Partially written block 592 detected
+<4>[   16.927398] Partially written block 592 detected
+<4>[   16.927917] Partially written block 592 detected
+<4>[   16.928222] Partially written block 592 detected
+<4>[   16.928741] Partially written block 592 detected
+<4>[   24.045135] yaffs_read_super: isCheckpointed 0
+<6>[   52.492645] Release 'boot-time' readahead_lock
+<6>[   62.482666] Release 'boot-time' perf_lock
+<6>[   63.482757] perflock_notifier_call: cpufreq recover policy 480000 600000
+<4>[  103.439941] save exit: isCheckpointed 1
+<4>[  103.536468] save exit: isCheckpointed 1
+<6>[  103.579162] yaffs: dev is 32505861 name is "mtdblock5"
+<6>[  103.579376] yaffs: passed flags ""
+<4>[  103.579589] yaffs: Attempting MTD mount on 31.5, "mtdblock5"
+<4>[  103.599975] block 79 is bad
+<4>[  112.904571] yaffs_read_super: isCheckpointed 0
+<4>[  231.680938] save exit: isCheckpointed 1
+<4>[  231.787231] save exit: isCheckpointed 1
+<4>[  295.423889] save exit: isCheckpointed 1

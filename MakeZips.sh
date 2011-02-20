@@ -4,13 +4,13 @@ updater=META-INF/com/google/android/updater-script
 outdir=../CustomMTD_out/v${version}
 if [ ! -e "$outdir" ];
 then
-	install -d $outdir
+    install -d $outdir
 fi
 signtools=$(dirname $(find $PWD -name signapk.jar|grep -v \.repo))
 if [ "$?" != "0" ];
 then
-	echo "signapk.jar not found, files will not be signed"
-	signtools=skip
+    echo "signapk.jar not found, files will not be signed"
+    signtools=skip
 fi
 boot ()
 {
@@ -66,6 +66,29 @@ sign ${outdir}/recovery-v${version}-CustomMTD.zip
 return
 }
 
+remove ()
+{
+cat > $updater << "EOF"
+set_progress(1.000000);
+EOF
+echo "ui_print(\"CustomMTD Patcher v${version}\");" >> $updater
+cat >> $updater << "EOF"
+ui_print("Remove Mode");
+ui_print("Extracting Patch Tools...");
+package_extract_dir("MTDPartPatcher", "/tmp");
+set_perm(0, 0, 0700, "/tmp/patchbootimg.sh");
+set_perm(0, 0, 0700, "/tmp/mkbootimg");
+set_perm(0, 0, 0700, "/tmp/unpackbootimg");
+run_program("/tmp/patchbootimg.sh", "remove");
+ui_print("Custom MTD written");
+ui_print("Please wipe system,cache & data");
+ui_print("& reboot to recovery for changes");
+ui_print("to take effect");
+EOF
+zip -r ${outdir}/remove-v${version}-CustomMTD.zip META-INF MTDPartPatcher
+sign ${outdir}/remove-v${version}-CustomMTD.zip
+return
+}
 Test ()
 {
 cat > $updater << "EOF"
@@ -80,7 +103,9 @@ set_perm(0, 0, 0700, "/tmp/patchbootimg.sh");
 set_perm(0, 0, 0700, "/tmp/mkbootimg");
 set_perm(0, 0, 0700, "/tmp/unpackbootimg");
 run_program("/tmp/patchbootimg.sh", "test");
-ui_print("Please see /sdcard/<device_CustomMTD.tar.gz");
+ui_print("Test Mode complete, see ");
+ui_print("/sdcard/cMTD-testoutput.txt");
+ui_print("for full output");
 EOF
 zip -r ${outdir}/test-v${version}-CustomMTD.zip META-INF MTDPartPatcher
 sign ${outdir}/test-v${version}-CustomMTD.zip
@@ -91,21 +116,22 @@ sign ()
 {
 if [ "$signtools" = "skip" ];
 then
-	echo "skipping signing"
-	return
+    echo "skipping signing"
+    return
 fi
 for file in $@;do
-	ext=zip
-	echo "signing ${file}..."
-	java -jar ${signtools}/signapk.jar ${signtools}/testkey.x509.pem ${signtools}/testkey.pk8 $file ${outdir}/`basename $file .${ext}`_S.${ext}
-	echo "signing ${file} complete"
-	rm ${file}
-	echo "signed file : ${outdir}/`basename $file .${ext}`_S.${ext}"
+    ext=zip
+    echo "signing ${file}..."
+    java -jar ${signtools}/signapk.jar ${signtools}/testkey.x509.pem ${signtools}/testkey.pk8 $file ${outdir}/`basename $file .${ext}`_S.${ext}
+    echo "signing ${file} complete"
+    rm ${file}
+    echo "signed file : ${outdir}/`basename $file .${ext}`_S.${ext}"
 done 
 return
 }
 boot
 AutoMTD
 recovery
-#Test
+remove
+Test
 rm META-INF/com/google/android/updater-script
