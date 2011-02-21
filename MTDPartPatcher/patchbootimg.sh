@@ -14,6 +14,17 @@ readdmesg ()
 {
 $dmesg|awk '/0x.+: "/ {sub(/-/," ");gsub(/"/,"");gsub(/0x/,"");printf $6" 0x"toupper ($3)" 0x"toupper ($4)"\n"}' > $dmesgmtdpart
 
+# Thunderhack -- figure out if device has awkward partition layout
+# NB this is just a quick and dirty hack, not final solution
+if [ "`$dmesg|grep -q thunderc;echo $?`" = "0" ];
+then
+    thunderhack=yes
+    resizable="system|userdata"
+else
+    thunderhack=no
+    resizable="system|cache|userdata"
+fi
+
 # need a sanity check, what if recovery had been running for ages and the dmesg buffer had been filled?
 for sanity in misc recovery boot system cache userdata;do
     if [ `grep -q $sanity $dmesgmtdpart;echo $?` = "0" ];
@@ -41,11 +52,15 @@ then
     done
 SCD_Total=`echo|awk '{printf "%g",'$systemSizeMBytes' + '$cacheSizeMBytes' + '$userdataSizeMBytes' }'`
 
-    for partition in `cat $dmesgmtdpart|awk '!/system|cache|userdata/ {print $1}'`;do
+    for partition in `cat $dmesgmtdpart|awk '!/'$resizable'/ {print $1}'`;do
         eval StartHex=\$${partition}StartHex
         eval EndHex=\$${partition}EndHex
         eval ${partition}SizeKBytes=`expr \( $(printf %d $EndHex) - $(printf %d $StartHex) \) \/ 1024 `
         eval SizeKBytes=\$${partition}SizeKBytes
+        if [ "$thunderhack" = "yes" -a "$partition" = "cache" ];
+        then
+            partition=system
+        fi
         CLInit="${CLInit}`echo \"${SizeKBytes}K@${StartHex}(${partition})\"`,"
     done
     CLInit="`echo $CLInit|sed s/,\$//`"
@@ -152,6 +167,24 @@ DataBytes=`echo|awk '{printf "%f",'$(printf '%d' ${userdataEndHex})' - '$DataSta
 DataKBytes=`echo|awk '{printf "%d",'$DataBytes' / 1024}'`
 
 KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
+return
+}
+
+ThCreateCMDline ()
+{
+# this is Thunderhack, quick and dirty
+systemStartBytes=`printf %d $(awk '/system/ { print $2 }' $dmesgmtdpart)`
+cacheSizeKBytes=`echo|awk '{printf "%d",'$cacheMB' * 1024}'`
+cacheBytes=`echo|awk '{printf "%f",'$cacheSizeKBytes' * 1024}'`
+cacheStartBytes=`echo|awk '{printf "%f",'$systemStartBytes'}'`
+cacheStartHex=`echo|awk '{printf "%X",'$cacheStartBytes'}'`
+
+DataStartBytes=`echo|awk '{printf "%f",'$cacheStartBytes' + '$cacheBytes'}'`
+DataStartHex=`echo|awk '{printf "%X",'$DataStartBytes'}'`
+DataBytes=`echo|awk '{printf "%f",'$(printf '%d' ${userdataEndHex})' - '$DataStartBytes'}'`
+DataKBytes=`echo|awk '{printf "%d",'$DataBytes' / 1024}'`
+
+KCMDline="${CLInit},${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
 return
 }
 
@@ -262,12 +295,25 @@ mtdpart=/proc/mtd
 dmesgmtdpart=/dev/mtdpartmap
 logfile=$wkdir/recovery.log
 dmesg=dmesg
+if [ "$#" = "3" ];
+then
+    # hack in a desktop test mode,
+    # 1st opt is test, 2nd Anything, 3nd opt is dmesg sample
+    # yeap, its crap, but will do for now
+    wkdir=`pwd`
+    sdcard=`pwd`
+    mapfile=$sdcard/mtdpartmap.txt
+    mtdpart=`pwd`/mtd
+    dmesgmtdpart=`pwd`/mtdpartmap
+    logfile=$wkdir/recovery.log
+    dmesg="cat $3"
+fi
 if [ "$boot" = "test" ];
 then
-    dmesg > /sdcard/cMTD-testoutput.txt
-    busybox sed s/serialno=.*\ a/serialno=XXXXXXXXXX\ a/g -i /sdcard/cMTD-testoutput.txt
-    sh -x $me recovery testrun >> /sdcard/cMTD-testoutput.txt 2>&1
-    busybox unix2dos /sdcard/cMTD-testoutput.txt
+    $dmesg > $sdcard/cMTD-testoutput.txt
+    busybox sed s/serialno=.*\ a/serialno=XXXXXXXXXX\ a/g -i $sdcard/cMTD-testoutput.txt
+    sh -x $me recovery testrun $3 >> $sdcard/cMTD-testoutput.txt 2>&1
+    busybox unix2dos $sdcard/cMTD-testoutput.txt
     exit
 fi
 
@@ -279,8 +325,14 @@ if [ "$boot" = "recovery" ];
 then
     recoverymode
     readdmesg
-    checksizing
-    CreateCMDline
+    if [ "$thunderhack" = "yes" ];
+    then
+        # for now dodging the size checks
+        ThCreateCMDline
+    else
+        checksizing
+        CreateCMDline
+    fi
 elif [ "$boot" = "boot" ];
 then
     GetCMDline
