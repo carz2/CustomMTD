@@ -55,9 +55,13 @@ else
     else
         if [ "$userdataStartsAtEndOf" = "system" ];
         then
+            echo "none consecutive partition detected, can not proceed" >> $logfile
+            exit
             consecutive=SD
             exclude="system|userdata"
         else
+            echo "none consecutive partition detected, can not proceed" >> $logfile
+            exit
             consecutive=CD
             exclude="cache|userdata"
         fi
