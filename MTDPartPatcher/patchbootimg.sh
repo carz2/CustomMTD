@@ -7,23 +7,12 @@
 #
 # https://github.com/Firerat/CustomMTD
 
-version=1.5.9-PreAlpha
+version=1.5.9-Alpha
 ##
 
 readdmesg ()
 {
 $dmesg|awk '/0x.+: "/ {sub(/-/," ");gsub(/"/,"");gsub(/0x/,"");printf $6" 0x"toupper ($3)" 0x"toupper ($4)"\n"}' > $dmesgmtdpart
-
-# Thunderhack -- figure out if device has awkward partition layout
-# NB this is just a quick and dirty hack, not final solution
-if [ "`$dmesg|grep -q thunderc;echo $?`" = "0" ];
-then
-    thunderhack=yes
-    resizable="system|userdata"
-else
-    thunderhack=no
-    resizable="system|cache|userdata"
-fi
 
 # need a sanity check, what if recovery had been running for ages and the dmesg buffer had been filled?
 for sanity in misc recovery boot system cache userdata;do
@@ -35,14 +24,44 @@ for sanity in misc recovery boot system cache userdata;do
         break
     fi
 done
-if [ "$sain" = "y" ];
+if [ "$sain" = "n" ];
 then
+    echo -e "${boot} Patcher v${version}\npartition layout not found in dmesg" >> $logfile
+    exit
+else
     CLInit="$CLInit mtdparts=msm_nand:"
     for partition in `cat $dmesgmtdpart|awk '{print $1}'`;do
         eval ${partition}StartHex=`awk '/'$partition'/ {print $2}' $dmesgmtdpart`
         eval ${partition}EndHex=`awk '/'$partition'/ {print $3}' $dmesgmtdpart`
     done
 
+    # figure out the partition order of system cache and userdata
+    for partition in system cache userdata;do
+        eval StartHex=\$${partition}StartHex
+        for part in `cat $dmesgmtdpart|awk '{print $1}'`;do
+            if [ "$StartHex" = "`awk '/'$part'/ {print $3}' $dmesgmtdpart`" ];
+            then
+                eval ${partition}StartsAtEndOf=$part
+                break
+            fi
+        done
+    done
+
+    # now check if system, cache and userdata are consecutive
+    if [ "$cacheStartsAtEndOf" = "system" -a "$userdataStartsAtEndOf" = "cache" ];
+    then
+        consecutive=yes
+        exclude="system|cache|userdata"
+    else
+        if [ "$userdataStartsAtEndOf" = "system" ];
+        then
+            consecutive=SD
+            exclude="system|userdata"
+        else
+            consecutive=CD
+            exclude="cache|userdata"
+        fi
+    fi
     #Get resizable nand size ( mb )
     SCD_Total=0
     for partition in system cache userdata;do
@@ -50,23 +69,20 @@ then
         eval EndHex=\$${partition}EndHex
         eval ${partition}SizeMBytes=`expr \( $(printf %d $EndHex) - $(printf %d $StartHex) \) \/ 1048576`
     done
-SCD_Total=`echo|awk '{printf "%g",'$systemSizeMBytes' + '$cacheSizeMBytes' + '$userdataSizeMBytes' }'`
+    SCD_Total=`echo|awk '{printf "%g",'$systemSizeMBytes' + '$cacheSizeMBytes' + '$userdataSizeMBytes' }'`
 
-    for partition in `cat $dmesgmtdpart|awk '!/'$resizable'/ {print $1}'`;do
+    for partition in `cat $dmesgmtdpart|awk '!/'$exclude'/ {print $1}'`;do
         eval StartHex=\$${partition}StartHex
         eval EndHex=\$${partition}EndHex
         eval ${partition}SizeKBytes=`expr \( $(printf %d $EndHex) - $(printf %d $StartHex) \) \/ 1024 `
         eval SizeKBytes=\$${partition}SizeKBytes
-        if [ "$thunderhack" = "yes" -a "$partition" = "cache" ];
+        if [ "$partition" = "cache" -a "$consecutive" = "SD" ];
         then
             partition=system
         fi
         CLInit="${CLInit}`echo \"${SizeKBytes}K@${StartHex}(${partition})\"`,"
     done
     CLInit="`echo $CLInit|sed s/,\$//`"
-else
-    echo -e "${boot} Patcher v${version}\npartition layout not found in dmesg" >> $logfile
-    exit
 fi
 return
 }
@@ -158,33 +174,27 @@ systemBytes=`echo|awk '{printf "%f",'$systemSizeKBytes' * 1024}'`
 
 cacheSizeKBytes=`echo|awk '{printf "%d",'$cacheMB' * 1024}'`
 cacheBytes=`echo|awk '{printf "%f",'$cacheSizeKBytes' * 1024}'`
-cacheStartBytes=`echo|awk '{printf "%f",'$systemStartBytes' + '$systemBytes'}'`
-cacheStartHex=`echo|awk '{printf "%X",'$cacheStartBytes'}'`
+if [ "$consecutive" = "SD" ];
+then
+    cacheStartHex=`echo|awk '{printf "%X",'$systemStartBytes'}'`
+elif [ "$consecutive" = "CD" ];
+then
+    cacheStartHex=`awk '/cache/ {printf "%X",$2 }' $dmesgmtdpart`
+else
+    cacheStartHex=`echo|awk '{printf "%X",'$systemStartBytes' + '$systemBytes'}'`
+fi
 
 DataStartBytes=`echo|awk '{printf "%f",'$cacheStartBytes' + '$cacheBytes'}'`
 DataStartHex=`echo|awk '{printf "%X",'$DataStartBytes'}'`
 DataBytes=`echo|awk '{printf "%f",'$(printf '%d' ${userdataEndHex})' - '$DataStartBytes'}'`
 DataKBytes=`echo|awk '{printf "%d",'$DataBytes' / 1024}'`
 
-KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
-return
-}
-
-ThCreateCMDline ()
-{
-# this is Thunderhack, quick and dirty
-systemStartBytes=`printf %d $(awk '/system/ { print $2 }' $dmesgmtdpart)`
-cacheSizeKBytes=`echo|awk '{printf "%d",'$cacheMB' * 1024}'`
-cacheBytes=`echo|awk '{printf "%f",'$cacheSizeKBytes' * 1024}'`
-cacheStartBytes=`echo|awk '{printf "%f",'$systemStartBytes'}'`
-cacheStartHex=`echo|awk '{printf "%X",'$cacheStartBytes'}'`
-
-DataStartBytes=`echo|awk '{printf "%f",'$cacheStartBytes' + '$cacheBytes'}'`
-DataStartHex=`echo|awk '{printf "%X",'$DataStartBytes'}'`
-DataBytes=`echo|awk '{printf "%f",'$(printf '%d' ${userdataEndHex})' - '$DataStartBytes'}'`
-DataKBytes=`echo|awk '{printf "%d",'$DataBytes' / 1024}'`
-
-KCMDline="${CLInit},${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
+if [ "$consecutive" = "yes" ];
+then
+    KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
+else
+    KCMDline="${CLInit},${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
+fi
 return
 }
 
@@ -218,7 +228,7 @@ return
 bindcache ()
 {
 #TODO get rid of this script in favour of setting DOWNLOAD_CACHE
-# use a optional patch for ROMs which do not support DOWNLOAD_CACHE by default 
+# use a optional patch for ROMs which do not support DOWNLOAD_CACHE by default
 cacheSizeKBytes=`df |awk '/ \/cache$/ {print $2}'`
 if [ "`expr $cacheSizeKBytes \/ 1024`" -lt "15" ];
 then
@@ -325,14 +335,8 @@ if [ "$boot" = "recovery" ];
 then
     recoverymode
     readdmesg
-    if [ "$thunderhack" = "yes" ];
-    then
-        # for now dodging the size checks
-        ThCreateCMDline
-    else
-        checksizing
-        CreateCMDline
-    fi
+    checksizing
+    CreateCMDline
 elif [ "$boot" = "boot" ];
 then
     GetCMDline
