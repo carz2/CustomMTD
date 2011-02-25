@@ -270,7 +270,10 @@ fi
 # first check if 06mountdl is present ( a cm7 script )
 if [ -e /system/etc/init.d/06mountdl ];
 then
-    fix06mountdl
+    if [ "`grep -q \#FR\# /system/etc/init.d/06mountdl;echo $?`" != "0" ];
+    then
+        fix06mountdl
+    fi
     return
 fi
 cacheSizeKBytes=`df |awk '/ \/cache$/ {print $2}'`
