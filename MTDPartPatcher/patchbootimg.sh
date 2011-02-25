@@ -100,10 +100,12 @@ fi
 return
 }
 
-recoverymode ()
+readconfig ()
 {
+#TODO, make new config format (prop style)
 if [ ! -e $mapfile -a "$opt" != "testrun" ];
 then
+#TODO write a default config and point at it while we have users attention 
     cat >> $logfile << "EOF"
 Error1=/sdcard/mtdpartmap.txt
 Error2=does not exist please create
@@ -156,6 +158,12 @@ else
         CLInit="$CLInit"
     else
         CLInit="androidboot.bootloader=$FakeSPL $CLInit"
+    fi
+    LastRecoverymd5sum=`awk '/recoverymd5/ {print $2}'`
+    if [ "$LastRecoverymd5sum" = "" ];
+    then
+        LastRecoverymd5sum=`md5sum /dev/mtd/$(awk -F: '/recovery/ {print $1}' /proc/mtd)ro|awk '{print $1}'`
+        echo "recoverymd5 $LastRecoverymd5sum" >> $mapfile
     fi
 fi
 return
@@ -449,6 +457,34 @@ echo mtd $systemOpt $cacheOpt
 # and one day I will look at msm_nand ko  ^^ is cheap n easy
 return
 }
+
+AutoPatch ()
+{
+# this function will compare users defined settings with current running recovery
+# if they are different it will patch recovery
+# if they match it will check the installed recovery's md5sum against the logged md5sum, and patch if they don't match
+# if all those conditions are met, it will patch the boot.img with the running recovery's layout
+# should have done this ages ago
+readconfig
+for MTDPart in system cache;do
+    eval ${MTDPart}SizeMB=$(printf %d `awk '/'${MTDPart}'/ {print "0x"$2}' /proc/mtd`|awk '{printf "%f", $1 / 1048576}')
+done
+if [ "$systemMB" != "$systemSizeMB" -o "$cacheMB" != "$cacheSizeMB" ];
+then
+    boot=recovery
+else
+    Recoverymd5sum=`md5sum /dev/mtd/$(awk -F: '/recovery/ {print $1}' /proc/mtd)ro|awk '{print $1}'`
+    LastRecoverymd5sum=`awk '/recoverymd5/ {print $2}'`
+    if [ "$Recoverymd5sum" != "$LastRecoverymd5sum" ];
+    then
+        boot=recovery
+    else
+        boot=boot
+    fi
+fi
+#TODO check spl spoof ( not that spl spoofing has any pratical use anymore, but may be needed for old roms, or die hard 1.33.2003 fans )
+return
+}
 #end functions
 me=$0
 boot=$1
@@ -482,6 +518,8 @@ then
     exit
 fi
 
+#AutoPatch
+
 echo "Mode=$boot" > $logfile
 
 if [ "$boot" = "remove" ];
@@ -491,7 +529,7 @@ then
 fi
 if [ "$boot" = "recovery" ];
 then
-    recoverymode
+    readconfig
     readdmesg
     checksizing
     CreateCMDline
