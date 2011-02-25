@@ -252,24 +252,33 @@ return
 
 dumpimg ()
 {
-dump_image ${boot} $wkdir/${boot}.img
-$wkdir/unpackbootimg $wkdir/${boot}.img $wkdir/
-rm $wkdir/${boot}.img
-origcmdline=`awk '{gsub(/\ .\ /,"");sub(/mtdparts.+)/,"");sub(/androidboot.bootloader=.+\ /,"");print}' $wkdir/${boot}.img-cmdline|awk '{$1=$1};1'`
+mtdblk=`awk -F: '/'$boot'/ {print $1}' /proc/mtd`ro
+$wkdir/unpackbootimg /dev/mtd/${mtdblk} $wkdir/
+origcmdline=`awk '{gsub(/\ .\ /,"");sub(/mtdparts.+)/,"");sub(/androidboot.bootloader=.+\ /,"");print}' $wkdir/${mtdblk}-cmdline|awk '{$1=$1};1'`
 return
 }
 
 flashimg ()
 {
-$1 $wkdir/mkbootimg --kernel $wkdir/${boot}.img-zImage --ramdisk $wkdir/${boot}.img-ramdisk.gz -o $wkdir/${boot}.img --cmdline "$origcmdline $KCMDline" --base `cat $wkdir/${boot}.img-base`
+$1 $wkdir/mkbootimg --kernel $wkdir/${mtdblk}-zImage --ramdisk $wkdir/${mtdblk}-ramdisk.gz -o $wkdir/${boot}.img --cmdline "$origcmdline $KCMDline" --base `cat $wkdir/${mtdblk}-base`
+imagemd5=`md5sum $wkdir/${boot}.img|awk '{print $1}'`
 $1 erase_image ${boot}
 $1 flash_image ${boot} $wkdir/${boot}.img
-# TODO
-# check that flash_image worked ( to give feedback to S-ON users )
-# may need to look at flash_image's code, it doesn't seem to do exit codes
-# at least the one in CM5/6 always returned exit 0
-# suppose I could just re-dump and unpack the img and compare cmdline, but that is a bit hacky
-
+if [ "$imagemd5" = "`md5sum /dev/mtd/${mtdblk}|awk '{print $1}'`" ];
+then
+    echo "success=true" >> $logfile
+    if [ "$boot" = "recovery" ];
+    then
+        sed s/recoverymd5.*+/recoverymd5\ $imagemd5/ -i $mapfile
+    fi
+    exit
+else
+    echo "Error1=Writing $boot failed" >> $logfile
+    echo "Error2=Make sure you have an unlocked" >> $logfile
+    echo "Error3=bootloader (aka spl or hboot)" >> $logfile
+    echo "success=false" >> $logfile
+    exit
+fi
 return
 }
 
@@ -552,4 +561,3 @@ then
 else
     flashimg
 fi
-echo "success=true" >> $logfile
