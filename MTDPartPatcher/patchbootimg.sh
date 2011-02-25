@@ -263,6 +263,16 @@ bindcache ()
 {
 #TODO get rid of this script in favour of setting DOWNLOAD_CACHE
 # use a optional patch for ROMs which do not support DOWNLOAD_CACHE by default
+if [ "`grep -q system /proc/mounts;echo $?`" != "0" ];
+then
+    mount /system
+fi
+# first check if 06mountdl is present ( a cm7 script )
+if [ -e /system/etc/init.d/06mountdl ];
+then
+    fix06mountdl
+    return
+fi
 cacheSizeKBytes=`df |awk '/ \/cache$/ {print $2}'`
 if [ "`expr $cacheSizeKBytes \/ 1024`" -lt "15" ];
 then
@@ -307,10 +317,6 @@ then
     ln -s /dev/cache/recovery $cacheDir/recovery
 fi
 EOF
-    if [ "`grep -q system /proc/mounts;echo $?`" != "0" ];
-    then
-        mount /system
-    fi
     # grr, why rename init.d?
     if [ ! -e /system/etc/init.d -a -d /system/etc/super ];
     then
@@ -321,6 +327,85 @@ fi
 return
 }
 
+fix06mountdl ()
+{
+# CM7's 06mountdl is great, but.. 
+# currently ( as per commit 2a742afd1757b1cd89f97978ac4ddf959206e3cc )
+# it will use data for DOWNLOAD_CACHE if /cache has less than 20mb free space
+# Trouble is, this more than doubles the space required to successfully install an app
+# a 15mb app would need at least 30mb + 10% of total data
+# so assuming 200mb data partition, you would need:
+# app size| data | sd-ext or cache
+#     1   |  22  |   21  |
+#     5   |  30  |   25  |
+#    15   |  50  |   35  |
+#    20   |  60  |   40  |
+#    30   |  80  |   50  |
+#    50   | 120  |   70  |
+# this script considers using sd-ext ( if avaialable )
+# and will only use /data if it has more than twice as much free space as cache
+#
+# Oh, and things were breaking because 06BindCach was running before 06mountdl
+# and 06mountdl wasn't creating the download dir on the 'fake' cache
+# this fixes this issue, but tbh I'm being a little cheeky installing this
+# so included an undo feature
+sed -e s/^/#FR#/ -e s/#FR##\!/#\!/ > /dev/06mountdl
+cat >> /dev/06mountdl << "EOF"
+# state that I tainted it
+echo "06mountdl modified by Firerat"
+echo "run 06mountdl with -undo"
+echo "e.g."
+echo "$0 -undo"
+echo "( as root ! )"
+echo "to revert to original"
+if [ "$1" = "-undo" ];
+then
+    mount -o remount,rw /system
+    grep -E "#\!/system|#FR#" $0|sed s/#FR#// > $0
+    mount -o remount,ro /system
+    echo "Firerat tainted 06mountdl removed"
+    echo "reboot to see changes"
+    exit
+fi
+avail ()
+{
+partition=`echo $1|sed s/[^a-zA-Z0-9]//g`
+eval ${partition}_free=$(df |awk '$6 == "/'$1'" {printf $4}')
+eval checkzero=\$${partition}_free
+if [ "$checkzero" = "" ];
+then
+    eval ${partition}_free="0"
+fi
+}
+for partition in sd-ext data cache;do
+    avail $partition
+done
+# Prioritise the sd-ext ( if avialable )
+# only use data if cache is too small
+minDLCache=`expr 50 \* 1024` # 50mb , max market d/l is currently 50mb
+#TODO check is sysdex will be going to cache
+if [ "$sdext_free" -gt "$cache_free" ];
+then
+    AltDownloadCache="/sd-ext/download"
+elif [ "$cache_free" -lt "$minDLCache" -a "$data_free" -gt "`expr $cache_free \* 2`" -o "$data_free" -gt "`expr $minDLCache \* 2`" ];
+then
+    AltDownloadCache="/data/download"
+    # TODO Factor in the 10% 'reserve'
+else
+    # do nothing
+    exit
+fi
+
+if [ ! -e "$AltDownloadCache" ];
+then
+    install -m 771 -o 1000 -g 2001 -d $AltDownloadCache
+fi
+busybox mount -o bind $AltDownloadCache $DOWNLOAD_CACHE
+exit
+EOF
+install -m 700 -o 0 -g 0 /dev/06mountdl /system/etc/init.d/06mountdl
+return
+}
 removecmtd ()
 {
 dumpimg
