@@ -256,6 +256,12 @@ flashimg ()
 $1 $wkdir/mkbootimg --kernel $wkdir/${boot}.img-zImage --ramdisk $wkdir/${boot}.img-ramdisk.gz -o $wkdir/${boot}.img --cmdline "$origcmdline $KCMDline" --base `cat $wkdir/${boot}.img-base`
 $1 erase_image ${boot}
 $1 flash_image ${boot} $wkdir/${boot}.img
+# TODO
+# check that flash_image worked ( to give feedback to S-ON users )
+# may need to look at flash_image's code, it doesn't seem to do exit codes
+# at least the one in CM5/6 always returned exit 0
+# suppose I could just re-dump and unpack the img and compare cmdline, but that is a bit hacky
+
 return
 }
 
