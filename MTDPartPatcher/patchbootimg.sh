@@ -419,6 +419,27 @@ done
 echo "success=true" >> $logfile
 exit
 }
+Optimum ()
+{
+# this function will look at the existing installation and write an mtdpartmap.txt based on used size
+# mount everything
+mount -a
+for partition in system cache;do
+    eval ${partition}Opt=`df |awk '/\/'${partition}'/ {printf "%d", ($3 / 128) + 2}'|awk '{printf "%.3f", ( $1 * 128 ) / 1024 }'`
+# meh, lazy pipes, I should learn to use awk properly
+done
+echo mtd $systemOpt $cacheOpt
+# TODO
+# backup existing ROM,
+# patch recovery's init.rc,
+# erase_image ( kang one for RA ),
+# do restore feature,
+# stop recovery from Auto rebooting after scripted restore
+# print what we did ( i.e. new sizes )
+
+# and one day I will look at msm_nand ko  ^^ is cheap n easy
+return
+}
 #end functions
 me=$0
 boot=$1
