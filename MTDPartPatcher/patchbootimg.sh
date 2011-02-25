@@ -7,7 +7,7 @@
 #
 # https://github.com/Firerat/CustomMTD
 
-version=1.5.9-Alpha
+version=1.5.9-Alpha3
 ##
 
 readdmesg ()
@@ -26,7 +26,8 @@ for sanity in misc recovery boot system cache userdata;do
 done
 if [ "$sain" = "n" ];
 then
-    echo -e "${boot} Patcher v${version}\npartition layout not found in dmesg" >> $logfile
+    echo "Error1=Error $sanity not found in dmesg" >> $logfile
+    echo "success=false" >> $logfile
     exit
 else
     CLInit="$CLInit mtdparts=msm_nand:"
@@ -55,12 +56,16 @@ else
     else
         if [ "$userdataStartsAtEndOf" = "system" ];
         then
-            echo "none consecutive partition detected, can not proceed" >> $logfile
+            echo "Error1=none consecutive partitions" >> $logfile
+            echo "Error2=detected, can not proceed" >> $logfile
+            echo "success=false" >> $logfile
             exit
             consecutive=SD
             exclude="system|userdata"
         else
-            echo "none consecutive partition detected, can not proceed" >> $logfile
+            echo "Error1=none consecutive partitions" >> $logfile
+            echo "Error2=detected, can not proceed" >> $logfile
+            echo "success=false" >> $logfile
             exit
             consecutive=CD
             exclude="cache|userdata"
@@ -71,10 +76,14 @@ else
     for partition in system cache userdata;do
         eval StartHex=\$${partition}StartHex
         eval EndHex=\$${partition}EndHex
-        eval ${partition}SizeMBytes=`expr \( $(printf %d $EndHex) - $(printf %d $StartHex) \) \/ 1048576`
+        eval Sizebytes=`expr $(printf %d $EndHex) - $(printf %d $StartHex)`
+        eval ${partition}SizeMBytes=`echo |awk '{printf "%f", '$Sizebytes' / 1048576}'`
+        eval SizeMB=\$${partition}SizeMBytes
+        partition=`echo $partition|sed s/user//`
+echo $partition
+        echo|awk '{printf "%s%s%s%-9s%s%9.3f %s","Orig_","'$partition'","Size=","'$partition'","=",'$SizeMB',"MB\n"}' >> $logfile
     done
     SCD_Total=`echo|awk '{printf "%g",'$systemSizeMBytes' + '$cacheSizeMBytes' + '$userdataSizeMBytes' }'`
-
     for partition in `cat $dmesgmtdpart|awk '!/'$exclude'/ {print $1}'`;do
         eval StartHex=\$${partition}StartHex
         eval EndHex=\$${partition}EndHex
@@ -95,7 +104,12 @@ recoverymode ()
 {
 if [ ! -e $mapfile -a "$opt" != "testrun" ];
 then
-    echo "${boot} Patcher v${version}\n$mapfile does not exist,\nplease create it with system and cache size, e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
+    cat >> $logfile << "EOF"
+Error1=/sdcard/mtdpartmap.txt
+Error2=does not exist please create
+Error3=it with system and cache size
+success=false
+EOF
     exit
 else
     busybox dos2unix $mapfile
@@ -131,8 +145,8 @@ else
        expr $(echo|awk '{printf "%g", '$UserSize' / 0.125}') \* 1
        if [ "$?" != "0" ];
        then
-           echo "$UserSize not divisable by 0.125" >> $logfile
-           #TODO better error msg, I want to redo all feedback anyway
+           echo "Error1=$UserSize not divisable by 0.125" >> $logfile
+           echo "success=false" >> $logfile
            exit
        fi
     done
@@ -163,7 +177,12 @@ fi
 
 if [ "`echo|awk '{printf "%d", '$userdatasize'}'`" -lt "$mindatasize" ];
 then
-    echo "data size will be less than 50mb,, exiting"
+    cat >> $logfile << "EOF"
+Error1=data will be less than 50mb, add
+Error2="anydatasize" to mtdpartmap.txt
+Error3=if you wish to skip this check
+success=false
+EOF
     exit
 fi
 return
@@ -185,20 +204,26 @@ elif [ "$consecutive" = "CD" ];
 then
     cacheStartHex=`awk '/cache/ {printf "%X",$2 }' $dmesgmtdpart`
 else
-    cacheStartHex=`echo|awk '{printf "%X",'$systemStartBytes' + '$systemBytes'}'`
+    cacheStartBytes=`echo|awk '{printf "%f",'$systemStartBytes' + '$systemBytes'}'`
+    cacheStartHex=`echo|awk '{printf "%X",'$cacheStartBytes'}'`
 fi
 
-DataStartBytes=`echo|awk '{printf "%f",'$cacheStartBytes' + '$cacheBytes'}'`
-DataStartHex=`echo|awk '{printf "%X",'$DataStartBytes'}'`
-DataBytes=`echo|awk '{printf "%f",'$(printf '%d' ${userdataEndHex})' - '$DataStartBytes'}'`
-DataKBytes=`echo|awk '{printf "%d",'$DataBytes' / 1024}'`
+dataStartBytes=`echo|awk '{printf "%f",'$cacheStartBytes' + '$cacheBytes'}'`
+dataStartHex=`echo|awk '{printf "%X",'$dataStartBytes'}'`
+dataSizeBytes=`echo|awk '{printf "%f",'$(printf '%d' ${userdataEndHex})' - '$dataStartBytes'}'`
+dataSizeKBytes=`echo|awk '{printf "%d",'$dataSizeBytes' / 1024}'`
 
 if [ "$consecutive" = "yes" ];
 then
-    KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
+    KCMDline="${CLInit},${systemSizeKBytes}k@${systemStartHex}(system),${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${dataSizeKBytes}k@0x${dataStartHex}(userdata)"
 else
-    KCMDline="${CLInit},${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${DataKBytes}k@0x${DataStartHex}(userdata)"
+    KCMDline="${CLInit},${cacheSizeKBytes}k@0x${cacheStartHex}(cache),${dataSizeKBytes}k@0x${dataStartHex}(userdata)"
 fi
+for MTDPart in system cache data;do
+    eval SizeKB=\$${MTDPart}SizeKBytes
+    eval SizeMB=`echo|awk '{printf "%f",'$SizeKB'/1024}'`
+    echo|awk '{printf "%s%s%s%-9s%s%9.3f %s","New_","'$MTDPart'","Size=","'$MTDPart'","=",'$SizeMB',"MB\n"}' >> $logfile
+done
 return
 }
 
@@ -209,6 +234,11 @@ if [ "$KCMDline" = "mtdparts" ];
 then
     KCMDline=""
 fi
+    for MTDPart in system cache userdata;do
+        SizeMB=$(printf %d `awk '/'${MTDPart}'/ {print "0x"$2}' /proc/mtd`|awk '{printf "%f", $1 / 1048576}')
+        MTDPart=`echo $MTDPart|sed s/user//`
+        echo|awk '{printf "%s%s%s%-9s%s%9.3f %s","New_","'$MTDPart'","Size=","'$MTDPart'","=",'$SizeMB',"MB\n"}' >> $logfile
+    done
 return
 }
 
@@ -296,6 +326,12 @@ removecmtd ()
 dumpimg
 KCMDline=""
 flashimg
+for MTDPart in system cache userdata;do
+    SizeMB=$(printf %d `awk '/'${MTDPart}'/ {print "0x"$2}' /proc/mtd`|awk '{printf "%f", $1 / 1048576}')
+    MTDPart=`echo $MTDPart|sed s/user//`
+    echo|awk '{printf "%s%s%s%-9s%s%9.3f %s","Orig_","'$MTDPart'","Size=","'$MTDPart'","=",'$SizeMB',"MB\n"}' >> $logfile
+done
+echo "success=true" >> $logfile
 exit
 }
 #end functions
@@ -307,7 +343,7 @@ sdcard=/sdcard
 mapfile=$sdcard/mtdpartmap.txt
 mtdpart=/proc/mtd
 dmesgmtdpart=/dev/mtdpartmap
-logfile=$wkdir/recovery.log
+logfile=$wkdir/cMTD.log
 dmesg=dmesg
 if [ "$#" = "3" ];
 then
@@ -319,7 +355,7 @@ then
     mapfile=$sdcard/mtdpartmap.txt
     mtdpart=`pwd`/mtd
     dmesgmtdpart=`pwd`/mtdpartmap
-    logfile=$wkdir/recovery.log
+    logfile=$wkdir/cMTD.log
     dmesg="cat $3"
 fi
 if [ "$boot" = "test" ];
@@ -331,8 +367,11 @@ then
     exit
 fi
 
-if [ "$opt" = "remove" ];
+echo "Mode=$boot" > $logfile
+
+if [ "$boot" = "remove" ];
 then
+    boot=recovery
     removecmtd
 fi
 if [ "$boot" = "recovery" ];
@@ -346,13 +385,18 @@ then
     GetCMDline
     bindcache
 else
-    echo -e "CustomMTD Patcher v${version}\nNo Argument given, script needs either:\nboot or recovery" >> $logfile
+    echo "Error1=No Argument given" >> $logfile
+    echo "Error2=script needs either:" >> $logfile
+    echo "Error3=boot or recovery" >> $logfile
+    echo "success=false" >> $logfile
     exit
 fi
 dumpimg
 if [ "$opt" = "testrun" ];
 then
+    sed s/$boot/testrun/ -i $logfile 
     flashimg echo
 else
     flashimg
 fi
+echo "success=true" >> $logfile

@@ -12,26 +12,6 @@ then
     echo "signapk.jar not found, files will not be signed"
     signtools=skip
 fi
-boot ()
-{
-cat > $updater << "EOF"
-set_progress(1.000000);
-EOF
-echo "ui_print(\"CustomMTD Patcher v${version}\");" >> $updater
-cat >> $updater << "EOF"
-ui_print("Boot Mode");
-ui_print("Extracting Patch Tools...");
-package_extract_dir("MTDPartPatcher", "/tmp");
-set_perm(0, 0, 0700, "/tmp/patchbootimg.sh");
-set_perm(0, 0, 0700, "/tmp/mkbootimg");
-set_perm(0, 0, 0700, "/tmp/unpackbootimg");
-run_program("/tmp/patchbootimg.sh", "boot");
-ui_print("Custom MTD written");
-EOF
-zip -r ${outdir}/boot-v${version}-CustomMTD.zip META-INF MTDPartPatcher
-sign ${outdir}/boot-v${version}-CustomMTD.zip
-return
-}
 AutoMTD ()
 {
 tar -cz -f AutoMTD_partitionPatcher/AutoMTDPatchTools/MTDPartPatcher.tar.gz MTDPartPatcher
@@ -42,73 +22,91 @@ zip ${outdir}/AutoMTD_partitionPatcher_v${version}.zip ${outdir}/AutoMTD_partiti
 rm AutoMTD_partitionPatcher/AutoMTDPatchTools/MTDPartPatcher.tar.gz
 return
 }
-recovery ()
+makezip ()
 {
 cat > $updater << "EOF"
 set_progress(1.000000);
 EOF
 echo "ui_print(\"CustomMTD Patcher v${version}\");" >> $updater
+echo "ui_print(\"Mode=$1\");" >> $updater
 cat >> $updater << "EOF"
-ui_print("Recovery Mode");
 ui_print("Extracting Patch Tools...");
 package_extract_dir("MTDPartPatcher", "/tmp");
 set_perm(0, 0, 0700, "/tmp/patchbootimg.sh");
 set_perm(0, 0, 0700, "/tmp/mkbootimg");
 set_perm(0, 0, 0700, "/tmp/unpackbootimg");
-run_program("/tmp/patchbootimg.sh", "recovery");
-ui_print("Custom MTD written");
-ui_print("Please wipe system,cache & data");
-ui_print("& reboot to recovery for changes");
-ui_print("to take effect");
 EOF
-zip -r ${outdir}/recovery-v${version}-CustomMTD.zip META-INF MTDPartPatcher
-sign ${outdir}/recovery-v${version}-CustomMTD.zip
-return
-}
-
-remove ()
-{
-cat > $updater << "EOF"
-set_progress(1.000000);
-EOF
-echo "ui_print(\"CustomMTD Patcher v${version}\");" >> $updater
+echo "run_program(\"/tmp/patchbootimg.sh\", \"$1\");" >> $updater
 cat >> $updater << "EOF"
-ui_print("Remove Mode");
-ui_print("Extracting Patch Tools...");
-package_extract_dir("MTDPartPatcher", "/tmp");
-set_perm(0, 0, 0700, "/tmp/patchbootimg.sh");
-set_perm(0, 0, 0700, "/tmp/mkbootimg");
-set_perm(0, 0, 0700, "/tmp/unpackbootimg");
-run_program("/tmp/patchbootimg.sh", "remove");
-ui_print("Custom MTD written");
-ui_print("Please wipe system,cache & data");
-ui_print("& reboot to recovery for changes");
-ui_print("to take effect");
+if file_getprop("/tmp/cMTD.log","success") == "true"
+then
+    ui_print("Custom MTD written");
+    if file_getprop("/tmp/cMTD.log","Mode") != "boot"
+    then
+        ui_print("Previous Partition sizes");
+        ui_print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        ui_print(file_getprop("/tmp/cMTD.log","Orig_systemSize"));
+        ui_print(file_getprop("/tmp/cMTD.log","Orig_cacheSize"));
+        ui_print(file_getprop("/tmp/cMTD.log","Orig_dataSize"));
+        ui_print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    endif;
+    if file_getprop("/tmp/cMTD.log","Mode") != "remove"
+    then
+        ui_print("New Partition sizes");
+        ui_print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        ui_print(file_getprop("/tmp/cMTD.log","New_systemSize"));
+        ui_print(file_getprop("/tmp/cMTD.log","New_cacheSize"));
+        ui_print(file_getprop("/tmp/cMTD.log","New_dataSize"));
+        ui_print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        if file_getprop("/tmp/cMTD.log","Mode") == "recovery" &&
+           ( file_getprop("/tmp/cMTD.log","Orig_systemSize") != file_getprop("/tmp/cMTD.log","New_systemSize") ||
+             file_getprop("/tmp/cMTD.log","Orig_cacheSize") != file_getprop("/tmp/cMTD.log","New_cacheSize") ||
+             file_getprop("/tmp/cMTD.log","Orig_dataSize") != file_getprop("/tmp/cMTD.log","New_dataSize")
+           )
+        then
+           ui_print("Please format:");
+           ui_print("system,cache and data");
+           ui_print("and reboot to recovery");
+           ui_print("before 'flash' or 'restore'");
+        else
+           ui_print("recovery's partitions have not");
+           ui_print("been changed");
+           ui_print("format not required");
+        endif;
+    else
+        ui_print("customMTD removed");
+        ui_print("Please format:");
+        ui_print("system,cache and data");
+        ui_print("and reboot to recovery");
+        ui_print("before 'flash' or 'restore'");
+    endif;
+else
+    ui_print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    ui_print("############ ERROR #############");
+    ui_print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    if file_getprop("/tmp/cMTD.log","Error1") != ""
+    then
+        ui_print(file_getprop("/tmp/cMTD.log","Error1"));
+    endif;
+    if file_getprop("/tmp/cMTD.log","Error2") != ""
+    then
+        ui_print(file_getprop("/tmp/cMTD.log","Error2"));
+    endif;
+    if file_getprop("/tmp/cMTD.log","Error3") != ""
+    then
+        ui_print(file_getprop("/tmp/cMTD.log","Error3"));
+    endif;
+    ui_print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+endif;
+if file_getprop("/tmp/cMTD.log","Mode") == "testrun"
+then
+    ui_print("Test Mode complete, see ");
+    ui_print("/sdcard/cMTD-testoutput.txt");
+    ui_print("for full output");
+endif;
 EOF
-zip -r ${outdir}/remove-v${version}-CustomMTD.zip META-INF MTDPartPatcher
-sign ${outdir}/remove-v${version}-CustomMTD.zip
-return
-}
-Test ()
-{
-cat > $updater << "EOF"
-set_progress(1.000000);
-EOF
-echo "ui_print(\"CustomMTD Patcher v${version}\");" >> $updater
-cat >> $updater << "EOF"
-ui_print("Test Mode");
-ui_print("Extracting Patch Tools...");
-package_extract_dir("MTDPartPatcher", "/tmp");
-set_perm(0, 0, 0700, "/tmp/patchbootimg.sh");
-set_perm(0, 0, 0700, "/tmp/mkbootimg");
-set_perm(0, 0, 0700, "/tmp/unpackbootimg");
-run_program("/tmp/patchbootimg.sh", "test");
-ui_print("Test Mode complete, see ");
-ui_print("/sdcard/cMTD-testoutput.txt");
-ui_print("for full output");
-EOF
-zip -r ${outdir}/test-v${version}-CustomMTD.zip META-INF MTDPartPatcher
-sign ${outdir}/test-v${version}-CustomMTD.zip
+zip -r ${outdir}/$1-v${version}-CustomMTD.zip META-INF MTDPartPatcher
+sign ${outdir}/$1-v${version}-CustomMTD.zip
 return
 }
 
@@ -129,9 +127,8 @@ for file in $@;do
 done 
 return
 }
-boot
 AutoMTD
-recovery
-remove
-Test
-rm META-INF/com/google/android/updater-script
+for output in recovery boot remove test;do
+    makezip $output
+done
+rm $updater
