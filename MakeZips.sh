@@ -64,20 +64,20 @@ then
              file_getprop("/tmp/cMTD.log","Orig_dataSize") != file_getprop("/tmp/cMTD.log","New_dataSize")
            )
         then
-           ui_print("Please format:");
-           ui_print("system,cache and data");
-           ui_print("and reboot to recovery");
-           ui_print("before 'flash' or 'restore'");
+            ui_print("Please format:");
+            ui_print("system, cache and data");
+            ui_print("Reboot to recovery");
+            ui_print("before 'flash' or 'restore'");
         else
-           ui_print("recovery's partitions have not");
-           ui_print("been changed");
-           ui_print("format not required");
+            ui_print("recovery's partitions have not");
+            ui_print("been changed");
+            ui_print("format not required");
         endif;
     else
         ui_print("customMTD removed");
         ui_print("Please format:");
-        ui_print("system,cache and data");
-        ui_print("and reboot to recovery");
+        ui_print("system, cache and data");
+        ui_print("Reboot to recovery");
         ui_print("before 'flash' or 'restore'");
     endif;
 else
@@ -104,6 +104,19 @@ then
     ui_print("/sdcard/cMTD-testoutput.txt");
     ui_print("for full output");
 endif;
+if file_getprop("/tmp/cMTD.log","Info1") != ""
+then
+    ui_print(file_getprop("/tmp/cMTD.log","Info1"));
+endif;
+if file_getprop("/tmp/cMTD.log","Info2") != ""
+then
+    ui_print(file_getprop("/tmp/cMTD.log","Info2"));
+endif;
+if file_getprop("/tmp/cMTD.log","Info3") != ""
+then
+    ui_print(file_getprop("/tmp/cMTD.log","Info3"));
+endif;
+
 EOF
 zip -r ${outdir}/$1-v${version}-CustomMTD.zip META-INF MTDPartPatcher
 sign ${outdir}/$1-v${version}-CustomMTD.zip
@@ -128,7 +141,7 @@ done
 return
 }
 AutoMTD
-for output in recovery boot remove test;do
+for output in AutoPatch test;do
     makezip $output
 done
 rm $updater

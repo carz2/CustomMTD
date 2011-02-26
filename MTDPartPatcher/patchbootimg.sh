@@ -7,7 +7,7 @@
 #
 # https://github.com/Firerat/CustomMTD
 
-version=1.5.9-Alpha3
+version=1.5.9-Alpha4
 ##
 
 readdmesg ()
@@ -77,7 +77,7 @@ else
         eval StartHex=\$${partition}StartHex
         eval EndHex=\$${partition}EndHex
         eval Sizebytes=`expr $(printf %d $EndHex) - $(printf %d $StartHex)`
-        eval ${partition}SizeMBytes=`echo |awk '{printf "%f", '$Sizebytes' / 1048576}'`
+        eval ${partition}SizeMBytes=`echo |awk '{printf "%.3f", '$Sizebytes' / 1048576}'`
         eval SizeMB=\$${partition}SizeMBytes
         partition=`echo $partition|sed s/user//`
 echo $partition
@@ -102,95 +102,112 @@ return
 
 readconfig ()
 {
-#TODO, make new config format (prop style)
-if [ ! -e $mapfile -a "$opt" != "testrun" ];
+if [ ! -e $config ];
 then
-#TODO write a default config and point at it while we have users attention 
-    cat >> $logfile << "EOF"
-Error1=/sdcard/mtdpartmap.txt
-Error2=does not exist please create
-Error3=it with system and cache size
-success=false
-EOF
-    exit
-else
-    busybox dos2unix $mapfile
-    systemMB=`awk '/mtd/ {print $2}' $mapfile`
-    if [ "$systemMB" = "0" ];
-    then
-        removecmtd
-    fi
-    cacheMB=`awk '/mtd/ {print $3}' $mapfile`
-    FakeSPL=`awk '/spl/ {print $2}' $mapfile`
-
-    # Meh, need whole numbers
-    if [ "`echo|awk '{printf "%d" '$cacheMB' * 10}'`" -lt "15" -o "$cacheMB" = "" ];
-    then
-    # need at least 2mb cache for recovery to not complain
-        cacheMB=2
-    fi
-
-    if [ "$systemMB" = "" ];
-    then
-        if [ "$opt" = "testrun" ];
-        then
-            systemMB=93.75
-            echo "inserted system size for testrun"
-        else
-            echo "${boot} Patcher v${version}\nPlease configure system size\n with in $mapfile\n e.g. echo \"mtd 115 2\" \> $mapfile" >> $logfile
-            exit
-        fi
-    fi
-
-    # make sure we are sizing in units of 128k ( 0.125 MB )
-    for UserSize in $systemMB $cacheMB;do
-       expr $(echo|awk '{printf "%g", '$UserSize' / 0.125}') \* 1
-       if [ "$?" != "0" ];
-       then
-           echo "Error1=$UserSize not divisable by 0.125" >> $logfile
-           echo "success=false" >> $logfile
-           exit
-       fi
-    done
-
-    if [ "$FakeSPL" = "" ];
-    then
-        CLInit="$CLInit"
-    else
-        CLInit="androidboot.bootloader=$FakeSPL $CLInit"
-    fi
-    LastRecoverymd5sum=`awk '/recoverymd5/ {print $2}'`
-    if [ "$LastRecoverymd5sum" = "" ];
-    then
-        LastRecoverymd5sum=`md5sum /dev/mtd/$(awk -F: '/recovery/ {print $1}' /proc/mtd)ro|awk '{print $1}'`
-        echo "recoverymd5 $LastRecoverymd5sum" >> $mapfile
-    fi
+    writeconfig
 fi
+busybox dos2unix $config
+if [ "`awk -Fconfigversion\= '$0 = $2' $config|awk '$0 = $1'`" -lt "159" ];
+then
+    cp $config `dirname ${config}`/`basename $config .txt`-`date +%Y-%m-%d-%H%S-%Z`.txt
+    writeconfig
+fi
+. $config
+
+if [ "$systemMB" = "0" ];
+then
+    removecmtd
+fi
+
+# need at least 1.5mb cache for recovery to not complain
+# Meh, need whole numbers
+if [ "`echo|awk '{printf "%d" '$cacheMB' * 10}'`" -lt "15" -o "$cacheMB" = "" ];
+then
+    cacheMB=1.5
+fi
+
+# make sure we are sizing in units of 128k ( 0.125 MB )
+for UserSize in $systemMB $cacheMB;do
+    expr $(echo|awk '{printf "%g", '$UserSize' / 0.125}') \* 1
+    if [ "$?" != "0" ];
+    then
+        echo "Error1=$UserSize not divisable by 0.125" >> $logfile
+        echo "success=false" >> $logfile
+        exit
+    fi
+done
+
+if [ "$SPL" = "`awk -Fandroidboot.bootloader= '$0 = $2' /proc/cmdline|awk '$0 = $1'`" ];
+then
+    CLInit="$CLInit"
+else
+    CLInit="androidboot.bootloader=$SPL $CLInit"
+fi
+
+return
+}
+writeconfig ()
+{
+echo "# CustomMTD config" > $config
+echo "# This file should be saved as plain text" > $config
+echo "# " > $config
+echo "# please *do not* edit configversion!" >> $config
+echo "configversion=159" >> $config
+echo "#####" >> $config
+echo "systemMB=$systemSizeMBytes # system size in mb ( increments of 0.125 mb )" >> $config
+echo "cacheMB=$cacheSizeMBytes # cache size in mb ( increments of 0.125 mb )" >> $config
+echo "systemfree=2 # used by Optimise feature" >> $config
+echo "cachefree=2 # used by Optimise feature" >> $config
+echo "# Optimise is not turned on yet"  >> $config
+echo "# but when it is, it will set the system and cache size based on the installed ROM"
+echo "# the system and cache free values are the amount of free space which will be left"
+echo "# 1 = 128k , 2 = 256k , 4 = 512k" >> $config
+echo "# yeap, you figured it out, 8 = 1024k ( or 1 mb )" >> $config
+echo "# NOTE, depending on your recovery version you may see slightly more" >> $config
+echo "# free space in the ROM, as its yaffs2 tends to be more efficient with space" >> $config
+echo "mindatasize=50 # don't patch recovery if data size will be less than this" >> $config
+echo "#####" >> $config
+SPL=`awk -Fandroidboot.bootloader= '$0 = $2' /proc/cmdline|awk '$0 = $1'`
+SpoofedSPL=`awk -Fandroidboot.bootloader= '$0 = $3' /proc/cmdline|awk '$0 = $1'`
+if [ "$SpoofedSPL" = "" -o "$SpoofedSPL" = "$SPL" ];
+then
+    SPL=$SPL
+else
+    SPL=$SpoofedSPL
+fi
+echo "SPL=$SPL # use this to 'spoof' your SPL version" >> $config
+echo "# NOTE: SPL spoofing tricks a ROM's assert checks into" >> $config
+echo "# thinking you have a different SPL to the one you have" >> $config
+echo "# do not complain if things don't work out" >> $config
+echo "# ( tbh, you probably don't need it, so leave it alone ;)" >> $config
+echo "#####" >> $config
+LastRecoverymd5sum=`md5sum /dev/mtd/$(awk -F: '/recovery/ {print $1}' $mtdpart)ro|awk '{print $1}'`
+echo "# md5sum of the last recovery flashed by customMTD" >> $config
+echo "recoverymd5=$LastRecoverymd5sum" >> $config
+
+echo "Info1=New config written to :" >> $logfile
+echo "Info2=$config" >> $logfile
+
 return
 }
 checksizing ()
 {
-usertotal=`echo|awk '{printf "%f",'$systemMB' + '$cacheMB'}'`
-userdatasize=`echo|awk '{printf "%f",'$SCD_Total' - '$usertotal'}'`
+usertotal=`echo|awk '{printf "%.3f",'$systemMB' + '$cacheMB'}'`
+userdatasize=`echo|awk '{printf "%.3f",'$SCD_Total' - '$usertotal'}'`
 # check if user wants to override min data size
-if [ "`grep -q -i "anydatasize" $mapfile;echo $?`" != "0" ];
+if [ "$mindatasize" = "" ];
 then
     # a freshly installed ROM should still boot with 50mb data
     # However trickery to get things on to /sd-ext may be required
     mindatasize=50
-else
-    # Might change this to 2, user needs to know what they are doing anyway
-    mindatasize=0
 fi
 
 if [ "`echo|awk '{printf "%d", '$userdatasize'}'`" -lt "$mindatasize" ];
 then
-    cat >> $logfile << "EOF"
-Error1=data will be less than 50mb, add
-Error2="anydatasize" to mtdpartmap.txt
-Error3=if you wish to skip this check
-success=false
-EOF
+    echo "Error1=data will be less than ${mindatasize}mb" >> $logfile
+    echo "Error2=if you wish to skip this check" >> $logfile
+    echo "Error3=change \"mindatasize\" in `basename $config`" >> $logfile
+    echo "Success=false" >> $logfile
     exit
 fi
 return
@@ -229,7 +246,7 @@ else
 fi
 for MTDPart in system cache data;do
     eval SizeKB=\$${MTDPart}SizeKBytes
-    eval SizeMB=`echo|awk '{printf "%f",'$SizeKB'/1024}'`
+    eval SizeMB=`echo|awk '{printf "%.3f",'$SizeKB'/1024}'`
     echo|awk '{printf "%s%s%s%-9s%s%9.3f %s","New_","'$MTDPart'","Size=","'$MTDPart'","=",'$SizeMB',"MB\n"}' >> $logfile
 done
 return
@@ -243,7 +260,7 @@ then
     KCMDline=""
 fi
     for MTDPart in system cache userdata;do
-        SizeMB=$(printf %d `awk '/'${MTDPart}'/ {print "0x"$2}' /proc/mtd`|awk '{printf "%f", $1 / 1048576}')
+        SizeMB=$(printf %d `awk '/'${MTDPart}'/ {print "0x"$2}' $mtdpart`|awk '{printf "%.3f", $1 / 1048576}')
         MTDPart=`echo $MTDPart|sed s/user//`
         echo|awk '{printf "%s%s%s%-9s%s%9.3f %s","New_","'$MTDPart'","Size=","'$MTDPart'","=",'$SizeMB',"MB\n"}' >> $logfile
     done
@@ -252,7 +269,7 @@ return
 
 dumpimg ()
 {
-mtdblk=`awk -F: '/'$boot'/ {print $1}' /proc/mtd`ro
+mtdblk=`awk -F: '/'$boot'/ {print $1}' $mtdpart`ro
 $wkdir/unpackbootimg /dev/mtd/${mtdblk} $wkdir/
 origcmdline=`awk '{gsub(/\ .\ /,"");sub(/mtdparts.+)/,"");sub(/androidboot.bootloader=.+\ /,"");print}' $wkdir/${mtdblk}-cmdline|awk '{$1=$1};1'`
 return
@@ -261,21 +278,20 @@ return
 flashimg ()
 {
 $1 $wkdir/mkbootimg --kernel $wkdir/${mtdblk}-zImage --ramdisk $wkdir/${mtdblk}-ramdisk.gz -o $wkdir/${boot}.img --cmdline "$origcmdline $KCMDline" --base `cat $wkdir/${mtdblk}-base`
-imagemd5=`md5sum $wkdir/${boot}.img|awk '{print $1}'`
 $1 erase_image ${boot}
 $1 flash_image ${boot} $wkdir/${boot}.img
-if [ "$imagemd5" = "`md5sum /dev/mtd/${mtdblk}|awk '{print $1}'`" ];
+if [ "$?" = "0" ];
 then
     echo "success=true" >> $logfile
     if [ "$boot" = "recovery" ];
     then
-        sed s/recoverymd5.*+/recoverymd5\ $imagemd5/ -i $mapfile
+        sed s/recoverymd5=.*/recoverymd5=`md5sum /dev/mtd/${mtdblk}|awk '{print $1}'`/ -i $config
     fi
     exit
 else
     echo "Error1=Writing $boot failed" >> $logfile
     echo "Error2=Make sure you have an unlocked" >> $logfile
-    echo "Error3=bootloader (aka spl or hboot)" >> $logfile
+    echo "Error3=bootloader (aka SPL or hboot)" >> $logfile
     echo "success=false" >> $logfile
     exit
 fi
@@ -438,7 +454,7 @@ dumpimg
 KCMDline=""
 flashimg
 for MTDPart in system cache userdata;do
-    SizeMB=$(printf %d `awk '/'${MTDPart}'/ {print "0x"$2}' /proc/mtd`|awk '{printf "%f", $1 / 1048576}')
+    SizeMB=$(printf %d `awk '/'${MTDPart}'/ {print "0x"$2}' $mtdpart`|awk '{printf "%.3f", $1 / 1048576}')
     MTDPart=`echo $MTDPart|sed s/user//`
     echo|awk '{printf "%s%s%s%-9s%s%9.3f %s","Orig_","'$MTDPart'","Size=","'$MTDPart'","=",'$SizeMB',"MB\n"}' >> $logfile
 done
@@ -451,13 +467,15 @@ Optimum ()
 # mount everything
 mount -a
 for partition in system cache;do
-    eval ${partition}Opt=`df |awk '/\/'${partition}'/ {printf "%d", ($3 / 128) + 2}'|awk '{printf "%.3f", ( $1 * 128 ) / 1024 }'`
-# meh, lazy pipes, I should learn to use awk properly
+    eval free=\$${partition}free
+    eval ${partition}Opt=`df |awk '$NF == "/'${partition}'" {printf "%.3f", (($3 / 128) + '$free') / 0.125 }'`
+    # (( used_kbytes / 128kb ) + Number_of_128k_blocks ) , covert to mb
 done
-echo mtd $systemOpt $cacheOpt
+sed s/systemMB=.*/systemMB=$systemOpt/ -i $config
+sed s/cacheMB=.*/cacheMB=$cacheOpt/ -i $config
 # TODO
 # backup existing ROM,
-# patch recovery's init.rc,
+# patch recove*y's init.rc,
 # erase_image ( kang one for RA ),
 # do restore feature,
 # stop recovery from Auto rebooting after scripted restore
@@ -474,24 +492,35 @@ AutoPatch ()
 # if they match it will check the installed recovery's md5sum against the logged md5sum, and patch if they don't match
 # if all those conditions are met, it will patch the boot.img with the running recovery's layout
 # should have done this ages ago
+readdmesg
 readconfig
+if [ "$boot" = "recovery" -o "$boot" = "boot" ];
+then
+    return
+    # probably want to run test mode
+fi
 for MTDPart in system cache;do
-    eval ${MTDPart}SizeMB=$(printf %d `awk '/'${MTDPart}'/ {print "0x"$2}' /proc/mtd`|awk '{printf "%f", $1 / 1048576}')
+    eval ${MTDPart}SizeMB=$(printf %d `awk '/'${MTDPart}'/ {print "0x"$2}' $mtdpart`|awk '{printf "%.3f", $1 / 1048576}')
 done
 if [ "$systemMB" != "$systemSizeMB" -o "$cacheMB" != "$cacheSizeMB" ];
 then
     boot=recovery
+    return
+fi
+spl=`awk -Fandroidboot.bootloader= '$0 = $2' /proc/cmdline|awk '$0 = $1'`
+SpoofedSPL=`awk -Fandroidboot.bootloader= '$0 = $3' /proc/cmdline|awk '$0 = $1'`
+if [ "$spl" != "$SPL" -a "$SpoofedSPL" != "$SPL" ];
+then
+    boot=recovery
 else
-    Recoverymd5sum=`md5sum /dev/mtd/$(awk -F: '/recovery/ {print $1}' /proc/mtd)ro|awk '{print $1}'`
-    LastRecoverymd5sum=`awk '/recoverymd5/ {print $2}'`
-    if [ "$Recoverymd5sum" != "$LastRecoverymd5sum" ];
+    Recoverymd5=`md5sum /dev/mtd/$(awk -F: '/recovery/ {print $1}' $mtdpart)ro|awk '{print $1}'`
+    if [ "$Recoverymd5" != "$recoverymd5" ];
     then
         boot=recovery
     else
         boot=boot
     fi
 fi
-#TODO check spl spoof ( not that spl spoofing has any pratical use anymore, but may be needed for old roms, or die hard 1.33.2003 fans )
 return
 }
 #end functions
@@ -500,7 +529,7 @@ boot=$1
 opt=$2
 wkdir=/tmp
 sdcard=/sdcard
-mapfile=$sdcard/mtdpartmap.txt
+config=$sdcard/mtdpartmap.txt
 mtdpart=/proc/mtd
 dmesgmtdpart=/dev/mtdpartmap
 logfile=$wkdir/cMTD.log
@@ -512,11 +541,15 @@ then
     # yeap, its crap, but will do for now
     wkdir=`pwd`
     sdcard=`pwd`
-    mapfile=$sdcard/mtdpartmap.txt
+    config=$sdcard/mtdpartmap.txt
     mtdpart=`pwd`/mtd
     dmesgmtdpart=`pwd`/mtdpartmap
     logfile=$wkdir/cMTD.log
     dmesg="cat $3"
+fi
+if [ -e $logfile ];
+then
+    rm $logfile
 fi
 if [ "$boot" = "test" ];
 then
@@ -527,9 +560,9 @@ then
     exit
 fi
 
-#AutoPatch
+AutoPatch
 
-echo "Mode=$boot" > $logfile
+echo "Mode=$boot" >> $logfile
 
 if [ "$boot" = "remove" ];
 then
@@ -538,8 +571,6 @@ then
 fi
 if [ "$boot" = "recovery" ];
 then
-    readconfig
-    readdmesg
     checksizing
     CreateCMDline
 elif [ "$boot" = "boot" ];
